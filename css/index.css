@@ -1,18 +1,33 @@
-.top-menu {
-  height: auto;
-  width: 100%;
-  background-color: #BD06DD;
-  align-items: center;
+body{
+  box-sizing: border-box;
 }
 
-.bottom-menu {
+.container{
+  padding: 0 5vw;
+}
+
+.top-content {
+  height: auto;
+  background-color: #BD06DD;
+}
+
+.top-content .container{
+  padding: 8vh 5vw;
+}
+
+.bottom-content {
   height: 25%;
   width: 100%;
   background-color: #2D2D2D;
 }
 
 .header {
+  background-color: #BD06DD;
   height: 18%;
+  padding: 3vh 0;
+}
+
+.header .container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,23 +35,23 @@
 }
 
 .logo {
+  width: 15vw;
   display: flex;
   flex-direction: row;
-  width: 20%;
   align-items: center;
   justify-content: center;
-  margin-left: 3%;
+  padding: 0;
 }
 
 .logo img{
   width: 3vw;
-  height: 4vw;
+  height: auto;
 }
 
 .logo h4{
-  margin-top: 14%;
   margin-left: 3%;
   font-size: 2vw;
+  color: white;
 }
 
 .navbar {
@@ -44,27 +59,27 @@
   flex-direction: row;
   justify-content: space-between;
   width: 40%;
-  margin-right: 8vw;
   font-size: 1.8vw;
+}
+
+.navbar a {
+  border-bottom: solid transparent 3.5px;
+  border-radius: 6%;
+  transition: border-bottom 0.3s ease-in-out;
 }
 
 .navbar a:hover {
   border-bottom: solid #F58E07 3.5px;
 }
 
-.content{
-  width: 40%;
-  height: 77%;
-  align-items: center;
-}
-
 .slogan {
   color: white;
-  font-size: 4rem;
+  font-size: 3.5rem;
   position: relative;
   left: 100%;
   opacity: 0;
   animation: slideAndFade 2s ease-out forwards;
+  width: 40%;
 }
 
 @keyframes slideAndFade {
@@ -81,9 +96,10 @@
 .buttons{
   display: flex;
   flex-direction: row;
-  width: 75%;
   height: fit-content;
   justify-content: space-between;
+  margin-top: 5%;
+  width: 40%;
 }
 
 .login-button {
@@ -123,9 +139,13 @@
   filter: brightness(1.03);
 }
 
-.middle-menu{
+.middle-content{
+  height: fit-content;
   background-color: #2D2D2D;
-  padding: 0 3vw;
+}
+
+.middle-content .container{
+  padding: 8vh 5vw;
 }
 
 .cards {
@@ -138,19 +158,22 @@
   background-color: #2D2D2D;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .card img {
-  max-width: 100%;
+  max-width: 20vw;
   height: auto;
 }
 
 .card h4 {
-  margin-top: 10px;
+  font-size: 1.3rem;
+  margin-top: 5%;
+  color: #F58E07;
 }
 
 .card p {
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 1.1rem;
+  margin-top: 5%;
+  color: white;
 }
