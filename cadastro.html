@@ -17,7 +17,7 @@
         </section>
     
         <section>
-            <h2>Cadastro</h2>
+            <h2>Cadastre sua empresa</h2>
             
             <form>
                 <label>Nome da loja</label>
@@ -26,17 +26,20 @@
                 <label>CNPJ da empresa</label>
                 <input type="text" name="endereco" placeholder="Insira seu CNPJ">
 
+                <label>E-mail do proprietário</label>
+                <input type="email" name="email" placeholder="Insira o email do proprietário">
+
                 <label>CEP</label>
                 <input type="text" name="cep" id="cepInput" placeholder="Insira seu CEP">
-                <span id="alertCep">*O informado está incorreto</span>
+                <span id="alertCep">*O cep informado está incorreto</span>
 
                 <label>Rua</label>
-                <input disabled type="text" id="ruaInput" name="endereco" placeholder="Ex: Rua das flores">
+                <input required disabled type="text" id="ruaInput" name="endereco" placeholder="Ex: Rua das flores">
 
                 <label>Bairro</label>
-                <input disabled type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridoss">
+                <input required disabled type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridoss">
 
-                <label>Numero</label>
+                <label>Número</label>
                 <input type="number" name="endereco" placeholder="Insira o número">
 
                 <button type="submit">Cadastrar</button>
