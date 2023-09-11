@@ -21,17 +21,6 @@ body{
   width: 40%;
 }
 
-@keyframes slideAndFade {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  100% {
-    left: 0;
-    opacity: 1;
-  }
-}
-
 .buttons{
   display: flex;
   flex-direction: row;
@@ -110,8 +99,8 @@ body{
 
 .card p {
   font-size: 1.1rem;
-  margin-top: 5%;
   color: white;
+  margin-left: 2%;
 }
 
 .carousel {
@@ -182,7 +171,7 @@ body{
   right: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 999px) {
 
   .buttons a{
     padding: 4% 14%;
@@ -201,6 +190,10 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  .card p{
+    font-size: 1.3rem;
   }
 
 }
