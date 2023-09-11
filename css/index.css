@@ -44,9 +44,9 @@ body{
 }
 
 .buttons a{
-  padding: 5% 14%;
+  padding: 3% 10%;
   width: 40%;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   border-radius: 15px;
   height: fit-content;
   justify-content: center;
@@ -183,6 +183,11 @@ body{
 }
 
 @media (max-width: 768px) {
+
+  .buttons a{
+    padding: 4% 14%;
+    font-size: 1.5rem;
+  }
 
   .cards {
       flex-direction: column;
