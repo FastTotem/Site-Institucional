@@ -40,18 +40,22 @@ body{
   margin-top: 5%;
   width: 40%;
   user-select: none;
+  gap: 5vw;
+}
+
+.buttons a{
+  padding: 3% 10%;
+  width: 40%;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  height: fit-content;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .login-button {
-  display: flex;
-  justify-content: center;
   background-color: #F58E07;
-  border-radius: 15px;
-  padding: 1vw;
-  width: 40%;
-  height: fit-content;
-  font-size: 1.7vw;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .login-button:hover {
@@ -61,16 +65,8 @@ body{
 }
 
 .cadastro-button{
-  display: flex;
-  justify-content: center;
   color: #F58E07;
   background-color: whitesmoke;
-  border-radius: 15px;
-  padding: 1vw;
-  width: 40%;
-  height: fit-content;
-  font-size: 1.7vw;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .cadastro-button:hover {
@@ -118,7 +114,6 @@ body{
   color: white;
 }
 
-/* CARROSSEL */
 .carousel {
   width: 100%;
 }
@@ -144,7 +139,7 @@ body{
 
 .feature {
   background-color: #2D2D2D;
-  padding: 20px;
+  padding: 2vw;
   text-align: center;
   color: white;
 }
@@ -165,6 +160,10 @@ body{
   margin-top: 10px;
 }
 
+.slick-slide{
+  background-color: #3f3e3e;
+}
+
 .slick-prev,
 .slick-next {
   font-size: 24px;
@@ -181,4 +180,27 @@ body{
 
 .slick-next {
   right: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .buttons a{
+    padding: 4% 14%;
+    font-size: 1.5rem;
+  }
+
+  .cards {
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
+  }
+
+  .card{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
 }
