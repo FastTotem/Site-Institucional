@@ -229,3 +229,14 @@ h1, h2, h3, h4, p {
   width: 2vw;
   height: auto;
 }
+
+@keyframes slideAndFade {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
