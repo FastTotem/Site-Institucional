@@ -154,8 +154,44 @@ h1, h2, h3, h4, p {
   align-self: center;
 }
 
+/* FOOTER */
+.footer {
+  background-color: #2D2D2D;
+  padding: 20px 0;
+  text-align: center;
+  user-select: none;
+}
 
-@media (max-width: 768px) {
+.footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8vh 5vw;
+}
+
+.footer .copyright {
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 1%;
+}
+
+.footer .fasttotem-logo img {
+  width: 2vw;
+  height: auto;
+}
+
+@keyframes slideAndFade {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 999px) {
 
   .banner .container{
     padding: 12vh 5vw 8vw 5vw;
@@ -202,41 +238,4 @@ h1, h2, h3, h4, p {
     justify-content: flex-start;
   }
 
-}
-
-/* FOOTER */
-.footer {
-  background-color: #2D2D2D;
-  padding: 20px 0;
-  text-align: center;
-  user-select: none;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8vh 5vw;
-}
-
-.footer .copyright {
-  color: white;
-  font-size: 1.2rem;
-  margin-left: 1%;
-}
-
-.footer .fasttotem-logo img {
-  width: 2vw;
-  height: auto;
-}
-
-@keyframes slideAndFade {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  100% {
-    left: 0;
-    opacity: 1;
-  }
 }
