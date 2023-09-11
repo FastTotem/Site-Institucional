@@ -149,6 +149,10 @@ h1, h2, h3, h4, p {
 
 @media (max-width: 768px) {
 
+  .banner .container{
+    padding: 12vh 5vw 8vw 5vw;
+  }
+
   .logo {
     width: 45%;
   }
