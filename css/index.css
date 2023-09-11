@@ -1,13 +1,13 @@
-body {
+body{
   box-sizing: border-box;
 }
 
 .banner {
   height: auto;
-  background-color: #bd06dd;
+  background-color: #BD06DD;
 }
 
-.banner .container {
+.banner .container{
   padding: 8vh 5vw;
 }
 
@@ -32,7 +32,7 @@ body {
   }
 }
 
-.buttons {
+.buttons{
   display: flex;
   flex-direction: row;
   height: fit-content;
@@ -43,7 +43,7 @@ body {
   gap: 5vw;
 }
 
-.buttons a {
+.buttons a{
   padding: 3% 10%;
   width: 40%;
   font-size: 1.6rem;
@@ -55,20 +55,17 @@ body {
 }
 
 .login-button {
-  background-color: whitesmoke;
-  color: #f58e07;
+  background-color: #F58E07;
 }
 
 .login-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); 
   filter: brightness(1.03);
-  background-color: #f58e07;
-  color: whitesmoke;
 }
 
-.cadastro-button {
-  color: #f58e07;
+.cadastro-button{
+  color: #F58E07;
   background-color: whitesmoke;
 }
 
@@ -76,16 +73,14 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(245, 142, 7, 0.2);
   filter: brightness(1.03);
-  background-color: #f58e07;
-  color: whitesmoke;
 }
 
-.business-ideas {
+.business-ideas{
   height: fit-content;
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
 }
 
-.business-ideas .container {
+.business-ideas .container{
   padding: 8vh 5vw;
 }
 
@@ -110,7 +105,7 @@ body {
 .card h4 {
   font-size: 1.3rem;
   margin-top: 5%;
-  color: #f58e07;
+  color: #F58E07;
 }
 
 .card p {
@@ -124,7 +119,7 @@ body {
 }
 
 .features {
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
   padding: 50px 0;
 }
 
@@ -143,7 +138,7 @@ body {
 }
 
 .feature {
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
   padding: 2vw;
   text-align: center;
   color: white;
@@ -155,7 +150,7 @@ body {
 }
 
 .feature h3 {
-  color: #f58e07;
+  color: #F58E07;
   font-size: 1.3rem;
   margin-top: 10px;
 }
@@ -165,7 +160,7 @@ body {
   margin-top: 10px;
 }
 
-.slick-slide {
+.slick-slide{
   background-color: #3f3e3e;
 }
 
@@ -188,27 +183,24 @@ body {
 }
 
 @media (max-width: 768px) {
-  .buttons a {
+
+  .buttons a{
     padding: 4% 14%;
     font-size: 1.5rem;
   }
 
   .cards {
-    flex-direction: column;
-    gap: 2vh;
-    align-items: center;
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
   }
 
-  .card {
+  .card{
     width: 99%;
     height: 20%;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-}
 
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(245, 142, 7, 0.2);
 }
