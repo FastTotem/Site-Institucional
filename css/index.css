@@ -2,10 +2,6 @@ body{
   box-sizing: border-box;
 }
 
-.container{
-  padding: 0 5vw;
-}
-
 .banner {
   height: auto;
   background-color: #BD06DD;
@@ -13,87 +9,6 @@ body{
 
 .banner .container{
   padding: 8vh 5vw;
-}
-
-.features {
-  background-color: #2D2D2D;
-  padding: 50px 0;
-}
-
-.features .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.features h2 {
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.feature h3 {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  color: #F58E07;
-}
-
-.feature p {
-  font-size: 1.1rem;
-  margin-top: 10px;
-}
-
-.header {
-  background-color: #BD06DD;
-  height: 18%;
-  padding: 3vh 0;
-}
-
-.header .container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  width: 15vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-.logo img{
-  width: 3vw;
-  height: auto;
-}
-
-.logo h4{
-  margin-left: 3%;
-  font-size: 2vw;
-  color: white;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 40%;
-  font-size: 1.8vw;
-}
-
-.navbar a {
-  border-bottom: solid transparent 3.5px;
-  border-radius: 6%;
-  transition: border-bottom 0.3s ease-in-out;
-}
-
-.navbar a:hover {
-  border-bottom: solid #F58E07 3.5px;
 }
 
 .slogan {
@@ -124,6 +39,7 @@ body{
   justify-content: space-between;
   margin-top: 5%;
   width: 40%;
+  user-select: none;
 }
 
 .login-button {
@@ -179,10 +95,10 @@ body{
 
 .card {
   width: 28%;
-  background-color: #2D2D2D;
+  background-color: #3f3e3e;
   padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .card img {
@@ -202,31 +118,27 @@ body{
   color: white;
 }
 
-.footer {
-  background-color: #2D2D2D;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8vh 5vw;
-}
-
-.footer .copyright {
-  color: white;
-  font-size: 1.2rem;
-  margin-left: 1%;
-}
-
-.footer .fasttotem-logo img {
-  width: 2vw;
-  height: auto;
-}
-
+/* CARROSSEL */
 .carousel {
+  width: 100%;
+}
+
+.features {
+  background-color: #2D2D2D;
+  padding: 50px 0;
+}
+
+.features .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.features h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
   width: 100%;
 }
 
@@ -243,6 +155,7 @@ body{
 }
 
 .feature h3 {
+  color: #F58E07;
   font-size: 1.3rem;
   margin-top: 10px;
 }
@@ -269,4 +182,3 @@ body{
 .slick-next {
   right: 20px;
 }
-
