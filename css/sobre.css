@@ -12,7 +12,7 @@ body {
     padding-bottom: 6%;
 }
 
-.banner .container{
+.banner .container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,15 +20,16 @@ body {
     animation: slideAndFade 2s ease-out forwards;
 }
 
-.txt-sobre{
+.txt-sobre {
     width: 70%;
-    background-color: #F58E07;
+    background-color: #3f3e3e;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
     padding: 40px;
     border-radius: 15px;
     text-align: left;
 }
 
-.txt-sobre p{
+.txt-sobre p {
     margin-bottom: 2vh;
 }
 
@@ -47,24 +48,24 @@ p {
     font-size: 1.5rem;
 }
 
-h2{
+h2 {
     font-size: 2rem;
     margin-bottom: 50px;
 }
 
-.developers .container{
+.developers .container {
     padding-top: 7vh;
     padding-bottom: 7vh;
     color: white;
 }
 
-.cards{
+.cards {
     display: flex;
     justify-content: space-evenly;
     user-select: none;
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -75,21 +76,21 @@ h2{
     gap: 15px;
 }
 
-.card h3{
+.card h3 {
     text-align: center;
 }
 
 .img-container {
-    width: 150px; 
-    height: 150px; 
-    border-radius: 50%; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .img-container img {
     width: 100%;
-    height: auto; 
+    height: auto;
     display: block;
 }
 
@@ -99,33 +100,33 @@ h2{
         padding-top: 12%;
         padding-bottom: 12%;
     }
-    
+
     h1 {
         font-size: 2.5rem;
         width: 90%;
     }
-    
+
     .txt-sobre {
         font-size: 1.2rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
         margin-bottom: 3vh;
     }
-    
+
     .cards {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .card {
         flex-direction: row;
         max-width: 100%;
         align-items: center;
         gap: 10%;
     }
-    
+
     .img-container {
         width: 100px;
         height: 100px;
