@@ -1,13 +1,13 @@
-body {
+body{
   box-sizing: border-box;
 }
 
 .banner {
   height: auto;
-  background-color: #bd06dd;
+  background-color: #BD06DD;
 }
 
-.banner .container {
+.banner .container{
   padding: 8vh 5vw;
 }
 
@@ -21,18 +21,7 @@ body {
   width: 40%;
 }
 
-@keyframes slideAndFade {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  100% {
-    left: 0;
-    opacity: 1;
-  }
-}
-
-.buttons {
+.buttons{
   display: flex;
   flex-direction: row;
   height: fit-content;
@@ -40,10 +29,10 @@ body {
   margin-top: 5%;
   width: 40%;
   user-select: none;
-  gap: 5vw;
+  gap: 3.5vw;
 }
 
-.buttons a {
+.buttons a{
   padding: 3% 10%;
   width: 40%;
   font-size: 1.6rem;
@@ -55,20 +44,17 @@ body {
 }
 
 .login-button {
-  background-color: whitesmoke;
-  color: #f58e07;
+  background-color: #F58E07;
 }
 
 .login-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); 
   filter: brightness(1.03);
-  background-color: #f58e07;
-  color: whitesmoke;
 }
 
-.cadastro-button {
-  color: #f58e07;
+.cadastro-button{
+  color: #F58E07;
   background-color: whitesmoke;
 }
 
@@ -76,16 +62,14 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(245, 142, 7, 0.2);
   filter: brightness(1.03);
-  background-color: #f58e07;
-  color: whitesmoke;
 }
 
-.business-ideas {
+.business-ideas{
   height: fit-content;
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
 }
 
-.business-ideas .container {
+.business-ideas .container{
   padding: 8vh 5vw;
 }
 
@@ -97,7 +81,7 @@ body {
 .card {
   width: 28%;
   background-color: #3f3e3e;
-  padding: 20px;
+  padding: 4vw 1.6vw;
   border-radius: 10px;
   text-align: center;
 }
@@ -110,13 +94,13 @@ body {
 .card h4 {
   font-size: 1.3rem;
   margin-top: 5%;
-  color: #f58e07;
+  color: #F58E07;
 }
 
 .card p {
   font-size: 1.1rem;
-  margin-top: 5%;
   color: white;
+  margin-left: 2%;
 }
 
 .carousel {
@@ -124,7 +108,7 @@ body {
 }
 
 .features {
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
   padding: 50px 0;
 }
 
@@ -143,9 +127,11 @@ body {
 }
 
 .feature {
-  background-color: #2d2d2d;
+  background-color: #2D2D2D;
   padding: 2vw;
   text-align: center;
+  display: flex;
+  justify-content: center;
   color: white;
 }
 
@@ -155,14 +141,13 @@ body {
 }
 
 .feature h3 {
-  color: #f58e07;
+  color: #F58E07;
   font-size: 1.3rem;
-  margin-top: 10px;
+  margin-bottom:  4%;
 }
 
 .feature p {
   font-size: 1.1rem;
-  margin-top: 10px;
 }
 
 .slick-slide {
@@ -187,28 +172,37 @@ body {
   right: 20px;
 }
 
-@media (max-width: 768px) {
-  .buttons a {
+@media (max-width: 999px) {
+
+  .buttons a{
     padding: 4% 14%;
     font-size: 1.5rem;
   }
 
   .cards {
-    flex-direction: column;
-    gap: 2vh;
-    align-items: center;
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
   }
 
-  .card {
+  .card{
     width: 99%;
     height: 20%;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-}
 
-.card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(245, 142, 7, 0.2);
+  .card p{
+    font-size: 1.3rem;
+  }
+
+  .feature h3{
+    font-size: 2rem;
+  }
+
+  .feature p{
+    font-size: 1.8rem;
+  }
+
 }
