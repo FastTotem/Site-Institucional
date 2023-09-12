@@ -81,7 +81,7 @@ body{
 .card {
   width: 28%;
   background-color: #3f3e3e;
-  padding: 20px;
+  padding: 4vw 1.6vw;
   border-radius: 10px;
   text-align: center;
 }
@@ -130,6 +130,8 @@ body{
   background-color: #2D2D2D;
   padding: 2vw;
   text-align: center;
+  display: flex;
+  justify-content: center;
   color: white;
 }
 
@@ -141,15 +143,14 @@ body{
 .feature h3 {
   color: #F58E07;
   font-size: 1.3rem;
-  margin-top: 10px;
+  margin-bottom:  4%;
 }
 
 .feature p {
   font-size: 1.1rem;
-  margin-top: 10px;
 }
 
-.slick-slide{
+.slick-slide {
   background-color: #3f3e3e;
 }
 
@@ -194,6 +195,14 @@ body{
 
   .card p{
     font-size: 1.3rem;
+  }
+
+  .feature h3{
+    font-size: 2rem;
+  }
+
+  .feature p{
+    font-size: 1.8rem;
   }
 
 }
