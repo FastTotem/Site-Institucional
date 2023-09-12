@@ -1,440 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&display=swap");
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", sans-serif;
+    background-color: #2D2D2D;
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: #BD06DD;
+    padding-top: 6%;
+    padding-bottom: 6%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  box-sizing: border-box;
+.banner .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    animation: slideAndFade 2s ease-out forwards;
+}
+
+h1 {
+    color: white;
+    font-size: 3.5rem;
+    width: 100%;
+    padding-bottom: 4vh;
+}
+
+p {
+    color: white;
+}
+
+.txt-sobre {
+    font-size: 1.5rem;
 }
 
 
-.container {
-  height: 101vh;
-  width: 100vw;
-  color: white;
+.developers .container {
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    color: white;
 }
 
-.top-middle-menu {
-  height: 60%;
-  width: 100%;
-  background-color: #BD06DD;
-  align-items: center;
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    user-select: none;
 }
 
-.bottom-menu {
-  height: 40%;
-  width: 100%;
-  background-color: #2D2D2D;
-}
-
-.header {
-  width: 100%;
-  height: 18%;
-  padding: 0 5vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 60%;
-  font-size: 2vw;
-}
-
-.navbar a {
-  border-bottom: solid transparent 3.5px;
-  border-radius: 6%;
-  transition: border-bottom 0.3s ease-in-out;
-}
-
-.navbar a:hover {
-  border-bottom: solid #F58E07 3.5px;
-}
-
-.container-header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3vh 0;
-  width: 99vw;
+ .card {
+    color: #F58E07;
+    font-weight: 900;
+    max-width: 350px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    text-align: center;
+    padding: 1vw;
+    user-select: none;
+    cursor: pointer;
+    z-index: 0;
+    box-shadow: 9px 9px 9px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    width: 100%;
+    height: 350px;
 }
 
 .card:hover{
-  background-color: rgb(242, 242, 242);
+    background-color: #eDeDeD;
 }
 
-
-@media screen and (min-width: 390px) and (max-width: 767px){  
-  
-  .logo h4{
-    margin-left: 3%;
-    font-size: 2vmax;
-    color: white;
-    white-space: nowrap ;
-  }
-  
-  .logo img{
-    width: 7vw;
-    height: auto;
-  }
-  
-  .cards{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 4vw 0 4vw;
-    justify-content: space-evenly;
-    position: relative;
-    z-index: 0;
-    top: -100%;
-    height: 80vh;
-  }
-  
-  .card {
-    color: #F58E07;
-    font-family: 'Montserrat';
-    font-weight: 900;
-    width: 20vh;
-    height: 20vh;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5vw;
-    text-align: center;
-    padding: 0 3vw 0 3vw;
-    user-select: none;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 9px 9px 9px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
-    transition: background-color 0.3s;
-  }
-  
-  .card:active{
+.card:active{
     box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.8);
     transform: translateY(2px);
-  }
-  
-  .img-problema{
-    height: 60%;
-  }
-  
-  .texto-card{
-    font-size: 1.5rem;
-    z-index: 1;
-    width: 130%;
-  }
-  
-  
-  .logo {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    /* background-color: aqua; */
-  }
-
-  
-  .content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    /* background-color: aqua; */
-    text-align: center;
-    /* align-items: center; */
-  }
-  
-  .slogan{
-    margin-top: 2vh;
-    font-size: 3.5vmax;
-    font-weight: 900;
-  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px){
-  
-  .logo h4{
-    margin-left: 3%;
-    font-size: 2vmax;
-    color: white;
-    white-space: nowrap ;
-  }
-  
-  .logo img{
-    width: 7vw;
-    height: auto;
-  }
-  
-  .cards{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 4vw 0 4vw;
-    justify-content: space-evenly;
-    position: relative;
-    z-index: 0;
-    top: -100%;
-    height: 80vh;
-  }
-  
-  .card {
-    color: #F58E07;
-    font-family: 'Montserrat';
-    font-weight: 900;
-    width: 20vh;
-    height: 20vh;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5vw;
-    text-align: center;
-    padding: 0 3vw 0 3vw;
-    user-select: none;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 9px 9px 9px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
-    transition: background-color 0.3s;
-  }
-  
-  .card:active{
-    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.8);
-    transform: translateY(2px);
-  }
-  
-  .img-problema{
-    height: 60%;
-  }
-  
-  .texto-card{
-    font-size: 1.5rem;
-    z-index: 1;
-    width: 130%;
-  }
-  
-  
-  .logo {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    /* background-color: aqua; */
-  }
+@media (max-width: 1400px) {
 
-  
-  .content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    /* background-color: aqua; */
-    text-align: center;
-    /* align-items: center; */
-  }
-  
-  .slogan{
-    margin-top: 2vh;
-    font-size: 3.5vmax;
-    font-weight: 900;
-  }
+    .banner {
+        padding-top: 12%;
+        padding-bottom: 12%;
+    }
+
+    h1 {
+        font-size: 3.0rem;
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        flex-direction: row;
+        max-width: 100%;
+        align-items: center;
+        gap: 10%;
+    }
+
+    .texto-card{
+        font-size: 1.8rem;
+    }
+
+
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px){
-  
-  .logo h4{
-    margin-left: 3%;
-    font-size: 2vmax;
-    color: white;
-    white-space: nowrap ;
-  }
-  
-  .logo img{
-    width: 5vw;
-    height: auto;
-  }
-  
-  .cards{
-    display: flex;
-    flex-direction: row;
-    padding: 0 4vw 0 4vw;
-    justify-content: space-evenly;
-    position: relative;
-    z-index: 0;
-    top: -50%;
-  }
-  
-  .card {
-    color: #F58E07;
-    font-family: 'Montserrat';
-    font-weight: 900;
-    width: 20%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5vw;
-    text-align: center;
-    padding: 0 3vw 0 3vw;
-    user-select: none;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 9px 9px 9px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
-    transition: background-color 0.3s;
-  }
-  
-  .card:active{
-    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.8);
-    transform: translateY(2px);
-  }
-  
-  .img-problema{
-    height: 60%;
-  }
-  
-  .texto-card{
-    font-size: 1.5rem;
-    z-index: 1;
-    width: 130%;
-  }
-  
-  
-  .logo {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-  
-  .content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .slogan{
-    margin-top: 10vh;
-    font-size: 5vmax;
-    font-weight: 900;
-  }
+@media (max-width: 768px) {
+
+    .banner {
+        padding-top: 22%;
+    }
+
 }
 
-@media screen and (min-width: 1200px) and (max-width: 2000px){  
-  
-  .logo h4{
-    margin-left: 3%;
-    font-size: 2vmax;
-    color: white;
-    white-space: nowrap ;
-  }
-  
-  .logo img{
-    width: 4vw;
-    height: auto;
-  }
-  
-  .cards{
-    display: flex;
-    flex-direction: row;
-    padding: 0 4vw 0 4vw;
-    justify-content: space-evenly;
-    position: relative;
-    z-index: 0;
-    top: -50%;
-  }
-  
-  .card {
-    color: #F58E07;
-    font-family: 'Montserrat';
-    font-weight: 900;
-    width: 20vw;
-    height: 20vw;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5vw;
-    text-align: center;
-    padding: 0 3vw 0 3vw;
-    user-select: none;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 9px 9px 9px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 2px;
-    transition: background-color 0.3s;
-  }
-  
-  .card:active{
-    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.8);
-    transform: translateY(2px);
-  }
-  
-  .img-problema{
-    height: 60%;
-  }
-  
-  .texto-card{
-    font-size: 1.5rem;
-    z-index: 1;
-    width: 130%;
-  }
-  
-  
-  .logo {
-    width: 15vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-  
-  .content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .slogan{
-    margin-top: 10vh;
-    font-size: 5vmax;
-    font-weight: 900;
-  }
+@media (max-width: 500px) {
+    .texto-card{
+        font-size: 1.0rem;
+    }
+
+    .img-problema{
+        max-width: 150px;
+    }
+
+    .card{
+        max-height: 300px;
+    }
+
+    h1 {
+        font-size: 2.0rem;
+        width: 100%;
+    }
 }
-
-
-
