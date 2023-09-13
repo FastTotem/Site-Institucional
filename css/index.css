@@ -189,9 +189,8 @@ margin: 2vh 0 2vh 0;
 
   .card{
     width: 99%;
-    height: 20%;
+    height: auto;
     display: flex;
-    flex-direction: row;
     align-items: center;
   }
 
@@ -206,5 +205,32 @@ margin: 2vh 0 2vh 0;
   .feature p{
     font-size: 1.8rem;
   }
+
+}
+
+@media (max-width: 500px) {
+
+  .card{
+    flex-direction: column;
+  }
+
+  .feature h3{
+    font-size: 1.2rem;
+  }
+
+  .feature p{
+    font-size: 0.8rem;
+  }
+
+.features{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .features .container{
+    width: 85vw;
+  }
+
 
 }

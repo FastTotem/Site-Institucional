@@ -46,6 +46,7 @@ p {
     display: flex;
     justify-content: space-evenly;
     user-select: none;
+    align-items: center;
 }
 
  .card {
@@ -134,5 +135,13 @@ p {
     h1 {
         font-size: 2.0rem;
         width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .card{
+        flex-direction: column;
+        max-height: 300px;
     }
 }
