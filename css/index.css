@@ -94,11 +94,12 @@ body{
 .card h4 {
   font-size: 1.3rem;
   margin-top: 5%;
+  margin-bottom: 3vh;
   color: #F58E07;
 }
 
 .card p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: white;
   margin-left: 2%;
 }
@@ -143,11 +144,12 @@ body{
 .feature h3 {
   color: #F58E07;
   font-size: 1.3rem;
-  margin-bottom:  4%;
+margin: 2vh 0 2vh 0;
 }
 
 .feature p {
   font-size: 1.1rem;
+  margin: 2vh 0 2vh 0;
 }
 
 .slick-slide {
@@ -194,7 +196,7 @@ body{
   }
 
   .card p{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .feature h3{
