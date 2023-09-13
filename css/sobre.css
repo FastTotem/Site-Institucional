@@ -1,144 +1,141 @@
 body {
-    background-color: #2D2D2D;
+  background-color: #2d2d2d;
 }
 
 .banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    background-color: #BD06DD;
-    padding-top: 6%;
-    padding-bottom: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  background-color: #bd06dd;
+  padding-top: 6%;
+  padding-bottom: 6%;
 }
 
 .banner .container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    animation: slideAndFade 2s ease-out forwards;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  animation: slideAndFade 2s ease-out forwards;
 }
 
 .txt-sobre {
-    width: 70%;
-    background-color: #670478;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    padding: 40px;
-    border-radius: 15px;
-    text-align: left;
+  width: 70%;
+  background-color: #670478;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: left;
 }
 
 .txt-sobre p {
-    margin-bottom: 2vh;
+  margin-bottom: 2vh;
+  text-align: justify;
+  text-indent: 5%;
 }
 
 h1 {
-    color: white;
-    font-size: 3.5rem;
-    width: 100%;
-    padding-bottom: 4vh;
+  color: white;
+  font-size: 3.5rem;
+  width: 100%;
+  padding-bottom: 4vh;
 }
 
 p {
-    color: white;
+  color: white;
 }
 
 .txt-sobre {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
+  font-size: 2rem;
+  margin-bottom: 50px;
 }
 
 .developers .container {
-    padding-top: 7vh;
-    padding-bottom: 7vh;
-    color: white;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+  color: white;
 }
 
 .cards {
-    display: flex;
-    justify-content: space-evenly;
-    user-select: none;
+  display: flex;
+  justify-content: space-evenly;
+  user-select: none;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 400px;
-    padding: 3% 3%;
-    background-color: #3f3e3e;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  padding: 3% 3%;
+  background-color: #3f3e3e;
+  gap: 15px;
 }
 
 .card h3 {
-    text-align: center;
+  text-align: center;
 }
 
 .img-container {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .img-container img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media (max-width: 1245px) {
+  .banner {
+    padding-top: 12%;
+    padding-bottom: 12%;
+  }
 
-    .banner {
-        padding-top: 12%;
-        padding-bottom: 12%;
-    }
+  h1 {
+    font-size: 2.5rem;
+    width: 90%;
+  }
 
-    h1 {
-        font-size: 2.5rem;
-        width: 90%;
-    }
+  .txt-sobre {
+    font-size: 1.2rem;
+  }
 
-    .txt-sobre {
-        font-size: 1.2rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 3vh;
+  }
 
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 3vh;
-    }
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .cards {
-        flex-direction: column;
-        gap: 20px;
-    }
+  .card {
+    flex-direction: row;
+    max-width: 100%;
+    align-items: center;
+    gap: 10%;
+  }
 
-    .card {
-        flex-direction: row;
-        max-width: 100%;
-        align-items: center;
-        gap: 10%;
-    }
-
-    .img-container {
-        width: 100px;
-        height: 100px;
-    }
-
-
+  .img-container {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (max-width: 768px) {
-
-    .banner {
-        padding-top: 22%;
-    }
-
+  .banner {
+    padding-top: 22%;
+  }
 }
