@@ -99,7 +99,8 @@ body {
   background-color: #3f3e3e;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
+  text-align: justify;
+  letter-spacing: 1%;
 }
 
 .card img {
