@@ -1,15 +1,16 @@
 main {
     display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 section {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 
     width: 50%;
-    height: 100vh;
 }
 
 section:first-of-type {
@@ -23,6 +24,8 @@ section:first-of-type img {
 }
 
 section:last-of-type {
+    padding-block: 4rem;
+    overflow-y: scroll;
     gap: 2rem;
     background-color: #D9D9D9;
     color: #1E1E1E;
@@ -37,6 +40,17 @@ section form {
     flex-direction: column;
 
     width: 50%;
+}
+
+section form p {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+section form p a {
+    color: #F58E07;
+    text-decoration: underline;
 }
 
 section form label {
@@ -73,6 +87,30 @@ form button:hover {
     transform: scale(1.05);
 }
 
+.backButton {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
+    font-size: 3rem;
+
+    padding: .2rem .35rem;
+
+    border: 4px solid transparent;
+    border-radius: 15px;
+    background-color: #8c00a5;
+    color: #FFF;
+    
+    transition: .6s;
+}
+
+.backButton:hover {
+    background-color: transparent;
+    border-color: #8c00a5;
+    color: #8c00a5;
+}
+
 @media only screen and (max-width: 850px) {
     main {
         background-color: #D9D9D9;
@@ -83,6 +121,7 @@ form button:hover {
         gap: 3rem;
 
         min-height: 100vh;
+        height: auto;
 
         padding-top: 2rem;
     }
@@ -92,11 +131,23 @@ form button:hover {
         width: 100vw;
     }
 
+    main section:last-of-type h2 {
+        text-align: center;
+        width: 60%;
+    }
+
     main section:first-of-type {
         width: 40%;
         height: fit-content;
 
+        margin-top: 2rem;
+
         border-radius: 15px;
+    }
+
+    main section:last-of-type {
+        padding-block: .5rem;
+        overflow: auto;
     }
 
     main section:first-of-type img {
@@ -118,5 +169,19 @@ form button:hover {
 
     main section:last-of-type form button {
         margin-bottom: 2rem;
+    }
+    
+    section form input {
+        margin-bottom: 2rem;
+    }
+
+    section form p {
+        margin-bottom: 1.5rem;
+    }
+
+    .backButton {
+        font-size: 2.5rem;
+        border-radius: 10px;
+        padding: .2rem .35rem;
     }
 }

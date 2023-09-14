@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="./css/forms.css">
     <link rel="stylesheet" href="./css/cadastro.css">
     <script src="./js/cadastro.js" defer></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <title>Fast Totem | Cadastro</title>
 </head>
 <body>
     <main>
+        <a href="./"><span class="iconify backButton" data-icon="entypo:chevron-small-left"></span></a>
+
         <section>
             <img src="./assets/FastToten - Logo.png" alt="Logo Fast Toten">
             <h1>FastTotem</h1>
@@ -34,13 +37,15 @@
                 <span id="alertCep">*O cep informado está incorreto</span>
 
                 <label>Rua</label>
-                <input required disabled type="text" id="ruaInput" name="endereco" placeholder="Ex: Rua das flores">
+                <input type="text" id="ruaInput" name="endereco" placeholder="Ex: Rua das flores">
 
                 <label>Bairro</label>
-                <input required disabled type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridoss">
+                <input type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridoss">
 
                 <label>Número</label>
                 <input type="number" name="endereco" placeholder="Insira o número">
+
+                <p>Já possui cadastro? <a href="./login.html">Faça login</a></p>
 
                 <button type="submit">Cadastrar</button>
             </form>

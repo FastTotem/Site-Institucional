@@ -37,9 +37,6 @@ cepInput.addEventListener('input',async (event) => {
         }
     } else if (cep.length > 0 && alertCep.style.display != 'block') {
         alertCep.style.display = 'block';
-
-        ruaInput.value = '';
-        bairroInput.value = '';
     }
 });
 
@@ -86,29 +83,17 @@ async function enviarEmail() {
     const { email, nomeEmpresa } = form;
 
     const body = {
-        accessKey: 'ebcb1b77-d9c8-44e0-8795-7a4b67100e42',
-        subject: 'Cadastro no FastTotem',
-        message: `
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td align="center">
-                        <img src="https://github.com/FastTotem/Site-Institucional/blob/main/assets/FastToten%20-%20Logo.png?raw=true" alt="Sua Logo" height="100">
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" style="padding: 20px;">
-                        <h1>Bem vindo ao Fast Totem, ${nomeEmpresa.value}</h1>
-                        <p>Seu endereço de e-mail: ${email.value}</p>
-                        <h1>Senha:</h1>
-                        <p>fg@Ea254</p>
-                    </td>
-                </tr>
-            </table>
-        `,
-        replyTo: email.value
-    }
+        service_id: 'service_yhdz78p',
+        template_id: 'template_fvi8zvp',
+        user_id: '6A4-sKj9aaXrVf-sX',
+        template_params: {
+            user_email: email.value,
+            nome_empresa: nomeEmpresa.value,
+            'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
+        }
+    };    
 
-    const url = `https://api.staticforms.xyz/submit`;
+    const url = `https://api.emailjs.com/api/v1.0/email/send`;
     const data = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(body),
@@ -116,10 +101,11 @@ async function enviarEmail() {
             'Content-Type': 'application/json'
         }
     });
-    
-    if(data.ok) 
-        alert('Empresa cadastrada com sucesso!');
-    else {
+
+    if(data.ok) {
+        alert('Empresa cadastrada com sucesso, para fazer login, enviamos um email com todas as informações necessárias para a autenticação!');
+        window.location.href = './login.html';
+    } else {
         alert('Erro ao cadastrar a empresa!');
     }
 }
