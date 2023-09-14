@@ -13,6 +13,6 @@ form span {
     color: rgb(255, 54, 54);
 }
 
-form input:disabled:not(:placeholder-shown) {
-    background-color: #FFF;
+section:last-of-type {
+    justify-content: unset !important;
 }
