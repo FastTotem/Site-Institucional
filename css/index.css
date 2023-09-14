@@ -2,10 +2,6 @@ body{
   box-sizing: border-box;
 }
 
-.container{
-  padding: 0 5vw;
-}
-
 .banner {
   height: auto;
   background-color: #BD06DD;
@@ -13,87 +9,6 @@ body{
 
 .banner .container{
   padding: 8vh 5vw;
-}
-
-.features {
-  background-color: #2D2D2D;
-  padding: 50px 0;
-}
-
-.features .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.features h2 {
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.feature h3 {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  color: #F58E07;
-}
-
-.feature p {
-  font-size: 1.1rem;
-  margin-top: 10px;
-}
-
-.header {
-  background-color: #BD06DD;
-  height: 18%;
-  padding: 3vh 0;
-}
-
-.header .container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  width: 15vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-.logo img{
-  width: 3vw;
-  height: auto;
-}
-
-.logo h4{
-  margin-left: 3%;
-  font-size: 2vw;
-  color: white;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 40%;
-  font-size: 1.8vw;
-}
-
-.navbar a {
-  border-bottom: solid transparent 3.5px;
-  border-radius: 6%;
-  transition: border-bottom 0.3s ease-in-out;
-}
-
-.navbar a:hover {
-  border-bottom: solid #F58E07 3.5px;
 }
 
 .slogan {
@@ -106,17 +21,6 @@ body{
   width: 40%;
 }
 
-@keyframes slideAndFade {
-  0% {
-    left: 100%;
-    opacity: 0;
-  }
-  100% {
-    left: 0;
-    opacity: 1;
-  }
-}
-
 .buttons{
   display: flex;
   flex-direction: row;
@@ -124,18 +28,23 @@ body{
   justify-content: space-between;
   margin-top: 5%;
   width: 40%;
+  user-select: none;
+  gap: 3.5vw;
+}
+
+.buttons a{
+  padding: 3% 10%;
+  width: 40%;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  height: fit-content;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .login-button {
-  display: flex;
-  justify-content: center;
   background-color: #F58E07;
-  border-radius: 15px;
-  padding: 1vw;
-  width: 40%;
-  height: fit-content;
-  font-size: 1.7vw;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .login-button:hover {
@@ -145,16 +54,8 @@ body{
 }
 
 .cadastro-button{
-  display: flex;
-  justify-content: center;
   color: #F58E07;
   background-color: whitesmoke;
-  border-radius: 15px;
-  padding: 1vw;
-  width: 40%;
-  height: fit-content;
-  font-size: 1.7vw;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .cadastro-button:hover {
@@ -179,10 +80,10 @@ body{
 
 .card {
   width: 28%;
-  background-color: #2D2D2D;
-  padding: 20px;
+  background-color: #3f3e3e;
+  padding: 4vw 1.6vw;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .card img {
@@ -193,47 +94,45 @@ body{
 .card h4 {
   font-size: 1.3rem;
   margin-top: 5%;
+  margin-bottom: 3vh;
   color: #F58E07;
 }
 
 .card p {
-  font-size: 1.1rem;
-  margin-top: 5%;
-  color: white;
-}
-
-.footer {
-  background-color: #2D2D2D;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8vh 5vw;
-}
-
-.footer .copyright {
-  color: white;
   font-size: 1.2rem;
-  margin-left: 1%;
-}
-
-.footer .fasttotem-logo img {
-  width: 2vw;
-  height: auto;
+  color: white;
+  margin-left: 2%;
 }
 
 .carousel {
   width: 100%;
 }
 
+.features {
+  background-color: #2D2D2D;
+  padding: 50px 0;
+}
+
+.features .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.features h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
 .feature {
   background-color: #2D2D2D;
-  padding: 20px;
+  padding: 2vw;
   text-align: center;
+  display: flex;
+  justify-content: center;
   color: white;
 }
 
@@ -243,13 +142,18 @@ body{
 }
 
 .feature h3 {
+  color: #F58E07;
   font-size: 1.3rem;
-  margin-top: 10px;
+margin: 2vh 0 2vh 0;
 }
 
 .feature p {
   font-size: 1.1rem;
-  margin-top: 10px;
+  margin: 2vh 0 2vh 0;
+}
+
+.slick-slide {
+  background-color: #3f3e3e;
 }
 
 .slick-prev,
@@ -270,3 +174,37 @@ body{
   right: 20px;
 }
 
+@media (max-width: 999px) {
+
+  .buttons a{
+    padding: 4% 14%;
+    font-size: 1.5rem;
+  }
+
+  .cards {
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
+  }
+
+  .card{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card p{
+    font-size: 1.5rem;
+  }
+
+  .feature h3{
+    font-size: 2rem;
+  }
+
+  .feature p{
+    font-size: 1.8rem;
+  }
+
+}
