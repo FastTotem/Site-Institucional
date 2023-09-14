@@ -7,7 +7,7 @@ form.addEventListener('submit', (event) => {
 })
 
 function login() {
-    if(email.value === 'fastTotem@gmail.com' && password.value === 'fg@Ea254') {
+    if(email.value === 'fasttotemcontact@gmail.com' && password.value === 'fg@Ea254') {
         alert('Usuário autenticado com sucesso!');
     } else {
         alert('Usuário e/ou senha incorretos!');
