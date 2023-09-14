@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/forms.css">
     <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png">
     <script src="./js/cadastro.js" defer></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <title>Fast Totem | Cadastro</title>
 </head>
+
 <body>
     <main>
         <a href="./"><span class="iconify backButton" data-icon="entypo:chevron-small-left"></span></a>
@@ -18,14 +21,14 @@
             <img src="./assets/FastToten - Logo.png" alt="Logo Fast Toten">
             <h1>FastTotem</h1>
         </section>
-    
+
         <section>
             <h2>Cadastre sua empresa</h2>
             
             <form>
                 <label>Nome da loja</label>
                 <input type="text" name="nomeEmpresa" placeholder="Ex: Fast Totem">
-    
+
                 <label>CNPJ da empresa</label>
                 <input type="text" name="endereco" placeholder="Insira seu CNPJ">
 
@@ -34,16 +37,19 @@
 
                 <label>CEP</label>
                 <input type="text" name="cep" id="cepInput" placeholder="Insira seu CEP">
-                <span id="alertCep">*O cep informado está incorreto</span>
+                <span id="alertCep">*O CEP informado está incorreto</span>
 
                 <label>Rua</label>
                 <input type="text" id="ruaInput" name="endereco" placeholder="Ex: Rua das flores">
 
                 <label>Bairro</label>
-                <input type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridoss">
+                <input type="text" id="bairroInput" name="endereco" placeholder="Ex: Jardim Floridos">
 
                 <label>Número</label>
-                <input type="number" name="endereco" placeholder="Insira o número">
+                <input type="number" id="numeroInput" name="endereco" placeholder="Insira o número">
+
+                <label>Complemento</label>
+                <input type="text" id="complementoInput" name="endereco" placeholder="Insira o complemento">
 
                 <p>Já possui cadastro? <a href="./login.html">Faça login</a></p>
 
@@ -52,4 +58,5 @@
         </section>
     </main>
 </body>
+
 </html>
