@@ -4,8 +4,15 @@ form input {
 
 #alertCep {
     display: none;
-    color: rgb(255, 54, 54);
+}
+
+form span {
     font-size: .8rem;
     margin-top: -1rem;
     margin-bottom: 1.5rem;
+    color: rgb(255, 54, 54);
+}
+
+section:last-of-type {
+    justify-content: unset !important;
 }
