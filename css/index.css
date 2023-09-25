@@ -44,7 +44,7 @@ body{
 }
 
 .login-button {
-  background-color: #F58E07;
+  background-color: #670478;
 }
 
 .login-button:hover {
@@ -54,13 +54,13 @@ body{
 }
 
 .cadastro-button{
-  color: #F58E07;
+  color: #670478;
   background-color: whitesmoke;
 }
 
-.cadastro-button:hover {
+.buttons a:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(245, 142, 7, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   filter: brightness(1.03);
 }
 
@@ -95,7 +95,7 @@ body{
   font-size: 1.3rem;
   margin-top: 5%;
   margin-bottom: 3vh;
-  color: #F58E07;
+  color: #BD06DD;
 }
 
 .card p {
@@ -105,7 +105,7 @@ body{
 }
 
 .carousel {
-  width: 100%;
+  width: 90%;
 }
 
 .features {
@@ -116,7 +116,7 @@ body{
 .features .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .features h2 {
@@ -142,7 +142,7 @@ body{
 }
 
 .feature h3 {
-  color: #F58E07;
+  color: #BD06DD  ;
   font-size: 1.3rem;
 margin: 2vh 0 2vh 0;
 }
@@ -174,11 +174,12 @@ margin: 2vh 0 2vh 0;
   right: 20px;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 768px) {
 
   .buttons a{
     padding: 4% 14%;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    width: fit-content;
   }
 
   .cards {
@@ -199,12 +200,28 @@ margin: 2vh 0 2vh 0;
     font-size: 1.5rem;
   }
 
+  .features .container h2{
+     font-size: 1rem;
+  }
+
   .feature h3{
-    font-size: 2rem;
+    font-size: 0.8rem;
   }
 
   .feature p{
-    font-size: 1.8rem;
+    font-size: 0.6rem;
   }
+
+  .banner .container h1{
+    font-size: 2rem;
+      }
+    
+      .card h4{
+        font-size: 0.9rem;
+      }
+    
+      .card p{
+        font-size: 0.7rem;
+      }
 
 }

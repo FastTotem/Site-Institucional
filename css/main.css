@@ -99,7 +99,7 @@ h1, h2, h3, h4, p {
 }
 
 .navbar a:hover {
-  border-bottom: solid #F58E07 3.5px;
+  border-bottom: solid #670478 3.5px;
 }
 
 .menu-toggle {
@@ -162,7 +162,6 @@ h1, h2, h3, h4, p {
   align-self: center;
 }
 
-/* FOOTER */
 .footer {
   background-color: #2D2D2D;
   padding: 20px 0;
@@ -199,7 +198,7 @@ h1, h2, h3, h4, p {
   }
 }
 
-@media (max-width: 999px) {
+@media (max-width: 768px) {
 
   .banner .container{
     padding: 12vh 5vw 8vw 5vw;
