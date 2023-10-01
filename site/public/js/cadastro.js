@@ -63,7 +63,7 @@ function zipCodeMask(value) {
 
 //Adiciona um event listener para todos inputs assim que a tela é carregada
 allInputs.forEach((item) => item.addEventListener('input', () => {
-    if(item.value === '') {
+    if(item.value === '' && item.required) {
         let alertPreenchimento = document.createElement('span');
         alertPreenchimento.textContent = "*Campo obrigatório";
 
@@ -81,7 +81,7 @@ function cadastrarEmpresa() {
     let inputsSaoValidos = true;
 
     allInputs.forEach((item) => {
-        if(item.value === '') {
+        if(item.value === '' && item.required) {
             inputsSaoValidos = false;
 
             let alertPreenchimento = item.nextElementSibling;
@@ -103,9 +103,9 @@ function cadastrarEmpresa() {
 
 function cadastrar() {
     var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
-    var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
+    var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value.replace(/[\/.-]/g, '');
     var emailVar = document.querySelector('input[name="email"]').value;
-    var cepVar = document.querySelector('input[name="cep"]').value;
+    var cepVar = document.querySelector('input[name="cep"]').value.replace('-', '');
     var ruaVar = document.querySelector('input[name="rua"]').value;
     var bairroVar = document.querySelector('input[name="bairro"]').value;
     var numeroVar = document.querySelector('input[name="numero"]').value;
