@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <script src="js/login.js" defer></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png">
+    <title>Fast Totem | Login</title>
+</head>
+
+<body>
+    <a href="../../index.html"><span class="iconify backButton" data-icon="entypo:chevron-small-left"></span></a>
+
+    <main>
+        <section>
+            <img src="./assets/FastToten - Logo.png" alt="Logo Fast Toten">
+            <h1>FastTotem</h1>
+        </section>
+
+        <section>
+            <h2>Login</h2>
+
+            <form>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="exemplo@exemplo.com">
+
+                <label>Senha</label>
+                <input type="password" name="password" placeholder="••••••••">
+
+                <p>Ainda não possui cadastro? <a href="./cadastro.html">Cadastre-se</a></p>
+
+                <button type="submit" onclick="entrar()">Entrar</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "index.html";
+                    }, 1000);
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

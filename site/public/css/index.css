@@ -1,0 +1,227 @@
+body{
+  /* box-sizing: border-box; */
+}
+
+.banner {
+  height: auto;
+  background-color: #BD06DD;
+}
+
+.banner .container{
+  padding: 8vh 5vw;
+}
+
+.slogan {
+  color: white;
+  font-size: 3.5rem;
+  position: relative;
+  left: 100%;
+  opacity: 0;
+  animation: slideAndFade 2s ease-out forwards;
+  width: 40%;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 40%;
+  user-select: none;
+  gap: 3.5vw;
+}
+
+.buttons a{
+  padding: 3% 10%;
+  width: 40%;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  height: fit-content;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.login-button {
+  background-color: #670478;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); 
+  filter: brightness(1.03);
+}
+
+.cadastro-button{
+  color: #670478;
+  background-color: whitesmoke;
+}
+
+.buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.03);
+}
+
+.business-ideas{
+  height: fit-content;
+  background-color: #2D2D2D;
+}
+
+.business-ideas .container{
+  padding: 8vh 5vw;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 28%;
+  background-color: #3f3e3e;
+  padding: 4vw 1.6vw;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 20vw;
+  height: auto;
+}
+
+.card h4 {
+  font-size: 1.3rem;
+  margin-top: 5%;
+  margin-bottom: 3vh;
+  color: #BD06DD;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: white;
+  margin-left: 2%;
+}
+
+.carousel {
+  width: 90%;
+}
+
+.features {
+  background-color: #2D2D2D;
+  padding: 50px 0;
+}
+
+.features .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.features h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.feature {
+  background-color: #2D2D2D;
+  padding: 2vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.feature img {
+  max-width: 100px;
+  height: auto;
+}
+
+.feature h3 {
+  color: #BD06DD  ;
+  font-size: 1.3rem;
+margin: 2vh 0 2vh 0;
+}
+
+.feature p {
+  font-size: 1.1rem;
+  margin: 2vh 0 2vh 0;
+}
+
+.slick-slide {
+  background-color: #3f3e3e;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  cursor: pointer;
+  color: white;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .buttons a{
+    padding: 4% 14%;
+    font-size: 1.4rem;
+    width: fit-content;
+  }
+
+  .cards {
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
+  }
+
+  .card{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card p{
+    font-size: 1.5rem;
+  }
+
+  .features .container h2{
+     font-size: 1rem;
+  }
+
+  .feature h3{
+    font-size: 0.8rem;
+  }
+
+  .feature p{
+    font-size: 0.6rem;
+  }
+
+  .banner .container h1{
+    font-size: 2rem;
+      }
+    
+      .card h4{
+        font-size: 0.9rem;
+      }
+    
+      .card p{
+        font-size: 0.7rem;
+      }
+
+}

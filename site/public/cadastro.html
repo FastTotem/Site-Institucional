@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png">
+    <script src="./js/cadastro.js" defer></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <title>Fast Totem | Cadastro</title>
+</head>
+
+<body>
+    <main>
+        <a href="../../index.html"><span class="iconify backButton" data-icon="entypo:chevron-small-left"></span></a>
+
+        <section>
+            <img src="./assets/FastToten - Logo.png" alt="Logo Fast Toten">
+            <h1>FastTotem</h1>
+        </section>
+
+        <section>
+                <h2>Cadastre sua empresa</h2>
+                
+                <form>
+                    <label>Nome da empresa</label>
+                    <input type="text" name="nomeEmpresa" placeholder="Ex: Fast Totem">
+
+                    <label>CNPJ da empresa</label>
+                    <input type="text" name="cnpjEmpresa" placeholder="Insira seu CNPJ">
+
+                    <label>E-mail do proprietário</label>
+                    <input type="email" name="email" placeholder="Insira o email do proprietário">
+
+                    <label>CEP</label>
+                    <input type="text" name="cep" id="cepInput" placeholder="Insira seu CEP">
+                    <span id="alertCep">*O cep informado está incorreto</span>
+
+                    <label>Rua</label>
+                    <input type="text" id="ruaInput" name="rua" placeholder="Ex: Rua das flores">
+
+                    <label>Bairro</label>
+                    <input type="text" id="bairroInput" name="bairro" placeholder="Ex: Jardim Floridos">
+
+                    <label>Número</label>
+                    <input type="number" id="numeroInput" name="numero" placeholder="Insira o número">
+
+                    <label>Complemento</label>
+                    <input type="text" id="complementoInput" name="complemento" placeholder="Insira o complemento">
+
+                    <p>Já possui cadastro? <a href="./login.html">Faça login</a></p>
+
+                    <button type="submit" onclick="cadastrar()">Cadastrar</button>
+                </form>
+            </section>
+        </main>
+    </body>
+
+    </html>
+
+    <script>
+
+    function validar(){
+
+
+
+    }
+
+    function cadastrar() {
+
+        var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
+        var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
+        var emailVar = document.querySelector('input[name="email"]').value;
+        var cepVar = document.querySelector('input[name="cep"]').value;
+        var ruaVar = document.querySelector('input[name="rua"]').value;
+        var bairroVar = document.querySelector('input[name="bairro"]').value;
+        var numeroVar = document.querySelector('input[name="numero"]').value;
+        var complementoVar = document.querySelector('input[name="complemento"]').value;
+
+        fetch("/empresa/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        nomeServer: nomeVar,
+        cnpjServer: cnpjVar,
+        emailServer: emailVar,
+        cepServer: cepVar,
+        ruaServer: ruaVar,
+        bairroServer: bairroVar,
+        numeroServer: numeroVar,
+        complementoServer: complementoVar
+        }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+            
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000");
+
+            } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+        
+    </script>
