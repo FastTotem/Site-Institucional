@@ -8,8 +8,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/cadastrar", function (req, res) {
-  console.log("Cheguei a rota")
-    empresaController.cadastrar(req, res);
-})
+  empresaController.cadastrar(req, res);
+});
 
 module.exports = router;

@@ -52,5 +52,3 @@ CREATE TABLE Captura (
 );
 
 CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
-
-select*from empresa join endereco on EnderecoID = Empresa.EmpresaID ;

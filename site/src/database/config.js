@@ -8,6 +8,15 @@ var mySqlConfig = {
     password: "fasttotem123",
 };
 
+//CRIAR USUÁRIO:
+/*
+    1º Acessar o cmd e digitar: mysql -u root -p
+        -> root ou o nome do seu usuário padrão do mysql
+    2º - CREATE USER 'fastTotemAdmin'@'localhost' IDENTIFIED BY 'fasttotem123';
+    3º - GRANT ALL PRIVILEGES ON fastTotemAdmin.* TO 'fastTotemAdmin'@'localhost';
+    4º - FLUSH PRIVILEGES;
+*/
+
 function executar(instrucao) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {

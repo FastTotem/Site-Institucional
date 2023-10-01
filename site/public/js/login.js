@@ -30,22 +30,21 @@ function login() {
 
     allInputs.forEach((item) => {
         if(item.value === '') {
+            inputsSaoValidos = false;
+
             let alertPreenchimento = item.nextElementSibling;
 
-            if (alertPreenchimento && alertPreenchimento.textContent === "*Campo obrigatório")
+            if (alertPreenchimento && alertPreenchimento.textContent === "*Campo obrigatório") 
                 return;
 
             alertPreenchimento = document.createElement('span');
             alertPreenchimento.textContent = "*Campo obrigatório";
     
             item.insertAdjacentElement('afterend', alertPreenchimento);
-
-            inputsSaoValidos = false;
         }
     });
 
     if(inputsSaoValidos) {
-        
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {

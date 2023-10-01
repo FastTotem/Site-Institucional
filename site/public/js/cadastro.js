@@ -2,6 +2,7 @@ const cepInput = document.getElementById('cepInput');
 const ruaInput = document.getElementById('ruaInput');
 const bairroInput = document.getElementById('bairroInput');
 const alertCep = document.getElementById('alertCep');
+const cnpjInput = document.getElementById('cnpjEmpresa');
 
 const allInputs = document.querySelectorAll('input');
 
@@ -21,8 +22,21 @@ async function getEndereco(cep) {
     return response;
 }
 
-cepInput.addEventListener('input',async (event) => {
-    let cep = event.target.value;
+cnpjInput.addEventListener('input', (event) => {
+    let cnpj = event.target.value;
+    event.target.value = cnpjMask(cnpj);
+});
+
+function cnpjMask(value) {
+    if (!value) return "";
+    value = value.replace(/\D/g,'');
+    value = value.replace(/^(\d{2})?(\d{3})?(\d{3})?(\d{4})?(\d{2})/, "$1.$2.$3/$4-$5");
+    return value;
+}
+
+cepInput.addEventListener('input', async (event) => {
+    let cep = event.target.value.replace('-', '');
+    event.target.value = zipCodeMask(cep);
 
     if(cep.length === 8) {
         const enderecoDados = await getEndereco(cep);
@@ -39,6 +53,13 @@ cepInput.addEventListener('input',async (event) => {
         alertCep.style.display = 'block';
     }
 });
+
+function zipCodeMask(value) {
+    if (!value) return ""
+    value = value.replace(/\D/g,'')
+    value = value.replace(/(\d{5})(\d)/,'$1-$2')
+    return value
+}
 
 //Adiciona um event listener para todos inputs assim que a tela é carregada
 allInputs.forEach((item) => item.addEventListener('input', () => {
@@ -61,6 +82,8 @@ function cadastrarEmpresa() {
 
     allInputs.forEach((item) => {
         if(item.value === '') {
+            inputsSaoValidos = false;
+
             let alertPreenchimento = item.nextElementSibling;
 
             if (alertPreenchimento && alertPreenchimento.textContent === "*Campo obrigatório")
@@ -70,68 +93,65 @@ function cadastrarEmpresa() {
             alertPreenchimento.textContent = "*Campo obrigatório";
     
             item.insertAdjacentElement('afterend', alertPreenchimento);
-
-            inputsSaoValidos = false;
         }
     });
 
     if(inputsSaoValidos) {
+        cadastrar();
+    }
+}
 
-        var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
-        var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
-        var emailVar = document.querySelector('input[name="email"]').value;
-        var cepVar = document.querySelector('input[name="cep"]').value;
-        var ruaVar = document.querySelector('input[name="rua"]').value;
-        var bairroVar = document.querySelector('input[name="bairro"]').value;
-        var numeroVar = document.querySelector('input[name="numero"]').value;
-        var complementoVar = document.querySelector('input[name="complemento"]').value;
-        var senhaVar = gerarSenha(8);
+function cadastrar() {
+    var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
+    var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
+    var emailVar = document.querySelector('input[name="email"]').value;
+    var cepVar = document.querySelector('input[name="cep"]').value;
+    var ruaVar = document.querySelector('input[name="rua"]').value;
+    var bairroVar = document.querySelector('input[name="bairro"]').value;
+    var numeroVar = document.querySelector('input[name="numero"]').value;
+    var complementoVar = document.querySelector('input[name="complemento"]').value;
+    var senhaVar = gerarSenha(8);
 
-        fetch("/empresa/cadastrar", {
+    fetch("/empresa/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-        nomeServer: nomeVar,
-        cnpjServer: cnpjVar,
-        emailServer: emailVar,
-        cepServer: cepVar,
-        ruaServer: ruaVar,
-        bairroServer: bairroVar,
-        numeroServer: numeroVar,
-        complementoServer: complementoVar,
-        senhaServer: senhaVar
+            nomeServer: nomeVar,
+            cnpjServer: cnpjVar,
+            emailServer: emailVar,
+            cepServer: cepVar,
+            ruaServer: ruaVar,
+            bairroServer: bairroVar,
+            numeroServer: numeroVar,
+            complementoServer: complementoVar,
+            senhaServer: senhaVar
         }),
-        })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
+    })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-            
-            alert("Cadastro realizado com sucesso! Seu login e senha foram encaminhados para o email cadastrado");
-
-            enviarEmail(emailVar, nomeVar, senhaVar);
+        if (resposta.ok) {
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+            enviarEmail(emailVar, senhaVar, nomeVar);
 
             setTimeout(() => {
                 window.location = "login.html";
             }, "2000");
-
-            } else {
+        } 
+        else {
             throw "Houve um erro ao tentar realizar o cadastro!";
-            }
-        })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+        }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 
-        return false;
-
-    }
+    return false;
 }
 
-async function enviarEmail(email, nomeEmpresa, senha) {
-
+async function enviarEmail(email, senha, nomeEmpresa) {
     const body = {
         service_id: 'service_yhdz78p',
         template_id: 'template_fvi8zvp',
@@ -156,8 +176,8 @@ async function enviarEmail(email, nomeEmpresa, senha) {
 }
 
 function gerarSenha(tamanho) {
-
     const caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#';
+    
     let senha = '';
   
     for (let i = 0; i < tamanho; i++) {
@@ -166,5 +186,4 @@ function gerarSenha(tamanho) {
     }
   
     return senha;
-
-  }
+}
