@@ -1,32 +1,5 @@
 var empresaModel = require("../models/empresaModel");
 
-function testar(req, res) {
-  console.log("ENTRAMOS NA usuarioController");
-  res.json("ESTAMOS FUNCIONANDO!");
-}
-
-function buscarPorCnpj(req, res) {
-  var cnpj = req.query.cnpj;
-
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
-function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
-function buscarPorId(req, res) {
-  var id = req.params.id;
-
-  empresaModel.buscarPorId(id).then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
-
 function cadastrar(req, res) {
 
   var nome = req.body.nomeServer;
@@ -37,6 +10,7 @@ function cadastrar(req, res) {
   var bairro = req.body.bairroServer;
   var numero = req.body.numeroServer;
   var complemento = req.body.complementoServer;
+  var senha = req.body.senhaServer;
 
   if (nome == undefined || nome.trim() === "") {
       res.status(400).send("O nome não pode estar vazio!");
@@ -60,11 +34,13 @@ function cadastrar(req, res) {
           nome,
           cnpj,
           email,
+          senha,
           cep,
           rua,
           bairro,
           numero,
-          complemento
+          complemento,
+           
       )
           .then(function (resultado) {
               res.json(resultado);
@@ -81,8 +57,5 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarPorCnpj,
-  buscarPorId,
-  cadastrar,
-  listar,
+  cadastrar
 };

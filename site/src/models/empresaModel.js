@@ -1,27 +1,10 @@
 var database = require("../database/config");
 
-function buscarPorId(id) {
-  var query = `select * from empresa where id = '${id}'`;
-
-  return database.executar(query);
-}
-
-function listar() {
-  var query = `select * from empresa`;
-
-  return database.executar(query);
-}
-
-function buscarPorCnpj(cnpj) {
-  var query = `select * from empresa where cnpj = '${cnpj}'`;
-
-  return database.executar(query);
-}
-
 function cadastrar(
   nome,
   cnpj,
   email,
+  senha,
   cep,
   rua,
   bairro,
@@ -35,17 +18,25 @@ function cadastrar(
     .then(function (enderecoResultado) {
       var enderecoId = enderecoResultado.insertId;
 
-      var empresaQuery = `INSERT INTO Empresa (Nome , CNPJ, Contato, fkEndereco) VALUES ('${nome}', '${cnpj}', '${email}', ${enderecoId})`;
+      var empresaQuery = `INSERT INTO Empresa (Nome , CNPJ, fkEndereco) VALUES ('${nome}', '${cnpj}', ${enderecoId})`;
 
       return database.executar(empresaQuery);
     })
     .then(function (empresaResultado) {
-      return empresaResultado;
+
+      var empresaID = empresaResultado.insertId;
+
+      var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', 'Administrador', ${empresaID})`;
+
+      return database.executar(usuarioQuery);
+    })
+    .then(function (usuarioResultado) {
+      return usuarioResultado;
     })
     .catch(function (erro) {
-      console.error("Erro ao cadastrar empresa:", erro);
+      console.error("Erro ao cadastrar empresa ou usuário:", erro);
       throw erro;
     });
 }
 
-module.exports = { buscarPorCnpj, buscarPorId, cadastrar, listar };
+module.exports = { cadastrar };

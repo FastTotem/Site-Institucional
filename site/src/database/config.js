@@ -4,8 +4,8 @@ var sql = require('mssql');
 var mySqlConfig = {
     host: "localhost",
     database: "fasttotem",
-    user: "root",
-    password: "03102004a",
+    user: "fastTotemAdmin",
+    password: "fasttotem123",
 };
 
 function executar(instrucao) {

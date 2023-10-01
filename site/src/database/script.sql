@@ -13,10 +13,9 @@ CREATE TABLE Endereco (
 
 CREATE TABLE Empresa (
     EmpresaID INT AUTO_INCREMENT PRIMARY KEY,
-    CNPJ INT,
+    CNPJ VARCHAR(255),
     Nome VARCHAR(255),
     fkEndereco INT,
-	Contato VARCHAR(255),
     FOREIGN KEY (fkEndereco) REFERENCES Endereco(EnderecoID)
 );
 
@@ -52,4 +51,6 @@ CREATE TABLE Captura (
     Valor FLOAT
 );
 
-select*from empresa;
+CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
+
+select*from empresa join endereco on EnderecoID = Empresa.EmpresaID ;

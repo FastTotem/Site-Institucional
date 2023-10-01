@@ -59,7 +59,6 @@ allInputs.forEach((item) => item.addEventListener('input', () => {
 function cadastrarEmpresa() {
     let inputsSaoValidos = true;
 
-    //Faz o mesmo que a funçaõ acima mas no momento em que o botão de cadastrar-se é pressionado 
     allInputs.forEach((item) => {
         if(item.value === '') {
             let alertPreenchimento = item.nextElementSibling;
@@ -77,20 +76,70 @@ function cadastrarEmpresa() {
     });
 
     if(inputsSaoValidos) {
-        enviarEmail();
+
+        var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
+        var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
+        var emailVar = document.querySelector('input[name="email"]').value;
+        var cepVar = document.querySelector('input[name="cep"]').value;
+        var ruaVar = document.querySelector('input[name="rua"]').value;
+        var bairroVar = document.querySelector('input[name="bairro"]').value;
+        var numeroVar = document.querySelector('input[name="numero"]').value;
+        var complementoVar = document.querySelector('input[name="complemento"]').value;
+        var senhaVar = gerarSenha(8);
+
+        fetch("/empresa/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        nomeServer: nomeVar,
+        cnpjServer: cnpjVar,
+        emailServer: emailVar,
+        cepServer: cepVar,
+        ruaServer: ruaVar,
+        bairroServer: bairroVar,
+        numeroServer: numeroVar,
+        complementoServer: complementoVar,
+        senhaServer: senhaVar
+        }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+            
+            alert("Cadastro realizado com sucesso! Seu login e senha foram encaminhados para o email cadastrado");
+
+            enviarEmail(emailVar, nomeVar, senhaVar);
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000");
+
+            } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+
     }
 }
 
-async function enviarEmail() {
-    const { email, nomeEmpresa } = form;
+async function enviarEmail(email, nomeEmpresa, senha) {
 
     const body = {
         service_id: 'service_yhdz78p',
         template_id: 'template_fvi8zvp',
         user_id: '6A4-sKj9aaXrVf-sX',
         template_params: {
-            user_email: email.value,
-            nome_empresa: nomeEmpresa.value,
+            user_email: email,
+            user_senha: senha,
+            nome_empresa: nomeEmpresa,
             'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
         }
     };    
@@ -104,10 +153,18 @@ async function enviarEmail() {
         }
     });
 
-    if(data.ok) {
-        //alert('Empresa cadastrada com sucesso, para fazer login, enviamos um email com todas as informações necessárias para a autenticação!');
-        //window.location.href = './login.html';
-    } else {
-        alert('Erro ao cadastrar a empresa!');
-    }
 }
+
+function gerarSenha(tamanho) {
+
+    const caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#';
+    let senha = '';
+  
+    for (let i = 0; i < tamanho; i++) {
+      const caractereAleatorio = caracteres[Math.floor(Math.random() * caracteres.length)];
+      senha += caractereAleatorio;
+    }
+  
+    return senha;
+
+  }
