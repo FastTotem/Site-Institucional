@@ -77,8 +77,56 @@ function cadastrarEmpresa() {
     });
 
     if(inputsSaoValidos) {
-        enviarEmail();
+        cadastrar();
     }
+}
+
+function cadastrar() {
+    var nomeVar = document.querySelector('input[name="nomeEmpresa"]').value;
+    var cnpjVar = document.querySelector('input[name="cnpjEmpresa"]').value;
+    var emailVar = document.querySelector('input[name="email"]').value;
+    var cepVar = document.querySelector('input[name="cep"]').value;
+    var ruaVar = document.querySelector('input[name="rua"]').value;
+    var bairroVar = document.querySelector('input[name="bairro"]').value;
+    var numeroVar = document.querySelector('input[name="numero"]').value;
+    var complementoVar = document.querySelector('input[name="complemento"]').value;
+
+    fetch("/empresa/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            cnpjServer: cnpjVar,
+            emailServer: emailVar,
+            cepServer: cepVar,
+            ruaServer: ruaVar,
+            bairroServer: bairroVar,
+            numeroServer: numeroVar,
+            complementoServer: complementoVar
+        }),
+    })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+            // enviarEmail();
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000");
+        } 
+        else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
 }
 
 async function enviarEmail() {
@@ -103,11 +151,4 @@ async function enviarEmail() {
             'Content-Type': 'application/json'
         }
     });
-
-    if(data.ok) {
-        //alert('Empresa cadastrada com sucesso, para fazer login, enviamos um email com todas as informações necessárias para a autenticação!');
-        //window.location.href = './login.html';
-    } else {
-        alert('Erro ao cadastrar a empresa!');
-    }
 }

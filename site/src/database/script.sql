@@ -13,7 +13,7 @@ CREATE TABLE Endereco (
 
 CREATE TABLE Empresa (
     EmpresaID INT AUTO_INCREMENT PRIMARY KEY,
-    CNPJ INT,
+    CNPJ VARCHAR(255),
     Nome VARCHAR(255),
     fkEndereco INT,
 	Contato VARCHAR(255),
@@ -51,5 +51,3 @@ CREATE TABLE Captura (
     DataHora DATETIME,
     Valor FLOAT
 );
-
-select*from empresa;

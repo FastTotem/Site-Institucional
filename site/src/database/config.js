@@ -4,9 +4,18 @@ var sql = require('mssql');
 var mySqlConfig = {
     host: "localhost",
     database: "fasttotem",
-    user: "root",
-    password: "03102004a",
+    user: "fasttotem",
+    password: "fasttotem123",
 };
+
+//CRIAR USUÁRIO:
+/*
+    1º Acessar o cmd e digitar: mysql -u root -p
+        -> root ou o nome do seu usuário padrão do mysql
+    2º - CREATE USER 'fasttotem'@'localhost' IDENTIFIED BY 'fasttotem123';
+    3º - GRANT ALL PRIVILEGES ON fasttotem.* TO 'fasttotem'@'localhost';
+    4º - FLUSH PRIVILEGES;
+*/
 
 function executar(instrucao) {
 
