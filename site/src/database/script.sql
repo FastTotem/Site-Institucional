@@ -26,8 +26,8 @@ CREATE TABLE Usuario (
     NivelDeAcesso ENUM('Administrador', 'Gerente', 'Funcionario'),
     Email VARCHAR(255),
     Senha VARCHAR(255),
-    EmpresaID INT,
-    FOREIGN KEY (EmpresaID) REFERENCES Empresa(EmpresaID)
+    fkEmpresa INT,
+    FOREIGN KEY (fkEmpresa) REFERENCES Empresa(EmpresaID)
 );
 
 CREATE TABLE Totem (
@@ -53,4 +53,7 @@ CREATE TABLE Captura (
 
 CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
 
-select*from empresa join endereco on EnderecoID = Empresa.EmpresaID ;
+select*from empresa join endereco on EnderecoID = Empresa.EmpresaID join Usuario on Usuario.fkEmpresa = EmpresaID ;
+
+select*from usuario;
+select*from empresa;
