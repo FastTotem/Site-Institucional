@@ -10,7 +10,7 @@ function autenticar(email, senha) {
 }
 
 function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
-    var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, EmpresaID) VALUES ('${nome}', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
+    var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
 
     return database.executar(usuarioQuery);
 }
