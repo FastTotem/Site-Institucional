@@ -1,15 +1,16 @@
 var database = require("../database/config");
+var usuarioModel = require("./usuarioModel");
 
 function cadastrar(
-  nome,
-  cnpj,
-  email,
-  senha,
-  cep,
-  rua,
-  bairro,
-  numero,
-  complemento
+  nome, 
+  cnpj, 
+  email, 
+  cep, 
+  rua, 
+  bairro, 
+  numero, 
+  complemento,
+  senha
 ) {
   var enderecoQuery = `INSERT INTO Endereco (Rua, Bairro, Numero, Complemento, CEP ) VALUES ('${rua}', '${bairro}', '${numero}', '${complemento}', '${cep}')`;
 
@@ -26,9 +27,7 @@ function cadastrar(
 
       var empresaID = empresaResultado.insertId;
 
-      var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', 'Administrador', ${empresaID})`;
-
-      return database.executar(usuarioQuery);
+      usuarioModel.cadastrar(nome, email, senha, empresaID, 'Administrador');
     })
     .then(function (usuarioResultado) {
       return usuarioResultado;

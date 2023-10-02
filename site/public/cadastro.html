@@ -27,26 +27,26 @@
                 
                 <form>
                     <label>Nome da empresa</label>
-                    <input type="text" name="nomeEmpresa" placeholder="Ex: Fast Totem">
+                    <input required type="text" name="nomeEmpresa" placeholder="Ex: Fast Totem">
 
                     <label>CNPJ da empresa</label>
-                    <input type="text" name="cnpjEmpresa" placeholder="Insira seu CNPJ">
+                    <input required type="text" id="cnpjEmpresa" name="cnpjEmpresa" placeholder="Insira seu CNPJ">
 
                     <label>E-mail do proprietário</label>
-                    <input type="email" name="email" placeholder="Insira o email do proprietário">
+                    <input required type="email" name="email" placeholder="Insira o email do proprietário">
 
                     <label>CEP</label>
-                    <input type="text" name="cep" id="cepInput" placeholder="Insira seu CEP">
+                    <input required type="text" name="cep" id="cepInput" placeholder="Insira seu CEP">
                     <span id="alertCep">*O cep informado está incorreto</span>
 
                     <label>Rua</label>
-                    <input type="text" id="ruaInput" name="rua" placeholder="Ex: Rua das flores">
+                    <input required type="text" id="ruaInput" name="rua" placeholder="Ex: Rua das flores">
 
                     <label>Bairro</label>
-                    <input type="text" id="bairroInput" name="bairro" placeholder="Ex: Jardim Floridos">
+                    <input required type="text" id="bairroInput" name="bairro" placeholder="Ex: Jardim Floridos">
 
                     <label>Número</label>
-                    <input type="number" id="numeroInput" name="numero" placeholder="Insira o número">
+                    <input required type="number" id="numeroInput" name="numero" placeholder="Insira o número">
 
                     <label>Complemento</label>
                     <input type="text" id="complementoInput" name="complemento" placeholder="Insira o complemento">
@@ -58,5 +58,5 @@
             </section>
         </main>
     </body>
-
     </html>
+</html>
