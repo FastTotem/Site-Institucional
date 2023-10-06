@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard {
+    width: 95%;
+    height: 100%;
+}
+
+.dashboard .container {}
+
+.header {
+    background-color: #3f3e3e;
+    height: 10%;
+    user-select: none;
+    transition: 0.6s ease-in-out;
+}
+
+.header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+}
+
+.logo {
+    width: 15vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 0;
+}
+
+.logo img {
+    width: 1.8vw;
+    height: auto;
+}
+
+.logo h4 {
+    font-size: 1.5vw;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    gap: 2vw;
+justify-content: end;
+}
+
+.navbar a{
+    width: 12%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    border-radius: 1rem;
+}
+
+.navbar a:hover{
+    background-color: #333;
+    transition: 0.6s ease-in-out;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-top: 43%;
+}
+
+.bar {
+    width: 2.2vw;
+    height: 0.17rem;
+    background-color: white;
+    margin: 3px 0;
+}
+
+.side-menu {
+    width: 5%;
+    height: 100%;
+}
+
+.side-menu .container {
+    background-color: #BD06DD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.icons a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20% 0;
+}
+
+.icons a:hover {
+    background-color: #670478;
+    transition: 0.6s ease-in-out;
+}
+
+.icons .active{
+    background-color: #670478;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    height: 40%;
+    margin-top: 8vh;
+}
+
+.menu-icon {
+    width: 37%;
+    height: auto;
+}
+
+.nav-icon{
+    width: 78%;
+    height: auto;
+}

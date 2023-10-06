@@ -73,7 +73,7 @@ function login() {
 
                     setTimeout(function () {
                         alert('Usuário autenticado com sucesso!');
-                        window.location = "dashboard.html";
+                        window.location = "visaoGeral.html";
                     }, 1000);
                 });
             } else {
