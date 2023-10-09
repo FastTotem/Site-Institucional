@@ -1,13 +1,13 @@
 *::-webkit-scrollbar {
     width: 1rem;
-  }
+}
   
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #BD06DD;
     border-radius: 5px;
-  }
+}
   
-  *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
@@ -34,6 +34,154 @@ main {
     overflow: hidden;
 }
 
+
+section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    width: 30%;
+    
+    & > img {
+        width: 80%;
+    }
+    
+    & > div:first-of-type div {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        
+        padding: 2.2rem;
+        border-radius: 25px;
+        background-color: #3f3e3e;
+        
+        color: #FFF;
+        
+        & > div span div {
+            margin-top: .5rem;
+            margin-left: 1.2rem;
+            
+            & p {
+                margin-left: 1rem;
+                line-height: 1.7rem;
+            }
+        }
+        
+        & h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFF;
+        }
+    }
+}
+
+.gaugeChart {
+    position: relative;
+    margin: auto;
+    height: 85%;
+    
+    & > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+        
+        position: absolute;
+        top: 60%;
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        
+        & h2 {
+            font-size: 2rem;
+            line-height: 1.1rem;
+            text-align: center;
+            
+            & small {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+section:last-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    width: 70%;
+    
+    & > div {
+        flex: 1;
+        display: flex;
+        gap: 2rem;
+    }
+
+    & .chartContainer {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        flex: 1;
+        
+        padding: 2.2rem;
+        border-radius: 25px;
+        background-color: #3f3e3e;
+        
+        color: #FFF;
+        
+        & > div {
+            width: 100%;
+            margin-inline: auto;
+            margin-top: auto;
+        }
+    }
+
+    & .KPIContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        border-radius: 25px;
+
+        & > div {
+            display: flex;
+            gap: 1rem;
+        }
+
+        & .KPI {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            border-radius: 25px;
+            padding: 2rem;
+            background-color: #3f3e3e;
+            color: #FFF;
+
+            & h1 {
+                font-weight: 800;
+            }
+
+            & h3 {
+                font-size: 2rem;
+                margin: auto;
+            }
+            
+            & p {
+                font-size: 1.5rem;
+                margin: auto;
+            }
+        }
+    }
+}
+
 @media(max-width: 1800px) {
     html {
         font-size: 85%;
@@ -58,113 +206,5 @@ main {
 
     .chartContainer {
         padding: 1.8rem !important;
-    }
-}
-
-section:first-of-type {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    width: 30%;
-
-    & > img {
-        width: 80%;
-    }
-    
-    & > div:first-of-type div {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-    }
-    
-    & > div {
-        display: flex;
-        flex-direction: column;
-        gap: .8rem;
-
-        padding: 2.2rem;
-        border-radius: 25px;
-        background-color: #3f3e3e;
-
-        color: #FFF;
-
-        & > div span div {
-            margin-top: .5rem;
-            margin-left: 1.2rem;
-
-            & p {
-                margin-left: 1rem;
-                line-height: 1.7rem;
-            }
-        }
-
-        & h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #FFF;
-        }
-    }
-}
-
-.gaugeChart {
-    position: relative;
-    margin: auto;
-    height: 85%;
-
-    & > div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: .5rem;
-
-        position: absolute;
-        top: 60%;
-        left: 50%; 
-        transform: translate(-50%, -50%);
-
-        & h2 {
-            font-size: 2rem;
-            line-height: 1.1rem;
-            text-align: center;
-
-            & small {
-                font-size: .8rem;
-            }
-        }
-    }
-}
-
-section:last-of-type {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    width: 70%;
-
-    & > div {
-        flex: 1;
-        display: flex;
-        gap: 2rem;
-    }
-
-    & .chartContainer {
-        display: flex;
-        flex-direction: column;
-        gap: .8rem;
-        flex: 1;
-
-        padding: 2.2rem;
-        border-radius: 25px;
-        background-color: #3f3e3e;
-
-        color: #FFF;
-
-        & > div {
-            width: 100%;
-            margin-inline: auto;
-            margin-top: auto;
-        }
     }
 }
