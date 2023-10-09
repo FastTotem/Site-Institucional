@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/visaoGeral.css">
-    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dashboardMain.css" />
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
-    <title>FastTotem | Visão Geral </title>
+    <link rel="stylesheet" href="css/visaoEspecifica.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/visaoEspecifica/tempoAtividade.js" defer></script>
+    <script src="js/visaoEspecifica/cpu.js" defer></script>
+    <script src="js/visaoEspecifica/ram.js" defer></script>
+    <script src="js/visaoEspecifica/hd.js" defer></script>
+    <title>FastTotem | Visão Geral</title>
 </head>
 <body>
-
-    <div class="side-menu">
-        <div class="container">
+<div class="side-menu">
+    <div class="container">
         <div class="menu-toggle">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -19,33 +23,134 @@
         </div>
 
         <div class="icons">
-            <a href="visaoGeral.html"><img class="menu-icon" src="./assets/dashboard.png" alt=""></a>
-            <a href="visaoEspecifica.html" class="active"><img class="menu-icon" src="./assets/specification.png" alt=""></a>
-            <a href="ferramentas.html"><img class="menu-icon" src="./assets/tools.png" alt=""></a>
-            <a href="index.html"><img class="menu-icon" src="./assets/logout.png" alt=""></a>        </div>
-    </div>
-    </div>
-    
-    <div class="dashboard">
-    <div class="container">
-    <div class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="assets/FastToten - Logo.png" alt="">
-                <h4>FastTotem</h4>
-            </div>
-            <div class="navbar">
-              <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-              <a href="perfilUsuario.html"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
-              <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon" src="./assets/customer-service.png" alt=""></a>
-            </div>
+            <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/dashboard.png" alt=""/>
+            </a>
+            <a href="visaoEspecifica.html" class="active">
+                <img class="menu-icon" src="./assets/specification.png" alt=""/>
+            </a>
+            <a href="ferramentas.html">
+                <img class="menu-icon" src="./assets/tools.png" alt=""/>
+            </a>
+            <a href="index.html">
+                <img class="menu-icon" src="./assets/logout.png" alt=""/>
+            </a>
         </div>
     </div>
-    <div>
+</div>
 
+<div class="dashboard">
+    <div class="container">
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/FastToten - Logo.png" alt="" />
+                    <h4>FastTotem</h4>
+                </div>
+
+                <div class="navbar">
+                    <a href="#">
+                        <img class="nav-icon" src="./assets/bell.png" alt=""/>
+                    </a>
+                    <a href="perfilUsuario.html">
+                        <img class="nav-icon" src="./assets/profile-user.png" alt=""/>
+                    </a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC">
+                        <img class="nav-icon" src="./assets/customer-service.png" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <section>
+                <div>
+                    <h1>Tempo de atividade</h1>
+
+                    <div class="gaugeChart">
+                        <div>
+                            <h2>
+                                22
+                                <small>Dias</small>
+                            </h2>
+                            :
+                            <h2>
+                                20
+                                <small>Horas</small>
+                            </h2>
+                            :
+                            <h2>
+                                35
+                                <small>Minutos</small>
+                            </h2>
+                        </div>
+                        <canvas id="gaugeChart"></canvas>
+                    </div>
+                </div>
+
+                <div>
+                    <h1>Totem 001</h1>
+
+                    <div>
+                        <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
+                        <span><strong>Dispositivo grafico:</strong> NVIDIA GeForce RTX 2080 TI</span>
+                        <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
+                        <span>
+                            <strong>Discos: </strong>
+                            <div>
+                                <strong>• Disco Local (C:):</strong>
+                                <p>
+                                    Tipo: SSD (Unidade de Estado Sólido)
+                                    <br>
+                                    Capacidade: 500 GB
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>• Disco Local (D:):</strong>
+                                <p>
+                                    Tipo: HDD (Disco Rígido)
+                                    <br>
+                                    Capacidade: 2 TB
+                                </p>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <div class="chartContainer">
+                        <h1>Uso de CPU</h1>
+                        <div>
+                            <canvas id="lineChartCPU"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chartContainer">
+                        <h1>Uso de RAM</h1>
+                        <div>
+                            <canvas id="barChartRAM"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="chartContainer">
+                        <h1>Uso de HD</h1>
+                        <div>
+                            <canvas id="barChartHD"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chartContainer">
+                        <h1>Uso de USB</h1>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 </div>
-</div>
-
 </body>
 </html>
