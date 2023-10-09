@@ -1,59 +1,116 @@
 -- SQLBook: Code
-CREATE DATABASE FastTotem;
-USE FastTotem;
+CREATE DATABASE fastTotem;
+USE fasttotem;
 
-CREATE TABLE Endereco (
-    EnderecoID INT AUTO_INCREMENT PRIMARY KEY,
-    Rua VARCHAR(255) NOT NULL,
-    Bairro VARCHAR(255),
-    Numero INT,
-	Complemento VARCHAR(255),
-    CEP VARCHAR(10)
-);
-
-CREATE TABLE Empresa (
-    EmpresaID INT AUTO_INCREMENT PRIMARY KEY,
-    CNPJ VARCHAR(255),
-    Nome VARCHAR(255),
-    fkEndereco INT,
-    FOREIGN KEY (fkEndereco) REFERENCES Endereco(EnderecoID)
+CREATE TABLE Empresa(
+	idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+	razaoSocial VARCHAR(120),
+	CNPJ CHAR(14),
+	email VARCHAR(45),
+	tel VARCHAR(15)
 );
 
 CREATE TABLE Usuario (
-    UsuarioID INT AUTO_INCREMENT PRIMARY KEY,
-    ImgUrl VARCHAR(255),
-    Nome VARCHAR(255),
-    NivelDeAcesso ENUM('Administrador', 'Gerente', 'Funcionario'),
-    Email VARCHAR(255),
-    Senha VARCHAR(255),
-    fkEmpresa INT,
-    FOREIGN KEY (fkEmpresa) REFERENCES Empresa(EmpresaID)
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(15),
+email VARCHAR(15),
+senha VARCHAR(15),
+nivelAcesso ENUM('Administrador','Funcionário'),
+imgUsuario TEXT(255),
+fkEmpresa INT,
+FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
 );
 
-CREATE TABLE Totem (
-    TotemID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(255),
-    EmpresaID INT,
-    FOREIGN KEY (EmpresaID) REFERENCES Empresa(EmpresaID)
+CREATE TABLE Endereco (
+idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+logradouro VARCHAR(255),
+bairro VARCHAR(255),
+numero CHAR(7),
+complemento VARCHAR(255),
+cep VARCHAR(15)
 );
 
-CREATE TABLE Componente (
-    ComponenteID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(255) ,
-    TotemID INT,
-    FOREIGN KEY (TotemID) REFERENCES Totem(TotemID)
+CREATE TABLE Totem(
+	idTotem INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(45),
+	chaveDeAcesso VARCHAR(45),
+	fkEmpresa INT,
+	FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+CREATE TABLE InfoMaquina(
+	idInfoMaquina INT PRIMARY KEY AUTO_INCREMENT,
+	sistemaOperacional VARCHAR(200),
+	fabricante  VARCHAR(200),
+	nomeProcessador VARCHAR(200),
+	capacidadeRam VARCHAR(200),
+	capacidadeDisco VARCHAR(200),
+	fkTotem INT,
+	FOREIGN KEY (fkTotem) REFERENCES Totem(idTotem)
+);
+
+CREATE TABLE Componente(
+idComponente INT PRIMARY KEY AUTO_INCREMENT,
+nomeComponente VARCHAR(45)
 );
 
 CREATE TABLE Captura (
-    CapturaID INT AUTO_INCREMENT PRIMARY KEY,
-    ComponenteID INT,
-    DataHora DATETIME,
-    Valor FLOAT
+idCaptura INT PRIMARY KEY AUTO_INCREMENT,
+dataHora DATETIME,
+tipo VARCHAR(55),
+valor FLOAT,
+fkComponente INT,
+	FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
 );
+
+CREATE TABLE Metrica (
+    idMetrica INT PRIMARY KEY AUTO_INCREMENT,
+    valorUtilizado int,
+    unidadeMedida VARCHAR(45),
+    dataHora VARCHAR(45),
+    fkTotem INT,
+    FOREIGN KEY (fkTotem) REFERENCES Totem(idTotem),
+    fkEmpresa INT,
+    FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
+    fkComponente INT,
+    FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
+);
+
+CREATE TABLE ParametroAlerta(
+idParametroAlerta INT PRIMARY KEY AUTO_INCREMENT,
+fkComponente INT,
+Ideal INT,
+Atencao INT,
+Alerta INT,
+FOREIGN KEY (fkComponente) REFERENCES Componente (idComponente)
+); 
+
+CREATE TABLE PorcentagemUso(
+idPorcentagemUso INT PRIMARY KEY AUTO_INCREMENT,
+porcentagemHD  DECIMAL(5,2),
+porcentagemMem  DECIMAL(5,2),
+porcentagemProc DECIMAL(5,2),
+dataHora VARCHAR(45),
+fkTotem INT,
+FOREIGN KEY (fkTotem) REFERENCES Totem(idTotem),
+fkEmpresa INT,
+FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+);
+
+
+select*From Empresa;
+select*From Totem;
+select*From InfoMaquina;
+select*From ConfiguracaoComponente;
+select*From Componente;
+select*From ParametroAlerta;
+select*From Metrica;
+
 
 CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
 
 select*from empresa join endereco on EnderecoID = Empresa.EmpresaID join Usuario on Usuario.fkEmpresa = EmpresaID ;
-
-select*from usuario;
-select*from empresa;
+GRANT ALL PRIVILEGES ON FastTotem.* TO 'fastTotemAdmin'@'localhost';
+FLUSH PRIVILEGES;
