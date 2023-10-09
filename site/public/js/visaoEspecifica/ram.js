@@ -9,7 +9,23 @@ var dataRAM = {
             borderColor: "#BD06DD",
             tension: .4,
             fill: true,
-            backgroundColor: '#BD06DD',
+            backgroundColor: (context) => {
+                const background = [
+                    "#BD06DD",
+                    "#bd06dd60"
+                ]
+
+                if(!context.chart.chartArea) {
+                    return;
+                }
+
+                const { ctx, data, chartArea: { top, bottom } } = context.chart;
+                const gradientBackground = ctx.createLinearGradient(0, top, 0, bottom);
+                gradientBackground.addColorStop(.5, background[0]);
+                gradientBackground.addColorStop(1, background[1]);
+
+                return gradientBackground;
+            },
             borderRadius: 10,
         }
     ],

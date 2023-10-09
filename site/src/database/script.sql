@@ -52,8 +52,5 @@ CREATE TABLE Captura (
 );
 
 CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
-
-select*from empresa join endereco on EnderecoID = Empresa.EmpresaID join Usuario on Usuario.fkEmpresa = EmpresaID ;
-
-select*from usuario;
-select*from empresa;
+GRANT ALL PRIVILEGES ON FastTotem.* TO 'fastTotemAdmin'@'localhost';
+FLUSH PRIVILEGES;
