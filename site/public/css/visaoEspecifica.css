@@ -1,0 +1,123 @@
+main {
+    box-sizing: border-box;
+
+    display: flex;
+
+    padding: 2rem 6rem;
+    gap: 2rem;
+
+    width: 100%;
+    height: 100%;
+
+    & * {
+        margin: 0;
+    }
+}
+
+section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 30%;
+
+    & > img {
+        width: 80%;
+    }
+    
+    & > div:last-of-type div {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+
+        padding: 2.2rem;
+        border-radius: 25px;
+        background-color: #3f3e3e;
+
+        color: #FFF;
+
+        & > div span div {
+            margin-top: .5rem;
+            margin-left: 1.2rem;
+
+            & p {
+                margin-left: 1rem;
+                line-height: 1.7rem;
+            }
+        }
+
+        & h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFF;
+        }
+    }
+}
+
+.gaugeChart {
+    position: relative;
+    margin: auto;
+    height: 85%;
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+
+        position: absolute;
+        top: 60%; /* Coloca o topo do elemento no centro vertical */
+        left: 50%; /* Coloca a esquerda do elemento no centro horizontal */
+        transform: translate(-50%, -50%);
+
+        & h2 {
+            font-size: 2rem;
+            line-height: 1.1rem;
+            text-align: center;
+
+            & small {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+section:last-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    width: 70%;
+
+    & > div {
+        flex: 1;
+        display: flex;
+        gap: 2rem;
+    }
+
+    & .chartContainer {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        flex: 1;
+
+        padding: 2.2rem;
+        border-radius: 25px;
+        background-color: #3f3e3e;
+
+        color: #FFF;
+
+        & > div {
+            width: 100%;
+            margin-inline: auto;
+            margin-top: auto;
+        }
+    }
+}
