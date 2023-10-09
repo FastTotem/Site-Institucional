@@ -1,51 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/visaoGeral.css">
     <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/visaoGeral.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>FastTotem | Visão Geral </title>
 </head>
+
 <body>
 
     <div class="side-menu">
         <div class="container">
-        <div class="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
 
-        <div class="icons">
-            <a href="visaoGeral.html" class="active"><img class="menu-icon" src="./assets/dashboard.png" alt=""></a>
-            <a href="visaoEspecifica.html"><img class="menu-icon" src="./assets/specification.png" alt=""></a>
-            <a href="ferramentas.html"><img class="menu-icon" src="./assets/tools.png" alt=""></a>
-            <a href="index.html"><img class="menu-icon" src="./assets/logout.png" alt=""></a>        </div>
+            <div class="icons">
+                <a href="visaoGeral.html" class="active"><img class="menu-icon" src="./assets/dashboard.png" alt=""></a>
+                <a href="visaoEspecifica.html"><img class="menu-icon" src="./assets/specification.png" alt=""></a>
+                <a href="ferramentas.html"><img class="menu-icon" src="./assets/tools.png" alt=""></a>
+                <a href="index.html"><img class="menu-icon" src="./assets/logout.png" alt=""></a>
+            </div>
+        </div>
     </div>
-    </div>
-    
+
     <div class="dashboard">
-    <div class="container">
-    <div class="header">
         <div class="container">
-            <div class="logo">
-                <img src="assets/FastToten - Logo.png" alt="">
-                <h4>FastTotem</h4>
+            <div class="header">
+                <div class="container">
+                    <div class="logo">
+                        <img src="assets/FastToten - Logo.png" alt="">
+                        <h4>FastTotem</h4>
+                    </div>
+                    <div class="navbar">
+                        <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                        <a href="perfilUsuario.html"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                        <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                                src="./assets/customer-service.png" alt=""></a>
+                    </div>
+                </div>
             </div>
-            <div class="navbar">
-                <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                <a href="perfilUsuario.html"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
-                <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon" src="./assets/customer-service.png" alt=""></a>
+            <div class="grid">
+                <div class="container">
+                    <div class="top">
+                        <div class="status">
+                            <div class="status-canvas">
+                                <h3>Visão Geral</h3>
+                                <div>
+                            <canvas id="status-canvas"></canvas>
+                        </div>
+                            </div>
+                            <div class="status-indicator">
+                                <div class="status-item">
+                                    <img src="./assets/ok.png" alt="Ok">
+                                    <p>Ok: <span id="ok-count">0</span></p>
+                                </div>
+                                <div class="status-item">
+                                    <img src="./assets/alerta.png" alt="Alerta">
+                                    <p>Alerta: <span id="alerta-count">0</span></p>
+                                </div>
+                                <div class="status-item">
+                                    <img src="./assets/critico.png" alt="Crítico">
+                                    <p>Crítico: <span id="critico-count">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="totem-list">
+                            <div class="card">
+                                <div class="img-status">
+                                    <img src="./assets/verificar.png" alt="">
+                                </div>
+                                <div class="totem-info">
+                                    <div class="totem-name">
+                                    <h3>Totem 1</h3>
+                                </div>
+                                    <div class="totem-status">
+                                        <div>
+                                            <h3>HD</h3>
+                                            <p>Status: OK</p>
+                                        </div>
+                                        <div>
+                                            <h3>CPU</h3>
+                                            <p>Status: OK</p>
+                                        </div>
+                                        <div>
+                                            <h3>RAM</h3>
+                                            <p>Status: OK</p>
+                                        </div>
+                                        <div>
+                                            <h3>USB</h3>
+                                            <p>Status: OK</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                <button class="restart-button" onclick="restart()">Reiniciar</button>
+                            </div>
+                            </div>
+                            <div class="card">
+                                <h3>Totem 2</h3>
+                                <p>Status: Offline</p>
+                            </div>
+                            <div class="card">
+                                <h3>Totem 3</h3>
+                                <p>Status: Em Manutenção</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                            <div class="container">
+                            <h3 class="title-canvas">Tempo de atividade</h3>
+                                <div class="uptime-canvas">
+                            <canvas id="uptime-canvas"></canvas>
+                        </div>
+                            <div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+
             </div>
         </div>
     </div>
-    <div>
-
-    </div>
-</div>
-</div>
 
 </body>
+
 </html>

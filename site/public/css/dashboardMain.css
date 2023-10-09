@@ -12,6 +12,16 @@ body {
     flex-direction: row;
 }
 
+h1,h2,h3,h4,p{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+}
+
 .dashboard {
     width: 95%;
     height: 100%;

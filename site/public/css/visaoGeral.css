@@ -1,0 +1,150 @@
+.grid{
+    width: 100%;
+    height: 100%;
+}
+
+.grid .container{
+    height: 84vh;
+    padding: 1.4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2vh;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.3%;
+}
+
+.bottom{
+    display: flex;
+    background-color: #3f3e3e;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(93deg, #BD06DD, #670478);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0.4rem;
+    padding: 0.8rem 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.card img{
+    width: 2.2rem;
+    height: auto;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: whitesmoke;
+}
+.img-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+}
+
+.totem-status {
+    width: fit-content;
+    display: flex;
+}
+
+.totem-status div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20%;
+    width: 9vw;
+}
+
+.totem-status div h3{
+    margin-bottom: 2%;
+}
+
+.totem-info {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.totem-name{
+    width: fit-content;
+    margin-right: 4%;
+}
+
+.totem-name h3{
+    width: 6vw
+}
+
+.top, .bottom {
+    width: 100%;
+    height: 50%;
+}
+
+.totem-list { 
+    overflow: auto;
+    background-color: #3f3e3e;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.status {
+    display: flex;
+    width: 50%; 
+    background-color: #3f3e3e;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.status-canvas div{
+    width: 60%;
+    height: 80%;
+}
+
+.uptime-canvas {
+    width: 99%; 
+    height: 100%;
+}
+
+.bottom .container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.title-canvas{
+    color: whitesmoke;
+    align-self: self-start;
+    margin-left: 1%;
+    font-size: 1rem;
+}
+
+.restart-button {
+    background-color: #670478;
+    border-radius: 5px;
+    padding: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: whitesmoke;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.restart-button:hover {
+    transform: scale(1.1); 
+    filter: brightness(0.9);
+}
