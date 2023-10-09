@@ -23,17 +23,20 @@ button{
 }
 
 .dashboard {
-    width: 95%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex:1;
 }
-
-.dashboard .container {}
 
 .header {
     background-color: #3f3e3e;
-    height: 10%;
+    height: 5%;
     user-select: none;
     transition: 0.6s ease-in-out;
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .header .container {
@@ -90,12 +93,12 @@ justify-content: end;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    margin-top: 43%;
+    margin-top: 29%;
 }
 
 .bar {
     width: 2.2vw;
-    height: 0.17rem;
+    height: 0.18rem;
     background-color: white;
     margin: 3px 0;
 }

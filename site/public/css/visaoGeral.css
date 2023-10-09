@@ -1,27 +1,32 @@
 .grid{
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .grid .container{
-    height: 84vh;
-    padding: 1.4%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.2vh;
 }
 
 .top{
+    width: 100%;
+    flex: 1;
     display: flex;
     justify-content: space-between;
     gap: 1.3%;
 }
 
 .bottom{
+    width: 100%;
+    flex: 1;
     display: flex;
     background-color: #3f3e3e;
+    border-radius: 25px;
 }
 
 .card {
@@ -89,24 +94,19 @@
     width: 6vw
 }
 
-.top, .bottom {
-    width: 100%;
-    height: 50%;
-}
-
 .totem-list { 
     overflow: auto;
     background-color: #3f3e3e;
     width: 50%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 .status {
     display: flex;
     width: 50%; 
     background-color: #3f3e3e;
-    border-radius: 10px;
+    border-radius: 25px;
     align-items: center;
 }
 
@@ -122,7 +122,6 @@
 
 .bottom .container{
     width: 100%;
-    height: auto;
     display: flex;
     align-items: center;
 }
