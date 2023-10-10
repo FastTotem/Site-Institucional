@@ -22,6 +22,18 @@ button{
     border: none;
 }
 
+*::-webkit-scrollbar {
+    width: 1vw;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #BD06DD;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: #2D2D2D;
+}
+
 .dashboard {
     height: 100%;
     display: flex;
@@ -45,6 +57,11 @@ button{
     justify-content: space-between;
     align-items: center;
     padding: 0 3%;
+}
+
+.title{
+    color: whitesmoke;
+    font-size: 1.3rem;
 }
 
 .logo {
@@ -119,6 +136,7 @@ justify-content: end;
 .icons a {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 20% 0;
 }
@@ -126,10 +144,6 @@ justify-content: end;
 .icons a:hover {
     background-color: #670478;
     transition: 0.6s ease-in-out;
-}
-
-.icons .active{
-    background-color: #670478;
 }
 
 .icons {
@@ -148,4 +162,97 @@ justify-content: end;
 .nav-icon{
     width: 78%;
     height: auto;
+}
+
+.perfilUser {
+    display: none;
+    flex-direction: column;
+    background-color: #670478;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    width: 16.4%;
+    top: 5.6%;
+    left: 70%;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: left;
+    padding: 1% 1.5%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.perfilUser a {
+    text-decoration: none;
+    color: white;
+}
+
+.perfilUser a:hover {
+    color: #670478;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 15px;
+    padding: 1% 2%;
+    width: 100%;
+    font-weight: lighter;
+    transition: 0.8s ease-in-out;
+}
+
+.active{
+    background-color: #670478;
+}
+
+.infUser {
+    width: 100%;
+    border-bottom: white solid 1px;
+}
+
+.nomeUser {
+    font-size: 14px;
+}
+
+.options {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    font-weight: lighter;
+    width: 98%;
+    height: 5vh;
+}
+
+.logout {
+    width: 40%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.page-name {
+    display: none;
+    position: absolute;
+    left: 4%;
+    background-color: #670478;
+    color: white;
+    padding: 5px 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    animation: fadeIn 1.2s ease-in-out;
+    padding: 1.1% 1%;
+    font-size: 1.2rem;
+}
+
+.icons a:hover .page-name {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
