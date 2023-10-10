@@ -2,16 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var statusCanvas = document.getElementById('status-canvas').getContext('2d');
     
-    var borderColorOk = 'rgba(0, 255, 0, 1)';
-    var borderColorAlerta = 'rgba(255, 215, 0, 1)'; 
-    var borderColorCritico = 'rgba(255, 99, 71, 1)';
+    var borderColorOk = 'rgb(0, 255, 0)';
+    var borderColorAlerta = 'rgb(255, 215, 0)'; 
+    var borderColorCritico = 'rgb(255, 99, 71)';
+    var borderColorOff = 'gray';
     
     var statusData = {
-        labels: ['Critico', 'Alerta', 'Ok'],
+        labels: ['Desligado', 'Critico', 'Alerta', 'Ok'],
         datasets: [{
-            data: [1, 2, 5],
-            backgroundColor: [ 'rgba(255, 99, 71, 0.7)', 'rgba(255, 215, 0, 0.7)' ,'rgba(0, 255, 0, 0.7)'],
-            borderColor: [borderColorCritico, borderColorAlerta, borderColorOk], 
+            data: [20, 10, 20, 50],
+            backgroundColor: ['rgb(101, 101, 101)','rgba(255, 99, 71, 0.7)', 'rgba(255, 215, 0, 0.7)' ,'rgba(0, 255, 0, 0.7)'],
+            borderColor: [borderColorOff, borderColorCritico, borderColorAlerta, borderColorOk], 
             borderWidth: 2, 
         }]
     };
@@ -25,10 +26,30 @@ document.addEventListener('DOMContentLoaded', function() {
             plugins: {
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            var label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += context.formattedValue + '%';
+                            return label;
+                        }
+                    }
                 }
             },
-            cutoutPercentage: 0,
-        },
-    });    
+            cutout: '80%'
+        }
+    });
+
+    var totalTotems = statusData.datasets[0].data.reduce((total, value) => total + value - 22.5, 0);
+
+    var totalTotemsText = document.createElement('div');
+    totalTotemsText.classList.add('total-totems-text');
+    totalTotemsText.textContent = `${totalTotems} Totens sendo monitorados`;
+    
+    document.getElementById('status-canvas').parentNode.appendChild(totalTotemsText);
 
 });

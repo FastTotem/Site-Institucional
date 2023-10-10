@@ -14,6 +14,7 @@
         const criticalSrc = "./assets/aviso.png"
         const alertSrc = "./assets/sinal-de-alerta.png"
         const okSrc = "./assets/verificar.png"
+        const offSrc = "./assets/desligar.png"
     
         const cards = document.querySelectorAll('.list-card');
         const buttons = document.querySelectorAll('.restart-button');
@@ -30,6 +31,8 @@
                 imgElement.src = alertSrc;
             } else if(cardBackgroundColor == "rgba(255, 99, 71, 0.7)"){
                 imgElement.src = criticalSrc;
+            }else if(cardBackgroundColor == "rgb(101, 101, 101)"){
+                imgElement.src = offSrc;
             }else{
                 switch (i) {
                     case 0:

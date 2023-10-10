@@ -59,6 +59,11 @@ button{
     padding: 0 3%;
 }
 
+.title{
+    color: whitesmoke;
+    font-size: 1.3rem;
+}
+
 .logo {
     width: 15vw;
     display: flex;

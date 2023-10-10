@@ -52,10 +52,15 @@ var efficiencyChart = new Chart(efficiencyCanvas, {
             legend: {
                 display: false,
             },
-            tooltips: {
+            tooltip: {
                 callbacks: {
                     label: function (context) {
-                        return context.formattedValue + '%';
+                        var label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += context.formattedValue + '%';
+                        return label;
                     }
                 }
             }

@@ -61,6 +61,7 @@
                         <img src="assets/FastToten - Logo.png" alt="">
                         <h4>FastTotem</h4>
                     </div>
+                    <h4 class="title">Visão Geral</h4>
                     <div class="navbar">
                         <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
                         <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
@@ -72,7 +73,7 @@
             <main class="grid">
                 <section class="top-cards">
                 <div class="totem-status">
-                 <h1>Visão Geral - Funcionamento dos totens</h1>
+                 <h1>Status dos totens - 10/10/2023</h1>
                  <div class="cards">
                     <div class="card-status" id="green-card">
                         <span>5</span>
@@ -85,6 +86,10 @@
                     <div class="card-status" id="red-card">
                         <span>1</span>
                         <h3>Crítico</h3>
+                    </div>
+                    <div class="card-status" id="gray-card">
+                        <span>2</span>
+                        <h3>Desligados</h3>
                     </div>
                  </div>
                  <div class="status-canvas">
@@ -99,6 +104,7 @@
                         <button onclick="selectColor()" id="danger">Critico</button>
                         <button onclick="selectColor()" id="alert">Alerta</button>
                         <button onclick="selectColor()" id="ok">Ok</button>
+                        <button onclick="selectColor()" id="off">Desligados</button>
                     </div>
                     <div class="list">
                         <div class="list-card">
@@ -230,13 +236,13 @@
                 </section>
                 <section class="bottom-cards">
                     <div class="uptime">
-                     <h1>Tempo de atividade</h1>
+                     <h1>Tempo de atividade - 03/10/2023 até 10/10/2023</h1>
                      <div class="uptime-canvas">
                         <canvas id="uptime-canvas"></canvas>
                      </div>
                     </div>
                     <div class="efficiency">
-                        <h1>Eficiência dos totens</h1>
+                        <h1>Eficiência dos totens - 10/10/2023</h1>
                         <div class="efficiency-canvas">
                             <canvas id="efficiency-canvas"></canvas>
                      </div>
