@@ -7,12 +7,27 @@
     <link rel="stylesheet" href="./css/visaoGeral.css">
     <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
-    <script src="./js/visaoGeral.js"></script>
+    <script src="./js/visaoGeral/status.js"></script>
+    <script src="./js/visaoGeral/uptime.js"></script>
+    <script src="./js/visaoGeral/eficiencia.js"></script>
+    <script src="./js/floatingMenu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>FastTotem | Visão Geral </title>
 </head>
 
 <body>
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
 
     <div class="side-menu">
         <div class="container">
@@ -23,10 +38,18 @@
             </div>
 
             <div class="icons">
-                <a href="visaoGeral.html" class="active"><img class="menu-icon" src="./assets/dashboard.png" alt=""></a>
-                <a href="visaoEspecifica.html"><img class="menu-icon" src="./assets/specification.png" alt=""></a>
-                <a href="ferramentas.html"><img class="menu-icon" src="./assets/tools.png" alt=""></a>
-                <a href="index.html"><img class="menu-icon" src="./assets/logout.png" alt=""></a>
+                <a href="visaoGeral.html" class="active">
+                <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                <div class="page-name">Visão Geral - Totens</div>
+            </a>
+            <a href="visaoEspecifica.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Visão Específica - Totens</div>
+            </a>
+            <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/tools.png" alt="">
+                <div class="page-name">Ferramentas</div>
+            </a>
             </div>
         </div>
     </div>
@@ -40,7 +63,7 @@
                     </div>
                     <div class="navbar">
                         <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                        <a href="perfilUsuario.html"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                        <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
                         <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                                 src="./assets/customer-service.png" alt=""></a>
                     </div>
@@ -51,17 +74,17 @@
                 <div class="totem-status">
                  <h1>Visão Geral - Funcionamento dos totens</h1>
                  <div class="cards">
-                    <div class="card-status" id="red-card">
-                        <span>X</span>
-                        <h3>Crítico</h3>
+                    <div class="card-status" id="green-card">
+                        <span>5</span>
+                        <h3>Ok</h3>
                     </div>
                     <div class="card-status" id="yellow-card">
-                        <span>X</span>
+                        <span>2</span>
                         <h3>Alerta</h3>
                     </div>
-                    <div class="card-status" id="green-card">
-                        <span>X</span>
-                        <h3>Ok</h3>
+                    <div class="card-status" id="red-card">
+                        <span>1</span>
+                        <h3>Crítico</h3>
                     </div>
                  </div>
                  <div class="status-canvas">
@@ -71,15 +94,16 @@
                 <div class="totem-list">
                     <h1>Totens cadastrados</h1>
                     <div class="list-status">
-                        <button id="all">Todos</button>
-                        <button id="danger">Critico</button>
-                        <button id="alert">Alerta</button>
-                        <button id="ok">Ok</button>
+                        <script src="./js/visaoGeral/listagem.js"></script>
+                        <button onclick="selectColor()" id="all">Todos</button>
+                        <button onclick="selectColor()" id="danger">Critico</button>
+                        <button onclick="selectColor()" id="alert">Alerta</button>
+                        <button onclick="selectColor()" id="ok">Ok</button>
                     </div>
                     <div class="list">
                         <div class="list-card">
                             <div class="img-status">
-                                <img src="./assets/verificar.png" alt="">
+                                <img src="./assets/aviso.png" alt="">
                             </div>
                             <div class="totem-info">
                                 <div class="totem-name">
@@ -110,7 +134,7 @@
                         </div>
                         <div class="list-card">
                             <div class="img-status">
-                                <img src="./assets/verificar.png" alt="">
+                                <img src="./assets/aviso.png" alt="">
                             </div>
                             <div class="totem-info">
                                 <div class="totem-name">
@@ -141,7 +165,7 @@
                         </div>
                         <div class="list-card">
                             <div class="img-status">
-                                <img src="./assets/verificar.png" alt="">
+                                <img src="./assets/sinal-de-alerta.png" alt="">
                             </div>
                             <div class="totem-info">
                                 <div class="totem-name">
