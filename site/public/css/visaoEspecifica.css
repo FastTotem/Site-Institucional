@@ -11,6 +11,29 @@
     background-color: transparent;
 }
 
+.toolsContainer {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    gap: .8rem;
+
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: 4rem;
+
+    padding: .5rem 1rem;
+
+    color: #FFF;
+
+    transition: .5s;
+
+    &:hover {
+        background-color: #3f3e3e;
+    }
+}
+
 main {
     box-sizing: border-box;
 
