@@ -38,18 +38,32 @@
             </div>
 
             <div class="icons">
+
                 <a href="visaoGeral.html" class="active">
                 <img class="menu-icon" src="./assets/dashboard.png" alt="">
                 <div class="page-name">Visão Geral - Totens</div>
             </a>
+
             <a href="visaoEspecifica.html">
                 <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Específica - Totens</div>
+                <div class="page-name">Visão Especifica - Totens</div>
             </a>
-            <a href="visaoGeral.html">
-                <img class="menu-icon" src="./assets/tools.png" alt="">
-                <div class="page-name">Ferramentas</div>
+
+            <a href="listagemTotens.html">
+                <img class="menu-icon" src="./assets/totem.png" alt="">
+                <div class="page-name">Listagem - Totens</div>
             </a>
+
+            <a href="funcionarios.html">
+                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                <div class="page-name">Funcionários</div>
+            </a>
+
+            <a href="params.html">
+                <img class="menu-icon" src="./assets/params.png" alt="">
+                <div class="page-name">Parâmetros</div>
+            </a>
+
             </div>
         </div>
     </div>
@@ -61,7 +75,7 @@
                         <img src="assets/FastToten - Logo.png" alt="">
                         <h4>FastTotem</h4>
                     </div>
-                    <h4 class="title">Visão Geral</h4>
+                    <h4 class="title">Visão Geral - Totens</h4>
                     <div class="navbar">
                         <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
                         <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
@@ -72,167 +86,63 @@
             </div>
             <main class="grid">
                 <section class="top-cards">
+                    <div class="component-list">
+                        <h1 class="component-list-title">Status por componente - 10/10/2023</h1>
+                        <div class="components">
+                            <section>
+                                <div class="component">
+                                    <h2>Uso de HD</h2>
+                                    <span>10%</span>
+                                </div>
+                                <div class="component">
+                                    <h2>Uso de RAM</h2>
+                                    <span>10%</span>
+                                </div>
+                                <div class="component">
+                                    <h2>Uso de rede</h2>
+                                    <span>10%</span>
+                                </div>
+                            </section>
+                            <section>
+                                <div class="component">
+                                    <h2>Uso de CPU</h2>
+                                    <span>10%</span>
+                                </div>
+                                <div class="component">
+                                    <h2>Uso de USB</h2>
+                                    <span>10%</span>
+                                </div>
+                                <div class="component">
+                                    <h2>Componentes com problema</h2>
+                                    <span>10</span>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
                 <div class="totem-status">
-                 <h1>Status dos totens - 10/10/2023</h1>
+                 <h1>Status por totem- 10/10/2023</h1>
                  <div class="cards">
-                    <div class="card-status" id="green-card">
+                    <a href="listagemTotens.html" class="card-status" id="green-card">
                         <span>5</span>
                         <h3>Ok</h3>
-                    </div>
-                    <div class="card-status" id="yellow-card">
+                    </a>
+                    <a href="listagemTotens.html" class="card-status" id="yellow-card">
                         <span>2</span>
                         <h3>Alerta</h3>
-                    </div>
-                    <div class="card-status" id="red-card">
+                    </a>
+                    <a href="listagemTotens.html" class="card-status" id="red-card">
                         <span>1</span>
                         <h3>Crítico</h3>
-                    </div>
-                    <div class="card-status" id="gray-card">
+                    </a>
+                    <a href="listagemTotens.html" class="card-status" id="gray-card">
                         <span>2</span>
                         <h3>Desligados</h3>
-                    </div>
+                    </a>
                  </div>
                  <div class="status-canvas">
                     <canvas id="status-canvas"></canvas>
                  </div>
                 </div>
-                <div class="totem-list">
-                    <h1>Totens cadastrados</h1>
-                    <div class="list-status">
-                        <script src="./js/visaoGeral/listagem.js"></script>
-                        <button onclick="selectColor()" id="all">Todos</button>
-                        <button onclick="selectColor()" id="danger">Critico</button>
-                        <button onclick="selectColor()" id="alert">Alerta</button>
-                        <button onclick="selectColor()" id="ok">Ok</button>
-                        <button onclick="selectColor()" id="off">Desligados</button>
-                    </div>
-                    <div class="list">
-                        <div class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                <h3>Totem 1</h3>
-                            </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            <button class="restart-button" onclick="restart()">Reiniciar</button>
-                        </div>
-                        </div>
-                        <div class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                <h3>Totem 2</h3>
-                            </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            <button class="restart-button" onclick="restart()">Reiniciar</button>
-                        </div>
-                        </div>
-                        <div class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/sinal-de-alerta.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                <h3>Totem 3</h3>
-                            </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            <button class="restart-button" onclick="restart()">Reiniciar</button>
-                        </div>
-                        </div>
-                        <div class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/verificar.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                <h3>Totem 4</h3>
-                            </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            <button class="restart-button" onclick="restart()">Reiniciar</button>
-                        </div>
-                        </div>
-                    </div>
-            </div>
                 </section>
                 <section class="bottom-cards">
                     <div class="uptime">
@@ -242,7 +152,7 @@
                      </div>
                     </div>
                     <div class="efficiency">
-                        <h1>Eficiência dos totens - 10/10/2023</h1>
+                        <h1>Eficiência no uso - 10/10/2023</h1>
                         <div class="efficiency-canvas">
                             <canvas id="efficiency-canvas"></canvas>
                      </div>

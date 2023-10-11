@@ -10,6 +10,12 @@ body {
     background-color: #333;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 h1,h2,h3,h4,p{
@@ -230,6 +236,7 @@ justify-content: end;
 }
 
 .page-name {
+    z-index: 1;
     display: none;
     position: absolute;
     left: 4%;

@@ -22,7 +22,7 @@ h1 {
 }
 
 .totem-status,
-.totem-list,
+.component-list,
 .uptime,
 .efficiency {
     background-color: #3f3e3e;
@@ -51,7 +51,7 @@ h1 {
     padding: 2% 0;
 }
 
-.cards div {
+.cards a {
     width: 22%;
     height: 7vh;
     display: flex;
@@ -61,16 +61,71 @@ h1 {
     color: whitesmoke;
 }
 
+.cards a:hover {
+    transform: scale(0.99);
+    filter: brightness(0.9);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
 .total-totems-text{
 position: absolute;
-top: 45%;
-left: 29.1%;
+top: 45.5%;
+left: 75.4%;
 transform: translate(-50%, -50%);
 color: whitesmoke;
 font-weight: bolder;
 width: 12%;
 text-align: center;
 font-size: 1.2rem;
+z-index: 0;
+}
+
+.component-list{
+    box-sizing: border-box;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.component-list-title{
+    width: 100%;  
+}
+
+.components{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.components section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45%;
+}
+
+.component{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 25px;
+    text-align: center;
+    width: 30%;
+    height: 90%;
+    color: whitesmoke;
+}
+
+.component h2{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.component span{
+    font-size: 1.1rem;
 }
 
 #green-card {
@@ -99,128 +154,10 @@ font-size: 1.2rem;
     margin-top: 2vh;
 }
 
-.totem-list {
-    background-color: #3f3e3e;
-    overflow-y: auto;
-    height: 91%;
-}
-
-.list-status {
-    margin-top: 1rem;
-}
-
-.list-status button {
-    padding: 0.5rem 2rem;
-    border: solid 2px #670478;
-    background-color: #BD06DD;
-    color: whitesmoke;
-    font-weight: bold;
-    border-bottom: 0;
-}
-
-.list-status button:hover {
-    filter: brightness(0.9);
-}
-
-#ok {
-    border-color: #3BFF5C;
-    background-color: rgba(0, 255, 0, 0.7);
-}
-
-#alert {
-    border-color: #FFB23D;
-    background-color: rgba(255, 215, 0, 0.7);
-}
-
-#danger {
-    border-color: #FF4040;
-    background-color: rgba(255, 99, 71, 0.7);
-}
-
-#all {
-    border-color: #670478;
-    background-color: #BD06DD;
-}
-
-#off{
-    border-color: grey;
-    background-color: rgb(101, 101, 101);
-}
-
-.list {
-    height: 100%;
-}
-
-.list-card {
-    display: flex;
-    background-color: #BD06DD;
-    height: 12%;
-    padding: 1rem;
-    align-items: center;
-    border: solid 2px #670478;
-    border-top: 0;
-    color: whitesmoke;
-}
-
-.img-status {
-    width: 4%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    margin-right: 2%;
-}
-
-.img-status img {
-    width: 100%;
-    height: auto;
-}
-
-.totem-info {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    margin-right: 6%;
-}
-
-.totem-name {
-    width: 30%;
-}
-
-.component-status {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-
-.component-status div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.component-status h3 {
-    font-size: 1rem;
-}
-
-.component-status p {
-    font-size: 0.8rem;
-}
-
-.restart-button {
-    background-color: #BD06DD;
-    border: 2px solid #670478;
-    border-radius: 5px;
-    padding: 0.6rem 0.7rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    color: whitesmoke;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.restart-button:hover {
-    transform: scale(1.1);
-    filter: brightness(0.9);
-}
+.status-canvas canvas{
+    position: relative;
+    z-index: 1;
+ }
 
 .uptime-canvas,
 .efficiency-canvas {
