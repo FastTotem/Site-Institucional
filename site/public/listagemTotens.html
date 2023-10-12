@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/listagemTotens.css">
-    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
     <script src="./js/listagem.js"></script>
     <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Listagem </title>
 </head>
 <body>
-    <div class="side-menu">
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle">
+            <div class="menu-toggle" onclick= "abrirMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -41,7 +54,7 @@
                 <div class="page-name">Funcionários</div>
             </a>
 
-            <a href="params.html">
+            <a href="parametros.html">
                 <img class="menu-icon" src="./assets/params.png" alt="">
                 <div class="page-name">Parâmetros</div>
             </a>
@@ -59,8 +72,8 @@
             </div>
             <h4 class="title">Listagem - Totens</h4>
             <div class="navbar">
-                <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
                 <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                         src="./assets/customer-service.png" alt=""></a>
             </div>
@@ -112,7 +125,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -143,7 +155,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -174,7 +185,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -205,7 +215,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -236,7 +245,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -267,7 +275,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -298,7 +305,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -329,7 +335,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -360,7 +365,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                     <a href="visaoEspecifica.html" class="list-card">
@@ -391,7 +395,6 @@
                             </div>
                         </div>
                         <div>
-                        <button class="restart-button" onclick="restart()">Reiniciar</button>
                     </div>
                     </a>
                 </div>

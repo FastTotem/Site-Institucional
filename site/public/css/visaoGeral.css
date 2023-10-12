@@ -18,7 +18,7 @@ h1 {
     display: flex;
     gap: 1.2rem;
     width: 100%;
-    height: 100%;
+    height: 55%;
 }
 
 .totem-status,
@@ -69,14 +69,14 @@ h1 {
 
 .total-totems-text{
 position: absolute;
-top: 45.5%;
-left: 75.4%;
+top: 42.5%;
+left: 75.2%;
 transform: translate(-50%, -50%);
 color: whitesmoke;
 font-weight: bolder;
 width: 12%;
 text-align: center;
-font-size: 1.2rem;
+font-size: 1rem;
 z-index: 0;
 }
 
@@ -149,8 +149,8 @@ z-index: 0;
 }
 
 .status-canvas {
-    width: 65%;
-    height: 65%;
+    width: 60%;
+    height: 60%;
     margin-top: 2vh;
 }
 

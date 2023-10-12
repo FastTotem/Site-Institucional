@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/funcionario.js"></script>
+    <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
+    <title>FastTotem | Funcionários </title>
+</head>
+<body>
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+            <div class="menu-toggle" onclick= "abrirMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                <div class="page-name">Visão Geral - Totens</div>
+            </a>
+
+            <a href="visaoEspecifica.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Visão Especifica - Totens</div>
+            </a>
+
+            <a href="listagemTotens.html">
+                <img class="menu-icon" src="./assets/totem.png" alt="">
+                <div class="page-name">Listagem - Totens</div>
+            </a>
+
+            <a href="funcionarios.html">
+                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                <div class="page-name">Funcionários</div>
+            </a>
+
+            <a href="parametros.html" class="active">
+                <img class="menu-icon" src="./assets/params.png" alt="">
+                <div class="page-name">Parâmetros</div>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
+                <h4>FastTotem</h4>
+            </div>
+            <h4 class="title">Parâmetros</h4>
+            <div class="navbar">
+                <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                        src="./assets/customer-service.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="grid">
+        
+</main>
+
+</div>
+
+</body>
+</html>

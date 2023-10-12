@@ -17,7 +17,6 @@
         const offSrc = "./assets/desligar.png"
     
         const cards = document.querySelectorAll('.list-card');
-        const buttons = document.querySelectorAll('.restart-button');
         
         cards.forEach((card,i) => {
             var i;
@@ -49,11 +48,5 @@
                         break;
                 }
             }
-        });
-        
-    
-        buttons.forEach((button) => {
-            button.style.backgroundColor = bgndColor;
-            button.style.border = "2px solid " + borderColor;
         });
     }

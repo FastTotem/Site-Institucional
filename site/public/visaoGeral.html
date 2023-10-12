@@ -11,6 +11,7 @@
     <script src="./js/visaoGeral/uptime.js"></script>
     <script src="./js/visaoGeral/eficiencia.js"></script>
     <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>FastTotem | Visão Geral </title>
 </head>
@@ -29,9 +30,9 @@
         </div>
     </div>
 
-    <div class="side-menu">
+    <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle">
+            <div class="menu-toggle" onclick= "abrirMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -59,7 +60,7 @@
                 <div class="page-name">Funcionários</div>
             </a>
 
-            <a href="params.html">
+            <a href="parametros.html">
                 <img class="menu-icon" src="./assets/params.png" alt="">
                 <div class="page-name">Parâmetros</div>
             </a>
