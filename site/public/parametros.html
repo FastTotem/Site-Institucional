@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="stylesheet" href="./css/parametros.css">
+    <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
-    <script src="./js/funcionario.js"></script>
+    <script src="./js/parametros.js"></script>
     <script src="./js/floatingMenu.js"></script>
     <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Funcionários </title>
 </head>
+
 <body>
 
     <div class="perfilUser" id="perfilUser">
@@ -26,7 +29,7 @@
 
     <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle" onclick= "abrirMenu()">
+            <div class="menu-toggle" onclick="abrirMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -35,56 +38,178 @@
             <div class="icons">
 
                 <a href="visaoGeral.html">
-                <img class="menu-icon" src="./assets/dashboard.png" alt="">
-                <div class="page-name">Visão Geral - Totens</div>
-            </a>
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral - Totens</div>
+                </a>
 
-            <a href="visaoEspecifica.html">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Especifica - Totens</div>
-            </a>
+                <a href="visaoEspecifica.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Visão Especifica - Totens</div>
+                </a>
 
-            <a href="listagemTotens.html">
-                <img class="menu-icon" src="./assets/totem.png" alt="">
-                <div class="page-name">Listagem - Totens</div>
-            </a>
+                <a href="listagemTotens.html">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Listagem - Totens</div>
+                </a>
 
-            <a href="funcionarios.html">
-                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
-                <div class="page-name">Funcionários</div>
-            </a>
+                <a href="funcionarios.html">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
 
-            <a href="parametros.html" class="active">
-                <img class="menu-icon" src="./assets/params.png" alt="">
-                <div class="page-name">Parâmetros</div>
-            </a>
+                <a href="parametros.html" class="active">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
 
             </div>
         </div>
     </div>
 
     <div class="dashboard">
-    <div class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="assets/FastToten - Logo.png" alt="">
-                <h4>FastTotem</h4>
-            </div>
-            <h4 class="title">Parâmetros</h4>
-            <div class="navbar">
-                <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
-                <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
-                        src="./assets/customer-service.png" alt=""></a>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/FastToten - Logo.png" alt="">
+                    <h4>FastTotem</h4>
+                </div>
+                <h4 class="title">Parâmetros</h4>
+                <div class="navbar">
+                    <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                            src="./assets/customer-service.png" alt=""></a>
+                </div>
             </div>
         </div>
+
+        <main class="grid">
+            <section class="card-cpu">
+                <h2>CPU</h2>
+                <h3>Configurar níveis de alerta (%) </h3>
+                <div class="alert-range">
+                    <h4 id="ok">Ok:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <span><span class="range-value" id="range-value-ok">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="alert">Alerta:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <span><span class="range-value" id="range-value-alert">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="critical">Crítico</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <span><span class="range-value" id="range-value-critical">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="notify">Notificar à partir de :</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <span><span class="range-value">0</span>%</span>
+                    </div>
+                </div>
+                <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
+                <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
+            </section>
+            <section class="card-ram">
+                <h2>RAM</h2>
+                <h3>Configurar níveis de alerta (%) </h3>
+                <div class="alert-range">
+                    <h4 id="ok">Ok:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <span><span class="range-value" id="range-value-ok">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="alert">Alerta:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <span><span class="range-value" id="range-value-alert">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="critical">Crítico</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <span><span class="range-value" id="range-value-critical">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="notify">Notificar à partir de:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <span><span class="range-value">0</span>%</span>
+                    </div>
+                </div>
+                <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
+                <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
+            </section>
+            <section class="card-hd">
+                <h2>HD</h2>
+                <h3>Configurar níveis de alerta (%)</h3>
+                <div class="alert-range">
+                    <h4 id="ok">Ok:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <span><span class="range-value" id="range-value-ok">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="alert">Alerta:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <span><span class="range-value" id="range-value-alert">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="critical">Crítico</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <span><span class="range-value" id="range-value-critical">0</span>%</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="notify">Notificar à partir de:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <span><span class="range-value">0</span>%</span>
+                    </div>
+                </div>
+                <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
+                <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
+            </section>
+            <section class="card-usb">
+                <h2>USB</h2>
+                <h3>Configurar níveis de alerta (segundos) </h3>
+                <div class="alert-range">
+                    <h4 id="critical">Inativo após:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl" max="60">
+                        <span><span class="range-value" id="range-value-critical">0</span>s</span>
+                    </div>
+                </div>
+                <div class="alert-range">
+                    <h4 id="notify">Notificar à partir de:</h4>
+                    <div class="range">
+                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl" max="60">
+                        <span><span class="range-value">0</span>s</span>
+                    </div>
+                </div>
+                <p class="error-message">Os valores devem seguir a ordem: Notificação >= Inativo Após</p>
+                <button onclick="validarUsb(this)" class="alert-range-btn">Salvar Alterações</button>
+            </section>
+        </main>
+
     </div>
 
-    <main class="grid">
-        
-</main>
-
-</div>
-
 </body>
+
 </html>
