@@ -12,25 +12,75 @@
 }
 
 .toolsContainer {
+    width: fit-content;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.toolsButton, .controllerButton {
     cursor: pointer;
     display: flex;
     align-items: center;
-    width: fit-content;
-
     gap: .8rem;
+    padding: 1rem;
+    color: #FFF;
+    
+    transition: .5s;
+    &:hover {
+        background-color: #3f3e3e;
+    }
+}
 
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: 4rem;
+.toolsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-    padding: .5rem 1rem;
+    position: absolute;
+    margin-top: 3rem;
+    right: 3rem;
 
+    padding: 2rem;
+
+    background-color: #2b2b2b;
+    border-radius: 10px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: .5s;
+}
+
+.toolsBoxActive {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toolsBox button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: 1rem;
+    
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+
+    border: 0;
+    border-radius: 5px;
+    background-color: #3f3e3e;
     color: #FFF;
 
     transition: .5s;
 
+    & .iconify {
+        font-size: 1.4rem;
+    }
+
     &:hover {
-        background-color: #3f3e3e;
+        opacity: .8;
     }
 }
 
@@ -38,18 +88,25 @@ main {
     box-sizing: border-box;
 
     display: flex;
+    flex-direction: column;
 
-    padding: 2rem 6rem;
-    padding-left: 3rem;
-    gap: 2rem;
+    padding: 0 2rem;
+    padding-inline: 1.2rem;
+    padding-bottom: 2rem !important;
+    gap: 1rem;
 
     width: 100%;
-    height: 100%;
+    max-height: 90vh;
 
     overflow-y: scroll;
 
     & * {
         margin: 0;
+    }
+
+    & > div {
+        display: flex;
+        gap: 1rem;
     }
 }
 
@@ -76,6 +133,7 @@ section:first-of-type {
     }
     
     & > div {
+        flex: 1;
         display: flex;
         flex-direction: column;
         gap: .8rem;
@@ -135,15 +193,16 @@ section:first-of-type {
 
 section:last-of-type {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     
     width: 70%;
     
     & > div {
         flex: 1;
         display: flex;
-        gap: 2rem;
+        flex-direction: column;
+        
+        gap: 1.5rem;
     }
 
     & .chartContainer {
@@ -166,7 +225,7 @@ section:last-of-type {
     }
 
     & .KPIContainer {
-        flex: 1;
+        flex: 1.2;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -174,6 +233,7 @@ section:last-of-type {
         border-radius: 25px;
 
         & > div {
+            flex: 1;
             display: flex;
             gap: 1rem;
         }
@@ -205,6 +265,30 @@ section:last-of-type {
     }
 }
 
+.controllers {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    & .iconify {
+        font-size: 2.5rem;
+    }
+
+    & .controllerButton {
+        gap: 0rem;
+        padding: .5rem .5rem;
+
+        &:first-of-type {
+            padding-right: 1rem;
+        }
+
+        &:last-of-type {
+            padding-left: 1rem;
+        }
+    }
+}
+
 @media(max-width: 1800px) {
     html {
         font-size: 85%;
@@ -219,7 +303,7 @@ section:last-of-type {
     }
 
     main {
-        padding: 1.5rem;
+        padding-inline: 1.5rem;
         padding-left: 3rem;
     }
 

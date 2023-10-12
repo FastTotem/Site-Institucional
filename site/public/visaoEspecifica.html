@@ -12,7 +12,7 @@
     <script src="js/visaoEspecifica/cpu.js" defer></script>
     <script src="js/visaoEspecifica/ram.js" defer></script>
     <script src="js/visaoEspecifica/hd.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/visaoEspecifica/tools.js" defer></script>
     <title>FastTotem | Visão Geral</title>
 </head>
 <body>
@@ -78,120 +78,149 @@
             </div>
         </div>
 
-        <div class="toolsContainer">
-            <span class="iconify" data-icon="fa-solid:tools"></span>
-            <p>Ferramentas</p>
-        </div>
-
+        
         <main>
-            <section>
-                <div>
-                    <h1>Totem 001</h1>
+            <div id="toolsContainer" class="toolsContainer">
+                <div id="toolsButton" class="toolsButton">
+                    <span class="iconify" data-icon="fa-solid:tools"></span>
+                    <p>Ferramentas</p>
+                </div>
 
+                <div id="toolsBox" class="toolsBox">
+                    <button>
+                        <span class="iconify" data-icon="material-symbols:restart-alt"></span>
+                        Reiniciar totem
+                    </button>
+
+                    <button>
+                        <span class="iconify" data-icon="carbon:clean"></span>
+                        Limpar cache
+                    </button>
+                </div>  
+            </div>
+
+            <div class="dashboardContainer">
+                <section>
                     <div>
-                        <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
-                        <span><strong>Dispositivo grafico:</strong> NVIDIA GeForce RTX 2080 TI</span>
-                        <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
-                        <span>
-                            <strong>Discos: </strong>
+                        <h1>Totem 001</h1>
+    
+                        <div>
+                            <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
+                            <span><strong>Sistema Operacional:</strong> Windows 64 bits</span>
+                            <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
+                            <span>
+                                <strong>Discos: </strong>
+                                <div>
+                                    <strong>• Disco Local (C:):</strong>
+                                    <p>
+                                        Tipo: SSD (Unidade de Estado Sólido)
+                                        <br>
+                                        Capacidade: 500 GB
+                                    </p>
+                                </div>
+    
+                                <div>
+                                    <strong>• Disco Local (D:):</strong>
+                                    <p>
+                                        Tipo: HDD (Disco Rígido)
+                                        <br>
+                                        Capacidade: 2 TB
+                                    </p>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h1>Tempo de atividade</h1>
+    
+                        <div class="gaugeChart">
                             <div>
-                                <strong>• Disco Local (C:):</strong>
-                                <p>
-                                    Tipo: SSD (Unidade de Estado Sólido)
-                                    <br>
-                                    Capacidade: 500 GB
-                                </p>
+                                <h2>
+                                    22
+                                    <small>Dias</small>
+                                </h2>
+                                :
+                                <h2>
+                                    20
+                                    <small>Horas</small>
+                                </h2>
+                                :
+                                <h2>
+                                    35
+                                    <small>Minutos</small>
+                                </h2>
                             </div>
-
+                            <canvas id="gaugeChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+    
+                <section>
+                    <div>
+                        <div class="chartContainer">
+                            <h1>Uso de CPU</h1>
                             <div>
-                                <strong>• Disco Local (D:):</strong>
-                                <p>
-                                    Tipo: HDD (Disco Rígido)
-                                    <br>
-                                    Capacidade: 2 TB
-                                </p>
+                                <canvas id="lineChartCPU"></canvas>
                             </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div>
-                    <h1>Tempo de atividade</h1>
-
-                    <div class="gaugeChart">
-                        <div>
-                            <h2>
-                                22
-                                <small>Dias</small>
-                            </h2>
-                            :
-                            <h2>
-                                20
-                                <small>Horas</small>
-                            </h2>
-                            :
-                            <h2>
-                                35
-                                <small>Minutos</small>
-                            </h2>
                         </div>
-                        <canvas id="gaugeChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div>
-                    <div class="chartContainer">
-                        <h1>Uso de CPU</h1>
-                        <div>
-                            <canvas id="lineChartCPU"></canvas>
+    
+                        <div class="chartContainer">
+                            <h1>Uso de HD</h1>
+                            <div>
+                                <canvas id="barChartHD"></canvas>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="chartContainer">
-                        <h1>Uso de RAM</h1>
-                        <div>
-                            <canvas id="barChartRAM"></canvas>
+    
+                    <div>
+                        <div class="chartContainer">
+                            <h1>Uso de RAM</h1>
+                            <div>
+                                <canvas id="barChartRAM"></canvas>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="chartContainer">
-                        <h1>Uso de HD</h1>
-                        <div>
-                            <canvas id="barChartHD"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="KPIContainer">
-                        <div>
-                            <div class="KPI">
-                                <h2>USB<span class="on"></span></h2>
-                                <p>Ativo</p>
+    
+                        <div class="KPIContainer">
+                            <div>
+                                <div class="KPI">
+                                    <h2>USB<span class="on"></span></h2>
+                                    <p>Ativo</p>
+                                </div>
+        
+                                <div class="KPI">
+                                    <h2>CPU<span class="on"></span></h2>
+                                    <h3>81%</h3>
+                                </div>
                             </div>
     
-                            <div class="KPI">
-                                <h2>CPU<span class="on"></span></h2>
-                                <h3>81%</h3>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="KPI">
-                                <h2>RAM<span class="on"></span></h2>
-                                <h3>74%</h3>
-                            </div>
-    
-                            <div class="KPI">
-                                <h2>HD<span class="on"></span></h2>
-                                <h3>95%</h3>
+                            <div>
+                                <div class="KPI">
+                                    <h2>RAM<span class="on"></span></h2>
+                                    <h3>74%</h3>
+                                </div>
+        
+                                <div class="KPI">
+                                    <h2>HD<span class="on"></span></h2>
+                                    <h3>95%</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </section>
+            </div>
+
+            <div class="controllers">
+                <div class="controllerButton">
+                    <span class="iconify" data-icon="ic:round-navigate-before"></span>
+                    <p>Anterior</p>
                 </div>
-            </section>
+
+                <div class="controllerButton">
+                    <p>Próximo</p>
+                    <span class="iconify" data-icon="ic:round-navigate-next"></span>
+                </div>
+            </div>
         </main>
     </div>
 </div>
