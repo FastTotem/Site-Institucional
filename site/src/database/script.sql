@@ -87,8 +87,8 @@ Alerta INT,
 FOREIGN KEY (fkComponente) REFERENCES Componente (idComponente)
 ); 
 
-CREATE TABLE PorcentagemUso(
-idPorcentagemUso INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE infSistema(
+idInfSistema INT PRIMARY KEY AUTO_INCREMENT,
 porcentagemHD  DECIMAL(5,2),
 porcentagemMem  DECIMAL(5,2),
 porcentagemProc DECIMAL(5,2),

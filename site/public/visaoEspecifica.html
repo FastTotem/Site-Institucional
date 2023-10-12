@@ -16,30 +16,44 @@
     <title>FastTotem | Visão Geral</title>
 </head>
 <body>
-<div class="side-menu">
-    <div class="container">
-        <div class="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+            <div class="menu-toggle" onclick= "abrirMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
 
-        <div class="icons">
-            <a href="visaoGeral.html">
-                <img class="menu-icon" src="./assets/dashboard.png" alt=""/>
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                <div class="page-name">Visão Geral - Totens</div>
             </a>
+
             <a href="visaoEspecifica.html" class="active">
-                <img class="menu-icon" src="./assets/specification.png" alt=""/>
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Visão Especifica - Totens</div>
             </a>
-            <a href="ferramentas.html">
-                <img class="menu-icon" src="./assets/tools.png" alt=""/>
+
+            <a href="listagemTotens.html">
+                <img class="menu-icon" src="./assets/totem.png" alt="">
+                <div class="page-name">Listagem - Totens</div>
             </a>
-            <a href="index.html">
-                <img class="menu-icon" src="./assets/logout.png" alt=""/>
+
+            <a href="funcionarios.html">
+                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                <div class="page-name">Funcionários</div>
             </a>
+
+            <a href="parametros.html">
+                <img class="menu-icon" src="./assets/params.png" alt="">
+                <div class="page-name">Parâmetros</div>
+            </a>
+
+            </div>
         </div>
     </div>
-</div>
 
 <div class="dashboard">
     <div class="container">
@@ -49,7 +63,7 @@
                     <img src="assets/FastToten - Logo.png" alt="" />
                     <h4>FastTotem</h4>
                 </div>
-
+                <h4 class="title">Visão Específica</h4>
                 <div class="navbar">
                     <a href="#">
                         <img class="nav-icon" src="./assets/bell.png" alt=""/>

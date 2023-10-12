@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/listagem.js"></script>
+    <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
+    <title>FastTotem | Listagem </title>
+</head>
+<body>
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+            <div class="menu-toggle" onclick= "abrirMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                <div class="page-name">Visão Geral - Totens</div>
+            </a>
+
+            <a href="visaoEspecifica.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Visão Especifica - Totens</div>
+            </a>
+
+            <a href="listagemTotens.html" class="active">
+                <img class="menu-icon" src="./assets/totem.png" alt="">
+                <div class="page-name">Listagem - Totens</div>
+            </a>
+
+            <a href="funcionarios.html">
+                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                <div class="page-name">Funcionários</div>
+            </a>
+
+            <a href="parametros.html">
+                <img class="menu-icon" src="./assets/params.png" alt="">
+                <div class="page-name">Parâmetros</div>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
+                <h4>FastTotem</h4>
+            </div>
+            <h4 class="title">Listagem - Totens</h4>
+            <div class="navbar">
+                <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                        src="./assets/customer-service.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="grid">
+        <div id="section2">
+        <div class="totem-list">
+            <div class="list-title">
+                <h1>Totens cadastrados</h1>
+                <h4 class="filter">Mostrando 10 de 10</h4>
+            </div>
+                <div class="list-status">
+                    <script src="./js/visaoGeral/listagem.js"></script>
+                    <button onclick="selectColor()" id="all">Todos</button>
+                    <button onclick="selectColor()" id="danger">Critico</button>
+                    <button onclick="selectColor()" id="alert">Alerta</button>
+                    <button onclick="selectColor()" id="ok">Ok</button>
+                    <button onclick="selectColor()" id="off">Desligados</button>
+                    <button onclick="openForm()" id="add">+</button>
+                </div>
+                <div class="list">
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 1</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 2</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/sinal-de-alerta.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 3</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/verificar.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 4</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 5</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 6</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 7</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 8</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 9</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                    <a href="visaoEspecifica.html" class="list-card">
+                        <div class="img-status">
+                            <img src="./assets/aviso.png" alt="">
+                        </div>
+                        <div class="totem-info">
+                            <div class="totem-name">
+                            <h3>Totem 10</h3>
+                        </div>
+                            <div class="component-status">
+                                <div>
+                                    <h3>HD</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>CPU</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>RAM</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                                <div>
+                                    <h3>USB</h3>
+                                    <p>Status: OK</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                    </div>
+                    </a>
+                </div>
+        </div>
+        </div>
+        <div id="section1">
+        <div class="totem-register" id="totem-register">
+          <h1>Cadastrar novo totem</h1>
+          <form id="totem-form">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Totem" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="parametros">Parâmetros:</label>
+                <select id="parametros" name="parametros">
+                    <option value="padrao">Padrão</option>
+                    <option value="personalizado">Personalizado</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="jar">Jar:</label>
+                <select id="jar" name="jar">
+                    <option value="padrao">Padrão</option>
+                    <option value="jar1">Jar 1</option>
+                    <option value="jar2">Jar 2</option>
+                    <option value="jar3">Jar 3</option>
+                    <option value="jar4">Jar 4</option>
+                    <option value="jar5">Jar 5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="chave-acesso">Chave de Acesso:</label>
+                <select id="chaveAcesso" name="chave-acesso" onchange="showHideChave(this)">
+                    <option value="padrao">Aleatória</option>
+                    <option value="personalizado">Personalizada</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="chave-acesso" style="display: none;">
+                <label for="chave">Chave de Acesso:</label>
+                <input type="text" id="chave" name="chave" placeholder="Chave de Acesso Personalizada">
+            </div>
+    
+                <button type="submit" id="submit-button">Cadastrar Totem</button>
+        </form>
+        </div>
+    </div>
+</main>
+
+</div>
+
+</body>
+</html>
+
+<script>
+       function showHideChave(selectElement) {
+        const chaveAcessoField = document.getElementById("chave-acesso");
+        if (selectElement.value === "personalizado") {
+            chaveAcessoField.style.display = "block";
+        } else {
+            chaveAcessoField.style.display = "none";
+        }
+    }
+
+    function openForm() {
+        const form = document.getElementById("totem-register");
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+</script>

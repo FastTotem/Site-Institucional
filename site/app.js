@@ -10,6 +10,8 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
 var usuarioRouter = require("./src/routes/usuario");
+var totemRouter = require("./src/routes/totem");
+var capturaRouter = require("./src/routes/captura");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
