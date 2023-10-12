@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/funcionario.js"></script>
+    <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
+    <title>FastTotem | Funcionários </title>
+</head>
+<body>
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+            <div class="menu-toggle" onclick= "abrirMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                <div class="page-name">Visão Geral - Totens</div>
+            </a>
+
+            <a href="visaoEspecifica.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Visão Especifica - Totens</div>
+            </a>
+
+            <a href="listagemTotens.html">
+                <img class="menu-icon" src="./assets/totem.png" alt="">
+                <div class="page-name">Listagem - Totens</div>
+            </a>
+
+            <a href="funcionarios.html" class="active"  >
+                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                <div class="page-name">Funcionários</div>
+            </a>
+
+            <a href="parametros.html">
+                <img class="menu-icon" src="./assets/params.png" alt="">
+                <div class="page-name">Parâmetros</div>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
+                <h4>FastTotem</h4>
+            </div>
+            <h4 class="title">Funcionários</h4>
+            <div class="navbar">
+                <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                        src="./assets/customer-service.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="grid">
+        <div id="section2">
+            <div class="totem-list">
+                <div class="list-title">
+                    <h1>Funcionários cadastrados</h1>
+                    <h4 class="filter">Mostrando 10 de 10</h4>
+                </div>
+                <div class="list-status">
+                    <button onclick="filterList('todos'),selectColor()">Todos</button>
+                    <button onclick="filterList('ativos'),selectColor()" id="ok">Ativos</button>
+                    <button onclick="filterList('inativos'),selectColor()" id="off">Inativos</button>
+                </div>
+                <div class="list">
+                    <div class="employee-card">
+                        <div class="employee-info">
+                            <div class="employee-name">
+                                <h3>Funcionário 1</h3>
+                                <p>Email: funcionario1@email.com</p>
+                                <p>Nível de Acesso: Administrador</p>
+                                <p>Status: Ativo</p>
+                            </div>
+                            <div class="actions">
+                                <button onclick="inativarFuncionario(1)">Inativar</button>
+                                <button onclick="excluirFuncionario(1)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="employee-card">
+                        <div class="employee-info">
+                            <div class="employee-name">
+                                <h3>Funcionário 2</h3>
+                                <p>Email: funcionario3@email.com</p>
+                                <p>Nível de Acesso: Gerente</p>
+                                <p>Status: Ativo</p>
+                            </div>
+                            <div class="actions">
+                                <button onclick="inativarFuncionario(2)">Inativar</button>
+                                <button onclick="excluirFuncionario(2)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="employee-card">
+                        <div class="employee-info">
+                            <div class="employee-name">
+                                <h3>Funcionário 3</h3>
+                                <p>Email: funcionario2@email.com</p>
+                                <p>Nível de Acesso: Funcionario</p>
+                                <p>Status: Ativo</p>
+                            </div>
+                            <div class="actions">
+                                <button onclick="inativarFuncionario(2)">Inativar</button>
+                                <button onclick="excluirFuncionario(2)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="employee-card">
+                        <div class="employee-info">
+                            <div class="employee-name">
+                                <h3>Funcionário 4</h3>
+                                <p>Email: funcionario4@email.com</p>
+                                <p>Nível de Acesso: Funcionario</p>
+                                <p>Status: Inativo</p>
+                            </div>
+                            <div class="actions">
+                                <button onclick="inativarFuncionario(2)">Inativar</button>
+                                <button onclick="excluirFuncionario(2)">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+            </div>
+        </div>  
+        <div id="section1">
+            <div class="totem-register" id="totem-register">
+                <h1>Cadastrar novo funcionário</h1>
+                <form id="totem-form">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome do Funcionário" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="E-mail do Funcionário" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="nivel-acesso">Nível de Acesso:</label>
+                        <select id="nivel-acesso" name="nivel-acesso">
+                            <option value="administrador">Administrador</option>
+                            <option value="gerente">Gerente</option>
+                            <option value="funcionario">Funcionário</option>
+                        </select>
+                    </div>
+        
+                    <button type="submit" id="submit-button">Cadastrar Funcionário</button>
+                </form>
+            </div>
+        </div>
+        
+</main>
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+    function openForm() {
+        const form = document.getElementById("totem-register");
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+
+    function filterList(status) {
+    }
+
+    function inativarFuncionario(id) {
+    }
+
+    function excluirFuncionario(id) {
+    }
+</script>
