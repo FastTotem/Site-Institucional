@@ -12,16 +12,30 @@
     <script src="js/visaoEspecifica/cpu.js" defer></script>
     <script src="js/visaoEspecifica/ram.js" defer></script>
     <script src="js/visaoEspecifica/hd.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/visaoEspecifica/tools.js" defer></script>
+    <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Visão Geral</title>
 </head>
 <body>
-    <div class="side-menu" id="side-menu">
+    
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+  <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle" onclick= "abrirMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
             </div>
 
             <div class="icons">
@@ -60,15 +74,14 @@
         <div class="header">
             <div class="container">
                 <div class="logo">
-                    <img src="assets/FastToten - Logo.png" alt="" />
-                    <h4>FastTotem</h4>
-                </div>
+                        <h4>FastTotem</h4>
+                    </div>
                 <h4 class="title">Visão Específica</h4>
                 <div class="navbar">
                     <a href="#">
                         <img class="nav-icon" src="./assets/bell.png" alt=""/>
                     </a>
-                    <a href="perfilUsuario.html">
+                    <a onclick="abrirPerfil()">
                         <img class="nav-icon" src="./assets/profile-user.png" alt=""/>
                     </a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC">
@@ -78,120 +91,148 @@
             </div>
         </div>
 
-        <div class="toolsContainer">
-            <span class="iconify" data-icon="fa-solid:tools"></span>
-            <p>Ferramentas</p>
-        </div>
-
+        
         <main>
-            <section>
-                <div>
-                    <h1>Totem 001</h1>
 
+            <div class="dashboardContainer">
+                <section>
                     <div>
-                        <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
-                        <span><strong>Dispositivo grafico:</strong> NVIDIA GeForce RTX 2080 TI</span>
-                        <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
-                        <span>
-                            <strong>Discos: </strong>
+                        <h1>Totem 001</h1>
+    
+                        <div>
+                            <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
+                            <span><strong>Sistema Operacional:</strong> Windows 64 bits</span>
+                            <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
+                            <span>
+                                <strong>Discos: </strong>
+                                <div>
+                                    <strong>• Disco Local (C:):</strong>
+                                    <p>
+                                        Tipo: SSD (Unidade de Estado Sólido)
+                                        <br>
+                                        Capacidade: 500 GB
+                                    </p>
+                                </div>
+    
+                                <div>
+                                    <strong>• Disco Local (D:):</strong>
+                                    <p>
+                                        Tipo: HDD (Disco Rígido)
+                                        <br>
+                                        Capacidade: 2 TB
+                                    </p>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h1>Tempo de atividade</h1>
+    
+                        <div class="gaugeChart">
                             <div>
-                                <strong>• Disco Local (C:):</strong>
-                                <p>
-                                    Tipo: SSD (Unidade de Estado Sólido)
-                                    <br>
-                                    Capacidade: 500 GB
-                                </p>
+                                <h2>
+                                    22
+                                    <small>Dias</small>
+                                </h2>
+                                :
+                                <h2>
+                                    20
+                                    <small>Horas</small>
+                                </h2>
+                                :
+                                <h2>
+                                    35
+                                    <small>Minutos</small>
+                                </h2>
                             </div>
-
+                            <canvas id="gaugeChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+    
+                <section>
+                    <div>
+                        <div class="chartContainer">
+                            <h1>Uso de CPU</h1>
                             <div>
-                                <strong>• Disco Local (D:):</strong>
-                                <p>
-                                    Tipo: HDD (Disco Rígido)
-                                    <br>
-                                    Capacidade: 2 TB
-                                </p>
+                                <canvas id="lineChartCPU"></canvas>
                             </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div>
-                    <h1>Tempo de atividade</h1>
-
-                    <div class="gaugeChart">
-                        <div>
-                            <h2>
-                                22
-                                <small>Dias</small>
-                            </h2>
-                            :
-                            <h2>
-                                20
-                                <small>Horas</small>
-                            </h2>
-                            :
-                            <h2>
-                                35
-                                <small>Minutos</small>
-                            </h2>
                         </div>
-                        <canvas id="gaugeChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div>
-                    <div class="chartContainer">
-                        <h1>Uso de CPU</h1>
-                        <div>
-                            <canvas id="lineChartCPU"></canvas>
+    
+                        <div class="chartContainer">
+                            <h1>Uso de HD</h1>
+                            <div>
+                                <canvas id="barChartHD"></canvas>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="chartContainer">
-                        <h1>Uso de RAM</h1>
-                        <div>
-                            <canvas id="barChartRAM"></canvas>
+    
+                    <div>
+                        <div class="chartContainer">
+                            <h1>Uso de RAM</h1>
+                            <div>
+                                <canvas id="barChartRAM"></canvas>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="chartContainer">
-                        <h1>Uso de HD</h1>
-                        <div>
-                            <canvas id="barChartHD"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="KPIContainer">
-                        <div>
-                            <div class="KPI">
-                                <h2>USB<span class="on"></span></h2>
-                                <p>Ativo</p>
+    
+                        <div class="KPIContainer">
+                            <div>
+                                <div class="KPI">
+                                    <h2>USB<span class="on"></span></h2>
+                                    <p>Ativo</p>
+                                </div>
+        
+                                <div class="KPI">
+                                    <h2>CPU<span class="on"></span></h2>
+                                    <h3>81%</h3>
+                                </div>
                             </div>
     
-                            <div class="KPI">
-                                <h2>CPU<span class="on"></span></h2>
-                                <h3>81%</h3>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="KPI">
-                                <h2>RAM<span class="on"></span></h2>
-                                <h3>74%</h3>
-                            </div>
-    
-                            <div class="KPI">
-                                <h2>HD<span class="on"></span></h2>
-                                <h3>95%</h3>
+                            <div>
+                                <div class="KPI">
+                                    <h2>RAM<span class="on"></span></h2>
+                                    <h3>74%</h3>
+                                </div>
+        
+                                <div class="KPI">
+                                    <h2>HD<span class="on"></span></h2>
+                                    <h3>95%</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </section>
+            </div>
+
+            <div class="controllers">
+                <div class="controllerButton">
+                    <span class="iconify" data-icon="ic:round-navigate-before"></span>
+                    <p>Anterior</p>
                 </div>
-            </section>
+                <div id="toolsContainer" class="toolsContainer">
+                    <div id="toolsButton" class="toolsButton">
+                        <span class="iconify" data-icon="fa-solid:tools"></span>
+                        <p>Ferramentas</p>
+                    </div>
+    
+                    <div id="toolsBox" class="toolsBox">
+                        <button>
+                            <span class="iconify" data-icon="material-symbols:restart-alt"></span>
+                            Reiniciar totem
+                        </button>
+    
+                        <button>
+                            <span class="iconify" data-icon="carbon:clean"></span>
+                            Limpar cache
+                        </button>
+                    </div>  
+                </div>
+                <div class="controllerButton">
+                    <p>Próximo</p>
+                    <span class="iconify" data-icon="ic:round-navigate-next"></span>
+                </div>
+            </div>
         </main>
     </div>
 </div>
