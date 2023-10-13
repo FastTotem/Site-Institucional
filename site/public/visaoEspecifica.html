@@ -13,15 +13,29 @@
     <script src="js/visaoEspecifica/ram.js" defer></script>
     <script src="js/visaoEspecifica/hd.js" defer></script>
     <script src="js/visaoEspecifica/tools.js" defer></script>
+    <script src="./js/floatingMenu.js"></script>
+    <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Visão Geral</title>
 </head>
 <body>
-    <div class="side-menu" id="side-menu">
+    
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+  <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle" onclick= "abrirMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
             </div>
 
             <div class="icons">
@@ -60,15 +74,14 @@
         <div class="header">
             <div class="container">
                 <div class="logo">
-                    <img src="assets/FastToten - Logo.png" alt="" />
-                    <h4>FastTotem</h4>
-                </div>
+                        <h4>FastTotem</h4>
+                    </div>
                 <h4 class="title">Visão Específica</h4>
                 <div class="navbar">
                     <a href="#">
                         <img class="nav-icon" src="./assets/bell.png" alt=""/>
                     </a>
-                    <a href="perfilUsuario.html">
+                    <a onclick="abrirPerfil()">
                         <img class="nav-icon" src="./assets/profile-user.png" alt=""/>
                     </a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC">
@@ -80,24 +93,6 @@
 
         
         <main>
-            <div id="toolsContainer" class="toolsContainer">
-                <div id="toolsButton" class="toolsButton">
-                    <span class="iconify" data-icon="fa-solid:tools"></span>
-                    <p>Ferramentas</p>
-                </div>
-
-                <div id="toolsBox" class="toolsBox">
-                    <button>
-                        <span class="iconify" data-icon="material-symbols:restart-alt"></span>
-                        Reiniciar totem
-                    </button>
-
-                    <button>
-                        <span class="iconify" data-icon="carbon:clean"></span>
-                        Limpar cache
-                    </button>
-                </div>  
-            </div>
 
             <div class="dashboardContainer">
                 <section>
@@ -215,7 +210,24 @@
                     <span class="iconify" data-icon="ic:round-navigate-before"></span>
                     <p>Anterior</p>
                 </div>
-
+                <div id="toolsContainer" class="toolsContainer">
+                    <div id="toolsButton" class="toolsButton">
+                        <span class="iconify" data-icon="fa-solid:tools"></span>
+                        <p>Ferramentas</p>
+                    </div>
+    
+                    <div id="toolsBox" class="toolsBox">
+                        <button>
+                            <span class="iconify" data-icon="material-symbols:restart-alt"></span>
+                            Reiniciar totem
+                        </button>
+    
+                        <button>
+                            <span class="iconify" data-icon="carbon:clean"></span>
+                            Limpar cache
+                        </button>
+                    </div>  
+                </div>
                 <div class="controllerButton">
                     <p>Próximo</p>
                     <span class="iconify" data-icon="ic:round-navigate-next"></span>
