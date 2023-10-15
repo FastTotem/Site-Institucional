@@ -60,7 +60,7 @@ CREATE TABLE Captura (
 idCaptura INT PRIMARY KEY AUTO_INCREMENT,
 dataHora DATETIME,
 tipo VARCHAR(55),
-valor FLOAT,
+valor DOUBLE,
 fkComponente INT,
 	FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
 );
