@@ -290,7 +290,6 @@ section:last-of-type {
 }
 
 @media(max-width: 1800px) {
-    html{
         font-size: 85%;
     }
 
