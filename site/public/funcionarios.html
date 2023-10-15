@@ -26,10 +26,9 @@
 
     <div class="side-menu" id="side-menu">
         <div class="container">
-            <div class="menu-toggle" onclick= "abrirMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
             </div>
 
             <div class="icons">
@@ -67,7 +66,6 @@
     <div class="header">
         <div class="container">
             <div class="logo">
-                <img src="assets/FastToten - Logo.png" alt="">
                 <h4>FastTotem</h4>
             </div>
             <h4 class="title">Funcionários</h4>
@@ -93,7 +91,7 @@
                     <button onclick="filterList('inativos'),selectColor()" id="off">Inativos</button>
                 </div>
                 <div class="list">
-                    <div class="employee-card">
+                    <div class="employee-card" id="card-func1">
                         <div class="employee-info">
                             <div class="employee-name">
                                 <h3>Funcionário 1</h3>
@@ -102,40 +100,40 @@
                                 <p>Status: Ativo</p>
                             </div>
                             <div class="actions">
-                                <button onclick="inativarFuncionario(1)">Inativar</button>
+                                <button id="btn-inactive-func1" onclick="inativarFuncionario(1)">Inativar</button>
                                 <button onclick="excluirFuncionario(1)">Excluir</button>
                             </div>
                         </div>
                     </div>
-                            <div class="employee-card">
+                            <div class="employee-card" id="card-func2">
                         <div class="employee-info">
                             <div class="employee-name">
                                 <h3>Funcionário 2</h3>
-                                <p>Email: funcionario3@email.com</p>
+                                <p>Email: funcionario2@email.com</p>
                                 <p>Nível de Acesso: Gerente</p>
                                 <p>Status: Ativo</p>
                             </div>
                             <div class="actions">
-                                <button onclick="inativarFuncionario(2)">Inativar</button>
+                                <button id="btn-inactive-func2" onclick="inativarFuncionario(2)">Inativar</button>
                                 <button onclick="excluirFuncionario(2)">Excluir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="employee-card">
+                    <div class="employee-card" id="card-func3">
                         <div class="employee-info">
                             <div class="employee-name">
                                 <h3>Funcionário 3</h3>
-                                <p>Email: funcionario2@email.com</p>
+                                <p>Email: funcionario3@email.com</p>
                                 <p>Nível de Acesso: Funcionario</p>
                                 <p>Status: Ativo</p>
                             </div>
                             <div class="actions">
-                                <button onclick="inativarFuncionario(2)">Inativar</button>
-                                <button onclick="excluirFuncionario(2)">Excluir</button>
+                                <button id="btn-inactive-func3" onclick="inativarFuncionario(3)">Inativar</button>
+                                <button onclick="excluirFuncionario(3)">Excluir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="employee-card">
+                    <div class="employee-card" id="card-func4">
                         <div class="employee-info">
                             <div class="employee-name">
                                 <h3>Funcionário 4</h3>
@@ -144,8 +142,8 @@
                                 <p>Status: Inativo</p>
                             </div>
                             <div class="actions">
-                                <button onclick="inativarFuncionario(2)">Inativar</button>
-                                <button onclick="excluirFuncionario(2)">Excluir</button>
+                                <button id="btn-inactive-func4" onclick="inativarFuncionario(4)">Inativar</button>
+                                <button onclick="excluirFuncionario(4)">Excluir</button>
                             </div>
                         </div>
                     </div>
@@ -186,24 +184,3 @@
 
 </body>
 </html>
-
-<script>
-
-    function openForm() {
-        const form = document.getElementById("totem-register");
-        if (form.style.display === "none") {
-            form.style.display = "block";
-        } else {
-            form.style.display = "none";
-        }
-    }
-
-    function filterList(status) {
-    }
-
-    function inativarFuncionario(id) {
-    }
-
-    function excluirFuncionario(id) {
-    }
-</script>

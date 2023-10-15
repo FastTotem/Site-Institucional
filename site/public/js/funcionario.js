@@ -20,3 +20,31 @@ function switchColor(bgndColor, borderColor){
         card.style.backgroundColor = bgndColor;
     });
 }
+
+function openForm() {
+    const form = document.getElementById("totem-register");
+    if (form.style.display === "none") {
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
+
+function filterList(status) {
+}
+
+function inativarFuncionario(id) {
+    const button = document.getElementById(`btn-inactive-func${id}`);
+    if (button) {
+        if (button.innerText === "Inativar") {
+            button.textContent = "Ativar";
+        } else if (button.innerText === "Ativar") {
+            button.textContent = "Inativar";
+        }
+    }
+}
+
+function excluirFuncionario(id) {
+    const card = document.getElementById(`card-func${id}`);
+    card.style.display = "none";
+}
