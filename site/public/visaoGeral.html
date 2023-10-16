@@ -40,130 +40,201 @@
             <div class="icons">
 
                 <a href="visaoGeral.html" class="active">
-                <img class="menu-icon" src="./assets/dashboard.png" alt="">
-                <div class="page-name">Visão Geral - Totens</div>
-            </a>
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral</div>
+                </a>
 
-            <a href="visaoEspecifica.html">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Especifica - Totens</div>
-            </a>
+                <a href="visaoEspecifica.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Visão Específica</div>
+                </a>
 
-            <a href="listagemTotens.html">
-                <img class="menu-icon" src="./assets/totem.png" alt="">
-                <div class="page-name">Listagem - Totens</div>
-            </a>
+                <a href="listagemTotens.html">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Totens</div>
+                </a>
 
-            <a href="funcionarios.html">
-                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
-                <div class="page-name">Funcionários</div>
-            </a>
+                <a href="funcionarios.html">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
 
-            <a href="parametros.html">
-                <img class="menu-icon" src="./assets/params.png" alt="">
-                <div class="page-name">Parâmetros</div>
-            </a>
+                <a href="parametros.html">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
 
             </div>
         </div>
     </div>
 
     <div class="dashboard">
-            <div class="header">
-                <div class="container">
-                    <div class="logo">
-                        <h4>FastTotem</h4>
-                    </div>
-                    <h4 class="title">Visão Geral - Totens</h4>
-                    <div class="navbar">
-                        <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                        <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
-                        <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
-                                src="./assets/customer-service.png" alt=""></a>
-                    </div>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <h4>FastTotem</h4>
                 </div>
-            </div>
-            <main class="grid">
-                <section class="top-cards">
-                    <div class="component-list">
-                        <h1 class="component-list-title">Status por componente - 10/10/2023</h1>
-                        <div class="components">
-                            <section>
-                                <div class="component">
-                                    <h2>Uso de HD</h2>
-                                    <span>10%</span>
-                                </div>
-                                <div class="component">
-                                    <h2>Uso de RAM</h2>
-                                    <span>10%</span>
-                                </div>
-                                <div class="component">
-                                    <h2>Uso de rede</h2>
-                                    <span>10%</span>
-                                </div>
-                            </section>
-                            <section>
-                                <div class="component">
-                                    <h2>Uso de CPU</h2>
-                                    <span>10%</span>
-                                </div>
-                                <div class="component">
-                                    <h2>Uso de USB</h2>
-                                    <span>10%</span>
-                                </div>
-                                <div class="component">
-                                    <h2>Componentes com problema</h2>
-                                    <span>10</span>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                <div class="totem-status">
-                 <h1>Status por totem- 10/10/2023</h1>
-                 <div class="cards">
-                    <a href="listagemTotens.html" class="card-status" id="green-card">
-                        <span>5</span>
-                        <h3>Ok</h3>
-                    </a>
-                    <a href="listagemTotens.html" class="card-status" id="yellow-card">
-                        <span>2</span>
-                        <h3>Alerta</h3>
-                    </a>
-                    <a href="listagemTotens.html" class="card-status" id="red-card">
-                        <span>1</span>
-                        <h3>Crítico</h3>
-                    </a>
-                    <a href="listagemTotens.html" class="card-status" id="gray-card">
-                        <span>2</span>
-                        <h3>Desligados</h3>
-                    </a>
-                 </div>
-                 <div class="status-canvas">
-                    <canvas id="status-canvas"></canvas>
-                 </div>
+                <h4 class="title">Visão Geral</h4>
+                <div class="navbar">
+                    <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                    <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                            alt=""></a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                            src="./assets/customer-service.png" alt=""></a>
                 </div>
-                </section>
-                <section class="bottom-cards">
-                    <div class="uptime">
-                     <h1>Tempo de atividade - 03/10/2023 até 10/10/2023</h1>
-                     <div class="uptime-canvas">
-                        <canvas id="uptime-canvas"></canvas>
-                     </div>
-                    </div>
-                    <div class="efficiency">
-                        <h1>Eficiência no uso - 10/10/2023</h1>
-                        <div class="efficiency-canvas">
-                            <canvas id="efficiency-canvas"></canvas>
-                     </div>
-                    </div>
-                    </section>
-                </section>
-            </main>
-
             </div>
         </div>
+        <main class="grid">
+            <section class="top-cards">
+                <div class="tooltip-card" id="tooltip-card1">
+                    <div class="card-title">
+                        <h1>Problemas nos componentes - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(1)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <p>Este indicador mostra um resumo geral dos componentes. Ele exibe o número de problemas em
+                        diferentes componentes, como HD, RAM e CPU, além de apontar o mais problemático e quantos estão com problema.</p>
+                </div>
+                <div class="component-list" id="card1">
+                    <div class="card-title">
+                        <h1>Problemas nos componentes - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(1)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <div class="components">
+                        <section>
+                            <div class="component">
+                                <h2>HD</h2>
+                                <span>2 Problemas</span>
+                            </div>
+                            <div class="component">
+                                <h2>RAM</h2>
+                                <span>3 Problemas</span>
+                            </div>
+                            <div class="component">
+                                <h2>Componente mais problemático</h2>
+                                <span>CPU</span>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="component">
+                                <h2>CPU</h2>
+                                <span>5 Problemas</span>
+                            </div>
+                            <div class="component">
+                                <h2>USB</h2>
+                                <span>0 Problemas</span>
+                            </div>
+                            <div class="component">
+                                <h2>Componentes com problema</h2>
+                                <span>10 componentes</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="tooltip-card" id="tooltip-card2">
+                    <div class="card-title">
+                        <h1>Status dos totens - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(2)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <p>Este indicador exibe o status atual de seus totens. Totens em estado 'Ok' não têm nenhum
+                        componente com problema. Totens em estado de 'Alerta' têm pelo menos um componente com problema.
+                        Totens em estado 'Crítico' têm dois ou mais componentes com problema. 'Desligados' indica o
+                        número de totens desativados.
+                    </p>
+                </div>
+                <div class="totem-status" id="card2">
+                    <div class="card-title">
+                        <h1>Status dos totens - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(2)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <div class="cards">
+                        <a href="listagemTotens.html" class="card-status" id="green-card">
+                            <span>5</span>
+                            <h3>Ok</h3>
+                            <div class="tooltip">Este é o número de totens em estado Ok (nenhum componente apresentando
+                                problema).</div>
+                        </a>
+                        <a href="listagemTotens.html" class="card-status" id="yellow-card">
+                            <span>2</span>
+                            <h3>Alerta</h3>
+                            <div class="tooltip">Este é o número de totens em estado de Alerta (1 componente
+                                apresentando problema).</div>
+                        </a>
+                        <a href="listagemTotens.html" class="card-status" id="red-card">
+                            <span>1</span>
+                            <h3>Crítico</h3>
+                            <div class="tooltip">Este é o número de totens em estado Crítico (2 ou mais componentes
+                                apresentando problema).</div>
+                        </a>
+                        <a href="listagemTotens.html" class="card-status" id="gray-card">
+                            <span>2</span>
+                            <h3>Desligados</h3>
+                            <div class="tooltip">Este é o número de totens desligados.</div>
+                        </a>
+                    </div>
+
+                    <div class="status-canvas">
+                        <canvas id="status-canvas"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section class="bottom-cards">
+                <div class="tooltip-card" id="tooltip-card3">
+                    <div class="card-title">
+                        <h1>Média de uso dos componentes - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(3)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <p>Este indicador mostra a média de uso em porcentagem por componente. Ele fornece informações sobre como os componentes estão sendo utilizados.
+                    </p>
+                </div>
+                <div class="uptime" id="card3">
+                    <div class="card-title">
+                        <h1>Média de uso dos componentes - <span class="date">10/10/2023</span></h1>
+                        <a onclick="openTooltip(3)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <div class="uptime-canvas">
+                        <canvas id="uptime-canvas"></canvas>
+                    </div>
+                </div>
+                <div class="tooltip-card" id="tooltip-card4">
+                    <div class="card-title">
+                        <h1>Uptime vs Downtime - <span class="date">de 03/10/2023 até 10/10/2023</span></h1>
+                        <a onclick="openTooltip(4)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <p>Este indicador exibe informações sobre o uptime e o downtime de seus totens durante um período específico. Ele mostra em horas o tempo em que seus totens estiveram em funcionamento e o tempo em que estiveram inativos durante o período selecionado.
+                    </p>
+                </div>
+                <div class="efficiency" id="card4">
+                    <div class="card-title">
+                        <h1>Uptime vs Downtime - <span class="date">de 03/10/2023 até 10/10/2023</span></h1>
+                        <a onclick="openTooltip(4)"><img src="./assets/ajuda.png" alt=""></a>
+                    </div>
+                    <div class="efficiency-canvas">
+                        <canvas id="efficiency-canvas"></canvas>
+                    </div>
+                </div>
+            </section>
+            </section>
+        </main>
+
+    </div>
+    </div>
     </div>
 
 </body>
 
 </html>
+
+<script>
+    function openTooltip(numero) {
+        const tooltip = document.getElementById(`tooltip-card${numero}`);
+        const card = document.getElementById(`card${numero}`);
+
+        if (card.style.display == 'none') {
+            card.style.display = 'flex';
+            tooltip.style.display = 'none';
+        } else {
+            card.style.display = 'none';
+            tooltip.style.display = 'flex';
+        }
+    }
+</script>

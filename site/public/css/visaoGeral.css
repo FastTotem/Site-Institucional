@@ -1,6 +1,6 @@
 h1 {
     color: whitesmoke;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .grid {
@@ -18,19 +18,32 @@ h1 {
     display: flex;
     gap: 1.2rem;
     width: 100%;
-    height: 55%;
+    height: 50%;
 }
 
 .totem-status,
 .component-list,
 .uptime,
-.efficiency {
+.efficiency,
+.tooltip-card {
     background-color: #3f3e3e;
     width: 50%;
     display: flex;
     flex-direction: column;
     padding: 1.2rem;
     border-radius: 25px;
+}
+
+.tooltip-card{
+    display: none;
+    height: auto;
+}
+
+.tooltip-card p{
+    margin-top: 1rem;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    text-align: left;
 }
 
 .totem-status {
@@ -51,7 +64,7 @@ h1 {
     padding: 2% 0;
 }
 
-.cards a {
+.card-status {
     width: 22%;
     height: 7vh;
     display: flex;
@@ -59,35 +72,85 @@ h1 {
     align-items: center;
     justify-content: center;
     color: whitesmoke;
+    position: relative;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 15vw;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0.8rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.card-status:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .cards a:hover {
     transform: scale(0.99);
-    filter: brightness(0.9);
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .total-totems-text{
 position: absolute;
-top: 42.5%;
-left: 75.2%;
+top: 41.3%;
+left: 75.8%;
 transform: translate(-50%, -50%);
 color: whitesmoke;
 font-weight: bolder;
 width: 12%;
 text-align: center;
-font-size: 1rem;
+font-size: 0.9rem;
 z-index: 0;
 }
 
 .component-list{
     box-sizing: border-box;
+    width: 52.9%;
     height: 100%;
     justify-content: space-between;
 }
 
-.component-list-title{
-    width: 100%;  
+.card-title{
+    width: 100%; 
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-title h1{
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.card-title a{
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title img{
+    width: 80%;
+    height: auto;
+}
+
+.date{
+    font-size: 1.05rem;
+    margin-left: 1%;
 }
 
 .components{
@@ -110,6 +173,7 @@ z-index: 0;
 .component{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     background-color: #333;
     border-radius: 25px;
@@ -117,15 +181,23 @@ z-index: 0;
     width: 30%;
     height: 90%;
     color: whitesmoke;
+    user-select: none;
 }
 
 .component h2{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
+    width: 80%;
 }
 
 .component span{
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+.component:hover {
+    filter: brightness(0.9);
+    transform: scale(0.99);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 #green-card {

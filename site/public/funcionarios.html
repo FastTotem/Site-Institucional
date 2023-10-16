@@ -35,17 +35,17 @@
 
                 <a href="visaoGeral.html">
                 <img class="menu-icon" src="./assets/dashboard.png" alt="">
-                <div class="page-name">Visão Geral - Totens</div>
+                <div class="page-name">Visão Geral</div>
             </a>
 
             <a href="visaoEspecifica.html">
                 <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Especifica - Totens</div>
+                <div class="page-name">Visão Específica</div>
             </a>
 
             <a href="listagemTotens.html">
                 <img class="menu-icon" src="./assets/totem.png" alt="">
-                <div class="page-name">Listagem - Totens</div>
+                <div class="page-name">Totens</div>
             </a>
 
             <a href="funcionarios.html" class="active"  >
@@ -90,14 +90,14 @@
                     <button onclick="filterList('ativos'),selectColor()" id="ok">Ativos</button>
                     <button onclick="filterList('inativos'),selectColor()" id="off">Inativos</button>
                 </div>
-                <div class="list">
+                <div class="list" id="func-list">
                     <div class="employee-card" id="card-func1">
                         <div class="employee-info">
                             <div class="employee-name">
-                                <h3>Funcionário 1</h3>
-                                <p>Email: funcionario1@email.com</p>
+                                <h3>Cleiton Santos Dias</h3>
+                                <p>Email: cleiton@email.com</p>
                                 <p>Nível de Acesso: Administrador</p>
-                                <p>Status: Ativo</p>
+                                <p id="stts1">Status: Ativo</p>
                             </div>
                             <div class="actions">
                                 <button id="btn-inactive-func1" onclick="inativarFuncionario(1)">Inativar</button>
@@ -108,10 +108,10 @@
                             <div class="employee-card" id="card-func2">
                         <div class="employee-info">
                             <div class="employee-name">
-                                <h3>Funcionário 2</h3>
-                                <p>Email: funcionario2@email.com</p>
+                                <h3>Sabrina Santos</h3>
+                                <p>Email: sasantos@email.com</p>
                                 <p>Nível de Acesso: Gerente</p>
-                                <p>Status: Ativo</p>
+                                <p id="stts2">Status: Ativo</p>
                             </div>
                             <div class="actions">
                                 <button id="btn-inactive-func2" onclick="inativarFuncionario(2)">Inativar</button>
@@ -122,10 +122,10 @@
                     <div class="employee-card" id="card-func3">
                         <div class="employee-info">
                             <div class="employee-name">
-                                <h3>Funcionário 3</h3>
-                                <p>Email: funcionario3@email.com</p>
+                                <h3>Henrique Oliveira</h3>
+                                <p>Email: holiver@email.com</p>
                                 <p>Nível de Acesso: Funcionario</p>
-                                <p>Status: Ativo</p>
+                                <p id="stts3">Status: Ativo</p>
                             </div>
                             <div class="actions">
                                 <button id="btn-inactive-func3" onclick="inativarFuncionario(3)">Inativar</button>
@@ -136,10 +136,10 @@
                     <div class="employee-card" id="card-func4">
                         <div class="employee-info">
                             <div class="employee-name">
-                                <h3>Funcionário 4</h3>
-                                <p>Email: funcionario4@email.com</p>
+                                <h3>Alexandre Santiago</h3>
+                                <p>Email: santale@email.com</p>
                                 <p>Nível de Acesso: Funcionario</p>
-                                <p>Status: Inativo</p>
+                                <p id="stts4">Status: Ativo</p>
                             </div>
                             <div class="actions">
                                 <button id="btn-inactive-func4" onclick="inativarFuncionario(4)">Inativar</button>
@@ -172,8 +172,10 @@
                             <option value="funcionario">Funcionário</option>
                         </select>
                     </div>
-        
-                    <button type="submit" id="submit-button">Cadastrar Funcionário</button>
+                    <div id="success-message" style="display: none;">
+                        Senha enviada por e-mail ao novo funcionário.
+                    </div>
+                    <button onclick="validarCampos()" id="submit-button">Cadastrar Funcionário</button>
                 </form>
             </div>
         </div>
