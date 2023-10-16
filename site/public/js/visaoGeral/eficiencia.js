@@ -10,18 +10,18 @@ var efficiencyData = {
     labels: ['Totem 1', 'Totem 2', 'Totem 3', 'Totem 4', 'Totem 5', 'Totem 6', 'Totem 7', 'Totem 8', 'Totem 9', 'Totem 10'],
     datasets: [
         {
-            data: [80, 65, 90, 75, 20, 40, 50, 90, 10, 35],
+            data: [8, 6.5, 9, 7.5, 2, 4, 5, 9, 1, 3.5],
             backgroundColor: 'rgba(0, 255, 0, 0.7)',
             borderColor: borderColorOk,
             borderWidth: 2,
-            label: 'Funcionando',
+            label: 'Uptime',
         },
         {
-            data: [20, 35, 10, 25, 80, 60, 50, 10, 90, 65],
+            data: [2, 3.5, 1, 2.5, 8, 6, 5, 1, 9, 6.5],
             backgroundColor: 'rgba(255, 99, 71, 0.7)',
             borderColor: borderColorCritico,
             borderWidth: 2,
-            label: 'Parado',
+            label: 'Downtime',
         }
     ]
 };
@@ -34,17 +34,26 @@ var efficiencyChart = new Chart(efficiencyCanvas, {
         maintainAspectRatio: false,
         scales: {
             x: {
-                stacked: false
+                stacked: false,
+                beginAtZero: true,
+                ticks: {
+                    color: 'white'
+                },
+                title: {
+                    display: false,
+                    text: 'Horas (h)'
+                }
+                
             },
             y: {
                 beginAtZero: true,
-                max: 100,
                 ticks: {
                     stepSize: 10,
+                    color: 'white'
                 },
                 title: {
-                    display: true,
-                    text: 'Porcentagem (%)'
+                    display: false,
+                    text: 'Horas (h)'
                 }
             }
         },
@@ -59,7 +68,7 @@ var efficiencyChart = new Chart(efficiencyCanvas, {
                         if (label) {
                             label += ': ';
                         }
-                        label += context.formattedValue + '%';
+                        label += context.formattedValue + 'h';
                         return label;
                     }
                 }
