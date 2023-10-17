@@ -19,6 +19,8 @@ nivelAcesso ENUM('Administrador','Funcionário'),
 imgUsuario TEXT(255),
 fkEmpresa INT,
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+ ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 );
 
 CREATE TABLE Endereco (
@@ -49,6 +51,8 @@ CREATE TABLE InfoMaquina(
 	capacidadeDisco VARCHAR(200),
 	fkTotem INT,
 	FOREIGN KEY (fkTotem) REFERENCES Totem(idTotem)
+     ON DELETE NO ACTION
+	 ON UPDATE NO ACTION
 );
 
 CREATE TABLE Componente(
@@ -63,6 +67,8 @@ tipo VARCHAR(55),
 valor DOUBLE,
 fkComponente INT,
 	FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
+     ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 );
 
 CREATE TABLE Metrica (
@@ -85,6 +91,8 @@ Ideal INT,
 Atencao INT,
 Alerta INT,
 FOREIGN KEY (fkComponente) REFERENCES Componente (idComponente)
+ ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ); 
 
 CREATE TABLE infSistema(
