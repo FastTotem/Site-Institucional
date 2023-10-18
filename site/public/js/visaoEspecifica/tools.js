@@ -1,6 +1,7 @@
 const toolsButton = document.getElementById('toolsButton');
 const toolBox = document.getElementById('toolsBox');
 const toolsContainer = document.getElementById('toolsContainer');
+const main = document.getElementById('main');
 
 let toolBoxIsVisible = false;
 
@@ -11,6 +12,13 @@ window.addEventListener('click', (event) => {
         closeToolsModal();
     }
 });
+
+main.addEventListener('scroll', () => {
+    console.log('teste');
+    if(toolBoxIsVisible) {
+        closeToolsModal();
+    }
+})
 
 function isParent(element) {
     let isParent = false;
