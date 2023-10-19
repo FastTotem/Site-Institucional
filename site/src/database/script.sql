@@ -88,9 +88,9 @@ CREATE TABLE Metrica (
 CREATE TABLE ParametroAlerta(
 idParametroAlerta INT PRIMARY KEY AUTO_INCREMENT,
 fkComponente INT,
-Ideal INT,
-Atencao INT,
-Alerta INT,
+ideal INT,
+atencao INT,
+alerta INT,
 FOREIGN KEY (fkComponente) REFERENCES Componente (idComponente)
  ON DELETE NO ACTION
     ON UPDATE NO ACTION
