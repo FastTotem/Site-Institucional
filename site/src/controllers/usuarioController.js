@@ -26,6 +26,30 @@ function autenticar(req, res) {
 
 }
 
+function checarSenha(req, res) {
+    var senha = req.body.senhaServer;
+    var id = req.body.idServer;
+
+    if (senha == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+
+        usuarioModel.checarSenha(id, senha)
+            .then(
+                function (resultadoChecar) {
+                    res.json(resultadoChecar);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -64,5 +88,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    checarSenha
 }

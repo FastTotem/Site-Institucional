@@ -11,4 +11,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/checarSenha", function (req, res) {
+    usuarioController.checarSenha(req, res);
+});
+
 module.exports = router;

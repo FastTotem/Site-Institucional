@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/floatingMenu.js"></script>
     <script src="./js/sideMenu.js"></script>
+    <script src="./js/perfil/inputController.js" defer></script>
     <title>FastTotem | Visão Geral</title>
 </head>
 <body>
@@ -86,29 +87,41 @@
             </div>
         </div>
 
+        <div id="passwordModal" class="modalConfirmPassword">
+            <div class="overlay">
+                <div class="modal">
+                    <span class="iconify" data-icon="mingcute:close-fill" onclick="toggleModal()"></span>
+                    <h2>Insira sua senha</h2>
+                    <p>Para redefinir sua senha é necessário validar a senha atual através do formulário abaixo:</p>
+                    <label>Senha</label>
+                    <input placeholder="••••••" type="password" id="modalPassword">
+                    <button onclick="enablePasswordEdit()">Enviar</button>
+                </div>
+            </div>
+        </div>
         
         <main id="main">
+
             <div class="formContainer">
                 <div>
                     <img src="assets/FastToten - Logo.png" alt="imgFastTotem">
                 </div>
                 <form action="">
-                    <div class="profileInput">
+                    <div class="profileInput" id="username">
                         <label>Nome de usuário</label>
-                        <input value="Diego" disabled type="text" name="username" id="username" placeholder="Nome de usuário">
-                        <span class="iconify" data-icon="material-symbols:lock"></span>
+                        <input value="Diego" disabled type="text" name="username" placeholder="Nome de usuário">
+                        <span onclick="toggleLock('username')" class="iconify" data-icon="material-symbols:lock"></span>
                     </div>
     
-                    <div class="profileInput">
+                    <div class="profileInput" id="password">
                         <label>Senha</label>
-                        <input value="12345678" disabled type="password" id="password" name="password" placeholder="Senha">
-                        <span class="iconify" data-icon="material-symbols:lock"></span>
+                        <input value="12345678" disabled type="password" name="password" placeholder="Senha">
+                        <span onclick="toggleModal()" class="iconify" data-icon="material-symbols:lock"></span>
                     </div>
 
-                    <div class="profileInput">
+                    <div id="confirmPasswordContainer" class="profileInput confirmPasswordContainer">
                         <label>Confirmar senha</label>
-                        <input value="12345678" disabled type="password" id="password" name="password" placeholder="Senha">
-                        <span class="iconify" data-icon="material-symbols:lock"></span>
+                        <input type="password" id="confirmPassword" name="password" placeholder="Senha">
                     </div>
     
                     <button type="submit">Atualizar</button>

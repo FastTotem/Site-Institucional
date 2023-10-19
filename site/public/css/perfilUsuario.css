@@ -45,7 +45,7 @@ form label {
     color: #FFF;
 }
 
-form input {
+input {
     margin-top: .4rem;
     margin-bottom: 2rem;
     padding: .8rem 1rem;
@@ -56,14 +56,15 @@ form input {
     border: 0;
 
     font-family: 'Montserrat', sans-serif;
-    color: #FFF;
+    color: #000;
 
     &:disabled {
         cursor: not-allowed;
+        color: #FFF;
     }
 }
 
-form button {
+button {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
@@ -79,7 +80,7 @@ form button {
     font-family: 'Montserrat', sans-serif;
 }
 
-form button:hover {
+button:hover {
     transform: scale(1.05);
 }
 
@@ -98,4 +99,63 @@ form div .iconify {
 
     font-size: 1.4rem;
     color: #b5b5b5;
+}
+
+.confirmPasswordContainer {
+    display: none;
+}
+
+.modalConfirmPassword {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    z-index: 2;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    background-color: #00000025;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem;
+    width: 25%;
+    border-radius: 15px;
+    background-color: #1b1b1b;
+    color: #FFF;
+}
+
+.modal--active {
+    display: block;
+}
+
+.modal .iconify {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 1.4rem;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+}
+
+.modal label {
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-left: .8rem;
+}
+
+.modal input {
+    width: 90%;
 }

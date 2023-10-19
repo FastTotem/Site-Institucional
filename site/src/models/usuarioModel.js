@@ -8,6 +8,11 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
+function checarSenha(id, senha) {
+    var instrucao = `SELECT * FROM usuario WHERE UsuarioID = '${id}' AND senha = '${senha}';`;
+    return database.executar(instrucao);
+}
+
 function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
     var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
 
@@ -16,5 +21,6 @@ function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    checarSenha
 };
