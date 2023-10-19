@@ -52,7 +52,9 @@ CREATE TABLE InfoMaquina(
 
 CREATE TABLE Componente(
 idComponente INT PRIMARY KEY AUTO_INCREMENT,
-nomeComponente VARCHAR(255)
+nomeComponente VARCHAR(255),
+fkTotem INT,
+	FOREIGN KEY (fkTotem) REFERENCES Totem(idTotem)
 );
 
 CREATE TABLE Captura (
