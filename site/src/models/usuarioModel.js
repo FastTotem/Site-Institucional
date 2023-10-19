@@ -13,6 +13,21 @@ function checarSenha(id, senha) {
     return database.executar(instrucao);
 }
 
+function getUser(id) {
+    var instrucao = `SELECT * FROM usuario WHERE UsuarioID = '${id}';`;
+    return database.executar(instrucao);
+}
+
+function updateSenha(id, senha) {
+    var instrucao = `UPDATE usuario SET senha='${senha}' WHERE UsuarioID = '${id}';`;
+    return database.executar(instrucao);
+}
+
+function updateNome(id, nome) {
+    var instrucao = `UPDATE usuario SET nome='${nome}' WHERE UsuarioID = '${id}';`;
+    return database.executar(instrucao);
+}
+
 function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
     var usuarioQuery = `INSERT INTO Usuario (Nome, Email, Senha, NivelDeAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
 
@@ -22,5 +37,8 @@ function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
 module.exports = {
     autenticar,
     cadastrar,
-    checarSenha
+    checarSenha,
+    updateNome,
+    updateSenha,
+    getUser
 };
