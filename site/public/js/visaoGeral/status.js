@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             if (label) {
                                 label += ': ';
                             }
-                            label += context.formattedValue + '%';
+                            label += context.formattedValue + '% dos totens';
                             return label;
                         }
                     }
