@@ -1,6 +1,7 @@
 -- SQLBook: Code
 CREATE DATABASE fastTotem;
 USE fasttotem;
+drop table usuario;
 
 CREATE TABLE Empresa(
 	idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
@@ -107,6 +108,9 @@ fkEmpresa INT,
 FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
 );
 
+CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
+GRANT ALL PRIVILEGES ON FastTotem.* TO 'fastTotemAdmin'@'localhost';
+FLUSH PRIVILEGES;
 
 select*From Empresa;
 select*From Totem;
@@ -115,10 +119,6 @@ select*From ConfiguracaoComponente;
 select*From Componente;
 select*From ParametroAlerta;
 select*From Metrica;
-
-
-CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
-
 select*from empresa join endereco on EnderecoID = Empresa.EmpresaID join Usuario on Usuario.fkEmpresa = EmpresaID ;
-GRANT ALL PRIVILEGES ON FastTotem.* TO 'fastTotemAdmin'@'localhost';
-FLUSH PRIVILEGES;
+
+
