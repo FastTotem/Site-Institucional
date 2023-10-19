@@ -41,8 +41,6 @@ function updateUserData() {
                 alert('As senhas não coincidem');
             }
         }
-    } else {
-        alert('Senha igual a atual');
     }
 }
 

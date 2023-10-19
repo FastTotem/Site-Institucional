@@ -189,6 +189,10 @@ justify-content: end;
     animation: fadeIn 0.5s ease-in-out;
 }
 
+.perfilUser--active {
+    display: flex;
+}
+
 .perfilUser a {
     text-decoration: none;
     color: white;
