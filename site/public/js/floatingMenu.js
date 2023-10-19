@@ -1,9 +1,11 @@
-function abrirPerfil() {
-    var perfil = document.getElementById("perfilUser")
+const nome_saudacao = document.getElementById('nome_saudacao');
 
-    if (perfil.style.display == 'none') {
-        perfil.style.display = `flex`
-    } else {
-        perfil.style.display = 'none'
-    }
+window.addEventListener('load', () => {
+    nome_saudacao.innerText = sessionStorage.NOME_USUARIO;
+});
+
+function abrirPerfil() {
+    var perfil = document.getElementById("perfilUser");
+
+    perfil.classList.toggle('perfilUser--active');
 }

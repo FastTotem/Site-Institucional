@@ -1,0 +1,161 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1.2rem;
+    gap: 1rem;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.formContainer > div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    background: linear-gradient(to bottom, #BD06DD, #670478);
+    border-radius: 15px;
+
+    margin-bottom: 2rem;
+    margin-top: -5rem;
+    padding: 1rem;
+}
+
+.formContainer img {
+    width: 70%;
+}
+
+.formContainer form {
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+}
+
+form label {
+    color: #FFF;
+}
+
+input {
+    margin-top: .4rem;
+    margin-bottom: 2rem;
+    padding: .8rem 1rem;
+
+    outline: 0;
+
+    width: 100%;
+    border: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+
+    &:disabled {
+        cursor: not-allowed;
+        color: #FFF;
+    }
+}
+
+button {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFF;
+    background: #670478;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #00000025;
+    padding: .8rem 1rem;
+    margin-inline: auto;
+    width: 50%;
+    transition: .5s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    margin-left: -1.8rem;
+}
+
+form div .iconify {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 2.2rem;
+    margin-right: -1.2rem;
+    align-self: flex-end;
+
+    font-size: 1.4rem;
+    color: #b5b5b5;
+}
+
+.confirmPasswordContainer {
+    display: none;
+}
+
+.modalConfirmPassword {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    z-index: 2;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    background-color: #00000025;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem;
+    width: 25%;
+    border-radius: 15px;
+    background-color: #1b1b1b;
+    color: #FFF;
+}
+
+.modal--active {
+    display: block;
+}
+
+.modal .iconify {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 1.4rem;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+}
+
+.modal label {
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-left: .8rem;
+}
+
+.modal input {
+    width: 90%;
+}
