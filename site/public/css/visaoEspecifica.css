@@ -88,13 +88,12 @@ main {
 
     display: flex;
     flex-direction: column;
-
     padding: 1.2rem;
     gap: 2rem;
 
     width: 100%;
-
-    flex: 1;
+    max-height: 93vh;
+    overflow-y: scroll;
 
     & * {
         margin: 0;
