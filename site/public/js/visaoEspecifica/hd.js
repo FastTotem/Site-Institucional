@@ -38,6 +38,18 @@ var HDChart = new Chart(ctxHD, {
                         family: 'Montserrat',
                     }
                 }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        var label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += context.formattedValue + '% de armazenamento ocupado';
+                        return label;
+                    }
+                }
             }
         },
         tooltips: {
