@@ -187,6 +187,7 @@ justify-content: end;
     text-align: left;
     padding: 1% 1.5%;
     animation: fadeIn 0.5s ease-in-out;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .perfilUser--active {
@@ -266,4 +267,72 @@ justify-content: end;
     100% {
         opacity: 1;
     }
+}
+
+.alert-menu {
+    user-select: none;
+    display: none;
+    position: absolute;
+    top: 5.2%;
+    left: 62%;
+    width: 20%;
+    height: 60%;
+    background-color: #670478;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    border-radius: 25px;
+    border-top-right-radius: 0px;
+    padding: 1rem 0.8rem;
+    z-index: 2;
+    overflow-y: auto;
+    color: whitesmoke;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.alert-cards {
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+
+#alert-title{
+    margin-bottom: 1.3rem;
+}
+
+.alert-card {
+    border: 2px solid #ddd;
+    background-color: #670478;
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.alert-card-critical {
+    border: 2px solid #ddd;
+    background-color: rgba(255, 99, 71, 0.8);
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.alert-card-alert {
+    border: 2px solid #ddd;
+    background-color: rgba(255, 215, 0, 0.8);
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.alert-card h4 {
+    font-size: 1rem;
+    color: whitesmoke;
+}
+
+.alert-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: lightgray;
+}
+
+.alert-menu--active {
+display: flex;
 }

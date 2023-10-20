@@ -1,7 +1,9 @@
 const nome_saudacao = document.getElementById('nome_saudacao');
 
 window.addEventListener('load', () => {
-    nome_saudacao.innerText = sessionStorage.NOME_USUARIO;
+    if (sessionStorage.NOME_USUARIO) {
+        nome_saudacao.innerText = sessionStorage.NOME_USUARIO;
+    }
 });
 
 function abrirPerfil() {

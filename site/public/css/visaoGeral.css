@@ -105,12 +105,12 @@ h1 {
 .total-totems-text{
 position: absolute;
 top: 9.5vh;
-left: 6.4vw;
+left: 7.8vw;
 color: whitesmoke;
 font-weight: bolder;
-width: 50%;
+max-width: 10vw;
 text-align: center;
-font-size: 0.9rem;
+font-size: 0.85rem;
 z-index: 0;
 }
 
