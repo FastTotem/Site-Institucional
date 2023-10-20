@@ -10,7 +10,8 @@
     <script src="./js/visaoGeral/status.js"></script>
     <script src="./js/visaoGeral/uptime.js"></script>
     <script src="./js/visaoGeral/eficiencia.js"></script>
-    <script src="./js/floatingMenu.js"></script>
+<script src="./js/floatingMenu.js"></script>
+    <script src="./js/alerta.js"></script>
     <script src="./js/sideMenu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>FastTotem | Visão Geral </title>
@@ -18,7 +19,7 @@
 
 <body>
 
-    <div class="perfilUser" id="perfilUser">
+       <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -29,6 +30,25 @@
             </div>
         </div>
     </div>
+
+    <div class="alert-menu" id="alertMenu">
+        <div class="alert-cards">
+            <h1 id="alert-title">Alertas</h1>
+            <div class="alert-card-alert">
+                <h4>Totem 1</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-alert">
+                <h4>Totem 2</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-critical">
+                <h4>Totem 3</h4>
+                <p>Em estado de critico.</p>
+            </div>
+        </div>
+    </div>
+      
 
     <div class="side-menu" id="side-menu">
         <div class="container">
@@ -76,8 +96,8 @@
                 </div>
                 <h4 class="title">Visão Geral</h4>
                 <div class="navbar">
-                    <a href="#"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                    <a href="#" onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
                             alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                             src="./assets/customer-service.png" alt=""></a>

@@ -23,7 +23,7 @@ var options = {
         display: false,
     },
     tooltips: {
-        enabled: false,
+        enabled: true,
     },
     responsive: false,
 };

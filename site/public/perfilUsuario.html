@@ -16,7 +16,7 @@
 </head>
 <body>
     
-    <div class="perfilUser" id="perfilUser">
+       <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -24,6 +24,24 @@
             <div class="options">
                 <a href="perfilUsuario.html">Perfil</a>
                 <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert-menu" id="alertMenu">
+        <div class="alert-cards">
+            <h1 id="alert-title">Alertas</h1>
+            <div class="alert-card-alert">
+                <h4>Totem 1</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-alert">
+                <h4>Totem 2</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-critical">
+                <h4>Totem 3</h4>
+                <p>Em estado de critico.</p>
             </div>
         </div>
     </div>
@@ -110,8 +128,13 @@
                 <form>
                     <div class="profileInput" id="username">
                         <label>Nome de usuário</label>
-                        <input value="" disabled type="text" name="username" id="usernameInput" placeholder="Nome de usuário">
+                        <input value="Kauã" disabled type="text" name="username" id="usernameInput" placeholder="Nome de usuário">
                         <span onclick="toggleLock('username')" class="iconify" data-icon="material-symbols:lock"></span>
+                    </div>
+
+                    <div class="profileInput" id="lvlAcess">
+                        <label>Nível de Acesso</label>
+                        <input id="inputLvlAcess" value="Administrador" disabled type="text" id="passwordInput" name="password" placeholder="Nivel de Acesso">
                     </div>
     
                     <div class="profileInput" id="password">

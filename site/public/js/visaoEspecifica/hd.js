@@ -43,6 +43,7 @@ var HDChart = new Chart(ctxHD, {
         tooltips: {
             enabled: false,
         },
+        responsive: true,
         scales: {
             x: {
                 display: true,
