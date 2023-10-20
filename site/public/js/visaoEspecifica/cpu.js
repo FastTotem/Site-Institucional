@@ -34,6 +34,18 @@ var cpuChart = new Chart(ctxCPU, {
         plugins: {
             legend: {
                 display: false,
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        var label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += context.formattedValue + '% de uso de CPU';
+                        return label;
+                    }
+                }
             }
         },
         tooltips: {

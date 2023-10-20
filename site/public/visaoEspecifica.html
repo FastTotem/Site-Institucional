@@ -13,7 +13,8 @@
     <script src="js/visaoEspecifica/ram.js" defer></script>
     <script src="js/visaoEspecifica/hd.js" defer></script>
     <script src="js/visaoEspecifica/tools.js" defer></script>
-<script src="./js/floatingMenu.js"></script>
+    <script src="js/visaoEspecifica/tooltip.js" defer></script>
+    <script src="./js/floatingMenu.js" defer></script>
     <script src="./js/alerta.js"></script>
     <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Visão Específica</title>
@@ -169,15 +170,32 @@
                 <section>
                     <div>
                         <div class="chartContainer">
-                            <h1>Uso de CPU (%)</h1>
-                            <div>
+                            <div class="card-title">
+                                <h1>Uso de CPU (%)</h1>
+                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                            </div>
+
+                            <div class="tooltipInfoContainer">
+                                <p>Esse gráfico exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
+                            </div>
+
+                            <div class="canvasContainer">
                                 <canvas id="lineChartCPU"></canvas>
                             </div>
                         </div>
     
                         <div class="chartContainer">
-                            <h1>Uso de HD (%)</h1>
-                            <div>
+                            <div class="card-title">
+                                <h1>Uso de HD (%)</h1>
+
+                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                            </div>
+
+                            <div class="tooltipInfoContainer">
+                                <p>Esse gráfico exibe a porcentagem de uso do armazenamento de HD nos últimos 7 dias</p>
+                            </div>
+
+                            <div class="canvasContainer">
                                 <canvas id="barChartHD"></canvas>
                             </div>
                         </div>
@@ -185,8 +203,16 @@
     
                     <div>
                         <div class="chartContainer">
-                            <h1>Uso de RAM (%)</h1>
-                            <div>
+                            <div class="card-title">
+                                <h1>Uso de RAM (%)</h1>
+                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                            </div>
+
+                            <div class="tooltipInfoContainer">
+                                <p>Esse gráfico exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
+                            </div>
+
+                            <div class="canvasContainer">
                                 <canvas id="barChartRAM"></canvas>
                             </div>
                         </div>

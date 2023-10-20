@@ -26,6 +26,20 @@ var options = {
         enabled: true,
     },
     responsive: false,
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function (context) {
+                    var label = context.dataset.label || '';
+                    if (label) {
+                        label += ': ';
+                    }
+                    label += context.formattedValue + '% de uso do tempo aceitável';
+                    return label;
+                }
+            }
+        }
+    }
 };
 
 var gaugeChart = new Chart(ctx, {

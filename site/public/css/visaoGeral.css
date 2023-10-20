@@ -103,15 +103,15 @@ h1 {
 }
 
 .total-totems-text{
-position: absolute;
-top: 9.5vh;
-left: 7.8vw;
-color: whitesmoke;
-font-weight: bolder;
-max-width: 10vw;
-text-align: center;
-font-size: 0.85rem;
-z-index: 0;
+    position: absolute;
+    top: 9.5vh;
+    left: 7.8vw;
+    color: whitesmoke;
+    font-weight: bolder;
+    max-width: 10vw;
+    text-align: center;
+    font-size: 0.85rem;
+    z-index: 0;
 }
 
 .component-list{
