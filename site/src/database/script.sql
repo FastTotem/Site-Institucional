@@ -76,9 +76,6 @@ notificacao INT,
 FOREIGN KEY (fkComponente) REFERENCES Componente (idComponente)
 ); 
 
-select*from Usuario;
-select*from empresa join endereco on EnderecoID = Empresa.EmpresaID join Usuario on Usuario.fkEmpresa = EmpresaID ;
-
 CREATE USER fastTotemAdmin@localhost IDENTIFIED BY 'fasttotem123';
 GRANT ALL PRIVILEGES ON FastTotem.* TO 'fastTotemAdmin'@'localhost';
 FLUSH PRIVILEGES;
