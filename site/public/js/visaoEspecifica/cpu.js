@@ -7,22 +7,19 @@ var dataCPU = {
         {
             data: [65, 59, 80, 81, 56, 55, 40],
             borderColor: "#BD06DD",
-            tension: .4,
+            tension: 0.4,
             fill: true,
             backgroundColor: (context) => {
-                const background = [
-                    "#BD06DD",
-                    "#bd06dd2d"
-                ]
+                const background = ["#BD06DD", "#bd06dd2d"];
 
-                if(!context.chart.chartArea) {
+                if (!context.chart.chartArea) {
                     return;
                 }
 
                 const { ctx, data, chartArea: { top, bottom } } = context.chart;
                 const gradientBackground = ctx.createLinearGradient(0, top, 0, bottom);
                 gradientBackground.addColorStop(0, background[0]);
-                gradientBackground.addColorStop(.9, background[1]);
+                gradientBackground.addColorStop(0.9, background[1]);
 
                 return gradientBackground;
             },
@@ -40,8 +37,13 @@ var cpuChart = new Chart(ctxCPU, {
             }
         },
         tooltips: {
-            enabled: false,
-        },
+            enabled: true,
+            callbacks: {
+                label: function (tooltipItem) {
+                    return tooltipItem.parsed + " horas";
+                }
+            }
+        },        
         scales: {
             x: {
                 display: true,

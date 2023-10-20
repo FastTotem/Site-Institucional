@@ -9,13 +9,14 @@
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
     <script src="./js/parametros.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
+    <script src="./js/alerta.js"></script>
     <script src="./js/sideMenu.js"></script>
-    <title>FastTotem | Funcionários </title>
+    <title>FastTotem | Parâmetros </title>
 </head>
 
 <body>
 
-    <div class="perfilUser" id="perfilUser">
+       <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -23,6 +24,24 @@
             <div class="options">
                 <a href="perfilUsuario.html">Perfil</a>
                 <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert-menu" id="alertMenu">
+        <div class="alert-cards">
+            <h1 id="alert-title">Alertas</h1>
+            <div class="alert-card-alert">
+                <h4>Totem 1</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-alert">
+                <h4>Totem 2</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-critical">
+                <h4>Totem 3</h4>
+                <p>Em estado de critico.</p>
             </div>
         </div>
     </div>
@@ -73,8 +92,9 @@
                 </div>
                 <h4 class="title">Parâmetros</h4>
                 <div class="navbar">
-                    <a><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                            alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                             src="./assets/customer-service.png" alt=""></a>
                 </div>
@@ -88,28 +108,28 @@
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="alert">Alerta:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
                         <span><span class="range-value" id="range-value-alert">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="critical">Crítico</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
                         <span><span class="range-value" id="range-value-critical">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="notify">Notificar à partir de :</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
                         <span><span class="range-value">0</span>%</span>
                     </div>
                 </div>
@@ -122,28 +142,28 @@
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="alert">Alerta:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
                         <span><span class="range-value" id="range-value-alert">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="critical">Crítico</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
                         <span><span class="range-value" id="range-value-critical">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="notify">Notificar à partir de:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
                         <span><span class="range-value">0</span>%</span>
                     </div>
                 </div>
@@ -156,28 +176,28 @@
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="alert">Alerta:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="alertLvl">
                         <span><span class="range-value" id="range-value-alert">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="critical">Crítico</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl">
                         <span><span class="range-value" id="range-value-critical">0</span>%</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="notify">Notificar à partir de:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
                         <span><span class="range-value">0</span>%</span>
                     </div>
                 </div>
@@ -190,19 +210,19 @@
                 <div class="alert-range">
                     <h4 id="critical">Inativo após:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl" max="60">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="criticalLvl" max="60">
                         <span><span class="range-value" id="range-value-critical">0</span>s</span>
                     </div>
                 </div>
                 <div class="alert-range">
                     <h4 id="notify">Notificar à partir de:</h4>
                     <div class="range">
-                        <input oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl" max="60">
+                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl" max="60">
                         <span><span class="range-value">0</span>s</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Notificação >= Inativo Após</p>
-                <button onclick="validarUsb(this)" class="alert-range-btn">Salvar Alterações</button>
+                <button onclick="validarUsb(this)" id="usb-alert-range-btn" class="alert-range-btn">Salvar Alterações</button>
             </section>
         </main>
 

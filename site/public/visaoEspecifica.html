@@ -15,12 +15,13 @@
     <script src="js/visaoEspecifica/tools.js" defer></script>
     <script src="js/visaoEspecifica/tooltip.js" defer></script>
     <script src="./js/floatingMenu.js" defer></script>
+    <script src="./js/alerta.js"></script>
     <script src="./js/sideMenu.js"></script>
-    <title>FastTotem | Visão Geral</title>
+    <title>FastTotem | Visão Específica</title>
 </head>
 <body>
     
-    <div class="perfilUser" id="perfilUser">
+       <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -28,6 +29,24 @@
             <div class="options">
                 <a href="perfilUsuario.html">Perfil</a>
                 <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert-menu" id="alertMenu">
+        <div class="alert-cards">
+            <h1 id="alert-title">Alertas</h1>
+            <div class="alert-card-alert">
+                <h4>Totem 1</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-alert">
+                <h4>Totem 2</h4>
+                <p>Em estado de alerta.</p>
+            </div>
+            <div class="alert-card-critical">
+                <h4>Totem 3</h4>
+                <p>Em estado de critico.</p>
             </div>
         </div>
     </div>
@@ -72,22 +91,18 @@
 
 <div class="dashboard">
     <div class="container">
-        <div class="header">
+       <div class="header">
             <div class="container">
                 <div class="logo">
-                        <h4>FastTotem</h4>
-                    </div>
+                    <h4>FastTotem</h4>
+                </div>
                 <h4 class="title">Visão Específica</h4>
                 <div class="navbar">
-                    <a href="#">
-                        <img class="nav-icon" src="./assets/bell.png" alt=""/>
-                    </a>
-                    <a onclick="abrirPerfil()">
-                        <img class="nav-icon" src="./assets/profile-user.png" alt=""/>
-                    </a>
-                    <a href="https://app.pipefy.com/public/form/C1FK3mWC">
-                        <img class="nav-icon" src="./assets/customer-service.png" alt=""/>
-                    </a>
+                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                            alt=""></a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                            src="./assets/customer-service.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -97,9 +112,10 @@
             <div class="dashboardContainer">
                 <section>
                     <div>
-                        <h1>Totem 001</h1>
+                        <h1 id="totem-name">Totem 001</h1>
     
                         <div>
+                            <span><strong>Chave de acesso:</strong> X21312441</span>
                             <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
                             <span><strong>Sistema Operacional:</strong> Windows 64 bits</span>
                             <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
@@ -155,7 +171,7 @@
                     <div>
                         <div class="chartContainer">
                             <div class="card-title">
-                                <h1>Uso de CPU</h1>
+                                <h1>Uso de CPU (%)</h1>
                                 <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
                             </div>
 
@@ -170,7 +186,7 @@
     
                         <div class="chartContainer">
                             <div class="card-title">
-                                <h1>Uso de HD</h1>
+                                <h1>Uso de HD (%)</h1>
 
                                 <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
                             </div>
@@ -188,7 +204,7 @@
                     <div>
                         <div class="chartContainer">
                             <div class="card-title">
-                                <h1>Uso de RAM</h1>
+                                <h1>Uso de RAM (%)</h1>
                                 <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
                             </div>
 
@@ -205,24 +221,36 @@
                             <div>
                                 <div class="KPI">
                                     <h2>USB<span class="on"></span></h2>
-                                    <p>Ativo</p>
-                                </div>
+                                    <div>
+                                    <h3>Ativo</h3>
+                                    <span>status atual</span>  
+                                </div> 
+                                    </div>
         
                                 <div class="KPI">
                                     <h2>CPU<span class="on"></span></h2>
+                                    <div>
                                     <h3>81%</h3>
+                                    <span>de uso</span>
+                                </div>
                                 </div>
                             </div>
     
                             <div>
                                 <div class="KPI">
                                     <h2>RAM<span class="on"></span></h2>
+                                    <div>
                                     <h3>74%</h3>
+                                    <span>de uso</span>
+                                </div>
                                 </div>
         
                                 <div class="KPI">
                                     <h2>HD<span class="on"></span></h2>
+                                    <div>
                                     <h3>95%</h3>
+                                    <span>de uso</span>
+                                </div>
                                 </div>
                             </div>
                         </div>
