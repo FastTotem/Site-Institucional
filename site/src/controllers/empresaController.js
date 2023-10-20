@@ -25,8 +25,6 @@ function cadastrar(req, res) {
     res.status(400).send("O bairro não pode estar vazio!");
   } else if (numero == undefined || numero.trim() === "") {
     res.status(400).send("O número não pode estar vazio!");
-  } else if (complemento == undefined || complemento.trim() === "") {
-    res.status(400).send("O complemento não pode estar vazio!");
   } else {
     empresaModel
       .cadastrar(nome, cnpj, email, cep, rua, bairro, numero, complemento, senha)

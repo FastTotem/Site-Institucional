@@ -160,6 +160,10 @@ section:first-of-type {
     }
 }
 
+.canvasContainer {
+    margin-top: auto;
+}
+
 .gaugeChart {
     position: relative;
     margin: auto;
@@ -218,7 +222,6 @@ section:last-of-type {
         & > div {
             width: 100%;
             margin-inline: auto;
-            margin-top: auto;
         }
     }
 
@@ -289,6 +292,43 @@ section:last-of-type {
             padding-left: 1rem;
         }
     }
+}
+
+.card-title {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.card-title a{
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title img{
+    width: 80%;
+    height: auto;
+    align-self: flex-start;
+}
+
+.tooltipInfoContainer {
+    display: none;
+}
+
+.tooltipInfoContainer p {
+    font-size: 1.3rem;
+}
+
+.tooltipInfoContainer--active {
+    display: flex;
+    flex: 1;
+    margin-top: auto;
+}
+
+.chart--inactive {
+    display: none !important;
 }
 
 @media(max-width: 1800px) {
