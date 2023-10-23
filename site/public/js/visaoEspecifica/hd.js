@@ -19,7 +19,7 @@ var dataHD = {
             borderColor: "#8D11A4",
             tension: .4,
             fill: true,
-            backgroundColor: '#8D11A4',
+            backgroundColor: '#AE71B1',
             borderRadius: 10,
         },
     ],

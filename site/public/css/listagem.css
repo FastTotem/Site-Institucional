@@ -1,276 +1,276 @@
-h1{
-    font-size: 1.3rem;
+h1 {
+  font-size: 1.3rem;
 }
 
 .grid {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex: 1;
-    box-sizing: border-box;
-    padding: 1.2rem;
-    align-items: center;
-    gap: 1rem;
-    color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 1.2rem;
+  align-items: center;
+  gap: 1rem;
+  color: whitesmoke;
 }
 
-#section1,#section2 {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    max-height: 86.9vh;
+#section1,
+#section2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-height: 86.9vh;
 }
 
 .totem-list,
 .totem-register {
-    width: 100%;
-    background-color: #3f3e3e;
-    border-radius: 25px;
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  background-color: #3f3e3e;
+  border-radius: 25px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .list {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .list-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .filter {
-    font-size: 0.9rem;
-    font-weight: lighter;
+  font-size: 0.9rem;
+  font-weight: lighter;
 }
 
 .list-status {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .list-status button {
-    padding: 0.5rem 4.7%;
-    border: solid 2px #670478;
-    background-color: #BD06DD;
-    color: whitesmoke;
-    font-weight: bold;
-    border-bottom: 0;
+  padding: 0.5rem 4.7%;
+  border: solid 2px;
+  color: whitesmoke;
+  font-weight: bold;
+  border-bottom: 0;
 }
 
 .list-status button:hover {
-    filter: brightness(0.9);
+  filter: brightness(0.9);
 }
 
 #ok {
-    border-color: #3BFF5C;
-    background-color: rgba(0, 255, 0, 0.7);
+  border-color: #3bff5c;
+  background-color: rgb(44, 161, 100);
 }
 
 #alert {
-    border-color: #FFDE59;
-    background-color: rgba(255, 215, 0, 0.7);
+  border-color: #FFDE59;
+  background-color: rgba(255, 215, 0, 0.7);
 }
 
 #danger {
-    border-color: #FF4040;
-    background-color: rgba(255, 99, 71, 0.7);
+  border-color: #ff4040;
+  background-color: rgba(255, 99, 71, 0.7);
 }
 
 #all {
-    border-color: #670478;
-    background-color: #BD06DD;
+  border-color: #bd06dd;
+  background-color: #651e6d;
 }
 
 #off {
-    border-color: grey;
-    background-color: rgb(101, 101, 101);
+  border-color: grey;
+  background-color: rgb(101, 101, 101);
 }
 
-#add{
-    border-color: rgba(0, 0, 0, 0.5);
-    background-color: rgba(0, 0, 0, 0.3);
+#add {
+  border-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .list-card {
-    display: flex;
-    background-color: #BD06DD;
-    height: fit-content;
-    padding: 1rem;
-    align-items: center;
-    border: solid 2px #3f3e3e;
-    border-top: 0;
-    color: whitesmoke;
+  display: flex;
+  background-color: #651e6d;
+  height: fit-content;
+  padding: 1rem;
+  align-items: center;
+  border: solid 2px #3f3e3e;
+  border-top: 0;
+  color: whitesmoke;
 }
 
 .list-card:hover {
-    transform: scale(0.99);
-    filter: brightness(0.9);
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transform: scale(0.99);
+  filter: brightness(0.9);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .img-status {
-    width: 4%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    margin-right: 2%;
+  width: 4%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-right: 2%;
 }
 
 .img-status img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .totem-info {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 6%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 6%;
 }
 
 .totem-name {
-    width: 30%;
+  width: 30%;
 }
 
 .component-status {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .component-status div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .component-status h3 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .component-status p {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .restart-button {
-    background-color: #BD06DD;
-    border: 2px solid #670478;
-    border-radius: 5px;
-    padding: 0.6rem 0.7rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    color: whitesmoke;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  background-color: #651e6d;
+  border: 2px solid #bd06dd;
+  border-radius: 5px;
+  padding: 0.6rem 0.7rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .restart-button:hover {
-    transform: scale(1.1);
-    filter: brightness(0.9);
+  transform: scale(1.1);
+  filter: brightness(0.9);
 }
 
 .totem-register {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 25px;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 25px;
+  color: white;
 }
 
 .totem-register h1 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group {
-    margin-bottom: 4%;
+  margin-bottom: 4%;
 }
 
 .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 10px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .form-group input,
 select {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 #submit-button {
-    width: 100%;
-    background-color: #BD06DD;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 4.4%;
+  width: 100%;
+  background-color: #bd06dd;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 4.4%;
 }
 
-#submit-button:hover{
-    transform: scale(0.99);
-    filter: brightness(0.9);
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+#submit-button:hover {
+  transform: scale(0.99);
+  filter: brightness(0.9);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 #totem-form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 100%;
-}   
-
-.employee-info{
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
 }
 
-.employee-name{
-    display: flex;
-gap: 1rem;
-flex-direction: column;
+.employee-info {
+  height: 100%;
+}
+
+.employee-name {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
 }
 
 .actions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .actions button {
-    margin-top: 1rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
+  margin-top: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .actions button:hover {
-    transform: scale(0.99);
-    filter: brightness(1.02);
+  transform: scale(0.99);
+  filter: brightness(1.02);
 }
 
 .employee-card {
-    display: flex;
-    background-color: #BD06DD;
-    height: fit-content;
-    padding: 1rem;
-    align-items: center;
-    border: solid 2px #3f3e3e;
-    border-top: 0;
-    color: whitesmoke;
+  display: flex;
+  background-color: #bd06dd;
+  height: fit-content;
+  padding: 1rem;
+  align-items: center;
+  border: solid 2px #3f3e3e;
+  border-top: 0;
+  color: whitesmoke;
 }
 
 .employee-card:hover {
-    transform: scale(0.99);
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transform: scale(0.99);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
