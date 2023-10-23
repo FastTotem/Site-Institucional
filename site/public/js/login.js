@@ -65,11 +65,11 @@ function login() {
                     console.log(JSON.stringify(json));
                     const usuario = json[0];
 
-                    sessionStorage.ID_USUARIO = usuario.UsuarioID;
-                    sessionStorage.NOME_USUARIO = usuario.Nome;
-                    sessionStorage.EMAIL_USUARIO = usuario.Email;
-                    sessionStorage.NVL_ACESSO_USUARIO = usuario.NivelDeAcesso;
-                    sessionStorage.ID_EMPRESA = usuario.EmpresaID;
+                    sessionStorage.ID_USUARIO = usuario.idUsuario;
+                    sessionStorage.NOME_USUARIO = usuario.nome;
+                    sessionStorage.EMAIL_USUARIO = usuario.email;
+                    sessionStorage.NVL_ACESSO_USUARIO = usuario.nivelAcesso;
+                    sessionStorage.ID_EMPRESA = usuario.fkEmpresa;
 
                     setTimeout(function () {
                         alert('Usuário autenticado com sucesso!');

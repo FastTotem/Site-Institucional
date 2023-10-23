@@ -1,8 +1,9 @@
-const nome_saudacao = document.getElementById('nome_saudacao');
-
 window.addEventListener('load', () => {
-    if (sessionStorage.NOME_USUARIO) {
-        nome_saudacao.innerText = sessionStorage.NOME_USUARIO;
+    const nomeSaudacaoElement = document.getElementById('nome_saudacao');
+    const nomeUsuario = sessionStorage.getItem('NOME_USUARIO');
+
+    if (nomeUsuario) {
+        nomeSaudacaoElement.innerText = nomeUsuario;
     }
 });
 
