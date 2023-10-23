@@ -37,7 +37,10 @@ var efficiencyChart = new Chart(efficiencyCanvas, {
                 stacked: false,
                 beginAtZero: true,
                 ticks: {
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        family: 'Montserrat',
+                    },
                 },
                 title: {
                     display: false,
@@ -49,11 +52,14 @@ var efficiencyChart = new Chart(efficiencyCanvas, {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 10,
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        family: 'Montserrat',
+                    },
                 },
                 title: {
                     display: false,
-                    text: 'Horas (h)'
+                    text: 'Horas (h)' 
                 }
             }
         },

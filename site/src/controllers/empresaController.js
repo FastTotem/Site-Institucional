@@ -26,7 +26,7 @@ function cadastrar(req, res) {
   } else if (numero == undefined || numero.trim() === "") {
     res.status(400).send("O número não pode estar vazio!");
   } else{ 
-        empresaModel
+      empresaModel
       .cadastrar(nome, cnpj, email, cep, rua, bairro, numero, complemento, senha)
       .then(function (resultado) {
         res.json(resultado);

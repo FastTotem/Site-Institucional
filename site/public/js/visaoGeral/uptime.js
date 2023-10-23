@@ -49,13 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 legend: {
                     display: true,
                     labels: {
-                        color: 'white'
+                        color: 'white',
+                        font: {
+                            family: 'Montserrat',
+                        },
                     }
                 },
                 tooltip: {
                     callbacks: {
                         label: function (context) {
                             var label = context.dataset.label || '';
+                            console.log(label);
                             if (label) {
                                 label += ': ';
                             }
@@ -71,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     max: 100,
                     ticks: {
                         stepSize: 10,
-                        color: 'white' 
+                        color: 'white',
+                        font: {
+                            family: 'Montserrat',
+                        },
                     },
                     grid: {
                         color: 'rgba(255, 255, 255, 0.2)' 
@@ -79,10 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 x: {
                     ticks: {
-                        color: 'white' 
+                        color: 'white',
+                        font: {
+                            family: 'Montserrat',
+                        },
                     },
                     grid: {
-                        display: false 
+                        display: false
                     }
                 }
             },
