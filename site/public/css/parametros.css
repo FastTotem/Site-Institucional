@@ -49,9 +49,7 @@ section h3 {
 }
 
 .alert-range-btn {
-  position: absolute;
-  top: 45vh;
-  width: 20%;
+  width: 100%;
   background-color: #bd06dd;
   color: white;
   border: none;
@@ -60,7 +58,8 @@ section h3 {
   font-size: 18px;
   cursor: pointer;
   margin-bottom: 0.5rem;
-  margin-top: 23%;
+  margin-top: auto;
+  font-family: 'Montserrat';
 }
 
 .alert-range-btn:hover {

@@ -11,7 +11,7 @@ var dataRAM = {
             fill: true,
             backgroundColor: (context) => {
                 const background = [
-                    "#7D167F",
+                    "#B411D1",
                     "#bd06dd60"
                 ]
 

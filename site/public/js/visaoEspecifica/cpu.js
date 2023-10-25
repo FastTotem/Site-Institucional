@@ -10,7 +10,7 @@ var dataCPU = {
             tension: 0.4,
             fill: true,
             backgroundColor: (context) => {
-                const background = ["#AE71B1", "#bd06dd2d"];
+                const background = ["#BD06DD", "#bd06dd2d"];
 
                 if (!context.chart.chartArea) {
                     return;
