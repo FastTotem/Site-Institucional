@@ -122,19 +122,27 @@
         <main id="main">
 
             <div class="formContainer">
-                <div>
+                <label for="profileImageInput">
+                    <div class="profileImage">
+                        <h1></h1>
+                    </div>
+                </label>
+                
+                <input type="file" name="profileImageInput" id="profileImageInput" accept="image/*" hidden>
+
+                <div style="display: none;">
                     <img src="assets/FastToten - Logo.png" alt="imgFastTotem">
                 </div>
                 <form>
                     <div class="profileInput" id="username">
                         <label>Nome de usuário</label>
-                        <input value="Kauã" disabled type="text" name="username" id="usernameInput" placeholder="Nome de usuário">
+                        <input disabled type="text" name="username" id="usernameInput" placeholder="Nome de usuário">
                         <span onclick="toggleLock('username')" class="iconify" data-icon="material-symbols:lock"></span>
                     </div>
 
                     <div class="profileInput" id="lvlAcess">
                         <label>Nível de Acesso</label>
-                        <input id="inputLvlAcess" value="Administrador" disabled type="text" id="passwordInput" name="password" placeholder="Nivel de Acesso">
+                        <input id="inputLvlAcess" disabled type="text" id="passwordInput" name="password" placeholder="Nivel de Acesso">
                     </div>
     
                     <div class="profileInput" id="password">

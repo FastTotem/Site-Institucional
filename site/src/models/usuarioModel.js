@@ -28,6 +28,11 @@ function updateNome(id, nome) {
     return database.executar(instrucao);
 }
 
+function updateProfileImage(id, imagePath) {
+    var instrucao = `UPDATE Usuario SET imgUsuario='${imagePath}' WHERE idUsuario = '${id}';`;
+    return database.executar(instrucao);
+}
+
 function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
     var usuarioQuery = `INSERT INTO Usuario (nome, email, senha, nivelAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
 
@@ -40,5 +45,6 @@ module.exports = {
     checarSenha,
     updateNome,
     updateSenha,
-    getUser
+    getUser,
+    updateProfileImage
 };

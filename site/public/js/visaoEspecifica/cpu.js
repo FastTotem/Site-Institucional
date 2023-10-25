@@ -5,7 +5,7 @@ var dataCPU = {
     labels: labelsCPU,
     datasets: [
         {
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [65, 59, 80, 87, 56, 41, 33],
             borderColor: "#BD06DD",
             tension: 0.4,
             fill: true,

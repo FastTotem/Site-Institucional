@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var borderColorOk = 'rgba(0, 255, 0, 1)';
+    var borderColorOk = 'rgb(44, 161, 100)';
     var borderColorAlerta = 'rgba(255, 215, 0, 1)'; 
     var borderColorCritico = 'rgba(255, 99, 71, 1)';
 
@@ -11,7 +11,7 @@ var efficiencyData = {
     datasets: [
         {
             data: [8, 6.5, 9, 7.5, 2, 4, 5, 9, 1, 3.5],
-            backgroundColor: 'rgba(0, 255, 0, 0.7)',
+            backgroundColor: 'rgb(44, 161, 100)',
             borderColor: borderColorOk,
             borderWidth: 2,
             label: 'Uptime',

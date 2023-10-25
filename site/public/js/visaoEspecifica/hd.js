@@ -16,10 +16,10 @@ var dataHD = {
         {
             label: 'Disco Local (D:)',
             data: [32, 51, 10, 81, 90, 65, 25],
-            borderColor: "#8D11A4",
+            borderColor: "#8D11B5",
             tension: .4,
             fill: true,
-            backgroundColor: '#8D11A4',
+            backgroundColor: '#7D167F',
             borderRadius: 10,
         },
     ],
