@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var statusCanvas = document.getElementById('status-canvas').getContext('2d');
     
-    var borderColorOk = 'rgb(0, 255, 0)';
+    var borderColorOk = 'rgb(44, 161, 100)';
     var borderColorAlerta = 'rgb(255, 215, 0)'; 
     var borderColorCritico = 'rgb(255, 99, 71)';
     var borderColorOff = 'gray';
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         labels: ['Desligado', 'Critico', 'Alerta', 'Ok'],
         datasets: [{
             data: [20, 10, 20, 50],
-            backgroundColor: ['rgb(101, 101, 101)','rgba(255, 99, 71, 0.7)', 'rgba(255, 215, 0, 0.7)' ,'rgba(0, 255, 0, 0.7)'],
+            backgroundColor: ['rgb(101, 101, 101)','rgba(255, 99, 71, 0.7)', 'rgba(255, 215, 0, 0.7)' ,'rgb(44, 161, 100)'],
             borderColor: [borderColorOff, borderColorCritico, borderColorAlerta, borderColorOk], 
             borderWidth: 2, 
         }]

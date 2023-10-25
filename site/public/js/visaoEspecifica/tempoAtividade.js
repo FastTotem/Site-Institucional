@@ -4,7 +4,7 @@ canvas.height = window.innerHeight/4.5;
 
 var data = {
     datasets: [{
-        data: [90, 10],
+        data: [70, 30],
         backgroundColor: [
             '#DC4444',
             'transparent'
