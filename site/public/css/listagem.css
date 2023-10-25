@@ -69,7 +69,7 @@ h1 {
 }
 
 #alert {
-  border-color: #FFDE59;
+  border-color: #ffde59;
   background-color: rgba(255, 215, 0, 0.7);
 }
 
@@ -85,7 +85,7 @@ h1 {
 
 #off {
   border-color: grey;
-  background-color: rgb(101, 101, 101);
+  background-color: #909090;
 }
 
 #add {
@@ -261,7 +261,7 @@ select {
 
 .employee-card {
   display: flex;
-  background-color: #bd06dd;
+  background-color: #320636b6;
   height: fit-content;
   padding: 1rem;
   align-items: center;
