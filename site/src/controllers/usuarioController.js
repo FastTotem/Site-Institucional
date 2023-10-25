@@ -165,11 +165,41 @@ function updateSenha(req, res) {
     }
 }
 
+function changeProfileImage(req, res) {
+    var imagePath = req.file?.filename;
+    var id = req.params.id;
+    console.log(id, imagePath);
+
+    if (id == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (imagePath == undefined) {
+        res.status(400).send("Sua imagem está undefined!");
+    } else {
+
+        usuarioModel.updateProfileImage(id, imagePath)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     checarSenha,
     updateNome,
     updateSenha,
-    getUser
+    getUser,
+    changeProfileImage
 }

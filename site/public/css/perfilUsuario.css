@@ -17,17 +17,51 @@ main {
     flex: 1;
 }
 
-.formContainer > div:first-of-type {
+.formContainer > label:first-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
-    background: linear-gradient(to bottom, #BD06DD, #670478);
-    border-radius: 15px;
+    border: .5rem solid #BD06DD;
+    border-radius: 50%;
 
     margin-bottom: 2rem;
     margin-top: -5rem;
-    padding: 1rem;
+    width: 8rem;
+    height: 8rem;
+
+    background-position: center;
+    background-size: cover;
+
+    box-shadow: 0px 5px 45px 5px #BD06DDA5;
+
+    & h1 {
+        font-size: 2.7rem;
+        color: #BD06DD;
+    }
+
+    &:before {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        background-color: #00000080;
+        font-size: .8rem;
+        content: 'Clique aqui para inserir uma nova imagem';
+        text-align: center;
+        color: #FFF;
+        opacity: 0;
+        transition: .5s;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
 }
 
 .formContainer img {

@@ -6,7 +6,7 @@ var dataCPU = {
     datasets: [
         {
             data: [65, 59, 80, 87, 56, 41, 33],
-            borderColor: "#927B85",
+            borderColor: "#BD06DD",
             tension: 0.4,
             fill: true,
             backgroundColor: (context) => {
