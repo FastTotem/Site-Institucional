@@ -3,7 +3,7 @@ var sql = require('mssql');
 
 var mySqlConfig = {
     host: "localhost",
-    database: "fastTotem",
+    database: "fasttotem",
     user: "fastTotemAdmin",
     password: "fasttotem123",
 };

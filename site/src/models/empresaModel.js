@@ -12,14 +12,14 @@ function cadastrar(
   complemento,
   senha
 ) {
-  var enderecoQuery = `INSERT INTO Endereco (logradouro, bairro, numero, complemento, cep ) VALUES ('${rua}', '${bairro}', '${numero}', '${complemento}', '${cep}')`;
+  var enderecoQuery = `INSERT INTO endereco (logradouro, bairro, numero, complemento, cep ) VALUES ('${rua}', '${bairro}', '${numero}', '${complemento}', '${cep}')`;
 
   return database
     .executar(enderecoQuery)
     .then(function (enderecoResultado) {
       var enderecoId = enderecoResultado.insertId;
 
-      var empresaQuery = `INSERT INTO Empresa (razaoSocial , cnpj, fkEndereco) VALUES ('${nome}', '${cnpj}', ${enderecoId})`;
+      var empresaQuery = `INSERT INTO empresa (razaoSocial , cnpj, fkEndereco) VALUES ('${nome}', '${cnpj}', ${enderecoId})`;
 
       return database.executar(empresaQuery);
     })
