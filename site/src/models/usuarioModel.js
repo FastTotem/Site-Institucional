@@ -9,32 +9,32 @@ function autenticar(email, senha) {
 }
 
 function checarSenha(id, senha) {
-    var instrucao = `SELECT * FROM Usuario WHERE idUsuario = '${id}' AND senha = '${senha}';`;
+    var instrucao = `SELECT * FROM usuario WHERE idUsuario = '${id}' AND senha = '${senha}';`;
     return database.executar(instrucao);
 }
 
 function getUser(id) {
-    var instrucao = `SELECT * FROM Usuario WHERE idUsuario = '${id}';`;
+    var instrucao = `SELECT * FROM usuario WHERE idUsuario = '${id}';`;
     return database.executar(instrucao);
 }
 
 function updateSenha(id, senha) {
-    var instrucao = `UPDATE Usuario SET senha='${senha}' WHERE idUsuario = '${id}';`;
+    var instrucao = `UPDATE usuario SET senha='${senha}' WHERE idUsuario = '${id}';`;
     return database.executar(instrucao);
 }
 
 function updateNome(id, nome) {
-    var instrucao = `UPDATE Usuario SET nome='${nome}' WHERE idUsuario = '${id}';`;
+    var instrucao = `UPDATE usuario SET nome='${nome}' WHERE idUsuario = '${id}';`;
     return database.executar(instrucao);
 }
 
 function updateProfileImage(id, imagePath) {
-    var instrucao = `UPDATE Usuario SET imgUsuario='${imagePath}' WHERE idUsuario = '${id}';`;
+    var instrucao = `UPDATE usuario SET imgUsuario='${imagePath}' WHERE idUsuario = '${id}';`;
     return database.executar(instrucao);
 }
 
 function cadastrar(nome, email, senha, empresaId, nivelDeAcesso) {
-    var usuarioQuery = `INSERT INTO Usuario (nome, email, senha, nivelAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
+    var usuarioQuery = `INSERT INTO usuario (nome, email, senha, nivelAcesso, fkEmpresa) VALUES ('${nome}Admin', '${email}', '${senha}', '${nivelDeAcesso}', ${empresaId})`;
 
     return database.executar(usuarioQuery);
 }
