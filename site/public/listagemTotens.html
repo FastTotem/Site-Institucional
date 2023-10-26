@@ -109,13 +109,12 @@
                         <h4 class="filter">Mostrando 10 de 10</h4>
                     </div>
                     <div class="list-status">
-                        <button onclick="selectColor()" id="all">Todos</button>
-                        <button onclick="selectColor()" id="danger">Critico</button>
-                        <button onclick="selectColor()" id="alert">Alerta</button>
-                        <button onclick="selectColor()" id="ok">Ok</button>
-                        <button onclick="selectColor()" id="off">Desligados</button>
-                        <button onclick="openForm()" id="add">+</button>
-                    </div>
+                        <button onclick="selectColor('all')" id="all">Todos</button>
+                        <button onclick="selectColor('danger')" id="danger">Critico</button>
+                        <button onclick="selectColor('alert')" id="alert">Alerta</button>
+                        <button onclick="selectColor('ok')" id="ok">Ok</button>
+                        <button onclick="selectColor('off')" id="off">Desligados</button>
+                    </div>                    
                     <div class="list">
                         <a href="visaoEspecifica.html" class="list-card">
                             <div class="img-status">
@@ -430,22 +429,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parametros">Parâmetros:</label>
-                            <select id="parametros" name="parametros">
-                                <option value="padrao">Padrão</option>
-                                <option value="personalizado">Personalizado</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label for="jar">Jar:</label>
                             <select id="jar" name="jar">
                                 <option value="padrao">Padrão</option>
-                                <option value="jar1">Jar 1</option>
-                                <option value="jar2">Jar 2</option>
-                                <option value="jar3">Jar 3</option>
-                                <option value="jar4">Jar 4</option>
-                                <option value="jar5">Jar 5</option>
+                                <option value="jar1">Jar Temperatura</option>
+                                <option value="jar2">Jar Gui</option>
+                                <option value="jar3">Jar Config Tempo de Captura</option>
+                                <option value="jar4">Jar Rede</option>
+                                <option value="jar5">Jar Limpar Cache</option>
                             </select>
                         </div>
 
