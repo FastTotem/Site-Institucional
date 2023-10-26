@@ -11,7 +11,7 @@ function validarInputs(button) {
     const criticalLvl = parseInt(section.querySelector(".criticalLvl").value);
     const errorMessage = section.querySelector(".error-message");
 
-    if (okLvl >= alertLvl && alertLvl >= criticalLvl) {
+    if (alertLvl >= okLvl && criticalLvl >= alertLvl) {
         errorMessage.style.display = "none";
         alert("Parâmetros atualizados com sucesso")
     } else {
