@@ -14,7 +14,7 @@
     <title>FastTotem | Totens </title>
 </head>
 
-<body>
+<body onload="listarTotens()">
 
     <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
@@ -28,23 +28,7 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
+
 
     <div class="side-menu" id="side-menu">
         <div class="container">
@@ -61,7 +45,7 @@
                 </a>
 
                 <a href="visaoEspecifica.html">
-                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
                     <div class="page-name">Visão Específica</div>
                 </a>
 
@@ -80,6 +64,11 @@
                     <div class="page-name">Parâmetros</div>
                 </a>
 
+                <a href="relatorios.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
+
             </div>
         </div>
     </div>
@@ -92,8 +81,7 @@
                 </div>
                 <h4 class="title">Totens</h4>
                 <div class="navbar">
-                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png"
-                            alt=""></a>
+
                     <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                             src="./assets/customer-service.png" alt=""></a>
@@ -109,314 +97,13 @@
                         <h4 class="filter">Mostrando 10 de 10</h4>
                     </div>
                     <div class="list-status">
-                        <button onclick="selectColor()" id="all">Todos</button>
-                        <button onclick="selectColor()" id="danger">Critico</button>
-                        <button onclick="selectColor()" id="alert">Alerta</button>
-                        <button onclick="selectColor()" id="ok">Ok</button>
-                        <button onclick="selectColor()" id="off">Desligados</button>
-                        <button onclick="openForm()" id="add">+</button>
+                        <button onclick="listarTotens()" class = "status-all">Todos</button>
+                        <button onclick="listarTotensPorStatus('critico')" class="status-critico">Critico</button>
+                        <button onclick="listarTotensPorStatus('alerta')" class="status-alerta">Alerta</button>
+                        <button onclick="listarTotensPorStatus('ok')" class="status-ok">Ok</button>
+                        <button onclick="listarTotensPorStatus('inativo')" class="status-inativo">Desligados</button>
                     </div>
-                    <div class="list">
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 1</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 2</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/sinal-de-alerta.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 3</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/verificar.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 4</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 5</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 6</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 7</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 8</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 9</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
-                        <a href="visaoEspecifica.html" class="list-card">
-                            <div class="img-status">
-                                <img src="./assets/aviso.png" alt="">
-                            </div>
-                            <div class="totem-info">
-                                <div class="totem-name">
-                                    <h3>Totem 10</h3>
-                                </div>
-                                <div class="component-status">
-                                    <div>
-                                        <h3>HD</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>CPU</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>RAM</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                    <div>
-                                        <h3>USB</h3>
-                                        <p>Status: OK</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </a>
+                    <div class="list" id ="list">
                     </div>
                 </div>
             </div>
@@ -430,22 +117,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parametros">Parâmetros:</label>
-                            <select id="parametros" name="parametros">
-                                <option value="padrao">Padrão</option>
-                                <option value="personalizado">Personalizado</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label for="jar">Jar:</label>
                             <select id="jar" name="jar">
                                 <option value="padrao">Padrão</option>
-                                <option value="jar1">Jar 1</option>
-                                <option value="jar2">Jar 2</option>
-                                <option value="jar3">Jar 3</option>
-                                <option value="jar4">Jar 4</option>
-                                <option value="jar5">Jar 5</option>
+                                <option value="jar temperatura">Jar Temperatura</option>
+                                <option value="jar gui">Jar Gui</option>
+                                <option value="jar config tempo de captura">Jar Config Tempo de Captura</option>
+                                <option value="jar rede">Jar Rede</option>
+                                <option value="jar limpar cache">Jar Limpar Cache</option>
                             </select>
                         </div>
 
@@ -462,7 +141,8 @@
                             <input type="text" id="chave" name="chave" placeholder="Chave de Acesso Personalizada">
                         </div>
 
-                        <button onclick="criarCard(nome.value)" id="submit-button">Cadastrar Totem</button>
+                        <button onclick="cadastrarTotem(nome.value,jar.value,chave.value)" id="submit-button">Cadastrar
+                            Totem</button>
 
                     </div>
                 </div>
@@ -495,14 +175,14 @@
     }
 
     function criarCard(nome) {
-            const totemList = document.querySelector('.list');
-            const contagemTotens = totemList.childElementCount + 1;
+        const totemList = document.querySelector('.list');
+        const contagemTotens = totemList.childElementCount + 1;
 
-            const totemCard = document.createElement('a'); 
-            totemCard.className = 'list-card';
-            totemCard.href = `visaoEspecifica.html?funcionario=${contagemTotens}`;
+        const totemCard = document.createElement('a');
+        totemCard.className = 'list-card';
+        totemCard.href = `visaoEspecifica.html?funcionario=${contagemTotens}`;
 
-            const cardHTML = `
+        const cardHTML = `
                 <div class="img-status">
                     <img src="./assets/verificar.png" alt="">
                 </div>
@@ -531,7 +211,7 @@
                 </div>
             `;
 
-            totemCard.innerHTML = cardHTML;
-            totemList.appendChild(totemCard);
-        }
+        totemCard.innerHTML = cardHTML;
+        totemList.appendChild(totemCard);
+    }
 </script>

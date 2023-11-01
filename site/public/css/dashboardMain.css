@@ -33,7 +33,7 @@ button{
   }
   
   *::-webkit-scrollbar-thumb {
-    background-color: #320636b6;
+    background-color: #BD06DD;
   }
   
   *::-webkit-scrollbar-track {
@@ -62,10 +62,15 @@ button{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3%;
+    width: 100%;
+    padding: 0 2%;
 }
 
 .title{
+    position: absolute;
+    left: 46.2vw;
+    justify-self: auto;
+    align-items: center;
     color: whitesmoke;
     font-size: 1.3rem;
 }
@@ -91,10 +96,11 @@ button{
 
 .navbar {
     display: flex;
+    align-items: center;
     flex-direction: row;
+    justify-content: end;
     width: 20%;
     gap: 2vw;
-justify-content: end;
 }
 
 .navbar a{
@@ -155,7 +161,7 @@ justify-content: end;
 .icons {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    gap: 6vh;
     height: 40%;
     margin-top: 40%;
 }

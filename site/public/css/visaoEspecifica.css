@@ -18,16 +18,21 @@
 }
 
 .toolsButton, .controllerButton {
+    user-select: none;
     cursor: pointer;
     display: flex;
     align-items: center;
+    border-radius: 15px;
     gap: .8rem;
-    padding: 1rem;
     color: #FFF;
     transition: .5s;
     &:hover {
         background-color: #3f3e3e;
     }
+}
+
+.toolsButton{
+    padding: 0.6rem 0.7rem;
 }
 
 .toolsBox {
@@ -37,8 +42,8 @@
 
     position: absolute;
     margin-top: 3rem;
-    right: 38.4vw;
-    bottom: 13vh;
+    right: 39vw;
+    top: 12.5vh;
 
     padding: 2rem;
 
@@ -92,8 +97,8 @@ main {
     gap: 1.5rem;
 
     width: 100%;
-    max-height: 93vh;
-    overflow-y: auto;
+    max-height: 90vh;
+    overflow-y: hidden;
 
     & * {
         margin: 0;
@@ -101,7 +106,7 @@ main {
 
     & > div {
         display: flex;
-        gap: 1.2rem;
+        gap: 0.5rem;
     }
 }
 
@@ -110,7 +115,14 @@ main {
 }
 
 .dashboardContainer {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+}
+
+.dashboardCanvas{
+    display: flex;
+    gap: 1.2rem;
 }
 
 .dashboard > .container {
@@ -286,8 +298,8 @@ section:last-of-type {
 .controllers {
     display: flex;
     justify-content: space-between;
-
     width: 100%;
+    margin-bottom: 0.8rem;
 
     & .iconify {
         font-size: 1.2rem;

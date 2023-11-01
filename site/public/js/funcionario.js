@@ -62,13 +62,14 @@ function validarCampos(){
 
     nome = nomeInput.value
     email = emailInput.value
+    nivelAcesso = nivelAcessoSelect.value
     
     
         if (validateEmail(emailInput.value)) {
             setTimeout(function () {
                 successMessage.style.display = 'block';
             }, 1000);
-            criarCard(nome,email)
+            criarCard(nome,email,nivelAcesso)
             form.reset();
         } else {
             alert('Por favor, insira um endereço de e-mail válido.');
@@ -85,7 +86,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function criarCard(nome, email) {
+function criarCard(nome, email,nivelAcesso) {
 
 const funcList = document.getElementById('func-list');
 
@@ -100,7 +101,7 @@ const contagemFuncionarios = funcList.childElementCount+1;
             <div class="employee-name">
                 <h3>${nome}</h3>
                 <p>Email: ${email}</p>
-                <p>Nível de Acesso: Funcionário</p>
+                <p>Nível de Acesso: ${nivelAcesso}</p>
                 <p id="stts${contagemFuncionarios}">Status: Ativo</p>
             </div>
             <div class="actions">

@@ -25,23 +25,7 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
+   
 
     <div class="side-menu" id="side-menu">
         <div class="container">
@@ -58,9 +42,9 @@
             </a>
 
             <a href="visaoEspecifica.html">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Específica</div>
-            </a>
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
+                    <div class="page-name">Visão Específica</div>
+                </a>
 
             <a href="listagemTotens.html">
                 <img class="menu-icon" src="./assets/totem.png" alt="">
@@ -77,6 +61,11 @@
                 <div class="page-name">Parâmetros</div>
             </a>
 
+            <a href="relatorios.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Relatórios</div>
+            </a>
+            
             </div>
         </div>
     </div>
@@ -89,7 +78,6 @@
                 </div>
                 <h4 class="title">Funcionários</h4>
                 <div class="navbar">
-                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
                     <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
                             alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
@@ -103,7 +91,7 @@
             <div class="totem-list">
                 <div class="list-title">
                     <h1>Funcionários cadastrados</h1>
-                    <h4 class="filter">Mostrando 10 de 10</h4>
+                    <h4 class="filter">Mostrando 4 de 4</h4>
                 </div>
                 <div class="list-status">
                     <button onclick="filterList('todos'),selectColor()">Todos</button>
@@ -186,10 +174,10 @@
         
                     <div class="form-group">
                         <label for="nivel-acesso">Nível de Acesso:</label>
-                        <select id="nivel-acesso" name="nivel-acesso">
-                            <option value="administrador">Administrador</option>
-                            <option value="gerente">Gerente</option>
-                            <option value="funcionario">Funcionário</option>
+                        <select id="nivelAcessoSelect" name="nivel-acesso">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Gerente">Gerente</option>
+                            <option value="FastTotem">Funcionário</option>
                         </select>
                     </div>
                     <div id="success-message" style="display: none;">
