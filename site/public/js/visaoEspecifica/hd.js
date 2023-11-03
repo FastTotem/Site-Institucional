@@ -1,7 +1,7 @@
-var ctxHD = document.getElementById("barChartHD").getContext("2d");
+const ctxHD = document.getElementById("barChartHD").getContext("2d");
 
-var labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
-var dataHD = {
+const labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
+const dataHD = {
     labels: labelsHD,
     datasets: [
         {
@@ -25,7 +25,7 @@ var dataHD = {
     ],
 };
 
-var HDChart = new Chart(ctxHD, {
+const HDChart = new Chart(ctxHD, {
     type: "bar",
     data: dataHD,
     options: {

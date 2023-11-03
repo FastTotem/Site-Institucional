@@ -41,9 +41,8 @@
     gap: 1rem;
 
     position: absolute;
-    margin-top: 3rem;
-    right: 39vw;
-    top: 12.5vh;
+    margin-top: 15rem;
+    margin-left: -3rem;
 
     padding: 2rem;
 
@@ -97,8 +96,8 @@ main {
     gap: 1.5rem;
 
     width: 100%;
-    max-height: 90vh;
     overflow-y: hidden;
+    flex: 1;
 
     & * {
         margin: 0;
@@ -123,6 +122,7 @@ main {
 .dashboardCanvas{
     display: flex;
     gap: 1.2rem;
+    flex: 1;
 }
 
 .dashboard > .container {
@@ -187,9 +187,12 @@ section:first-of-type {
 }
 
 .gaugeChart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: auto;
-    height: 85%;
+    flex: 1;
     
     & > div {
         display: flex;
@@ -265,14 +268,16 @@ section:last-of-type {
             flex: 1;
             gap: 0.8rem;
             display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
             border-radius: 25px;
             padding: 1.2rem;
             background-color: #3f3e3e;
             color: #FFF;
 
-            & h1 {
-                font-weight: 800;
+            & h2 {
+                font-size: 1.7rem;
             }
 
             & h3 {
