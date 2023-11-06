@@ -26,8 +26,9 @@ function cadastrar(
     .then(function (empresaResultado) {
 
       var empresaID = empresaResultado.insertId;
-
-      usuarioModel.cadastrar(nome, email, senha, empresaID, 'Administrador');
+    
+      var nomeAdmin = `${nome}Admin`
+      usuarioModel.cadastrar(nomeAdmin, email, senha, 'Administrador', empresaID,);
     })
     .then(function (usuarioResultado) {
       return usuarioResultado;

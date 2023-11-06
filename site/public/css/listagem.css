@@ -214,6 +214,10 @@ select {
   height: 100%;
 }
 
+#message{
+  text-align: center;
+}
+
 .employee-info {
   height: 100%;
 }

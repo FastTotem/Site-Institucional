@@ -1,6 +1,6 @@
 var totemModel = require("../models/totemModel");
 
-function cadastrar(req, res){
+function cadastrar(req, res) {
 
     var nome = req.body.nomeServer;
     var jar = req.body.jarServer;
@@ -35,7 +35,7 @@ function cadastrar(req, res){
     }
 }
 
-function excluir(req, res){
+function excluir(req, res) {
 
     var nome = req.body.nomeServer;
     var idEmpresa = req.body.fkEmpresaServer;
@@ -65,7 +65,7 @@ function excluir(req, res){
 
 }
 
-function listar(req, res){
+function listar(req, res) {
 
     var idEmpresa = req.params.idEmpresa;
 
@@ -83,41 +83,69 @@ function listar(req, res){
                     console.log(erro);
                     console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
-                }   
+                }
             );
     }
 
 }
 
-    
-    function listarPorStatus(req, res){
 
-        var idEmpresa = req.params.idEmpresa;
-        var status = req.params.status;
-    
-        if (idEmpresa === undefined) {
-            res.status(400).send("O Id da Empresa está undefined!");
-        } else {
-    
-            totemModel.listarPorStatus(idEmpresa, status)
-                .then(
-                    function (resultado) {
-                        res.json(resultado);
-                    }
-                ).catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
-                        res.status(500).json(erro.sqlMessage);
-                    }   
-                );
-        }
-    
+function listarPorStatus(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+    var status = req.params.status;
+
+    if (idEmpresa === undefined) {
+        res.status(400).send("O Id da Empresa está undefined!");
+    } else {
+
+        totemModel.listarPorStatus(idEmpresa, status)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
     }
 
-module.exports = { 
+}
+
+function listarPorNome(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+    var nome = req.params.nome;
+
+    if (idEmpresa === undefined) {
+        res.status(400).send("idEmpresa está undefined!");
+    } else if(nome === undefined){
+        res.status(400).send("Nome está undefined!");
+    }else {
+
+        totemModel.listarPorNome(idEmpresa, nome)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+module.exports = {
     cadastrar,
     excluir,
     listar,
-    listarPorStatus
- }
+    listarPorStatus,
+    listarPorNome
+}
