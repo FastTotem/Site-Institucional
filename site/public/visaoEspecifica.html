@@ -22,7 +22,7 @@
 </head>
 <body>
     
-       <div class="perfilUser" id="perfilUser">
+    <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -79,19 +79,19 @@
         </div>
     </div>
 
-<div class="dashboard">
-    <div class="container">
-       <div class="header">
-            <div class="container">
-                <div class="logo">
-                    <h4>FastTotem</h4>
-                </div>
-                <h4 class="title">Visão Específica</h4>
-                <div class="navbar">
-                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
-                            alt=""></a>
-                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
-                            src="./assets/customer-service.png" alt=""></a>
+    <div class="dashboard">
+        <div class="container">
+            <div class="header">
+                <div class="container">
+                    <div class="logo">
+                        <h4>FastTotem</h4>
+                    </div>
+                    <h4 class="title">Visão Específica</h4>
+                    <div class="navbar">
+                        <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                                alt=""></a>
+                        <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                                src="./assets/customer-service.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -166,17 +166,17 @@
                         <div class="gaugeChart">
                             <div>
                                 <h2>
-                                    22
+                                    <span id="dayUsage">-</span>
                                     <small>Dias</small>
                                 </h2>
                                 :
                                 <h2>
-                                    20
+                                    <span id="hoursUsage">-</span>
                                     <small>Horas</small>
                                 </h2>
                                 :
                                 <h2>
-                                    35
+                                    <span id="minutesUsage">-</span>
                                     <small>Minutos</small>
                                 </h2>
                             </div>
@@ -240,7 +240,7 @@
                                 <div class="KPI">
                                     <h2>USB<span class="on"></span></h2>
                                     <div>
-                                    <h3>Ativo</h3>
+                                    <h3 id="usbStatus">-</h3>
                                     <span>status atual</span>  
                                 </div> 
                                     </div>
@@ -248,7 +248,7 @@
                                 <div class="KPI">
                                     <h2>CPU<span class="on"></span></h2>
                                     <div>
-                                    <h3>81%</h3>
+                                    <h3 id="kpiCPU">-</h3>
                                     <span>de uso</span>
                                 </div>
                                 </div>
@@ -258,7 +258,7 @@
                                 <div class="KPI">
                                     <h2>RAM<span class="on"></span></h2>
                                     <div>
-                                    <h3>74%</h3>
+                                    <h3 id="kpiRAM">-</h3>
                                     <span>de uso</span>
                                 </div>
                                 </div>
@@ -266,7 +266,7 @@
                                 <div class="KPI">
                                     <h2>HD<span class="on"></span></h2>
                                     <div>
-                                    <h3>95%</h3>
+                                    <h3 id="kpiHD">-</h3>
                                     <span>de uso</span>
                                 </div>
                                 </div>
