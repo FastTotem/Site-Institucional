@@ -45,7 +45,7 @@ function login() {
     });
 
     if(inputsSaoValidos) {
-        fetch("/usuarios/autenticar", {
+        fetch("/usuario/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

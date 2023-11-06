@@ -49,6 +49,78 @@ function getUser(req, res) {
 
 }
 
+function listar(req, res) {
+    var idEmpresa = req.params.idEmpresa;
+
+    if (idEmpresa == undefined) {
+        res.status(400).send("idEmpresa está undefined!");
+    } else {
+
+        usuarioModel.listar(idEmpresa)
+            .then(
+                function (resposta) {
+                    res.json(resposta);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+function listarPorStatus(req, res) {
+    var idEmpresa = req.params.idEmpresa;
+    var status = req.params.status;
+
+    if (idEmpresa == undefined) {
+        res.status(400).send("idEmpresa está undefined!");
+    }else if (status == undefined) {
+        res.status(400).send("Status está undefined!");
+    } else {
+
+        usuarioModel.listarPorStatus(idEmpresa, status)
+            .then(
+                function (resposta) {
+                    res.json(resposta);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+function verificarEmail(req, res) {
+    var email = req.params.email;
+
+    if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+
+        usuarioModel.verificarEmail(email)
+            .then(
+                function (resposta) {
+                    res.json(resposta);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 function checarSenha(req, res) {
     var senha = req.body.senhaServer;
     var id = req.body.idServer;
@@ -74,24 +146,113 @@ function checarSenha(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var empresaId = req.body.empresaServer;
 
-    // Faça as validações dos valores
+    var nome = req.body.nomeServer; 
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer; 
+    var nivelAcesso = req.body.nivelAcessoServer;
+    var empresaId = req.body.fkEmpresaServer; 
+
     if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Nome está undefined!");
     } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send("Email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Senha está undefined!");
     } else if (empresaId == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
+        res.status(400).send("FkEmpresa está undefined!");
+    }  else if (nivelAcesso == undefined) {
+        res.status(400).send("Nivel de Acesso está undefined!");
     } else {
 
-        usuarioModel.cadastrar(nome, email, senha, empresaId)
+        usuarioModel.cadastrar(nome, email, senha, nivelAcesso , empresaId)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function inativar(req, res) {
+
+    var email = req.body.emailServer;
+    var empresaId = req.body.fkEmpresaServer; 
+
+     if (email == undefined) {
+        res.status(400).send("Email está undefined!");
+    } else if (empresaId == undefined) {
+        res.status(400).send("FkEmpresa está undefined!");
+    } else {
+
+        usuarioModel.inativar(email, empresaId)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function ativar(req, res) {
+
+    var email = req.body.emailServer;
+    var empresaId = req.body.fkEmpresaServer; 
+
+     if (email == undefined) {
+        res.status(400).send("Email está undefined!");
+    } else if (empresaId == undefined) {
+        res.status(400).send("FkEmpresa está undefined!");
+    } else {
+
+        usuarioModel.ativar(email, empresaId)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function excluir(req, res) {
+
+    var email = req.body.emailServer;
+    var empresaId = req.body.fkEmpresaServer; 
+
+     if (email == undefined) {
+        res.status(400).send("Email está undefined!");
+    } else if (empresaId == undefined) {
+        res.status(400).send("FkEmpresa está undefined!");
+    } else {
+
+        usuarioModel.excluir(email, empresaId)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -201,5 +362,11 @@ module.exports = {
     updateNome,
     updateSenha,
     getUser,
-    changeProfileImage
+    listar,
+    ativar,
+    inativar,
+    excluir,
+    changeProfileImage,
+    listarPorStatus,
+    verificarEmail
 }

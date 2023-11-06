@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function cadastrar(nome, jar, chave, idEmpresa) {
-    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, totemstatus) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, "inativo")`;
+    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, statusTotem) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, "inativo")`;
     return database.executar(createTotem);
 }
 
@@ -25,8 +25,12 @@ function listar(idEmpresa) {
 }
 
 function listarPorStatus(idEmpresa, status) {
-    var getTotens = `SELECT * FROM totem WHERE fkEmpresa = '${idEmpresa}' AND totemstatus = '${status}';`;
-    console.log(getTotens)
+    var getTotens = `SELECT * FROM totem WHERE fkEmpresa = '${idEmpresa}' AND statusTotem = '${status}';`;
+    return database.executar(getTotens);
+}
+
+function listarPorNome(idEmpresa, nome) {
+    var getTotens = `SELECT * FROM totem WHERE fkEmpresa = '${idEmpresa}' AND nome = '${nome}';`;
     return database.executar(getTotens);
 }
 
@@ -34,5 +38,6 @@ module.exports = {
     cadastrar,
     excluir,
     listar,
-    listarPorStatus
+    listarPorStatus,
+    listarPorNome
  };

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/listagem.css">    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="stylesheet" href="./css/listagem.css">
+    <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
     <script src="./js/funcionario.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
@@ -11,9 +13,10 @@
     <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Funcionários </title>
 </head>
-<body>
 
-       <div class="perfilUser" id="perfilUser">
+<body onload="listarFuncionarios()">
+
+    <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -25,7 +28,7 @@
         </div>
     </div>
 
-   
+
 
     <div class="side-menu" id="side-menu">
         <div class="container">
@@ -37,160 +40,104 @@
             <div class="icons">
 
                 <a href="visaoGeral.html">
-                <img class="menu-icon" src="./assets/dashboard.png" alt="">
-                <div class="page-name">Visão Geral</div>
-            </a>
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral</div>
+                </a>
 
-            <a href="visaoEspecifica.html">
+                <a href="visaoEspecifica.html">
                     <img class="menu-icon" src="./assets/binocular.png" alt="">
                     <div class="page-name">Visão Específica</div>
                 </a>
 
-            <a href="listagemTotens.html">
-                <img class="menu-icon" src="./assets/totem.png" alt="">
-                <div class="page-name">Totens</div>
-            </a>
+                <a href="totens.html">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Totens</div>
+                </a>
 
-            <a href="funcionarios.html" class="active"  >
-                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
-                <div class="page-name">Funcionários</div>
-            </a>
+                <a href="funcionarios.html" class="active">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
 
-            <a href="parametros.html">
-                <img class="menu-icon" src="./assets/params.png" alt="">
-                <div class="page-name">Parâmetros</div>
-            </a>
+                <a href="parametros.html">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
 
-            <a href="relatorios.html">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Relatórios</div>
-            </a>
-            
+                <a href="relatorios.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
+
             </div>
         </div>
     </div>
 
     <div class="dashboard">
-     <div class="header">
+        <div class="header">
             <div class="container">
                 <div class="logo">
                     <h4>FastTotem</h4>
                 </div>
                 <h4 class="title">Funcionários</h4>
                 <div class="navbar">
-                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
-                            alt=""></a>
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
                             src="./assets/customer-service.png" alt=""></a>
                 </div>
             </div>
         </div>
 
-    <main class="grid">
-        <div id="section2">
-            <div class="totem-list">
-                <div class="list-title">
-                    <h1>Funcionários cadastrados</h1>
-                    <h4 class="filter">Mostrando 4 de 4</h4>
+        <main class="grid">
+            <div id="section2">
+                <div class="totem-list">
+                    <div class="list-title">
+                        <h1>Funcionários cadastrados</h1>
+                        <h4 class="filter">Mostrando <span id="filterAtual"></span> de <span id="filterMax"></span></h4>
+                    </div>
+                    <div class="list-status">
+                        <button onclick="listarFuncionarios()" class="status-all">Todos</button>
+                        <button onclick="listarFuncionariosPorStatus('Ativo')" class="status-ok">Ativos</button>
+                        <button onclick="listarFuncionariosPorStatus('Inativo')"
+                            class="status-inativo">Inativos</button>
+                    </div>
+                    <div class="list" id="func-list">
+                    </div>
                 </div>
-                <div class="list-status">
-                    <button onclick="filterList('todos'),selectColor()">Todos</button>
-                    <button onclick="filterList('ativos'),selectColor()" id="ok">Ativos</button>
-                    <button onclick="filterList('inativos'),selectColor()" id="off">Inativos</button>
-                </div>
-                <div class="list" id="func-list">
-                    <div class="employee-card" id="card-func1">
-                        <div class="employee-info">
-                            <div class="employee-name">
-                                <h3>Cleiton Santos Dias</h3>
-                                <p>Email: cleiton@email.com</p>
-                                <p>Nível de Acesso: Administrador</p>
-                                <p id="stts1">Status: Ativo</p>
-                            </div>
-                            <div class="actions">
-                                <button id="btn-inactive-func1" onclick="inativarFuncionario(1)">Inativar</button>
-                                <button onclick="excluirFuncionario(1)">Excluir</button>
-                            </div>
-                        </div>
-                    </div>
-                            <div class="employee-card" id="card-func2">
-                        <div class="employee-info">
-                            <div class="employee-name">
-                                <h3>Sabrina Santos</h3>
-                                <p>Email: sasantos@email.com</p>
-                                <p>Nível de Acesso: Gerente</p>
-                                <p id="stts2">Status: Ativo</p>
-                            </div>
-                            <div class="actions">
-                                <button id="btn-inactive-func2" onclick="inativarFuncionario(2)">Inativar</button>
-                                <button onclick="excluirFuncionario(2)">Excluir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="employee-card" id="card-func3">
-                        <div class="employee-info">
-                            <div class="employee-name">
-                                <h3>Henrique Oliveira</h3>
-                                <p>Email: holiver@email.com</p>
-                                <p>Nível de Acesso: Funcionario</p>
-                                <p id="stts3">Status: Ativo</p>
-                            </div>
-                            <div class="actions">
-                                <button id="btn-inactive-func3" onclick="inativarFuncionario(3)">Inativar</button>
-                                <button onclick="excluirFuncionario(3)">Excluir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="employee-card" id="card-func4">
-                        <div class="employee-info">
-                            <div class="employee-name">
-                                <h3>Alexandre Santiago</h3>
-                                <p>Email: santale@email.com</p>
-                                <p>Nível de Acesso: Funcionario</p>
-                                <p id="stts4">Status: Ativo</p>
-                            </div>
-                            <div class="actions">
-                                <button id="btn-inactive-func4" onclick="inativarFuncionario(4)">Inativar</button>
-                                <button onclick="excluirFuncionario(4)">Excluir</button>
-                            </div>
-                        </div>
-                    </div>
-                        </div>
             </div>
-        </div>  
-        <div id="section1">
-            <div class="totem-register" id="totem-register">
-                <h1>Cadastrar novo funcionário</h1>
-                <form id="totem-form">
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Nome do Funcionário" required>
-                    </div>
-        
-                    <div class="form-group">
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" placeholder="E-mail do Funcionário" required>
-                    </div>
-        
-                    <div class="form-group">
-                        <label for="nivel-acesso">Nível de Acesso:</label>
-                        <select id="nivelAcessoSelect" name="nivel-acesso">
-                            <option value="Administrador">Administrador</option>
-                            <option value="Gerente">Gerente</option>
-                            <option value="FastTotem">Funcionário</option>
-                        </select>
-                    </div>
-                    <div id="success-message" style="display: none;">
-                        Senha enviada por e-mail ao novo funcionário.
-                    </div>
-                    <button onclick="validarCampos()" id="submit-button">Cadastrar Funcionário</button>
-                </form>
-            </div>
-        </div>
-        
-</main>
+            <div id="section1">
+                <div class="totem-register" id="totem-register">
+                    <h1>Cadastrar novo funcionário</h1>
+                    <div id="totem-form">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome do Funcionário" required>
+                        </div>
 
-</div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" placeholder="E-mail do Funcionário" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nivel-acesso">Nível de Acesso:</label>
+                            <select id="nivelAcesso" name="nivel-acesso">
+                                <option value="Administrador">Administrador</option>
+                                <option value="Gerente">Gerente</option>
+                                <option value="Funcionario">Funcionário</option>
+                            </select>
+                        </div>
+                        <span id="message">
+                        </span>
+                        <button onclick="validarCampos()" id="submit-button">Cadastrar Funcionário</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
 
 </body>
+
 </html>
