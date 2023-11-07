@@ -40,8 +40,12 @@ var RAMChart = new Chart(ctxRAM, {
                 display: false,
             }
         },
-        tooltips: {
-            enabled: false,
+        tooltip: {
+            callbacks: {
+                label: function (context) {
+                    return context.parsed.y + '% de uso de RAM';
+                }
+            }
         },
         responsive: true,
         scales: {

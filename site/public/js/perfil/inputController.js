@@ -42,7 +42,7 @@ function toggleModal() {
 }
 
 async function enablePasswordEdit() {
-    const data = await fetch('/usuarios/checarSenha', {
+    const data = await fetch('/usuario/checarSenha', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",

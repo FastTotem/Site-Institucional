@@ -33,23 +33,7 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
+   
 
   <div class="side-menu" id="side-menu">
         <div class="container">
@@ -66,11 +50,11 @@
             </a>
 
             <a href="visaoEspecifica.html" class="active">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <img class="menu-icon" src="./assets/binocular.png" alt="">
                 <div class="page-name">Visão Específica</div>
             </a>
 
-            <a href="listagemTotens.html">
+            <a href="totens.html">
                 <img class="menu-icon" src="./assets/totem.png" alt="">
                 <div class="page-name">Totens</div>
             </a>
@@ -83,6 +67,11 @@
             <a href="parametros.html">
                 <img class="menu-icon" src="./assets/params.png" alt="">
                 <div class="page-name">Parâmetros</div>
+            </a>
+
+            <a href="relatorios.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Relatórios</div>
             </a>
 
             </div>
@@ -98,7 +87,6 @@
                 </div>
                 <h4 class="title">Visão Específica</h4>
                 <div class="navbar">
-                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
                     <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
                             alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
@@ -110,6 +98,35 @@
         
         <main id="main">
             <div class="dashboardContainer">
+                <div class="controllers">
+                    <div class="controllerButton">
+                        <span class="iconify" data-icon="ic:round-navigate-before"></span>
+                        <p>Anterior</p>
+                    </div>
+                    <div id="toolsContainer" class="toolsContainer">
+                        <div id="toolsButton" class="toolsButton">
+                            <span class="iconify" data-icon="fa-solid:tools"></span>
+                            <p>Ferramentas</p>
+                        </div>
+        
+                        <div id="toolsBox" class="toolsBox">
+                            <button>
+                                <span class="iconify" data-icon="material-symbols:restart-alt"></span>
+                                Reiniciar totem
+                            </button>
+        
+                            <button>
+                                <span class="iconify" data-icon="carbon:clean"></span>
+                                Limpar cache
+                            </button>
+                        </div>  
+                    </div>
+                    <div class="controllerButton">
+                        <p>Próximo</p>
+                        <span class="iconify" data-icon="ic:round-navigate-next"></span>
+                    </div>
+                </div>
+                <div class="dashboardCanvas">
                 <section>
                     <div>
                         <h1 id="totem-name">Totem 001</h1>
@@ -257,34 +274,6 @@
                     </div>
                 </section>
             </div>
-
-            <div class="controllers">
-                <div class="controllerButton">
-                    <span class="iconify" data-icon="ic:round-navigate-before"></span>
-                    <p>Anterior</p>
-                </div>
-                <div id="toolsContainer" class="toolsContainer">
-                    <div id="toolsButton" class="toolsButton">
-                        <span class="iconify" data-icon="fa-solid:tools"></span>
-                        <p>Ferramentas</p>
-                    </div>
-    
-                    <div id="toolsBox" class="toolsBox">
-                        <button>
-                            <span class="iconify" data-icon="material-symbols:restart-alt"></span>
-                            Reiniciar totem
-                        </button>
-    
-                        <button>
-                            <span class="iconify" data-icon="carbon:clean"></span>
-                            Limpar cache
-                        </button>
-                    </div>  
-                </div>
-                <div class="controllerButton">
-                    <p>Próximo</p>
-                    <span class="iconify" data-icon="ic:round-navigate-next"></span>
-                </div>
             </div>
         </main>
     </div>
