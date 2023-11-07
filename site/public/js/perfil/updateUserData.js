@@ -8,7 +8,7 @@ let user;
 document.getElementsByTagName('form')[0].addEventListener('submit', (event) => event.preventDefault());
 
 window.addEventListener('load', async () => {
-    const data = await fetch(`/usuarios/${sessionStorage.ID_USUARIO}`, {
+    const data = await fetch(`/usuario/${sessionStorage.ID_USUARIO}`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json"
@@ -76,7 +76,7 @@ async function updateProfileImage() {
 
     console.log(profileImageInput.files[0]);
 
-    const data = await fetch(`/usuarios/${sessionStorage.ID_USUARIO}/changeProfileImage`, {
+    const data = await fetch(`/usuario/${sessionStorage.ID_USUARIO}/changeProfileImage`, {
         method: 'PATCH',
         body: formData
     });
@@ -90,7 +90,7 @@ async function updateProfileImage() {
 }
 
 async function updateNome() {
-    const data = await fetch(`/usuarios/${sessionStorage.ID_USUARIO}/updateNome`, {
+    const data = await fetch(`/usuario/${sessionStorage.ID_USUARIO}/updateNome`, {
         method: 'PATCH',
         headers: {
             "Content-Type": "application/json"
@@ -109,7 +109,7 @@ async function updateNome() {
 }
 
 async function updateSenha() {
-    const data = await fetch(`/usuarios/${sessionStorage.ID_USUARIO}/updateSenha`, {
+    const data = await fetch(`/usuario/${sessionStorage.ID_USUARIO}/updateSenha`, {
         method: 'PATCH',
         headers: {
             "Content-Type": "application/json"
