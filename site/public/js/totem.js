@@ -94,7 +94,7 @@ function criarCardsTotem(totemData) {
         const message = document.createElement('div');
         message.classList.add('message');
         const link = document.createElement('a');
-        link.href = 'visaoEspecifica.html';
+        link.href = `visaoEspecifica.html?idTotem=${totem.idTotem}`;
         link.textContent = 'Clique aqui para ver mais';
         message.appendChild(link);
 
