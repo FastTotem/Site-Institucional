@@ -19,4 +19,12 @@ router.get("/:idEmpresa/:status/listar", function (req, res) {
     totemController.listarPorStatus(req, res);
 })
 
+router.get("/:idTotem/info", function (req, res) {
+    totemController.getTotemInfo(req, res);
+})
+
+router.get("/:idTotem/infoDiscos", function (req, res) {
+    totemController.getDisks(req, res);
+})
+
 module.exports = router;

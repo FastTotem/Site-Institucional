@@ -38,14 +38,14 @@ const RAMChart = new Chart(ctxRAM, {
         plugins: {
             legend: {
                 display: false,
-            }
-        },
-        tooltip: {
-            callbacks: {
-                label: function (context) {
-                    return context.parsed.y + '% de uso de RAM';
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return context.parsed.y + '% de uso de RAM';
+                    }
                 }
-            }
+            },
         },
         responsive: true,
         scales: {

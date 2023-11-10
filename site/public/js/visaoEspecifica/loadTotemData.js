@@ -5,6 +5,7 @@ const usbStatus = document.getElementById('usbStatus');
 const kpiCPU = document.getElementById('kpiCPU');
 const kpiRAM = document.getElementById('kpiRAM');
 const kpiHD = document.getElementById('kpiHD');
+const totemDisks = document.getElementById('totemDisks');
 
 const usageTime = {
     dayUsage: document.getElementById('dayUsage'),
@@ -12,7 +13,11 @@ const usageTime = {
     minutesUsage: document.getElementById('minutesUsage'),
 }
 
+const previousTotemButton = document.getElementById("previousTotemButton");
+const nextTotemButton = document.getElementById("nextTotemButton");
+
 window.addEventListener('load', () => {
+    displayAllDisks();
     generateChartsData();
     displayKPIs();
 });
@@ -45,6 +50,38 @@ async function generateChartsData() {
     drawChartData(formatData(discData, "DISCO"), HDChart);
 }
 
+async function displayTotemInfo() {
+    const data = await getTotemInfo();
+    const totemInfo = data[0];
+
+    if(data.length === 0) {
+        alert("Esse totem não existe :(");
+        history.back();
+    }
+
+    if(!totemInfo.totemAnteriorExiste) {
+        previousTotemButton.classList.add("disableButton");
+    }
+
+    if(!totemInfo.proximoTotemExiste) {
+        nextTotemButton.classList.add("disableButton");
+    }
+
+    document.getElementById("totemName").innerHTML = totemInfo.nome;
+    document.getElementById("totemKey").innerHTML += totemInfo.chaveDeAcesso;
+    document.getElementById("totemProcessador").innerHTML += totemInfo.nomeProcessador;
+    document.getElementById("totemSO").innerHTML += totemInfo.sistemaOperacional;
+    document.getElementById("totemRAM").innerHTML += (totemInfo.capacidadeRam/1000000000).toFixed(2) + " GB";
+    
+    totemDisks.innerHTML += `
+        <p>
+            <br>
+            <strong>Capacidade total dos discos: </strong>
+            ${(totemInfo.capacidadeDisco/1000000000).toFixed(2)}GB
+        </p>
+    `;
+}
+
 async function displayKPIs() {
     const data = await getKPIsData();
 
@@ -66,8 +103,28 @@ function setPercentTimeUsage(time) {
     
     usagePercent > 100 && (usagePercent = 100);
     
+    let chartColor = "#E3B90F";
+    
+    chartColor = usagePercent > 50 ? "#F0951A" : chartColor;
+    chartColor = usagePercent > 80 ? "#DC4444" : chartColor;
+    
     gaugeChart.data.datasets[0].data = [usagePercent, (100 - usagePercent)];
+    gaugeChart.data.datasets[0].backgroundColor = [chartColor, "transparent"];
     gaugeChart.update();
+}
+
+async function displayAllDisks() {
+    const data = await getTotemInfoDisks();
+
+    data.forEach((item) => {
+        totemDisks.innerHTML += `
+            <div>
+                <strong>• ${item.nomeComponente}</strong>
+            </div>
+        `;  
+    });
+
+    displayTotemInfo();
 }
 
 async function getKPIsData() {
@@ -80,6 +137,22 @@ async function getKPIsData() {
 
 async function getChartsData() {
     const response = await fetch(`/dadosComponentes/buscarDadosGraficos/${idTotem}`);
+
+    const data = await response.json();
+
+    return data;
+}
+
+async function getTotemInfo() {
+    const response = await fetch(`/totem/${idTotem}/info`);
+
+    const data = await response.json();
+
+    return data;
+}
+
+async function getTotemInfoDisks() {
+    const response = await fetch(`/totem/${idTotem}/infoDiscos`);
 
     const data = await response.json();
 

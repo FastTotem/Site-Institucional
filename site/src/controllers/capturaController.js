@@ -1,4 +1,4 @@
-var dadosComponentesModel = require('../models/dadosComponentes.js');
+var capturaModel = require('../models/capturaModel.js');
 
 function getChartsData(req, res) {
     var id = req.params.idTotem;
@@ -6,7 +6,7 @@ function getChartsData(req, res) {
     if (id == undefined) {
         res.status(400).send("O id do totem é undefined!");
     } else {
-        dadosComponentesModel.getChartsData(id)
+        capturaModel.getChartsData(id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -26,7 +26,7 @@ function getKPIsData(req, res) {
     if (id == undefined) {
         res.status(400).send("O id do totem é undefined!");
     } else {
-        dadosComponentesModel.getKPIsData(id)
+        capturaModel.getKPIsData(id)
             .then(
                 function (resultado) {
                     res.json(resultado);

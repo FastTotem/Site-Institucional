@@ -26,7 +26,13 @@
     gap: .8rem;
     color: #FFF;
     transition: .5s;
-    &:hover {
+
+    &.disableButton {
+        opacity: .7;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(.disableButton) {
         background-color: #3f3e3e;
     }
 }
@@ -41,7 +47,7 @@
     gap: 1rem;
 
     position: absolute;
-    margin-top: 15rem;
+    margin-top: 19rem;
     margin-left: -3rem;
 
     padding: 2rem;
@@ -135,6 +141,7 @@ section:first-of-type {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    flex: 1;
     
     width: 30%;
     
@@ -182,8 +189,8 @@ section:first-of-type {
     margin-top: auto;
 }
 
-#totem-name{
-    margin-bottom: 1rem;
+.dashboardCanvas section div > h1 {
+    margin-bottom: .8rem;
 }
 
 .gaugeChart {
