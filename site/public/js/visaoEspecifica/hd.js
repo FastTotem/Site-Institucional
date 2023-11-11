@@ -6,7 +6,7 @@ const dataHD = {
     datasets: [
         {
             label: 'Disco Local (C:)',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [],
             borderColor: "#BD06DD",
             tension: .4,
             fill: true,
@@ -15,7 +15,7 @@ const dataHD = {
         },
         {
             label: 'Disco Local (D:)',
-            data: [32, 51, 10, 81, 90, 65, 25],
+            data: [],
             borderColor: "#8D11B5",
             tension: .4,
             fill: true,

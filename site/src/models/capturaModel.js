@@ -2,14 +2,14 @@ var database = require("../database/config")
 
 function getChartsData(totemId) {
     var instrucao = `
-        SELECT DATE_FORMAT(dataHora, "%d/%m"), WEEKDAY(dataHora) as dataCaptura, tipoComponente, TRUNCATE(AVG(valor), 1) as valorCaptura FROM captura 
+        SELECT DATE_FORMAT(dataHora, "%d/%m") as dataMes, WEEKDAY(dataHora) as dataCaptura, tipoComponente, nomeComponente, TRUNCATE(AVG(valor), 1) as valorCaptura FROM captura 
         JOIN componente
         ON componente.idComponente = captura.fkComponente
         JOIN totem 
         ON captura.fkTotem = totem.idTotem
         WHERE totem.idTotem = ${totemId} AND
         DAY(dataHora) > DAY(CURRENT_DATE()) - 7
-        GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, "%d/%m"), tipoComponente;
+        GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, "%d/%m"), tipoComponente, nomeComponente;
     `;
     return database.executar(instrucao);
 }

@@ -61,10 +61,12 @@ async function displayTotemInfo() {
 
     if(!totemInfo.totemAnteriorExiste) {
         previousTotemButton.classList.add("disableButton");
+        previousTotemButton.onclick = "";
     }
 
     if(!totemInfo.proximoTotemExiste) {
         nextTotemButton.classList.add("disableButton");
+        nextTotemButton.onclick = ""
     }
 
     document.getElementById("totemName").innerHTML = totemInfo.nome;
@@ -160,16 +162,20 @@ async function getTotemInfoDisks() {
 }
 
 function drawChartData(componentData, chart) {
-    let labelChart = [];
-    let dataChart = [];
+    chart.data.labels = [];
+    chart.data.datasets.map((item) => item.data = []);
 
     for(let captura of componentData) {
-        labelChart.push(captura.dataCaptura);
-        dataChart.push(captura.valorCaptura);
+        if(Array.isArray(captura)) {
+            chart.data.labels.push(captura[0].dataMes);
+            captura.forEach((item, index) => {
+                chart.data.datasets[index].data.push(item.valorCaptura);
+            });
+        } else {
+            chart.data.labels.push(captura.dataMes);
+            chart.data.datasets[0].data.push(captura.valorCaptura);
+        }
     }
-
-    chart.data.labels = labelChart;
-    chart.data.datasets[0].data = dataChart;
 
     chart.update();
 }
@@ -177,15 +183,29 @@ function drawChartData(componentData, chart) {
 function formatData(componentData, componentName) {
     let component = [];
 
-    days.forEach((element, index) => {
-        if(componentData.find(item => item.dataCaptura === element)) {
-            component[index] = componentData.find(item => item.dataCaptura === element);
-        } else {
-            component[index] = { dataCaptura: element, tipoComponente: componentName, valorCaptura: 0 };
-        }
-    });
+    const today = new Date();
 
-    return component;
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(today);
+
+        date.setDate(today.getDate() - i);
+        
+        const formattedDate = [days[date.getDay()], `(${formatDate(date)})`];
+        componentData.map((item) => {
+            if(item.dataMes === formatDate(date)) {
+                return item.dataMes = formattedDate;
+            }
+        });
+
+        let currentItems = componentData.filter(item => item.dataMes === formattedDate);
+        if(currentItems.length > 0) {
+            component[i] = currentItems.length > 1 ? currentItems : currentItems[0];
+        } else {
+            component[i] = { dataMes: formattedDate, tipoComponente: componentName, valorCaptura: 0 };
+        }
+    }
+
+    return component.reverse();
 }
 
 function formatUsageTime(time) {
@@ -203,12 +223,19 @@ function formatUsageTime(time) {
     return { days, hours, minutes };
 }
 
+function formatDate(data) {
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+
+    return `${dia}/${mes}`;
+}
+
 const days = [
+    "Dom",
     "Seg",
     "Ter",
     "Qua",
     "Qui",
     "Sex",
     "Sab",
-    "Dom"
 ];
