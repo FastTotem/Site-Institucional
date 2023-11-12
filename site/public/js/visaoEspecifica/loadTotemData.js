@@ -59,11 +59,6 @@ async function displayTotemInfo() {
     const data = await getTotemInfo();
     const totemInfo = data[0];
 
-    if(data.length === 0) {
-        alert("Esse totem não existe :(");
-        history.back();
-    }
-
     if(!totemInfo.totemAnteriorExiste) {
         previousTotemButton.classList.add("disableButton");
         previousTotemButton.onclick = "";
@@ -91,7 +86,6 @@ async function displayTotemInfo() {
 
 async function displayKPIs() {
     const data = await getKPIsData();
-    console.log(data);
 
     usbStatus.innerText = data.find(item => item.tipo === "USB").valorCaptura === 1 ? "Ativo" : "Inativo";
     kpiCPU.innerText = data.find(item => item.tipo === "PROCESSADOR").valorCaptura.toFixed(2) + "%";

@@ -32,6 +32,34 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.post("/excluir", function (req, res) {
+    usuarioController.excluir(req, res);
+})
+
+router.get("/:idEmpresa/listar", function (req, res) {
+    usuarioController.listar(req, res);
+})
+
+router.get("/:idEmpresa/:status/listar", function (req, res) {
+    usuarioController.listarPorStatus(req, res);
+})
+
+router.get("/:email/verificar", function (req, res) {
+    usuarioController.verificarEmail(req, res);
+})
+
+router.post("/excluir", function (req, res) {
+    usuarioController.excluir(req, res);
+})
+
+router.post("/inativar", function (req, res) {
+    usuarioController.inativar(req, res);
+})
+
+router.post("/ativar", function (req, res) {
+    usuarioController.ativar(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });

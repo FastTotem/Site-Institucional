@@ -184,9 +184,8 @@ section:first-of-type {
 }
 
 .canvasContainer {
-    display: grid;
-    place-items: center;
-    height: 83.5%;
+    width: 95%;
+    margin-top: auto;
 }
 
 .dashboardCanvas section div > h1 {
@@ -382,5 +381,11 @@ section:last-of-type {
 
     .chartContainer {
         padding: 1.2rem !important;
+    }
+
+    .canvasContainer {
+        display: grid;
+        place-items: center;
+        height: 83.5%;
     }
 }
