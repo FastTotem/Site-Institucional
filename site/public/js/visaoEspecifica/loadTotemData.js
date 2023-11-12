@@ -20,6 +20,11 @@ window.addEventListener('load', () => {
     displayAllDisks();
     generateChartsData();
     displayKPIs();
+
+    setInterval(() => {
+        generateChartsData();
+        displayKPIs();
+    }, 5000);
 });
 
 async function generateChartsData() {
@@ -107,7 +112,7 @@ function setPercentTimeUsage(time) {
     
     usagePercent > 100 && (usagePercent = 100);
     
-    let chartColor = "#E3B90F";
+    let chartColor = "#46EB67";
     
     chartColor = usagePercent > 50 ? "#F0951A" : chartColor;
     chartColor = usagePercent > 80 ? "#DC4444" : chartColor;
