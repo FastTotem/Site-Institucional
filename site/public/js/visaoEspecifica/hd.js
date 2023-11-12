@@ -1,4 +1,5 @@
 const ctxHD = document.getElementById("barChartHD").getContext("2d");
+const hdCanvaContainer = document.getElementById("barChartHD").closest('.canvasContainer');
 
 const labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 const dataHD = {
@@ -10,6 +11,7 @@ const HDChart = new Chart(ctxHD, {
     type: "bar",
     data: dataHD,
     options: {
+        responsive: true,
         plugins: {
             legend: {
                 position: 'bottom',
