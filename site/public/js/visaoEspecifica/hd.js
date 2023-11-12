@@ -3,26 +3,7 @@ const ctxHD = document.getElementById("barChartHD").getContext("2d");
 const labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
 const dataHD = {
     labels: labelsHD,
-    datasets: [
-        {
-            label: 'Disco Local (C:)',
-            data: [],
-            borderColor: "#BD06DD",
-            tension: .4,
-            fill: true,
-            backgroundColor: '#BD06DD',
-            borderRadius: 10,
-        },
-        {
-            label: 'Disco Local (D:)',
-            data: [],
-            borderColor: "#8D11B5",
-            tension: .4,
-            fill: true,
-            backgroundColor: '#7D167F',
-            borderRadius: 10,
-        },
-    ],
+    datasets: [],
 };
 
 const HDChart = new Chart(ctxHD, {

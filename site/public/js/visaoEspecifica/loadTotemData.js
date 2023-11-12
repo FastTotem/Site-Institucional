@@ -32,14 +32,14 @@ async function generateChartsData() {
     data.forEach(element => {
         element.dataCaptura = days[element.dataCaptura];
 
-        switch (element.tipoComponente) {
+        switch (element.tipo) {
             case "MEMORIA":
                 memoryData.push(element);
                 break;
             case "PROCESSADOR":
                 cpuData.push(element);
                 break;
-            case "DISCO":
+            case "TAXA_TRANSFERENCIA":
                 discData.push(element);
                 break;
         }
@@ -86,10 +86,12 @@ async function displayTotemInfo() {
 
 async function displayKPIs() {
     const data = await getKPIsData();
+    console.log(data);
 
     usbStatus.innerText = data.find(item => item.tipo === "USB").valorCaptura === 1 ? "Ativo" : "Inativo";
     kpiCPU.innerText = data.find(item => item.tipo === "PROCESSADOR").valorCaptura.toFixed(2) + "%";
     kpiRAM.innerText = data.find(item => item.tipo === "MEMORIA").valorCaptura.toFixed(2) + "%";
+    kpiHD.innerText = data.find(item => item.tipo === "TAXA_TRANSFERENCIA").valorCaptura.toFixed(2) + "%";
 
     const time = formatUsageTime(data.find(item => item.tipo === "TEMPO_ATIVIDADE").valorCaptura);
     
@@ -118,7 +120,21 @@ function setPercentTimeUsage(time) {
 async function displayAllDisks() {
     const data = await getTotemInfoDisks();
 
-    data.forEach((item) => {
+    const diskChartDefaultConfig = {
+        data: [],
+        tension: .4,
+        fill: true,
+        backgroundColor: '#BD06DD',
+        borderRadius: 10,
+    }
+
+    data.forEach((item, index) => {
+        const backgroundColor = tinycolor(diskChartDefaultConfig.backgroundColor).darken(10 * index).toHexString();
+        
+        let chartConfig = {...diskChartDefaultConfig, backgroundColor, label: item.nomeComponente };
+
+        HDChart.data.datasets.push(chartConfig);
+
         totemDisks.innerHTML += `
             <div>
                 <strong>• ${item.nomeComponente}</strong>
@@ -185,6 +201,8 @@ function formatData(componentData, componentName) {
 
     const today = new Date();
 
+    const isArrayData = componentData.length > 1;
+
     for (let i = 6; i >= 0; i--) {
         const date = new Date(today);
 
@@ -196,12 +214,20 @@ function formatData(componentData, componentName) {
                 return item.dataMes = formattedDate;
             }
         });
-
+        
         let currentItems = componentData.filter(item => item.dataMes === formattedDate);
         if(currentItems.length > 0) {
             component[i] = currentItems.length > 1 ? currentItems : currentItems[0];
         } else {
-            component[i] = { dataMes: formattedDate, tipoComponente: componentName, valorCaptura: 0 };
+            const defaultValue = { dataMes: formattedDate, tipoComponente: componentName, valorCaptura: 0 };
+
+            if(isArrayData) {
+                component[i] = [];
+
+                componentData.forEach(() => component[i].push(defaultValue));
+            } else {
+                component[i] = defaultValue; 
+            }
         }
     }
 
