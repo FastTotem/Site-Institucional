@@ -9,6 +9,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var empresaRouter = require("./src/routes/empresa");
+var captura = require("./src/routes/captura");
 var usuarioRouter = require("./src/routes/usuario");
 var totemRouter = require("./src/routes/totem");
 var capturaRouter = require("./src/routes/captura");
@@ -20,7 +21,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/", indexRouter);
-app.use("/usuario", usuarioRouter);
+app.use("/usuarios", usuarioRouter);
+app.use("/dadosComponentes", captura);
 app.use("/empresa", empresaRouter);
 app.use("/totem", totemRouter);
 app.use("/captura", capturaRouter);

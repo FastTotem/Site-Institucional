@@ -43,11 +43,43 @@ function listarPorNome(idEmpresa, nome) {
     return database.executar(getTotens);
 }
 
+function getTotemInfo(idTotem) {
+    let previousTotemId = Number(idTotem) - 1;
+    let nextTotemId = Number(idTotem) + 1;
+
+    var instrucao = `
+        SELECT totem.nome, totem.chaveDeAcesso,
+        infoMaquina.nomeProcessador,
+        infoMaquina.sistemaOperacional,
+        infoMaquina.capacidadeRam,
+        infoMaquina.capacidadeDisco,
+        EXISTS(SELECT * FROM totem WHERE idTotem = '${previousTotemId}') as totemAnteriorExiste,
+        EXISTS(SELECT * FROM totem WHERE idTotem = '${nextTotemId}') as proximoTotemExiste
+        FROM totem JOIN infoMaquina
+        ON idTotem = fkTotem
+        WHERE idTotem = '${idTotem}';
+    `;
+    
+    return database.executar(instrucao);
+}
+
+function getDisks(idTotem) {
+    var instrucao = `
+        SELECT nomeComponente, tipoComponente FROM componente JOIN totem 
+        ON idTotem = fkTotem WHERE idTotem = ${idTotem} AND tipoComponente = "DISCO";
+    `;
+
+    return database.executar(instrucao);
+}
+
 module.exports = { 
     cadastrar,
     excluir,
     listar,
     listarPorStatus,
     listarPorNome,
-    listarStatus
+    listarStatus,
+    getTotemInfo,
+    getDisks,
+    listarPorNome
  };

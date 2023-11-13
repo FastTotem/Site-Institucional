@@ -1,11 +1,11 @@
-var ctxRAM = document.getElementById("barChartRAM").getContext("2d");
+const ctxRAM = document.getElementById("barChartRAM").getContext("2d");
 
-var labelsRAM = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
-var dataRAM = {
+const labelsRAM = days;
+const dataRAM = {
     labels: labelsRAM,
     datasets: [
         {
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [],
             borderColor: "#BD06DD",
             tension: .4,
             fill: true,
@@ -31,21 +31,21 @@ var dataRAM = {
     ],
 };
 
-var RAMChart = new Chart(ctxRAM, {
+const RAMChart = new Chart(ctxRAM, {
     type: "bar",
     data: dataRAM,
     options: {
         plugins: {
             legend: {
                 display: false,
-            }
-        },
-        tooltip: {
-            callbacks: {
-                label: function (context) {
-                    return context.parsed.y + '% de uso de RAM';
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return context.parsed.y + '% de uso de RAM';
+                    }
                 }
-            }
+            },
         },
         responsive: true,
         scales: {

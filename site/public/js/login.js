@@ -65,6 +65,10 @@ function login() {
                     console.log(JSON.stringify(json));
                     const usuario = json[0];
 
+                    if(usuario.statusUsuario === "Inativo") {
+                        return alert("Não foi possível efetuar o login, pois você é inativo no sistema, fale com seu superior para ativá-lo novamente");
+                    }
+
                     sessionStorage.ID_USUARIO = usuario.idUsuario;
                     sessionStorage.NOME_USUARIO = usuario.nome;
                     sessionStorage.EMAIL_USUARIO = usuario.email;
