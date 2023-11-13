@@ -112,7 +112,40 @@ function listarPorStatus(req, res) {
                 }
             );
     }
+}
 
+function getTotemInfo(req, res) {
+    var idTotem = req.params.idTotem;
+    
+    if (idTotem === undefined) {
+        res.status(400).send("O id do totem está undefined!");
+    } else {
+        totemModel.getTotemInfo(idTotem)
+            .then(function (resultado) {
+                res.json(resultado);
+            }).catch(function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao listar as informações totens! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
+function getDisks(req, res) {
+    var idTotem = req.params.idTotem;
+    
+    if (idTotem === undefined) {
+        res.status(400).send("O id do totem está undefined!");
+    } else {
+        totemModel.getDisks(idTotem)
+            .then(function (resultado) {
+                res.json(resultado);
+            }).catch(function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao listar os discos dos totens! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
 }
 
 function listarPorNome(req, res) {
@@ -147,5 +180,7 @@ module.exports = {
     excluir,
     listar,
     listarPorStatus,
+    getTotemInfo,
+    getDisks,
     listarPorNome
 }
