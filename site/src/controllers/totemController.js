@@ -142,10 +142,35 @@ function listarPorNome(req, res) {
 
 }
 
+function listarStatus(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+
+    if (idEmpresa === undefined) {
+        res.status(400).send("idEmpresa está undefined!");
+    } else {
+
+        totemModel.listarStatus(idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     cadastrar,
     excluir,
     listar,
     listarPorStatus,
-    listarPorNome
+    listarPorNome,
+    listarStatus
 }
