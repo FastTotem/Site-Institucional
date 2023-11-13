@@ -29,6 +29,15 @@ function listarPorStatus(idEmpresa, status) {
     return database.executar(getTotens);
 }
 
+function listarStatus(idEmpresa) {
+    var getTotens = `
+    SELECT statusTotem, COUNT(*) AS quantidade
+    FROM totem
+    GROUP BY statusTotem;
+        `;
+    return database.executar(getTotens);
+}
+
 function listarPorNome(idEmpresa, nome) {
     var getTotens = `SELECT * FROM totem WHERE fkEmpresa = '${idEmpresa}' AND nome = '${nome}';`;
     return database.executar(getTotens);
@@ -68,6 +77,8 @@ module.exports = {
     excluir,
     listar,
     listarPorStatus,
+    listarPorNome,
+    listarStatus,
     getTotemInfo,
     getDisks,
     listarPorNome

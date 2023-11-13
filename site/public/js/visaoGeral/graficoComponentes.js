@@ -1,16 +1,49 @@
-document.addEventListener('DOMContentLoaded', function() {
+
+async function getCapturaComponentes(){
+
+    const idEmpresa = sessionStorage.ID_EMPRESA;
+
+   try {
+       const response = await fetch(`/captura/${idEmpresa}/listarCapturasComponentes`, {
+           method: 'GET',
+           headers: {
+               "Content-Type": "application/json"
+           }
+       });
+
+       const data = await response.json();
+
+          console.log(data)
+           plotarGraficoComponentes(data)
+
+   } catch (error) {
+       console.error('Erro ao buscar informações do totem:', error);
+       return false;
+   }
+   
+}
+
+function plotarGraficoComponentes(data) {
     var uptimeCanvas = document.getElementById('uptime-canvas').getContext('2d');
 
-    var hoursOfDay = ['0h', '1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h'];
+    var cpuData = [];
+    var ramData = [];
 
-    var cpuData = [90, 80, 95, 70, 60, 85, 75, 70, 75, 80, 85, 90, 95, 80, 75, 70, 65, 60, 55, 60, 65, 70, 75, 80];
+    var uniqueHours = new Set();
 
-    var ramData = [80, 70, 85, 75, 65, 90, 80, 75, 70, 85, 90, 70, 85, 80, 75, 70, 80, 75, 70, 85, 80, 75, 70, 80];
+    data.forEach(item => {
+        uniqueHours.add(item.hora);
+        if (item.tipoComponente === 'PROCESSADOR') {
+            cpuData.push(item.mediaCaptura);
+        } else if (item.tipoComponente === 'MEMORIA') {
+            ramData.push(item.mediaCaptura);
+        }
+    });
 
-    var hdData = [70, 60, 75, 65, 55, 80, 70, 75, 60, 75, 70, 75, 65, 60, 75, 70, 75, 60, 75, 70, 75, 65, 60, 75];
+    var hoursOfDay = [...uniqueHours].sort();
 
     var uptimeData = {
-        labels: hoursOfDay,
+        labels: hoursOfDay.map(hour => hour + 'h'),
         datasets: [
             {
                 label: 'CPU',
@@ -24,14 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: 'RAM',
                 data: ramData,
                 borderColor: 'blue',
-                borderWidth: 2,
-                tension: 0.4,
-                fill: true,
-            },
-            {
-                label: 'HD',
-                data: hdData,
-                borderColor: '#12664F',
                 borderWidth: 2,
                 tension: 0.4,
                 fill: true,
@@ -59,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     callbacks: {
                         label: function (context) {
                             var label = context.dataset.label || '';
-                            console.log(label);
                             if (label) {
                                 label += ': ';
                             }
@@ -81,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         },
                     },
                     grid: {
-                        color: 'rgba(255, 255, 255, 0.2)' 
+                        color: 'rgba(255, 255, 255, 0.2)'
                     }
                 },
                 x: {
@@ -94,9 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     grid: {
                         display: false
                     }
-                }
+                },
             },
-            
         },
     });
-});
+};
+

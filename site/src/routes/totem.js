@@ -31,4 +31,8 @@ router.get("/:idEmpresa/:nome/listarPorNome", function (req, res) {
     totemController.listarPorNome(req, res);
 })
 
+router.get("/:idEmpresa/listarStatus", function (req, res) {
+    totemController.listarStatus(req, res);
+})
+
 module.exports = router;

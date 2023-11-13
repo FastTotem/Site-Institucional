@@ -108,7 +108,7 @@ function criarCardsFuncionarios(funcionariosData, status) {
         nivelAcessoP.textContent = `Nível de Acesso: ${funcionario.nivelAcesso}`;
         const statusP = document.createElement('p');
         statusP.id = `stts${index}`;
-        statusP.textContent = 'Status: Ativo';
+        statusP.textContent = `Status: ${funcionario.statusUsuario}`;
 
         employeeName.appendChild(h3);
         employeeName.appendChild(emailP);
@@ -229,7 +229,8 @@ function mudarStatusFuncionario(email, status) {
             console.log(`#ERRO: ${resposta}`);
         });
 
-    return false;}
+    return false;
+}
 
 function listarFuncionarios() {
 
