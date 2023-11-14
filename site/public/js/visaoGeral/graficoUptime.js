@@ -1,4 +1,13 @@
-   
+document.addEventListener('DOMContentLoaded', function () {
+
+    getUptime()
+
+    setInterval(function () {
+        getUptime();
+    }, 60000);
+ 
+ });
+
    async function getUptime(){
 
     const idEmpresa = sessionStorage.ID_EMPRESA;
@@ -13,7 +22,9 @@
 
        const data = await response.json();
 
-           plotarGraficoUptime(data)
+       if(data.length>0){
+        plotarGraficoUptime(data)
+       }
 
    } catch (error) {
        console.error('Erro ao buscar informações do totem:', error);
@@ -25,6 +36,11 @@
 function plotarGraficoUptime(data) {
 
     var efficiencyCanvas = document.getElementById('efficiency-canvas').getContext('2d');
+
+    if (window.efficiencyChart) {
+
+        window.efficiencyChart.destroy();
+    }
 
     var borderColorOk = 'rgb(44, 161, 100)';
     var borderColorAlerta = 'rgba(255, 215, 0, 1)';
@@ -46,7 +62,7 @@ function plotarGraficoUptime(data) {
         ]
     };
 
-    var efficiencyChart = new Chart(efficiencyCanvas, {
+     window.efficiencyChart = new Chart(efficiencyCanvas, {
         type: 'bar',
         data: efficiencyData,
         options: {

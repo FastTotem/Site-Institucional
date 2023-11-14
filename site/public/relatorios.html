@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/listagem.css">
     <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
     <script src="./js/funcionario.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
-
     <script src="./js/sideMenu.js"></script>
-    <title>FastTotem | Funcionários </title>
+    <title>FastTotem | Relatórios </title>
 </head>
 
-<body onload="listarFuncionarios()">
+<body>
 
     <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
@@ -54,7 +52,7 @@
                     <div class="page-name">Totens</div>
                 </a>
 
-                <a href="funcionarios.html" class="active">
+                <a href="funcionarios.html">
                     <img class="menu-icon" src="./assets/funcionarios.png" alt="">
                     <div class="page-name">Funcionários</div>
                 </a>
@@ -64,7 +62,7 @@
                     <div class="page-name">Parâmetros</div>
                 </a>
 
-                <a href="relatorios.html">
+                <a href="relatorios.html" class="active">
                     <img class="menu-icon" src="./assets/specification.png" alt="">
                     <div class="page-name">Relatórios</div>
                 </a>
@@ -79,7 +77,7 @@
                 <div class="logo">
                     <h4>FastTotem</h4>
                 </div>
-                <h4 class="title">Funcionários</h4>
+                <h4 class="title">Relatórios</h4>
                 <div class="navbar">
                     <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
@@ -89,49 +87,6 @@
         </div>
 
         <main class="grid">
-            <div id="section2">
-                <div class="totem-list">
-                    <div class="list-title">
-                        <h1>Funcionários cadastrados</h1>
-                        <h4 class="filter">Mostrando <span id="filterAtual">0</span> de <span id="filterMax">0</span></h4>                    </div>
-                    <div class="list-status">
-                        <button onclick="listarFuncionarios()" class="status-all">Todos</button>
-                        <button onclick="listarFuncionariosPorStatus('Ativo')" class="status-ok">Ativos</button>
-                        <button onclick="listarFuncionariosPorStatus('Inativo')"
-                            class="status-inativo">Inativos</button>
-                    </div>
-                    <div class="list" id="func-list">
-                    </div>
-                </div>
-            </div>
-            <div id="section1">
-                <div class="totem-register" id="totem-register">
-                    <h1>Cadastrar novo funcionário</h1>
-                    <div id="totem-form">
-                        <div class="form-group">
-                            <label for="nome">Nome:</label>
-                            <input type="text" id="nome" name="nome" placeholder="Nome do Funcionário" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">E-mail:</label>
-                            <input type="email" id="email" name="email" placeholder="E-mail do Funcionário" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nivel-acesso">Nível de Acesso:</label>
-                            <select id="nivelAcesso" name="nivel-acesso">
-                                <option value="Administrador">Administrador</option>
-                                <option value="Gerente">Gerente</option>
-                                <option value="Funcionario">Funcionário</option>
-                            </select>
-                        </div>
-                        <span id="message">
-                        </span>
-                        <button onclick="validarCampos()" id="submit-button">Cadastrar Funcionário</button>
-                    </div>
-                </div>
-            </div>
 
         </main>
 

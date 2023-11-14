@@ -33,6 +33,7 @@ function listarStatus(idEmpresa) {
     var getTotens = `
     SELECT statusTotem, COUNT(*) AS quantidade
     FROM totem
+    WHERE fkEmpresa = ${idEmpresa}
     GROUP BY statusTotem;
         `;
     return database.executar(getTotens);

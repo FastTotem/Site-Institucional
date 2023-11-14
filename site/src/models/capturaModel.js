@@ -3,23 +3,29 @@ var database = require("../database/config");
 function listarOcorrenciasCriticas(idEmpresa) {
 
     var capturasQuery = `
-        SELECT
-        comp.tipoComponente,
-        COUNT(*) AS totalOcorrenciasCriticas
-    FROM
-        captura c
-    JOIN
-        componente comp ON c.fkComponente = comp.idComponente
-    JOIN
-        parametroAlerta p ON comp.idComponente = p.fkComponente
-    JOIN
-        totem t ON comp.fkTotem = t.idTotem
-    WHERE
-        c.dataHora >= CURDATE() AND c.dataHora < CURDATE() + INTERVAL 1 DAY
-        AND c.valor >= p.critico
-        AND t.fkEmpresa = ${idEmpresa}
-    GROUP BY
-        comp.tipoComponente; 
+    SELECT
+    c.tipo AS tipoComponente,
+    COUNT(CASE WHEN c.valor >= pa.critico THEN 1 END) AS ocorrenciasCriticas
+FROM
+    captura c
+JOIN
+    componente comp ON c.fkComponente = comp.idComponente
+JOIN
+    totem t ON c.fkTotem = t.idTotem
+JOIN
+    empresa e ON t.fkEmpresa = e.idEmpresa
+JOIN
+    parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
+WHERE
+    c.tipo IN ('TAXA_TRANSFERENCIA', 'MEMORIA', 'PROCESSADOR')
+    AND e.idEmpresa = ${idEmpresa}
+    AND DATE(c.dataHora) = CURDATE() 
+    AND c.dataHora >= CURDATE()        
+    AND c.dataHora < CURDATE() + INTERVAL 1 DAY
+GROUP BY
+    c.tipo
+ORDER BY
+    tipoComponente;
     `;
 
     return database.executar(capturasQuery);

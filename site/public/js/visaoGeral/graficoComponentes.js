@@ -1,4 +1,14 @@
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    getCapturaComponentes()
+
+    setInterval(function () {
+        getCapturaComponentes();
+    }, 60000);
+ 
+ });
+
 async function getCapturaComponentes(){
 
     const idEmpresa = sessionStorage.ID_EMPRESA;
@@ -13,8 +23,9 @@ async function getCapturaComponentes(){
 
        const data = await response.json();
 
-          console.log(data)
-           plotarGraficoComponentes(data)
+       if(data.length>0){
+        plotarGraficoComponentes(data)
+       }
 
    } catch (error) {
        console.error('Erro ao buscar informações do totem:', error);
@@ -25,6 +36,11 @@ async function getCapturaComponentes(){
 
 function plotarGraficoComponentes(data) {
     var uptimeCanvas = document.getElementById('uptime-canvas').getContext('2d');
+
+    if (window.uptimeChart) {
+
+        window.uptimeChart.destroy();
+    }
 
     var cpuData = [];
     var ramData = [];
@@ -64,7 +80,7 @@ function plotarGraficoComponentes(data) {
         ]
     };
 
-    var uptimeChart = new Chart(uptimeCanvas, {
+    window.uptimeChart = new Chart(uptimeCanvas, {
         type: 'line',
         data: uptimeData,
         options: {
