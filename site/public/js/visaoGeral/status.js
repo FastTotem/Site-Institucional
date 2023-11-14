@@ -1,4 +1,14 @@
-   async function getStatus(){
+document.addEventListener('DOMContentLoaded', function () {
+
+    getStatus()
+ 
+    setInterval(function () {
+        getStatus();
+    }, 60000);
+
+ });
+  
+  async function getStatus(){
 
         const idEmpresa = sessionStorage.ID_EMPRESA;
    
@@ -38,16 +48,16 @@ for(i = 0; i<data.length; i++){
     var qntdDaVez = data[i].quantidade;
 
     switch(statusDaVez){
-        case "Ok":
+        case "ok":
          ok.textContent = qntdDaVez; 
          break;
-         case "Alerta":
+         case "alerta":
          alerta.textContent = qntdDaVez; 
          break;
-         case "Critico":
+         case "critico":
          critico.textContent = qntdDaVez;
          break;
-         case "Inativo":
+         case "inativo":
          inativo.textContent = qntdDaVez; 
          break;
             
@@ -57,14 +67,20 @@ for(i = 0; i<data.length; i++){
 
 }
 
-
-const totalTotemsText = document.getElementById("total-totems-text");
-totalTotemsText.textContent = `${totalTotens} Totens sendo monitorados`;
+if(data.length>0){
+    const totalTotemsText = document.getElementById("total-totems-text");
+    totalTotemsText.textContent = `${data.length} Totens sendo monitorados`;
+}
 
 }
 
 function plotarGraficoStatus(data) {
     var statusCanvas = document.getElementById('status-canvas').getContext('2d');
+
+    if (window.statusChart) {
+
+        window.statusChart.destroy();
+    }
 
     var borderColorOk = 'rgb(44, 161, 100)';
     var borderColorAlerta = 'rgb(255, 215, 0)';
@@ -117,7 +133,7 @@ function plotarGraficoStatus(data) {
         }]
     };
 
-    var statusChart = new Chart(statusCanvas, {
+     window.statusChart = new Chart(statusCanvas, {
         type: 'doughnut',
         data: statusData,
         options: {

@@ -23,7 +23,7 @@ function nextTotem() {
     window.location.assign(`visaoEspecifica.html?idTotem=${idTotem+1}`);
 }
 
-function previuosTotem() {
+function previousTotem() {
     window.location.assign(`visaoEspecifica.html?idTotem=${idTotem-1}`);
 }
 
