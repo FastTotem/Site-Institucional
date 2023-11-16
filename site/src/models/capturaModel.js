@@ -1,4 +1,87 @@
-var database = require("../database/config")
+var database = require("../database/config");
+
+function listarOcorrenciasCriticas(idEmpresa) {
+
+    var capturasQuery = `
+    SELECT
+    c.tipo AS tipoComponente,
+    COUNT(CASE WHEN c.valor >= pa.critico THEN 1 END) AS ocorrenciasCriticas
+FROM
+    captura c
+JOIN
+    componente comp ON c.fkComponente = comp.idComponente
+JOIN
+    totem t ON c.fkTotem = t.idTotem
+JOIN
+    empresa e ON t.fkEmpresa = e.idEmpresa
+JOIN
+    parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
+WHERE
+    c.tipo IN ('TAXA_TRANSFERENCIA', 'MEMORIA', 'PROCESSADOR')
+    AND e.idEmpresa = ${idEmpresa}
+    AND DATE(c.dataHora) = CURDATE() 
+    AND c.dataHora >= CURDATE()        
+    AND c.dataHora < CURDATE() + INTERVAL 1 DAY
+GROUP BY
+    c.tipo
+ORDER BY
+    tipoComponente;
+    `;
+
+    return database.executar(capturasQuery);
+}
+
+function listarUptime(idEmpresa){
+
+    var capturasQuery = `
+    SELECT
+    t.nome AS nomeTotem,
+    c.*
+FROM
+    totem t
+JOIN captura c ON t.idTotem = c.fkTotem
+WHERE
+    t.fkEmpresa = ${idEmpresa}
+    AND c.tipo = 'TEMPO_ATIVIDADE'
+    AND c.dataHora = (
+        SELECT
+            MAX(dataHora)
+        FROM
+            captura
+        WHERE
+            fkTotem = t.idTotem
+            AND tipo = 'TEMPO_ATIVIDADE'
+            );
+    `;
+
+    return database.executar(capturasQuery);
+
+}
+
+function listarCapturasComponentes(idEmpresa){
+
+    var capturasQuery = `
+    SELECT
+    HOUR(c.dataHora) AS hora,
+    c.tipo AS tipoComponente,
+    AVG(c.valor) AS mediaCaptura
+FROM
+    captura c
+JOIN componente comp ON c.fkComponente = comp.idComponente
+JOIN totem t ON c.fkTotem = t.idTotem
+JOIN empresa e ON t.fkEmpresa = e.idEmpresa
+WHERE
+    (c.tipo = 'MEMORIA' OR c.tipo = 'PROCESSADOR') 
+    AND e.idEmpresa = ${idEmpresa}
+GROUP BY
+    hora, tipoComponente, c.tipo 
+ORDER BY
+    hora, tipoComponente;
+    `;
+
+    return database.executar(capturasQuery);
+
+}
 
 function getChartsData(totemId) {
     var instrucao = `
@@ -28,5 +111,8 @@ function getKPIsData(totemId) {
 
 module.exports = {
     getChartsData,
-    getKPIsData
+    getKPIsData,
+    listarOcorrenciasCriticas,
+    listarUptime,
+    listarCapturasComponentes
 };

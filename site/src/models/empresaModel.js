@@ -27,7 +27,7 @@ function cadastrar(
 
       var empresaID = empresaResultado.insertId;
     
-      var nomeAdmin = `${nome}Admin`
+      var nomeAdmin = `${nome} Admin`
       usuarioModel.cadastrar(nomeAdmin, email, senha, 'Administrador', empresaID,);
     })
     .then(function (usuarioResultado) {
