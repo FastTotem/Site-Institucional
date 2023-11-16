@@ -1,11 +1,10 @@
-var ctxCPU = document.getElementById("lineChartCPU").getContext("2d");
-
-var labelsCPU = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
-var dataCPU = {
+const ctxCPU = document.getElementById("lineChartCPU").getContext("2d");
+const labelsCPU = days;
+const dataCPU = {
     labels: labelsCPU,
     datasets: [
         {
-            data: [65, 59, 80, 87, 56, 41, 33],
+            data: [],
             borderColor: "#BD06DD",
             tension: 0.4,
             fill: true,
@@ -27,7 +26,7 @@ var dataCPU = {
     ],
 };
 
-var cpuChart = new Chart(ctxCPU, {
+const cpuChart = new Chart(ctxCPU, {
     type: "line",
     data: dataCPU,
     options: {

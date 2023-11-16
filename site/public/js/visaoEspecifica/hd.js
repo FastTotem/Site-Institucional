@@ -1,34 +1,17 @@
-var ctxHD = document.getElementById("barChartHD").getContext("2d");
+const ctxHD = document.getElementById("barChartHD").getContext("2d");
+const hdCanvaContainer = document.getElementById("barChartHD").closest('.canvasContainer');
 
-var labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
-var dataHD = {
+const labelsHD = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
+const dataHD = {
     labels: labelsHD,
-    datasets: [
-        {
-            label: 'Disco Local (C:)',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            borderColor: "#BD06DD",
-            tension: .4,
-            fill: true,
-            backgroundColor: '#BD06DD',
-            borderRadius: 10,
-        },
-        {
-            label: 'Disco Local (D:)',
-            data: [32, 51, 10, 81, 90, 65, 25],
-            borderColor: "#8D11B5",
-            tension: .4,
-            fill: true,
-            backgroundColor: '#7D167F',
-            borderRadius: 10,
-        },
-    ],
+    datasets: [],
 };
 
-var HDChart = new Chart(ctxHD, {
+const HDChart = new Chart(ctxHD, {
     type: "bar",
     data: dataHD,
     options: {
+        responsive: true,
         plugins: {
             legend: {
                 position: 'bottom',

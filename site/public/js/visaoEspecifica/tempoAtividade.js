@@ -1,10 +1,10 @@
-var ctx = document.getElementById('gaugeChart').getContext('2d');
-var canvas = document.getElementById('gaugeChart');
+const ctx = document.getElementById('gaugeChart').getContext('2d');
+const canvas = document.getElementById('gaugeChart');
 canvas.height = window.innerHeight/4.5;
 
-var data = {
+const data = {
     datasets: [{
-        data: [70, 30],
+        data: [],
         backgroundColor: [
             '#DC4444',
             'transparent'
@@ -15,7 +15,7 @@ var data = {
     }]
 };
 
-var options = {
+const options = {
     circumference: Math.PI * 76,
     rotation: 240,
     cutout: "85%",
@@ -42,7 +42,7 @@ var options = {
     }
 };
 
-var gaugeChart = new Chart(ctx, {
+const gaugeChart = new Chart(ctx, {
     type: 'doughnut',
     data: data,
     options: options,

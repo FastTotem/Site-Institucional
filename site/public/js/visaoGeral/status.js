@@ -1,23 +1,139 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
+    getStatus()
+ 
+    setInterval(function () {
+        getStatus();
+    }, 60000);
+
+ });
+  
+  async function getStatus(){
+
+        const idEmpresa = sessionStorage.ID_EMPRESA;
+   
+       try {
+           const response = await fetch(`/totem/${idEmpresa}/listarStatus`, {
+               method: 'GET',
+               headers: {
+                   "Content-Type": "application/json"
+               }
+           });
+   
+           const data = await response.json();
+   
+               atualizarStatus(data)
+               plotarGraficoStatus(data)
+   
+       } catch (error) {
+           console.error('Erro ao buscar informações do totem:', error);
+           return false;
+       }
+       
+   }
+
+
+function atualizarStatus(data){
+
+    var totalTotens = 0;
+
+    var ok = document.getElementById("statusOk")
+    var alerta = document.getElementById("statusAlerta")
+    var critico = document.getElementById("statusCritico")
+    var inativo = document.getElementById("statusInativo")
+
+for(i = 0; i<data.length; i++){
+
+    var statusDaVez = data[i].statusTotem;
+    var qntdDaVez = data[i].quantidade;
+
+    switch(statusDaVez){
+        case "ok":
+         ok.textContent = qntdDaVez; 
+         break;
+         case "alerta":
+         alerta.textContent = qntdDaVez; 
+         break;
+         case "critico":
+         critico.textContent = qntdDaVez;
+         break;
+         case "inativo":
+         inativo.textContent = qntdDaVez; 
+         break;
+            
+    }
+
+    totalTotens += qntdDaVez;
+
+}
+
+if(data.length>0){
+    const totalTotemsText = document.getElementById("total-totems-text");
+    totalTotemsText.textContent = `${data.length} Totens sendo monitorados`;
+}
+
+}
+
+function plotarGraficoStatus(data) {
     var statusCanvas = document.getElementById('status-canvas').getContext('2d');
-    
+
+    if (window.statusChart) {
+
+        window.statusChart.destroy();
+    }
+
     var borderColorOk = 'rgb(44, 161, 100)';
-    var borderColorAlerta = 'rgb(255, 215, 0)'; 
+    var borderColorAlerta = 'rgb(255, 215, 0)';
     var borderColorCritico = 'rgb(255, 99, 71)';
     var borderColorOff = 'gray';
-    
+
+    var total = data.reduce((acc, item) => acc + item.quantidade, 0);
+
+    var labels = data.map(item => item.statusTotem);
+    var valores = data.map(item => item.quantidade);
+    var porcentagens = valores.map(valor => ((valor / total) * 100).toFixed(2));
+
+    var backgroundColors = data.map(item => {
+        switch ((item.statusTotem || '').toLowerCase()) {
+            case 'ok':
+                return 'rgb(44, 161, 100)';
+            case 'alerta':
+                return 'rgba(255, 215, 0, 0.7)';
+            case 'critico':
+                return 'rgba(255, 99, 71, 0.7)';
+            case 'inativo':
+                return 'rgb(101, 101, 101)';
+            default:
+                return 'gray';
+        }
+    });
+
+    var borderColors = data.map(item => {
+        switch ((item.statusTotem || '').toLowerCase()) {
+            case 'ok':
+                return borderColorOk;
+            case 'alerta':
+                return borderColorAlerta;
+            case 'critico':
+                return borderColorCritico;
+            case 'inativo':
+                return borderColorOff;
+            default:
+                return 'gray';
+        }
+    });
+
     var statusData = {
-        labels: ['Desligado', 'Critico', 'Alerta', 'Ok'],
+        labels: labels,
         datasets: [{
-            data: [20, 10, 20, 50],
-            backgroundColor: ['rgb(101, 101, 101)','rgba(255, 99, 71, 0.7)', 'rgba(255, 215, 0, 0.7)' ,'rgb(44, 161, 100)'],
-            borderColor: [borderColorOff, borderColorCritico, borderColorAlerta, borderColorOk], 
-            borderWidth: 2, 
+            data: porcentagens,
+            backgroundColor: backgroundColors,
+            borderColor: borderColors,
+            borderWidth: 2,
         }]
     };
-    
-    var statusChart = new Chart(statusCanvas, {
+
+     window.statusChart = new Chart(statusCanvas, {
         type: 'doughnut',
         data: statusData,
         options: {
@@ -43,13 +159,5 @@ document.addEventListener('DOMContentLoaded', function() {
             cutout: '80%'
         }
     });
+}
 
-    var totalTotems = statusData.datasets[0].data.reduce((total, value) => total + value - 22.5, 0);
-
-    var totalTotemsText = document.createElement('div');
-    totalTotemsText.classList.add('total-totems-text');
-    totalTotemsText.textContent = `${totalTotems} Totens sendo monitorados`;
-    
-    document.getElementById('status-canvas').parentNode.appendChild(totalTotemsText);
-
-});

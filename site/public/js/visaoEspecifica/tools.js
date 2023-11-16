@@ -14,11 +14,18 @@ window.addEventListener('click', (event) => {
 });
 
 main.addEventListener('scroll', () => {
-    console.log('teste');
     if(toolBoxIsVisible) {
         closeToolsModal();
     }
 })
+
+function nextTotem() {
+    window.location.assign(`visaoEspecifica.html?idTotem=${idTotem+1}`);
+}
+
+function previousTotem() {
+    window.location.assign(`visaoEspecifica.html?idTotem=${idTotem-1}`);
+}
 
 function isParent(element) {
     let isParent = false;

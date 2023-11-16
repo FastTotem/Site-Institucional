@@ -26,7 +26,13 @@
     gap: .8rem;
     color: #FFF;
     transition: .5s;
-    &:hover {
+
+    &.disableButton {
+        opacity: .7;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(.disableButton) {
         background-color: #3f3e3e;
     }
 }
@@ -41,9 +47,8 @@
     gap: 1rem;
 
     position: absolute;
-    margin-top: 3rem;
-    right: 39vw;
-    top: 12.5vh;
+    margin-top: 19rem;
+    margin-left: -3rem;
 
     padding: 2rem;
 
@@ -97,8 +102,8 @@ main {
     gap: 1.5rem;
 
     width: 100%;
-    max-height: 90vh;
     overflow-y: hidden;
+    flex: 1;
 
     & * {
         margin: 0;
@@ -112,6 +117,7 @@ main {
 
 .dashboard {
     overflow: hidden;
+    /* max-height: 99vh; */
 }
 
 .dashboardContainer {
@@ -123,20 +129,20 @@ main {
 .dashboardCanvas{
     display: flex;
     gap: 1.2rem;
+    /* grid-template-columns: auto 1fr; */
 }
 
 .dashboard > .container {
     display: flex;
     flex-direction: column;
     flex: 1;
+    /* max-height: 99vh; */
 }
 
 section:first-of-type {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    
-    width: 30%;
     
     & > img {
         width: 80%;
@@ -182,14 +188,17 @@ section:first-of-type {
     margin-top: auto;
 }
 
-#totem-name{
-    margin-bottom: 1rem;
+.dashboardCanvas section div > h1 {
+    margin-bottom: .8rem;
 }
 
 .gaugeChart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: auto;
-    height: 85%;
+    flex: 1;
     
     & > div {
         display: flex;
@@ -219,7 +228,8 @@ section:last-of-type {
     display: flex;
     gap: 1.2rem;
     
-    width: 70%;
+    /* width: 70%; */
+    flex: 1;
     
     & > div {
         flex: 1;
@@ -232,7 +242,6 @@ section:last-of-type {
     & .chartContainer {
         display: flex;
         flex-direction: column;
-        gap: .8rem;
         flex: 1;
         
         padding: 1.2rem;
@@ -240,10 +249,6 @@ section:last-of-type {
         background-color: #3f3e3e;
         
         color: #FFF;
-        
-        & > div {
-            margin-inline: auto;
-        }
     }
 
     & .KPIContainer {
@@ -265,14 +270,16 @@ section:last-of-type {
             flex: 1;
             gap: 0.8rem;
             display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
             border-radius: 25px;
             padding: 1.2rem;
             background-color: #3f3e3e;
             color: #FFF;
 
-            & h1 {
-                font-weight: 800;
+            & h2 {
+                font-size: 1.7rem;
             }
 
             & h3 {
@@ -296,10 +303,11 @@ section:last-of-type {
 }
 
 .controllers {
+    margin-top: 1%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 0.8rem;
 
     & .iconify {
         font-size: 1.2rem;
@@ -375,5 +383,11 @@ section:last-of-type {
 
     .chartContainer {
         padding: 1.2rem !important;
+    }
+
+    .canvasContainer {
+        display: grid;
+        place-items: center;
+        height: 83.5%;
     }
 }

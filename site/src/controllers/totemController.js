@@ -112,7 +112,40 @@ function listarPorStatus(req, res) {
                 }
             );
     }
+}
 
+function getTotemInfo(req, res) {
+    var idTotem = req.params.idTotem;
+    
+    if (idTotem === undefined) {
+        res.status(400).send("O id do totem está undefined!");
+    } else {
+        totemModel.getTotemInfo(idTotem)
+            .then(function (resultado) {
+                res.json(resultado);
+            }).catch(function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao listar as informações totens! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
+function getDisks(req, res) {
+    var idTotem = req.params.idTotem;
+    
+    if (idTotem === undefined) {
+        res.status(400).send("O id do totem está undefined!");
+    } else {
+        totemModel.getDisks(idTotem)
+            .then(function (resultado) {
+                res.json(resultado);
+            }).catch(function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao listar os discos dos totens! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
 }
 
 function listarPorNome(req, res) {
@@ -142,10 +175,38 @@ function listarPorNome(req, res) {
 
 }
 
+function listarStatus(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+
+    if (idEmpresa === undefined) {
+        res.status(400).send("idEmpresa está undefined!");
+    } else {
+
+        totemModel.listarStatus(idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao listar os totens! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     cadastrar,
     excluir,
     listar,
     listarPorStatus,
+    listarPorNome,
+    listarStatus,
+    getTotemInfo,
+    getDisks,
     listarPorNome
 }
