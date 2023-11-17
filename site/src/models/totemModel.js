@@ -45,20 +45,17 @@ function listarPorNome(idEmpresa, nome) {
 }
 
 function getTotemInfo(idTotem) {
-    let previousTotemId = Number(idTotem) - 1;
-    let nextTotemId = Number(idTotem) + 1;
-
     var instrucao = `
-        SELECT totem.nome, totem.chaveDeAcesso,
+        SELECT totemAtual.idTotem, totemAtual.nome, totemAtual.chaveDeAcesso,
         infoMaquina.nomeProcessador,
         infoMaquina.sistemaOperacional,
         infoMaquina.capacidadeRam,
         infoMaquina.capacidadeDisco,
-        EXISTS(SELECT * FROM totem WHERE idTotem = '${previousTotemId}') as totemAnteriorExiste,
-        EXISTS(SELECT * FROM totem WHERE idTotem = '${nextTotemId}') as proximoTotemExiste
-        FROM totem JOIN infoMaquina
-        ON idTotem = fkTotem
-        WHERE idTotem = '${idTotem}';
+        (SELECT MAX(idTotem) FROM totem WHERE fkEmpresa = totemAtual.fkEmpresa AND totem.idTotem < totemAtual.idTotem) as idTotemAnterior,
+        (SELECT MIN(idTotem) FROM totem WHERE fkEmpresa = totemAtual.fkEmpresa AND totem.idTotem > totemAtual.idTotem) as idProximoTotem
+        FROM totem as totemAtual LEFT JOIN infoMaquina
+        ON totemAtual.idTotem = infoMaquina.fkTotem
+        WHERE totemAtual.idTotem = ${idTotem};
     `;
     
     return database.executar(instrucao);
@@ -73,6 +70,14 @@ function getDisks(idTotem) {
     return database.executar(instrucao);
 }
 
+function getFirstTotem(idEmpresa) {
+    var instrucao = `
+        SELECT MIN(idTotem) as fisrtTotemID FROM totem WHERE fkEmpresa = ${idEmpresa};
+    `;
+
+    return database.executar(instrucao);
+}
+
 module.exports = { 
     cadastrar,
     excluir,
@@ -82,5 +87,6 @@ module.exports = {
     listarStatus,
     getTotemInfo,
     getDisks,
-    listarPorNome
+    listarPorNome,
+    getFirstTotem
  };

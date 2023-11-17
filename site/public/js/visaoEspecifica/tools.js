@@ -19,14 +19,6 @@ main.addEventListener('scroll', () => {
     }
 })
 
-function nextTotem() {
-    window.location.assign(`visaoEspecifica.html?idTotem=${idTotem+1}`);
-}
-
-function previousTotem() {
-    window.location.assign(`visaoEspecifica.html?idTotem=${idTotem-1}`);
-}
-
 function isParent(element) {
     let isParent = false;
     let currentElement = element;
