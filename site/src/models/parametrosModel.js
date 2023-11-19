@@ -8,8 +8,9 @@ function getEmpresaParams(idEmpresa) {
 }
 
 function updateParamLevel(idParametro, ideal, alerta, critico, notificacao) {
+    var dtAtual = process.env.AMBIENTE_PROCESSO === "desenvolvimento" ? "now()" : "GETDATE()";
     var instrucao = `
-        UPDATE parametroAlerta SET ideal = ${ideal}, alerta = ${alerta}, critico = ${critico}, notificacao = ${notificacao}, dtCriacao = now() WHERE idParametroAlerta = ${idParametro};
+        UPDATE parametroAlerta SET ideal = ${ideal}, alerta = ${alerta}, critico = ${critico}, notificacao = ${notificacao}, dtCriacao = ${dtAtual} WHERE idParametroAlerta = ${idParametro};
     `;
     return database.executar(instrucao);
 }
