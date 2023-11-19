@@ -13,6 +13,7 @@ var captura = require("./src/routes/captura");
 var usuarioRouter = require("./src/routes/usuario");
 var totemRouter = require("./src/routes/totem");
 var capturaRouter = require("./src/routes/captura");
+var relatorioRouter = require("./src/routes/relatorio");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use("/dadosComponentes", captura);
 app.use("/empresa", empresaRouter);
 app.use("/totem", totemRouter);
 app.use("/captura", capturaRouter);
+app.use("/relatorio", relatorioRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

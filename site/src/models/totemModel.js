@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function cadastrar(nome, jar, chave, idEmpresa) {
-    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, statusTotem) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, "inativo")`;
+    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, statusTotem, dtCriacao) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, "inativo", now())`;
     return database.executar(createTotem);
 }
 
