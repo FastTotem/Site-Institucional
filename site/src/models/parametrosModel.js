@@ -15,12 +15,13 @@ function updateParamLevel(idParametro, ideal, alerta, critico, notificacao) {
 }
 
 function insertDefaultValues(idEmpresa) {
+    var dtAtual = process.env.AMBIENTE_PROCESSO === "desenvolvimento" ? "now()" : "GETDATE()";
     var instrucao = `
         INSERT INTO parametroAlerta VALUES
-        (null, now(), "MEMORIA", "${idEmpresa}", 60, 70, 80, 75),
-        (null, now(), "PROCESSADOR", "${idEmpresa}", 70, 80, 90, 85),
-        (null, now(), "DISCO", "${idEmpresa}", 60, 70, 80, 75),
-        (null, now(), "USB", "${idEmpresa}", null, null, 40, 50);
+        (null, ${dtAtual}, "MEMORIA", "${idEmpresa}", 60, 70, 80, 75),
+        (null, ${dtAtual}, "PROCESSADOR", "${idEmpresa}", 70, 80, 90, 85),
+        (null, ${dtAtual}, "DISCO", "${idEmpresa}", 60, 70, 80, 75),
+        (null, ${dtAtual}, "USB", "${idEmpresa}", null, null, 40, 50);
     `;
     return database.executar(instrucao);
 }
