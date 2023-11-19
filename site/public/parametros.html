@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="./css/parametros.css">
     <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
-    <script src="./js/parametros.js"></script>
+    <script src="./js/parametros/updateParams.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
-
+    <script src="./js/parametros/loadParams.js" defer></script>
+    <script src="./js/alerta.js"></script>
     <script src="./js/sideMenu.js"></script>
     <title>FastTotem | Parâmetros </title>
 </head>
 
 <body>
-
        <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
@@ -43,7 +43,7 @@
                     <div class="page-name">Visão Geral</div>
                 </a>
 
-                <a href="visaoEspecifica.html?idTotem=1">
+                <a id="visaoEspecificaTab">
                     <img class="menu-icon" src="./assets/binocular.png" alt="">
                     <div class="page-name">Visão Específica</div>
                 </a>
@@ -89,13 +89,13 @@
         </div>
 
         <main class="grid">
-            <section class="card-cpu">
+            <section id="card-cpu" class="card-cpu">
                 <h2>CPU</h2>
                 <h3>Configurar níveis de alerta (%) </h3>
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
@@ -117,19 +117,19 @@
                     <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-ram">
+            <section id="card-ram" class="card-ram">
                 <h2>RAM</h2>
                 <h3>Configurar níveis de alerta (%) </h3>
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
@@ -151,13 +151,13 @@
                     <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-hd">
+            <section id="card-hd" class="card-hd">
                 <h2>HD</h2>
                 <h3>Configurar níveis de alerta (%)</h3>
                 <div class="alert-range">
@@ -185,13 +185,13 @@
                     <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-usb">
+            <section id="card-usb" class="card-usb">
                 <h2>USB</h2>
                 <h3>Configurar níveis de alerta (segundos) </h3>
                 <div class="alert-range">
@@ -205,7 +205,7 @@
                     <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl" max="60">
-                        <span><span class="range-value">0</span>s</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>s</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Notificação >= Inativo Após</p>

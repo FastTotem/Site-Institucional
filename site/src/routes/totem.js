@@ -35,4 +35,8 @@ router.get("/:idEmpresa/listarStatus", function (req, res) {
     totemController.listarStatus(req, res);
 })
 
+router.get("/:idEmpresa/buscarPrimeiroTotem", function (req, res) {
+    totemController.getFirstTotem(req, res);
+})
+
 module.exports = router;

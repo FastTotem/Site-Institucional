@@ -59,14 +59,18 @@ async function displayTotemInfo() {
     const data = await getTotemInfo();
     const totemInfo = data[0];
 
-    if(!totemInfo.totemAnteriorExiste) {
+    if(!totemInfo.idTotemAnterior) {
         previousTotemButton.classList.add("disableButton");
         previousTotemButton.onclick = "";
+    } else {
+        previousTotemButton.onclick = () => window.location.assign(`visaoEspecifica.html?idTotem=${totemInfo.idTotemAnterior}`);
     }
 
-    if(!totemInfo.proximoTotemExiste) {
+    if(!totemInfo.idProximoTotem) {
         nextTotemButton.classList.add("disableButton");
-        nextTotemButton.onclick = ""
+        nextTotemButton.onclick = "";
+    } else {
+        nextTotemButton.onclick = () => window.location.assign(`visaoEspecifica.html?idTotem=${totemInfo.idProximoTotem}`);
     }
 
     document.getElementById("totemName").innerHTML = totemInfo.nome;

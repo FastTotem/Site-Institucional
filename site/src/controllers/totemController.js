@@ -89,6 +89,28 @@ function listar(req, res) {
 
 }
 
+function getFirstTotem(req, res) {
+    var idEmpresa = req.params.idEmpresa;
+
+    if (idEmpresa === undefined) {
+        res.status(400).send("O Id da Empresa está undefined!");
+    } else {
+
+        totemModel.getFirstTotem(idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao pegar o primeiro toten! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
 
 function listarPorStatus(req, res) {
 
@@ -208,5 +230,6 @@ module.exports = {
     listarStatus,
     getTotemInfo,
     getDisks,
+    getFirstTotem,
     listarPorNome
 }

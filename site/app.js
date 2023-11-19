@@ -12,6 +12,7 @@ var empresaRouter = require("./src/routes/empresa");
 var usuarioRouter = require("./src/routes/usuario");
 var totemRouter = require("./src/routes/totem");
 var parametrosRouter = require("./src/routes/parametros");
+var parametrosRouter = require("./src/routes/parametros");
 var capturaRouter = require("./src/routes/captura");
 var relatorioRouter = require("./src/routes/relatorio");
 
@@ -23,10 +24,10 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuario", usuarioRouter);
-app.use("/dadosComponentes", capturaRouter);
+app.use("/dadosComponentes", capturaRouterRouter);
 app.use("/empresa", empresaRouter);
 app.use("/totem", totemRouter);
-app.use("/captura", capturaRouter);
+app.use("/parametros", parametrosRouter);
 app.use("/relatorio", relatorioRouter);
 app.use("/parametros", parametrosRouter);
 
