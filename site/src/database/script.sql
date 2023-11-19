@@ -104,6 +104,7 @@ INSERT INTO empresa (razaoSocial, cnpj, email, fkEndereco) VALUES ('King Hamburg
 INSERT INTO totem (nome, chaveDeAcesso, statusTotem, jar, fkEmpresa) VALUES ('Totem 4', '1234','inativo','jar1' , 1);
 
 
+
 -- ************************ SQL SERVER (Production) ************************
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'fasttotem')
 BEGIN
