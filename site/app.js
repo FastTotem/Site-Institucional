@@ -23,7 +23,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuario", usuarioRouter);
-app.use("/dadosComponentes", capturaRouter);
+app.use("/captura", capturaRouter);
 app.use("/empresa", empresaRouter);
 app.use("/totem", totemRouter);
 app.use("/parametros", parametrosRouter);

@@ -54,6 +54,7 @@ h1 {
 }
 
 .list-status button {
+  font-family: 'Montserrat';
   width: 25%;
   padding: 0.5rem 0;
   border: solid 2px #3f3e3e;
@@ -259,9 +260,9 @@ select {
   border: solid 2px #3f3e3e;
   border-top: 0;
   color: whitesmoke;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .employee-card:hover {
   transform: scale(0.99);
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
