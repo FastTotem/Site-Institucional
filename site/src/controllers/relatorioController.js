@@ -5,6 +5,7 @@ function gerar(req, res) {
     var dataInicial = req.params.dataInicial;
     var dataFinal = req.params.dataFinal;
     var tipo = req.params.tipo;
+    var totem = req.params.totem;
   
     if (idEmpresa == undefined) {
       res.status(400).send("idEmpresa não pode estar vazio!");
@@ -83,7 +84,7 @@ function gerar(req, res) {
       
         case "logs":
           relatorioModel
-            .gerarLogs(idEmpresa, dataInicial, dataFinal)
+            .gerarLogs(idEmpresa, dataInicial, dataFinal, totem)
             .then(function (resultado) {
               res.json(resultado);
             })

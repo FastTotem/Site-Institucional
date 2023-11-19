@@ -10,10 +10,12 @@
     <script src="./js/funcionario.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
     <script src="./js/sideMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="./js/relatorio.js"></script>
     <title>FastTotem | Relatórios </title>
 </head>
 
-<body>
+<body onload="getTotens()">
 
     <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
@@ -182,6 +184,12 @@
                         <h1>Logs</h1>
 
                         <div>
+                            <label for="totem">Totem:</label>
+                            <select type="date" id="totens" name="totens">
+                            </select>
+                        </div>
+
+                        <div>
                             <label for="dataInicial">Data Inicial:</label>
                             <input type="date" id="dataIniciallogs" name="dataInicial">
                         </div>
@@ -204,146 +212,3 @@
 </body>
 
 </html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-
-    var tipoRelatorio;
-
-    function validarCampos() {
-
-        var errorMsgElement = document.getElementById('errorMessage');
-        var errorMsgText;
-
-        var dataInicial = document.getElementById(`dataInicial${tipoRelatorio}`).value;
-        var dataFinal = document.getElementById(`dataFinal${tipoRelatorio}`).value;
-
-        var dataInicialObj = new Date(dataInicial);
-        var dataFinalObj = new Date(dataFinal);
-
-        var anoAtual = new Date().getFullYear();
-
-        if (dataInicial === '' || dataFinal === '') {
-            errorMsgText = 'Por favor, preencha ambas as datas.';
-        } else if (dataInicialObj > dataFinalObj) {
-            errorMsgText = 'A data inicial não pode ser maior que a data final.';
-        } else if (dataInicialObj.getFullYear() !== anoAtual || dataFinalObj.getFullYear() !== anoAtual) {
-            errorMsgText = 'As datas devem ser do ano atual.';
-        } else {
-            getData();
-        }
-
-        errorMsgElement.textContent = errorMsgText
-
-        setTimeout(() => {
-            errorMsgElement.textContent = ""
-        }, "2000");
-
-    }
-
-    function mudarCard(tipo) {
-        tipoRelatorio = tipo;
-
-        const cards = document.querySelectorAll('.relatorio-get-card');
-
-        cards.forEach(card => {
-            if (card.id === `${tipo}-card`) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-
-    const { jsPDF } = window.jspdf;
-
-    function gerarRelatorio(data) {
-
-        console.log(data)
-
-        const doc = new jsPDF();
-
-        doc.text(`Relatório de ${tipoRelatorio}`, 20, 10);
-
-        switch (tipoRelatorio) {
-            case "capturas":
-
-                doc.setFontSize(12);
-                doc.text("Tipo", 20, 20);
-                doc.text("Total de Capturas", 80, 20);
-                doc.text("Média de Capturas por Dia", 150, 20);
-
-                doc.setFontSize(10);
-                let linhaCaptura = 30;
-                data.forEach((item, index) => {
-                    doc.text(item.tipo, 20, linhaCaptura);
-                    doc.text(item.totalCapturas.toString(), 80, linhaCaptura);
-                    doc.text(item.mediaCapturasPorDia.toString(), 150, linhaCaptura);
-                    linhaCaptura += 10;
-                });
-                break;
-
-
-            case "totens":
-                doc.setFontSize(12);
-                doc.text("ID do Totem", 20, 20);
-                doc.text("Nome do Totem", 70, 20);
-                doc.text("Data de Criação", 150, 20);
-                doc.text("Status do Totem", 250, 20);
-                doc.text("JAR", 350, 20);
-
-                doc.setFontSize(10);
-                let linhaTotens = 30;
-                data.forEach((item, index) => {
-                    doc.text(item.idTotem.toString(), 20, linhaTotens);
-                    doc.text(item.nome, 70, linhaTotens);
-                    doc.text(formatarData(item.dtCriacao), 150, linhaTotens);
-                    doc.text(item.statusTotem, 250, linhaTotens);
-                    doc.text(item.jar, 350, linhaTotens);
-
-                    linhaTotens += 10;
-                });
-                break;
-
-        }
-
-        doc.save(`relatorio${tipoRelatorio}.pdf`);
-    }
-
-    async function getData(dataInicial, dataFinal) {
-
-        var dataInicial = document.getElementById(`dataInicial${tipoRelatorio}`);
-        var dataFinal = document.getElementById(`dataFinal${tipoRelatorio}`);
-
-        const idEmpresa = sessionStorage.ID_EMPRESA;
-
-        try {
-            const response = await fetch(`/relatorio/${idEmpresa}/${dataInicial.value}/${dataFinal.value}/${tipoRelatorio}/gerar`, {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-
-            const data = await response.json();
-
-            if (data.length > 0) {
-                gerarRelatorio(data)
-            } else {
-                gerarRelatorio('Nenhum dado encontrado no intervalo selecionado')
-            }
-
-        } catch (error) {
-            console.error('Erro ao buscar informações do totem:', error);
-            return false;
-        }
-
-    }
-
-    function formatarData(data) {
-        const dataObj = new Date(data);
-        return `${dataObj.toLocaleDateString()} ${dataObj.toLocaleTimeString()}`;
-    }
-
-</script>

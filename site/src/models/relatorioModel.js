@@ -78,9 +78,21 @@ WHERE
     
 }
 
-function gerarLogs(idEmpresa, dataInicial, dataFinal, ){
+function gerarLogs(idEmpresa, dataInicial, dataFinal, nomeTotem){
 
+    var gerarRelatorioLogs = `
+    SELECT l.dtCriacao, l.infos
+    FROM log l
+    WHERE l.fkTotem = (SELECT t.idTotem
+                       FROM totem t
+                       WHERE t.nome = '${nomeTotem}'
+                         AND t.fkEmpresa = ${idEmpresa})
+      AND l.dtCriacao BETWEEN '${dataInicial}' AND '${dataFinal}'
+    ORDER BY l.dtCriacao DESC
+    LIMIT 1;       
+        `;
 
+    return database.executar(gerarRelatorioLogs);
     
 }
 
