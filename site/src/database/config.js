@@ -8,6 +8,21 @@ var mySqlConfig = {
     password: "fasttotem123",
 };
 
+var sqlServerConfig = {
+    server: "ec2-54-144-141-96.compute-1.amazonaws.com",
+    database: "fasttotem",
+    user: "fastTotemAdmin",
+    password: "fasttotem123",
+    pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+    },
+    // options: {
+    //     encrypt: true, // for azure
+    // }
+};
+
 //CRIAR USUÁRIO:
 /*
     1º Acessar o cmd e digitar: mysql -u root -p
