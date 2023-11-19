@@ -149,7 +149,7 @@ async function displayAllDisks() {
 }
 
 async function getKPIsData() {
-    const response = await fetch(`/dadosComponentes/buscarDadosKPIs/${idTotem}`);
+    const response = await fetch(`/captura/buscarDadosKPIs/${idTotem}`);
 
     const data = await response.json();
 
@@ -157,7 +157,7 @@ async function getKPIsData() {
 }
 
 async function getChartsData() {
-    const response = await fetch(`/dadosComponentes/buscarDadosGraficos/${idTotem}`);
+    const response = await fetch(`/captura/buscarDadosGraficos/${idTotem}`);
 
     const data = await response.json();
 

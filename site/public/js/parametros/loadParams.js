@@ -23,7 +23,7 @@ async function displayParams() {
     params = data;
     
     data.forEach(element => {
-        switch (element.tipo) {
+        switch (element.componente) {
             case "MEMORIA": 
                 displayParamsInComponent(cardRAM, element);
                 break;

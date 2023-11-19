@@ -1,6 +1,6 @@
 var parametrosModel = require('../models/parametrosModel');
 
-function getChartsData(req, res) {
+function getEmpresaParams(req, res) {
     var idEmpresa = req.params.idEmpresa;
 
     if (idEmpresa == undefined) {
@@ -45,6 +45,6 @@ function updateParamLevel(req, res) {
 }
 
 module.exports = {
-    getChartsData,
+    getEmpresaParams,
     updateParamLevel
 }

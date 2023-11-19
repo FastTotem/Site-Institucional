@@ -1,8 +1,7 @@
 var database = require("../database/config");
 
-function gerarCaptura(idEmpresa, dataInicial, dataFinal){
-
-    var gerarRelatorioCaptura = `
+function gerarCaptura(idEmpresa, dataInicial, dataFinal) {
+  var gerarRelatorioCaptura = `
     SELECT
     COUNT(idCaptura) AS totalCapturas,
     ROUND(AVG(valor), 2) AS mediaCapturasPorDia,
@@ -15,13 +14,11 @@ WHERE
 GROUP BY
     tipo;
         `;
-    return database.executar(gerarRelatorioCaptura);
-
+  return database.executar(gerarRelatorioCaptura);
 }
 
-function gerarTotens(idEmpresa, dataInicial, dataFinal){
-    
-    var gerarRelatorioTotens = `
+function gerarTotens(idEmpresa, dataInicial, dataFinal) {
+  var gerarRelatorioTotens = `
     SELECT
     idTotem,
     nome,
@@ -34,13 +31,11 @@ WHERE
     fkEmpresa = ${idEmpresa} AND
     dtCriacao BETWEEN '${dataInicial}' AND '${dataFinal}';
         `;
-    return database.executar(gerarRelatorioTotens);
-
+  return database.executar(gerarRelatorioTotens);
 }
 
-function gerarParametros(idEmpresa, dataInicial, dataFinal){
-
-    var gerarRelatorioParametros = `
+function gerarParametros(idEmpresa, dataInicial, dataFinal) {
+  var gerarRelatorioParametros = `
     SELECT
     idParametroAlerta,
     componente,
@@ -55,13 +50,11 @@ WHERE
     fkEmpresa = ${idEmpresa} AND
     dtCriacao BETWEEN '${dataInicial}' AND '${dataFinal}';
         `;
-    return database.executar(gerarRelatorioParametros);
-    
+  return database.executar(gerarRelatorioParametros);
 }
 
-function gerarFuncionarios(idEmpresa, dataInicial, dataFinal){
-    
-    var gerarRelatorioFuncionarios = `
+function gerarFuncionarios(idEmpresa, dataInicial, dataFinal) {
+  var gerarRelatorioFuncionarios = `
     SELECT
     idUsuario,
     nome,
@@ -74,13 +67,11 @@ WHERE
     fkEmpresa = ${idEmpresa} AND
     dtCriacao BETWEEN '${dataInicial}' AND '${dataFinal}';
         `;
-    return database.executar(gerarRelatorioFuncionarios);
-    
+  return database.executar(gerarRelatorioFuncionarios);
 }
 
-function gerarLogs(idEmpresa, dataInicial, dataFinal, nomeTotem){
-
-    var gerarRelatorioLogs = `
+function gerarLogs(idEmpresa, dataInicial, dataFinal, nomeTotem) {
+  var gerarRelatorioLogs = `
     SELECT l.dtCriacao, l.infos
     FROM log l
     WHERE l.fkTotem = (SELECT t.idTotem
@@ -92,15 +83,13 @@ function gerarLogs(idEmpresa, dataInicial, dataFinal, nomeTotem){
     LIMIT 1;       
         `;
 
-    return database.executar(gerarRelatorioLogs);
-    
+  return database.executar(gerarRelatorioLogs);
 }
 
-
-module.exports = { 
-    gerarCaptura,
-    gerarTotens,
-    gerarParametros,
-    gerarFuncionarios,
-    gerarLogs
- };
+module.exports = {
+  gerarCaptura,
+  gerarTotens,
+  gerarParametros,
+  gerarFuncionarios,
+  gerarLogs,
+};

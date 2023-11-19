@@ -30,7 +30,6 @@ function toggleLock(containerTargetId) {
     if(elementInput.disabled) {
         elementInput.disabled = false;
         elementLockIcon.dataset.icon = "material-symbols:lock-open";
-        console.log(elementLockIcon);
     } else {
         elementInput.disabled = true;
         elementLockIcon.dataset.icon = "material-symbols:lock";

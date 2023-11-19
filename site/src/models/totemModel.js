@@ -1,7 +1,8 @@
 var database = require("../database/config");
 
 function cadastrar(nome, jar, chave, idEmpresa) {
-    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, statusTotem, dtCriacao) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, "inativo", now())`;
+    var dtAtual = process.env.AMBIENTE_PROCESSO === "desenvolvimento" ? "now()" : "GETDATE()";
+    var createTotem = `INSERT INTO totem (nome, jar, chaveDeAcesso, fkEmpresa, statusTotem, dtCriacao) VALUES ('${nome}', '${jar}', '${chave}', ${idEmpresa}, 'inativo', ${dtAtual})`;
     return database.executar(createTotem);
 }
 
@@ -64,7 +65,7 @@ function getTotemInfo(idTotem) {
 function getDisks(idTotem) {
     var instrucao = `
         SELECT nomeComponente, tipoComponente FROM componente JOIN totem 
-        ON idTotem = fkTotem WHERE idTotem = ${idTotem} AND tipoComponente = "DISCO";
+        ON idTotem = fkTotem WHERE idTotem = ${idTotem} AND tipoComponente = 'DISCO';
     `;
 
     return database.executar(instrucao);
