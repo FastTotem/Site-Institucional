@@ -9,7 +9,7 @@ function getEmpresaParams(idEmpresa) {
 
 function updateParamLevel(idParametro, ideal, alerta, critico, notificacao) {
     var instrucao = `
-        UPDATE parametroAlerta SET ideal = ${ideal}, alerta = ${alerta}, critico = ${critico}, notificacao = ${notificacao} WHERE idParametroAlerta = ${idParametro};
+        UPDATE parametroAlerta SET ideal = ${ideal}, alerta = ${alerta}, critico = ${critico}, notificacao = ${notificacao}, dtCriacao = now() WHERE idParametroAlerta = ${idParametro};
     `;
     return database.executar(instrucao);
 }
