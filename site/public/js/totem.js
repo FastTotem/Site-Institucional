@@ -1,4 +1,4 @@
-const criticalSrc = "./assets/aviso.png";
+    const criticalSrc = "./assets/aviso.png";
 const alertSrc = "./assets/sinal-de-alerta.png";
 const okSrc = "./assets/verificar.png";
 const offSrc = "./assets/desligar.png";

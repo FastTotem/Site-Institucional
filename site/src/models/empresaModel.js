@@ -1,5 +1,6 @@
 var database = require("../database/config");
 var usuarioModel = require("./usuarioModel");
+var parametrosModel = require('../models/parametrosModel');
 
 function cadastrar(
   nome, 
@@ -34,15 +35,15 @@ function cadastrar(
           OUTPUT INSERTED.idEmpresa as empresaID
           VALUES ('${nome}', '${cnpj}', ${enderecoId})
         `;
-      }
-
+      } 
       return database.executar(empresaQuery);
     })
     .then(function (empresaResultado) {
       var empresaID = process.env.AMBIENTE_PROCESSO === "desenvolvimento" ? empresaResultado.insertId : empresaResultado[0].empresaID;
-    
       var nomeAdmin = `${nome} Admin`
-      usuarioModel.cadastrar(nomeAdmin, email, senha, 'Administrador', empresaID,);
+      
+      parametrosModel.insertDefaultValues(empresaID);
+      usuarioModel.cadastrar(nomeAdmin, email, senha, 'Administrador', empresaID);
     })
     .then(function (usuarioResultado) {
       return usuarioResultado;

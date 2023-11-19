@@ -64,7 +64,7 @@ function updateProfileImage(id, imagePath) {
 }
 
 function cadastrar(nome, email, senha, nivelAcesso, empresaId) {
-    var usuarioQuery = `INSERT INTO usuario (nome, email, senha, nivelAcesso, fkEmpresa, statusUsuario) VALUES ('${nome}', '${email}', '${senha}', '${nivelAcesso}', ${empresaId}, 'Ativo')`;
+    var usuarioQuery = `INSERT INTO usuario (nome, email, senha, nivelAcesso, fkEmpresa, statusUsuario, dtCriacao) VALUES ('${nome}', '${email}', '${senha}', '${nivelAcesso}', ${empresaId}, 'Ativo', now())`;
     return database.executar(usuarioQuery);
 }
 

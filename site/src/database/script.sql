@@ -1,6 +1,6 @@
--- SQLBook: Code
-
 -- ************************ MYSQL (Development) ************************
+-- DROP DATABASE fasttotem;
+-- Verifica se o banco de dados 'fastTotem' existe
 CREATE DATABASE IF NOT EXISTS fasttotem;
 USE fasttotem;
 
@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS empresa (
 -- Cria a tabela Usuario se ela não existir
 CREATE TABLE IF NOT EXISTS usuario (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+	dtCriacao DATETIME,
     nome VARCHAR(255),
     email VARCHAR(255),
     senha VARCHAR(255),
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS usuario (
 CREATE TABLE IF NOT EXISTS totem (
     idTotem INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
+    dtCriacao DATETIME,
     chaveDeAcesso VARCHAR(255),
     boardSerialNumber VARCHAR(255),
     statusTotem VARCHAR(255),
@@ -85,41 +87,38 @@ CREATE TABLE IF NOT EXISTS captura (
 -- Cria a tabela ParametroAlerta se ela não existir
 CREATE TABLE IF NOT EXISTS parametroAlerta (
     idParametroAlerta INT AUTO_INCREMENT PRIMARY KEY,
-    fkComponente INT,
+    dtCriacao DATETIME,
+    componente varchar(255),
+    fkEmpresa INT,
     ideal INT,
     alerta INT,
     critico INT,
     notificacao INT,
-    FOREIGN KEY (fkComponente) REFERENCES componente (idComponente)
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
-DELETE FROM usuario WHERE email = 'TotemXpressFunc1@gmail.com';
-
-select*from usuario;
-select*from totem;
-
--- Inserções de exemplo
-INSERT INTO endereco (logradouro, bairro, numero, complemento, cep) VALUES ('Avenida Hilário Pereira de Souza', 'Centro', '492', 'Piso 2', '06010170');
-INSERT INTO empresa (razaoSocial, cnpj, email, fkEndereco) VALUES ('King Hamburgueria', '12345678978945', 'kinghamburgueria@mail.com', 1);
-INSERT INTO totem (nome, chaveDeAcesso, statusTotem, jar, fkEmpresa) VALUES ('Totem 4', '1234','inativo','jar1' , 1);
-
-
+-- Cria a tabela Log se ela não existir
+CREATE TABLE IF NOT EXISTS log (
+    idLog INT AUTO_INCREMENT PRIMARY KEY,
+	dtCriacao DATETIME,
+    infos TEXT,
+     fkTotem INT,
+    FOREIGN KEY (fkTotem) REFERENCES totem (idTotem)
+);
 
 -- ************************ SQL SERVER (Production) ************************
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'fasttotem')
-BEGIN
+-- Verifica se o banco de dados 'fastTotem' existe
+IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = 'fasttotem')
     CREATE DATABASE fasttotem;
-END
 GO
 
 USE fasttotem;
-GO
 
 -- Cria a tabela Endereco se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'endereco')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'endereco')
 BEGIN
     CREATE TABLE endereco (
-        idEndereco INT IDENTITY(1,1) PRIMARY KEY,
+        idEndereco INT PRIMARY KEY IDENTITY,
         logradouro VARCHAR(255),
         bairro VARCHAR(255),
         numero CHAR(7),
@@ -130,10 +129,10 @@ END
 GO
 
 -- Cria a tabela Empresa se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'empresa')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'empresa')
 BEGIN
     CREATE TABLE empresa (
-        idEmpresa INT IDENTITY(1,1) PRIMARY KEY,
+        idEmpresa INT PRIMARY KEY IDENTITY,
         razaoSocial VARCHAR(120),
         cnpj CHAR(14),
         email VARCHAR(255),
@@ -144,16 +143,17 @@ END
 GO
 
 -- Cria a tabela Usuario se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'usuario')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'usuario')
 BEGIN
     CREATE TABLE usuario (
-        idUsuario INT IDENTITY(1,1) PRIMARY KEY,
+        idUsuario INT PRIMARY KEY IDENTITY,
+        dtCriacao DATETIME,
         nome VARCHAR(255),
         email VARCHAR(255),
         senha VARCHAR(255),
-        nivelAcesso VARCHAR(20), -- Mapeado para VARCHAR no SQL Server
+        nivelAcesso VARCHAR(50),
         imgUsuario TEXT,
-        statusUsuario VARCHAR(20), -- Mapeado para VARCHAR no SQL Server
+        statusUsuario VARCHAR(50),
         fkEmpresa INT,
         FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
     );
@@ -161,11 +161,12 @@ END
 GO
 
 -- Cria a tabela Totem se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'totem')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'totem')
 BEGIN
     CREATE TABLE totem (
-        idTotem INT IDENTITY(1,1) PRIMARY KEY,
+        idTotem INT PRIMARY KEY IDENTITY,
         nome VARCHAR(255),
+        dtCriacao DATETIME,
         chaveDeAcesso VARCHAR(255),
         boardSerialNumber VARCHAR(255),
         statusTotem VARCHAR(255),
@@ -177,15 +178,15 @@ END
 GO
 
 -- Cria a tabela InfoMaquina se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'infoMaquina')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'infoMaquina')
 BEGIN
     CREATE TABLE infoMaquina (
-        idInfoMaquina INT IDENTITY(1,1) PRIMARY KEY,
+        idInfoMaquina INT PRIMARY KEY IDENTITY,
         sistemaOperacional VARCHAR(200),
         fabricante VARCHAR(200),
         nomeProcessador VARCHAR(200),
-        capacidadeRam FLOAT, -- Mapeado para FLOAT no SQL Server
-        capacidadeDisco FLOAT, -- Mapeado para FLOAT no SQL Server
+        capacidadeRam FLOAT,
+        capacidadeDisco FLOAT,
         fkTotem INT,
         FOREIGN KEY (fkTotem) REFERENCES totem (idTotem)
     );
@@ -193,10 +194,10 @@ END
 GO
 
 -- Cria a tabela Componente se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'componente')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'componente')
 BEGIN
     CREATE TABLE componente (
-        idComponente INT IDENTITY(1,1) PRIMARY KEY,
+        idComponente INT PRIMARY KEY IDENTITY,
         nomeComponente VARCHAR(255),
         tipoComponente VARCHAR(255),
         fkTotem INT,
@@ -206,13 +207,13 @@ END
 GO
 
 -- Cria a tabela Captura se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'captura')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'captura')
 BEGIN
     CREATE TABLE captura (
-        idCaptura INT IDENTITY(1,1) PRIMARY KEY,
+        idCaptura INT PRIMARY KEY IDENTITY,
         dataHora DATETIME,
         tipo VARCHAR(255),
-        valor FLOAT, -- Mapeado para FLOAT no SQL Server
+        valor FLOAT,
         fkComponente INT,
         fkTotem INT,
         FOREIGN KEY (fkComponente) REFERENCES componente (idComponente),
@@ -222,21 +223,31 @@ END
 GO
 
 -- Cria a tabela ParametroAlerta se ela não existir
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'parametroAlerta')
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'parametroAlerta')
 BEGIN
     CREATE TABLE parametroAlerta (
-        idParametroAlerta INT IDENTITY(1,1) PRIMARY KEY,
-        fkComponente INT,
+        idParametroAlerta INT PRIMARY KEY IDENTITY,
+        dtCriacao DATETIME,
+        componente VARCHAR(255),
+        fkEmpresa INT,
         ideal INT,
         alerta INT,
         critico INT,
         notificacao INT,
-        FOREIGN KEY (fkComponente) REFERENCES componente (idComponente)
+        FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
     );
 END
 GO
 
--- Inserções de exemplo
-INSERT INTO endereco (logradouro, bairro, numero, complemento, cep) VALUES ('Avenida Hilário Pereira de Souza', 'Centro', '492', 'Piso 2', '06010170');
-INSERT INTO empresa (razaoSocial, cnpj, email, fkEndereco) VALUES ('King Hamburgueria', '12345678978945', 'kinghamburgueria@mail.com', 1);
-INSERT INTO totem (nome, chaveDeAcesso, statusTotem, jar, fkEmpresa) VALUES ('Totem 4', '1234', 'inativo', 'jar1', 1);
+-- Cria a tabela Log se ela não existir
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'log')
+BEGIN
+    CREATE TABLE log (
+        idLog INT PRIMARY KEY IDENTITY,
+        dtCriacao DATETIME,
+        infos TEXT,
+        fkTotem INT,
+        FOREIGN KEY (fkTotem) REFERENCES totem (idTotem)
+    );
+END
+GO

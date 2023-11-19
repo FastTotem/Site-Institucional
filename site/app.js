@@ -13,6 +13,7 @@ var usuarioRouter = require("./src/routes/usuario");
 var totemRouter = require("./src/routes/totem");
 var parametrosRouter = require("./src/routes/parametros");
 var capturaRouter = require("./src/routes/captura");
+var relatorioRouter = require("./src/routes/relatorio");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +26,8 @@ app.use("/usuario", usuarioRouter);
 app.use("/dadosComponentes", capturaRouter);
 app.use("/empresa", empresaRouter);
 app.use("/totem", totemRouter);
+app.use("/parametros", parametrosRouter);
+app.use("/relatorio", relatorioRouter);
 app.use("/parametros", parametrosRouter);
 
 app.listen(PORTA, function () {
