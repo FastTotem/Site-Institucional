@@ -6,6 +6,7 @@ const kpiCPU = document.getElementById('kpiCPU');
 const kpiRAM = document.getElementById('kpiRAM');
 const kpiHD = document.getElementById('kpiHD');
 const totemDisks = document.getElementById('totemDisks');
+var totemIP = "";
 
 const usageTime = {
     dayUsage: document.getElementById('dayUsage'),
@@ -58,6 +59,8 @@ async function generateChartsData() {
 async function displayTotemInfo() {
     const data = await getTotemInfo();
     const totemInfo = data[0];
+
+    totemIP = totemInfo.totemIP;
 
     if(!totemInfo.idTotemAnterior) {
         previousTotemButton.classList.add("disableButton");
