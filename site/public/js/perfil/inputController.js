@@ -30,7 +30,6 @@ function toggleLock(containerTargetId) {
     if(elementInput.disabled) {
         elementInput.disabled = false;
         elementLockIcon.dataset.icon = "material-symbols:lock-open";
-        console.log(elementLockIcon);
     } else {
         elementInput.disabled = true;
         elementLockIcon.dataset.icon = "material-symbols:lock";
@@ -42,7 +41,7 @@ function toggleModal() {
 }
 
 async function enablePasswordEdit() {
-    const data = await fetch('/usuarios/checarSenha', {
+    const data = await fetch('/usuario/checarSenha', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",

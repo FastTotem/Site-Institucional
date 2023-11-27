@@ -49,12 +49,15 @@ h1 {
 
 .list-status {
   margin-top: 1rem;
+  display: flex;
+  width: 100%;
 }
 
 .list-status button {
-  padding: 0.5rem 2.53vw;
-  border: solid 2px #670478;
-  background-color: #BD06DD;
+  font-family: 'Montserrat';
+  width: 25%;
+  padding: 0.5rem 0;
+  border: solid 2px #3f3e3e;
   color: whitesmoke;
   font-weight: bold;
   border-bottom: 0;
@@ -64,39 +67,39 @@ h1 {
   filter: brightness(0.9);
 }
 
-#ok {
-  border-color: #3bff5c;
+.status-ok {
   background-color: rgb(44, 161, 100);
 }
 
-#alert {
-  border-color: #ffde59;
+.status-alerta {
   background-color: rgba(255, 215, 0, 0.7);
 }
 
-#danger {
-  border-color: #ff4040;
+.status-critico {
   background-color: rgba(255, 99, 71, 0.7);
 }
 
-#all {
-  border-color: #670478;
+.status-all {
   background-color: #BD06DD;
 }
 
-#off {
-  border-color: grey;
+.status-inativo {
   background-color: #909090;
 }
 
-#add {
-  border-color: rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.3);
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.message a {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
 }
 
 .list-card {
   display: flex;
-  background-color: #BD06DD;
   height: fit-content;
   padding: 1rem;
   align-items: center;
@@ -105,10 +108,15 @@ h1 {
   color: whitesmoke;
 }
 
-.list-card:hover {
-  transform: scale(0.99);
-  filter: brightness(0.9);
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+.delete-button{
+  background-color: rgba(0, 0, 0, 0);
+width: 2rem;
+margin-left: 1.5rem;
+}
+
+.delete-button img{
+  width: 90%;
+  height: auto;
 }
 
 .img-status {
@@ -128,31 +136,7 @@ h1 {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-right: 6%;
-}
-
-.totem-name {
-  width: 30%;
-}
-
-.component-status {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-
-.component-status div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.component-status h3 {
-  font-size: 1rem;
-}
-
-.component-status p {
-  font-size: 0.8rem;
+  justify-content: space-between;
 }
 
 .restart-button {
@@ -231,6 +215,10 @@ select {
   height: 100%;
 }
 
+#message{
+  text-align: center;
+}
+
 .employee-info {
   height: 100%;
 }
@@ -272,9 +260,9 @@ select {
   border: solid 2px #3f3e3e;
   border-top: 0;
   color: whitesmoke;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .employee-card:hover {
   transform: scale(0.99);
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }

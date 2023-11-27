@@ -9,7 +9,7 @@
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
-    <script src="./js/sideMenu.js"></script>
+    <script src="./js/sideMenu.js" defer></script>
     <script src="./js/perfil/inputController.js" defer></script>
     <script src="./js/perfil/updateUserData.js" defer></script>
     <title>FastTotem | Visão Geral</title>
@@ -28,25 +28,9 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
+   
 
-  <div class="side-menu" id="side-menu">
+    <div class="side-menu" id="side-menu">
         <div class="container">
 
             <div class="logo">
@@ -55,30 +39,35 @@
 
             <div class="icons">
 
-                <a href="visaoGeral.html">
-                <img class="menu-icon" src="./assets/dashboard.png" alt="">
-                <div class="page-name">Visão Geral - Totens</div>
-            </a>
+                <a href="visaoGeral.html" class="active">
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral</div>
+                </a>
 
-            <a href="visaoEspecifica.html">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
-                <div class="page-name">Visão Especifica - Totens</div>
-            </a>
+                <a id="visaoEspecificaTab">
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
+                    <div class="page-name">Visão Específica</div>
+                </a>
 
-            <a href="listagemTotens.html">
-                <img class="menu-icon" src="./assets/totem.png" alt="">
-                <div class="page-name">Listagem - Totens</div>
-            </a>
+                <a href="totens.html">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Totens</div>
+                </a>
 
-            <a href="funcionarios.html">
-                <img class="menu-icon" src="./assets/funcionarios.png" alt="">
-                <div class="page-name">Funcionários</div>
-            </a>
+                <a href="funcionarios.html">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
 
-            <a href="parametros.html">
-                <img class="menu-icon" src="./assets/params.png" alt="">
-                <div class="page-name">Parâmetros</div>
-            </a>
+                 <a href="parametros.html">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
+
+                <a href="relatorios.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
 
             </div>
         </div>
@@ -93,9 +82,6 @@
                     </div>
                 <h4 class="title">Perfil</h4>
                 <div class="navbar">
-                    <a href="#">
-                        <img class="nav-icon" src="./assets/bell.png" alt=""/>
-                    </a>
                     <a onclick="abrirPerfil()">
                         <img class="nav-icon" src="./assets/profile-user.png" alt=""/>
                     </a>

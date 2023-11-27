@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="stylesheet" href="./css/relatorios.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/funcionario.js"></script>
+    <script src="./js/floatingMenu.js" defer></script>
+    <script src="./js/sideMenu.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="./js/relatorio.js"></script>
+    <title>FastTotem | Relatórios </title>
+</head>
+
+<body onload="getTotens()">
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
+            </div>
+
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral</div>
+                </a>
+
+                <a id="visaoEspecificaTab">
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
+                    <div class="page-name">Visão Específica</div>
+                </a>
+
+                <a href="totens.html">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Totens</div>
+                </a>
+
+                <a href="funcionarios.html">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
+
+                <a href="parametros.html">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
+
+                <a href="relatorios.html" class="active">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <h4>FastTotem</h4>
+                </div>
+                <h4 class="title">Relatórios</h4>
+                <div class="navbar">
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                            src="./assets/customer-service.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <main class="grid">
+            <div class="relatorios-main">
+                <div class="relatorios-list">
+                    <div class="list">
+                        <div onclick="mudarCard('capturas')" class="relatorio-card" id="capturas-button">
+                            <p>Capturas</p>
+                        </div>
+                        <div onclick="mudarCard('totens')" class="relatorio-card" id="totens-button">
+                            <p>Totens</p>
+                        </div>
+                        <div onclick="mudarCard('parametros')" class="relatorio-card" id="parametros-button">
+                            <p>Parâmetros</p>
+                        </div>
+                        <div onclick="mudarCard('funcionarios')" class="relatorio-card" id="funcionarios-button">
+                            <p>Funcionários</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relatorios-get">
+                    <div class="relatorio-get-card" id="capturas-card">
+
+                        <h1>Relatório de Capturas</h1>
+
+                        <div>
+                            <label for="dataInicial">Data Inicial:</label>
+                            <input type="date" id="dataInicialcapturas" name="dataInicial">
+                        </div>
+
+                        <div>
+                            <label for="dataFinal">Data Final:</label>
+                            <input type="date" id="dataFinalcapturas" name="dataFinal">
+                        </div>
+                        <span id="errorMessage"></span>
+                        <button onclick="validarCampos()">Gerar Relatório</button>
+                    </div>
+
+                    <div class="relatorio-get-card" id="totens-card">
+
+                        <h1>Relatório de Totens</h1>
+
+                        <div>
+                            <label for="dataInicial">Data Inicial:</label>
+                            <input type="date" id="dataInicialtotens" name="dataInicial">
+                        </div>
+
+                        <div>
+                            <label for="dataFinal">Data Final:</label>
+                            <input type="date" id="dataFinaltotens" name="dataFinal">
+                        </div>
+                        <span id="errorMessage"></span>
+                        <button onclick="validarCampos()">Gerar Relatório</button>
+                    </div>
+
+                    <div class="relatorio-get-card" id="parametros-card">
+
+                        <h1>Relatório de Parâmetros</h1>
+
+                        <div>
+                            <label for="dataInicial">Data Inicial:</label>
+                            <input type="date" id="dataInicialparametros" name="dataInicial">
+                        </div>
+
+                        <div>
+                            <label for="dataFinal">Data Final:</label>
+                            <input type="date" id="dataFinalparametros" name="dataFinal">
+                        </div>
+                        <span id="errorMessage"></span>
+                        <button onclick="validarCampos()">Gerar Relatório</button>
+                    </div>
+
+                    <div class="relatorio-get-card" id="funcionarios-card">
+
+                        <h1>Relatório de Funcionários</h1>
+
+                        <div>
+                            <label for="dataInicial">Data Inicial:</label>
+                            <input type="date" id="dataInicialfuncionarios" name="dataInicial">
+                        </div>
+
+                        <div>
+                            <label for="dataFinal">Data Final:</label>
+                            <input type="date" id="dataFinalfuncionarios" name="dataFinal">
+                        </div>
+                        <span id="errorMessage"></span>
+                        <button onclick="validarCampos()">Gerar Relatório</button>
+                    </div>
+                    
+                </div>
+
+            </div>
+    </div>
+    </main>
+
+    </div>
+
+</body>
+
+</html>

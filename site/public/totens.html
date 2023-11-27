@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/listagem.css">
+    <link rel="stylesheet" href="./css/dashboardMain.css">
+    <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
+    <script src="./js/totem.js"></script>
+    <script src="./js/floatingMenu.js" defer></script>
+
+    <script src="./js/sideMenu.js" defer></script>
+    <title>FastTotem | Totens </title>
+</head>
+
+<body onload="listarTotens()">
+
+    <div class="perfilUser" id="perfilUser">
+        <div class="conteudo-bloco-flutuante">
+            <div class="infUser">
+                <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
+            </div>
+            <div class="options">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="login.html" onclick="sessionStorage.clear()">Fazer logout</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="side-menu" id="side-menu">
+        <div class="container">
+
+            <div class="logo">
+                <img src="assets/FastToten - Logo.png" alt="">
+            </div>
+
+            <div class="icons">
+
+                <a href="visaoGeral.html">
+                    <img class="menu-icon" src="./assets/dashboard.png" alt="">
+                    <div class="page-name">Visão Geral</div>
+                </a>
+
+                <a id="visaoEspecificaTab">
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
+                    <div class="page-name">Visão Específica</div>
+                </a>
+
+                <a href="totens.html" class="active">
+                    <img class="menu-icon" src="./assets/totem.png" alt="">
+                    <div class="page-name">Totens</div>
+                </a>
+
+                <a href="funcionarios.html">
+                    <img class="menu-icon" src="./assets/funcionarios.png" alt="">
+                    <div class="page-name">Funcionários</div>
+                </a>
+
+                <a href="parametros.html">
+                    <img class="menu-icon" src="./assets/params.png" alt="">
+                    <div class="page-name">Parâmetros</div>
+                </a>
+
+                <a href="relatorios.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <h4>FastTotem</h4>
+                </div>
+                <h4 class="title">Totens</h4>
+                <div class="navbar">
+
+                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png" alt=""></a>
+                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                            src="./assets/customer-service.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <main class="grid">
+            <div id="section2">
+                <div class="totem-list">
+                    <div class="list-title">
+                        <h1>Totens cadastrados</h1>
+                        <h4 class="filter">Mostrando <span id="filterAtual">0</span> de <span id="filterMax">0</span></h4>                    </div>
+                    <div class="list-status">
+                        <button onclick="listarTotens()" class="status-all">Todos</button>
+                        <button onclick="listarTotensPorStatus('critico')" class="status-critico">Critico</button>
+                        <button onclick="listarTotensPorStatus('alerta')" class="status-alerta">Alerta</button>
+                        <button onclick="listarTotensPorStatus('ok')" class="status-ok">Ok</button>
+                        <button onclick="listarTotensPorStatus('inativo')" class="status-inativo">Desligados</button>
+                    </div>
+                    <div class="list" id="list">
+                    </div>
+                </div>
+            </div>
+            <div id="section1">
+                <div class="totem-register" id="totem-register">
+                    <h1>Cadastrar novo totem</h1>
+                    <div id="totem-form">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome do Totem" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jar">Jar:</label>
+                            <select id="jar" name="jar">
+                                <option value="padrao">Padrão</option>
+                                <option value="jar temperatura">Jar Temperatura</option>
+                                <option value="jar gui">Jar Gui</option>
+                                <option value="jar config tempo de captura">Jar Config Tempo de Captura</option>
+                                <option value="jar rede">Jar Rede</option>
+                                <option value="jar limpar cache">Jar Limpar Cache</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="chave-acesso">Chave de Acesso:</label>
+                            <select id="chaveAcesso" name="chave-acesso" onchange="showHideChave(this)">
+                                <option value="padrao">Aleatória</option>
+                                <option value="personalizado">Personalizada</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="chave-acesso" style="display: none;">
+                            <label for="chave">Chave de Acesso:</label>
+                            <input type="text" id="chave" name="chave" placeholder="Chave de Acesso Personalizada">
+                        </div>
+                        <span id="message">
+                        </span>
+                        <button onclick="cadastrarTotem(nome.value,jar.value,chave.value)" id="submit-button">Cadastrar
+                            Totem</button>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function showHideChave(selectElement) {
+        const chaveAcessoField = document.getElementById("chave-acesso");
+        if (selectElement.value === "personalizado") {
+            chaveAcessoField.style.display = "block";
+        } else {
+            chaveAcessoField.style.display = "none";
+        }
+    }
+
+    function openForm() {
+        const form = document.getElementById("totem-register");
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+
+    function criarCard(nome) {
+        const totemList = document.querySelector('.list');
+        const contagemTotens = totemList.childElementCount + 1;
+
+        const totemCard = document.createElement('a');
+        totemCard.className = 'list-card';
+        totemCard.href = `visaoEspecifica.html?funcionario=${contagemTotens}`;
+
+        const cardHTML = `
+                <div class="img-status">
+                    <img src="./assets/verificar.png" alt="">
+                </div>
+                <div class="totem-info">
+                    <div class="totem-name">
+                        <h3>${nome}</h3>
+                    </div>
+                    <div class="component-status">
+                        <div>
+                            <h3>HD</h3>
+                            <p>Status: OK</p>
+                        </div>
+                        <div>
+                            <h3>CPU</h3>
+                            <p>Status: OK</p>
+                        </div>
+                        <div>
+                            <h3>RAM</h3>
+                            <p>Status: OK</p>
+                        </div>
+                        <div>
+                            <h3>USB</h3>
+                            <p>Status: OK</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        totemCard.innerHTML = cardHTML;
+        totemList.appendChild(totemCard);
+    }
+</script>

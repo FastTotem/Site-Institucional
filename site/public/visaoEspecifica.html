@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/visaoEspecifica.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/visaoEspecifica/loadTotemData.js" defer></script>
     <script src="js/visaoEspecifica/tempoAtividade.js" defer></script>
     <script src="js/visaoEspecifica/cpu.js" defer></script>
     <script src="js/visaoEspecifica/ram.js" defer></script>
@@ -15,13 +16,13 @@
     <script src="js/visaoEspecifica/tools.js" defer></script>
     <script src="js/visaoEspecifica/tooltip.js" defer></script>
     <script src="./js/floatingMenu.js" defer></script>
-    <script src="./js/alerta.js"></script>
-    <script src="./js/sideMenu.js"></script>
+    <script src="./js/sideMenu.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
     <title>FastTotem | Visão Específica</title>
 </head>
 <body>
     
-       <div class="perfilUser" id="perfilUser">
+    <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
                 <div class="nomeUser">Olá, <span id="nome_saudacao">Kauã</span></div>
@@ -33,23 +34,7 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
+   
 
   <div class="side-menu" id="side-menu">
         <div class="container">
@@ -65,12 +50,12 @@
                 <div class="page-name">Visão Geral</div>
             </a>
 
-            <a href="visaoEspecifica.html" class="active">
-                <img class="menu-icon" src="./assets/specification.png" alt="">
+            <a id="visaoEspecificaTab" class="active">
+                <img class="menu-icon" src="./assets/binocular.png" alt="">
                 <div class="page-name">Visão Específica</div>
             </a>
 
-            <a href="listagemTotens.html">
+            <a href="totens.html">
                 <img class="menu-icon" src="./assets/totem.png" alt="">
                 <div class="page-name">Totens</div>
             </a>
@@ -85,24 +70,28 @@
                 <div class="page-name">Parâmetros</div>
             </a>
 
+            <a href="relatorios.html">
+                <img class="menu-icon" src="./assets/specification.png" alt="">
+                <div class="page-name">Relatórios</div>
+            </a>
+
             </div>
         </div>
     </div>
 
-<div class="dashboard">
-    <div class="container">
-       <div class="header">
-            <div class="container">
-                <div class="logo">
-                    <h4>FastTotem</h4>
-                </div>
-                <h4 class="title">Visão Específica</h4>
-                <div class="navbar">
-                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
-                    <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
-                            alt=""></a>
-                    <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
-                            src="./assets/customer-service.png" alt=""></a>
+    <div class="dashboard">
+        <div class="container">
+            <div class="header">
+                <div class="container">
+                    <div class="logo">
+                        <h4>FastTotem</h4>
+                    </div>
+                    <h4 class="title">Visão Específica</h4>
+                    <div class="navbar">
+                        <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
+                                alt=""></a>
+                        <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
+                                src="./assets/customer-service.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -110,180 +99,169 @@
         
         <main id="main">
             <div class="dashboardContainer">
-                <section>
-                    <div>
-                        <h1 id="totem-name">Totem 001</h1>
-    
+                <div class="controllers">
+                    <div id="previousTotemButton" class="controllerButton">
+                        <span class="iconify" data-icon="ic:round-navigate-before"></span>
+                        <p>Anterior</p>
+                    </div>
+                    <div id="toolsContainer" class="toolsContainer">
+                        <div id="toolsButton" class="toolsButton">
+                            <span class="iconify" data-icon="fa-solid:tools"></span>
+                            <p>Ferramentas</p>
+                        </div>
+        
+                        <div id="toolsBox" class="toolsBox">
+                            <button>
+                                <span class="iconify" data-icon="material-symbols:power-settings-new-rounded"></span>
+                                Desligar totem
+                            </button>
+
+                            <button>
+                                <span class="iconify" data-icon="material-symbols:restart-alt"></span>
+                                Reiniciar totem
+                            </button>
+        
+                            <button>
+                                <span class="iconify" data-icon="carbon:clean"></span>
+                                Limpar cache
+                            </button>
+                        </div>  
+                    </div>
+                    <div id="nextTotemButton" class="controllerButton">
+                        <p>Próximo</p>
+                        <span class="iconify" data-icon="ic:round-navigate-next"></span>
+                    </div>
+                </div>
+                <div class="dashboardCanvas">
+                    <section>
                         <div>
-                            <span><strong>Chave de acesso:</strong> X21312441</span>
-                            <span><strong>CPU:</strong> Intel Core i7-8700K, 6 núcleos - 3,70 GHz</span>
-                            <span><strong>Sistema Operacional:</strong> Windows 64 bits</span>
-                            <span><strong>Memória RAM:</strong> 16 GB (64 bits)</span>
-                            <span>
-                                <strong>Discos: </strong>
-                                <div>
-                                    <strong>• Disco Local (C:):</strong>
-                                    <p>
-                                        Tipo: SSD (Unidade de Estado Sólido)
-                                        <br>
-                                        Capacidade: 500 GB
-                                    </p>
-                                </div>
-    
-                                <div>
-                                    <strong>• Disco Local (D:):</strong>
-                                    <p>
-                                        Tipo: HDD (Disco Rígido)
-                                        <br>
-                                        Capacidade: 2 TB
-                                    </p>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <h1>Tempo de atividade</h1>
-    
-                        <div class="gaugeChart">
+                            <h1 id="totemName"></h1>
+        
                             <div>
-                                <h2>
-                                    22
-                                    <small>Dias</small>
-                                </h2>
-                                :
-                                <h2>
-                                    20
-                                    <small>Horas</small>
-                                </h2>
-                                :
-                                <h2>
-                                    35
-                                    <small>Minutos</small>
-                                </h2>
-                            </div>
-                            <canvas id="gaugeChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-    
-                <section>
-                    <div>
-                        <div class="chartContainer">
-                            <div class="card-title">
-                                <h1>Uso de CPU (%)</h1>
-                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
-                            </div>
-
-                            <div class="tooltipInfoContainer">
-                                <p>Esse gráfico exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
-                            </div>
-
-                            <div class="canvasContainer">
-                                <canvas id="lineChartCPU"></canvas>
+                                <span id="totemKey"><strong>Chave de acesso:</strong> </span>
+                                <span id="totemProcessador"><strong>CPU:</strong> </span>
+                                <span id="totemSO"><strong>Sistema Operacional:</strong> </span>
+                                <span id="totemRAM"><strong>Memória RAM:</strong> </span>
+                                <span id="totemDisks">
+                                    <strong>Discos: </strong>
+                                </span>
                             </div>
                         </div>
-    
-                        <div class="chartContainer">
-                            <div class="card-title">
-                                <h1>Uso de HD (%)</h1>
-
-                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
-                            </div>
-
-                            <div class="tooltipInfoContainer">
-                                <p>Esse gráfico exibe a porcentagem de uso do armazenamento de HD nos últimos 7 dias</p>
-                            </div>
-
-                            <div class="canvasContainer">
-                                <canvas id="barChartHD"></canvas>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <div class="chartContainer">
-                            <div class="card-title">
-                                <h1>Uso de RAM (%)</h1>
-                                <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
-                            </div>
-
-                            <div class="tooltipInfoContainer">
-                                <p>Esse gráfico exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
-                            </div>
-
-                            <div class="canvasContainer">
-                                <canvas id="barChartRAM"></canvas>
+        
+                        <div>
+                            <h1>Tempo de atividade</h1>
+        
+                            <div class="gaugeChart">
+                                <div>
+                                    <h2>
+                                        <span id="dayUsage">-</span>
+                                        <small>Dias</small>
+                                    </h2>
+                                    :
+                                    <h2>
+                                        <span id="hoursUsage">-</span>
+                                        <small>Horas</small>
+                                    </h2>
+                                    :
+                                    <h2>
+                                        <span id="minutesUsage">-</span>
+                                        <small>Minutos</small>
+                                    </h2>
+                                </div>
+                                <canvas id="gaugeChart"></canvas>
                             </div>
                         </div>
+                    </section>
     
-                        <div class="KPIContainer">
-                            <div>
-                                <div class="KPI">
-                                    <h2>USB<span class="on"></span></h2>
-                                    <div>
-                                    <h3>Ativo</h3>
-                                    <span>status atual</span>  
-                                </div> 
+                    <section>
+                        <div>
+                            <div class="chartContainer">
+                                <div class="card-title">
+                                    <h1>Uso de CPU (%)</h1>
+                                    <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                                </div>
+
+                                <div class="tooltipInfoContainer">
+                                    <p>Este indicador exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
+                                </div>
+
+                                <div class="canvasContainer">
+                                    <canvas id="lineChartCPU"></canvas>
+                                </div>
+                            </div>
+        
+                            <div class="chartContainer">
+                                <div class="card-title">
+                                    <h1>Uso de HD (%)</h1>
+
+                                    <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                                </div>
+
+                                <div class="tooltipInfoContainer">
+                                    <p>Este indicador exibe a porcentagem de uso do armazenamento de HD nos últimos 7 dias</p>
+                                </div>
+
+                                <div class="canvasContainer">
+                                    <canvas id="barChartHD"></canvas>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div>
+                            <div class="chartContainer">
+                                <div class="card-title">
+                                    <h1>Uso de RAM (%)</h1>
+                                    <a class="tooltipButton"><img src="./assets/ajuda.png" alt=""></a>
+                                </div>
+
+                                <div class="tooltipInfoContainer">
+                                    <p>Este indicador exibe a porcentagem de uso de RAM nos últimos 7 dias</p>
+                                </div>
+
+                                <div class="canvasContainer">
+                                    <canvas id="barChartRAM"></canvas>
+                                </div>
+                            </div>
+        
+                            <div class="KPIContainer">
+                                <div>
+                                    <div class="KPI">
+                                        <h2>USB<span class="on"></span></h2>
+                                        <div>
+                                        <h3 id="usbStatus">-</h3>
+                                        <span>status atual</span>  
+                                    </div> 
+                                        </div>
+            
+                                    <div class="KPI">
+                                        <h2>CPU<span class="on"></span></h2>
+                                        <div>
+                                        <h3 id="kpiCPU">-</h3>
+                                        <span>de uso</span>
                                     </div>
-        
-                                <div class="KPI">
-                                    <h2>CPU<span class="on"></span></h2>
-                                    <div>
-                                    <h3>81%</h3>
-                                    <span>de uso</span>
-                                </div>
-                                </div>
-                            </div>
-    
-                            <div>
-                                <div class="KPI">
-                                    <h2>RAM<span class="on"></span></h2>
-                                    <div>
-                                    <h3>74%</h3>
-                                    <span>de uso</span>
-                                </div>
+                                    </div>
                                 </div>
         
-                                <div class="KPI">
-                                    <h2>HD<span class="on"></span></h2>
-                                    <div>
-                                    <h3>95%</h3>
-                                    <span>de uso</span>
-                                </div>
+                                <div>
+                                    <div class="KPI">
+                                        <h2>RAM<span class="on"></span></h2>
+                                        <div>
+                                        <h3 id="kpiRAM">-</h3>
+                                        <span>de uso</span>
+                                    </div>
+                                    </div>
+            
+                                    <div class="KPI">
+                                        <h2>HD<span class="on"></span></h2>
+                                        <div>
+                                        <h3 id="kpiHD">-</h3>
+                                        <span>de uso</span>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="controllers">
-                <div class="controllerButton">
-                    <span class="iconify" data-icon="ic:round-navigate-before"></span>
-                    <p>Anterior</p>
-                </div>
-                <div id="toolsContainer" class="toolsContainer">
-                    <div id="toolsButton" class="toolsButton">
-                        <span class="iconify" data-icon="fa-solid:tools"></span>
-                        <p>Ferramentas</p>
-                    </div>
-    
-                    <div id="toolsBox" class="toolsBox">
-                        <button>
-                            <span class="iconify" data-icon="material-symbols:restart-alt"></span>
-                            Reiniciar totem
-                        </button>
-    
-                        <button>
-                            <span class="iconify" data-icon="carbon:clean"></span>
-                            Limpar cache
-                        </button>
-                    </div>  
-                </div>
-                <div class="controllerButton">
-                    <p>Próximo</p>
-                    <span class="iconify" data-icon="ic:round-navigate-next"></span>
+                    </section>
                 </div>
             </div>
         </main>

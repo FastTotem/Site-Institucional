@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="./css/parametros.css">
     <link rel="stylesheet" href="./css/dashboardMain.css">
     <link rel="website icon" type="png" href="./assets/IconFastTotem.png" />
-    <script src="./js/parametros.js"></script>
+    <script src="./js/parametros/updateParams.js"></script>
     <script src="./js/floatingMenu.js" defer></script>
+    <script src="./js/parametros/loadParams.js" defer></script>
     <script src="./js/alerta.js"></script>
-    <script src="./js/sideMenu.js"></script>
+    <script src="./js/sideMenu.js" defer></script>
     <title>FastTotem | Parâmetros </title>
 </head>
 
 <body>
-
        <div class="perfilUser" id="perfilUser">
         <div class="conteudo-bloco-flutuante">
             <div class="infUser">
@@ -28,23 +28,6 @@
         </div>
     </div>
 
-    <div class="alert-menu" id="alertMenu">
-        <div class="alert-cards">
-            <h1 id="alert-title">Alertas</h1>
-            <div class="alert-card-alert">
-                <h4>Totem 1</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-alert">
-                <h4>Totem 2</h4>
-                <p>Em estado de alerta.</p>
-            </div>
-            <div class="alert-card-critical">
-                <h4>Totem 3</h4>
-                <p>Em estado de critico.</p>
-            </div>
-        </div>
-    </div>
 
     <div class="side-menu" id="side-menu">
         <div class="container">
@@ -60,12 +43,12 @@
                     <div class="page-name">Visão Geral</div>
                 </a>
 
-                <a href="visaoEspecifica.html">
-                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                <a id="visaoEspecificaTab">
+                    <img class="menu-icon" src="./assets/binocular.png" alt="">
                     <div class="page-name">Visão Específica</div>
                 </a>
 
-                <a href="listagemTotens.html">
+                <a href="totens.html">
                     <img class="menu-icon" src="./assets/totem.png" alt="">
                     <div class="page-name">Totens</div>
                 </a>
@@ -80,6 +63,11 @@
                     <div class="page-name">Parâmetros</div>
                 </a>
 
+                <a href="relatorios.html">
+                    <img class="menu-icon" src="./assets/specification.png" alt="">
+                    <div class="page-name">Relatórios</div>
+                </a>
+
             </div>
         </div>
     </div>
@@ -92,7 +80,6 @@
                 </div>
                 <h4 class="title">Parâmetros</h4>
                 <div class="navbar">
-                    <a id="alert-bell" onclick="abrirAlertMenu()"><img class="nav-icon" src="./assets/bell.png" alt=""></a>
                     <a onclick="abrirPerfil()"><img class="nav-icon" src="./assets/profile-user.png"
                             alt=""></a>
                     <a href="https://app.pipefy.com/public/form/C1FK3mWC"><img class="nav-icon"
@@ -102,13 +89,13 @@
         </div>
 
         <main class="grid">
-            <section class="card-cpu">
+            <section id="card-cpu" class="card-cpu">
                 <h2>CPU</h2>
                 <h3>Configurar níveis de alerta (%) </h3>
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
@@ -127,22 +114,22 @@
                     </div>
                 </div>
                 <div class="alert-range">
-                    <h4 id="notify">Notificar à partir de :</h4>
+                    <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-ram">
+            <section id="card-ram" class="card-ram">
                 <h2>RAM</h2>
                 <h3>Configurar níveis de alerta (%) </h3>
                 <div class="alert-range">
                     <h4 id="ok">Ok:</h4>
                     <div class="range">
-                        <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
+                        <input value="0" oninput="atualizarValoresInputs(this)" type="range" class="okLvl">
                         <span><span class="range-value" id="range-value-ok">0</span>%</span>
                     </div>
                 </div>
@@ -161,16 +148,16 @@
                     </div>
                 </div>
                 <div class="alert-range">
-                    <h4 id="notify">Notificar à partir de:</h4>
+                    <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-hd">
+            <section id="card-hd" class="card-hd">
                 <h2>HD</h2>
                 <h3>Configurar níveis de alerta (%)</h3>
                 <div class="alert-range">
@@ -195,16 +182,16 @@
                     </div>
                 </div>
                 <div class="alert-range">
-                    <h4 id="notify">Notificar à partir de:</h4>
+                    <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl">
-                        <span><span class="range-value">0</span>%</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>%</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Ok >= Alerta >= Crítico</p>
                 <button onclick="validarInputs(this)" class="alert-range-btn">Salvar Alterações</button>
             </section>
-            <section class="card-usb">
+            <section id="card-usb" class="card-usb">
                 <h2>USB</h2>
                 <h3>Configurar níveis de alerta (segundos) </h3>
                 <div class="alert-range">
@@ -215,10 +202,10 @@
                     </div>
                 </div>
                 <div class="alert-range">
-                    <h4 id="notify">Notificar à partir de:</h4>
+                    <h4 id="notify">Notificar no Slack à partir de:</h4>
                     <div class="range">
                         <input  value="0" oninput="atualizarValoresInputs(this)" type="range" class="notificationLvl" max="60">
-                        <span><span class="range-value">0</span>s</span>
+                        <span><span class="range-value" id="range-value-notification">0</span>s</span>
                     </div>
                 </div>
                 <p class="error-message">Os valores devem seguir a ordem: Notificação >= Inativo Após</p>

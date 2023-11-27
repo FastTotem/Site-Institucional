@@ -14,7 +14,6 @@ window.addEventListener('click', (event) => {
 });
 
 main.addEventListener('scroll', () => {
-    console.log('teste');
     if(toolBoxIsVisible) {
         closeToolsModal();
     }
