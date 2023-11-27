@@ -28,6 +28,34 @@ ORDER BY
     tipoComponente;
     `;
 
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        instrucao = `
+            SELECT
+            c.tipo AS tipoComponente,
+            COUNT(CASE WHEN c.valor >= pa.critico THEN 1 END) AS ocorrenciasCriticas
+        FROM
+            captura c
+        JOIN
+            componente comp ON c.fkComponente = comp.idComponente
+        JOIN
+            totem t ON c.fkTotem = t.idTotem
+        JOIN
+            empresa e ON t.fkEmpresa = e.idEmpresa
+        JOIN
+            parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
+        WHERE
+            c.tipo IN ('ARMAZENAMENTO', 'MEMORIA', 'PROCESSADOR')
+            AND e.idEmpresa = ${idEmpresa}
+            AND CONVERT(date, c.dataHora) = CONVERT(date, GETDATE()) 
+            AND c.dataHora >= CONVERT(datetime, CONVERT(date, GETDATE()))
+            AND c.dataHora < DATEADD(day, 1, CONVERT(date, GETDATE()))
+        GROUP BY
+            c.tipo
+        ORDER BY
+            tipoComponente;
+        `;
+    }
+
     return database.executar(capturasQuery);
 }
 
