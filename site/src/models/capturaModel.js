@@ -17,7 +17,7 @@ JOIN
 JOIN
     parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
 WHERE
-    c.tipo IN ('TAXA_TRANSFERENCIA', 'MEMORIA', 'PROCESSADOR')
+    c.tipo IN ('ARMAZENAMENTO', 'MEMORIA', 'PROCESSADOR')
     AND e.idEmpresa = ${idEmpresa}
     AND DATE(c.dataHora) = CURDATE() 
     AND c.dataHora >= CURDATE()        
@@ -103,7 +103,7 @@ function getKPIsData(totemId) {
 		ROW_NUMBER() OVER (PARTITION BY tipo ORDER BY dataHora DESC) AS row_num
         FROM captura JOIN totem 
         ON totem.idTotem = captura.fkTotem
-        WHERE totem.idTotem = ${totemId} AND captura.tipo IN ('MEMORIA', 'PROCESSADOR', 'USB', 'TEMPO_ATIVIDADE', 'TAXA_TRANSFERENCIA')
+        WHERE totem.idTotem = ${totemId} AND captura.tipo IN ('MEMORIA', 'PROCESSADOR', 'USB', 'TEMPO_ATIVIDADE', 'ARMAZENAMENTO')
         ) subquery WHERE row_num = 1;
     `;
     return database.executar(instrucao);

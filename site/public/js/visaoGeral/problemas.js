@@ -47,7 +47,7 @@ function atualizarOcorrencias(data) {
             case 'PROCESSADOR':
                 countCPU = item.ocorrenciasCriticas;
                 break;
-            case 'TAXA_TRANSFERENCIA':
+            case 'ARMAZENAMENTO':
                 countHD = item.ocorrenciasCriticas;
                 break;
         }
