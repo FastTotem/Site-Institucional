@@ -28,6 +28,34 @@ ORDER BY
     tipoComponente;
     `;
 
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        capturasQuery = `
+            SELECT
+            c.tipo AS tipoComponente,
+            COUNT(CASE WHEN c.valor >= pa.critico THEN 1 END) AS ocorrenciasCriticas
+        FROM
+            captura c
+        JOIN
+            componente comp ON c.fkComponente = comp.idComponente
+        JOIN
+            totem t ON c.fkTotem = t.idTotem
+        JOIN
+            empresa e ON t.fkEmpresa = e.idEmpresa
+        JOIN
+            parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
+        WHERE
+            c.tipo IN ('ARMAZENAMENTO', 'MEMORIA', 'PROCESSADOR')
+            AND e.idEmpresa = ${idEmpresa}
+            AND CONVERT(date, c.dataHora) = CONVERT(date, GETDATE()) 
+            AND c.dataHora >= CONVERT(datetime, CONVERT(date, GETDATE()))
+            AND c.dataHora < DATEADD(day, 1, CONVERT(date, GETDATE()))
+        GROUP BY
+            c.tipo
+        ORDER BY
+            tipoComponente;
+        `;
+    }
+
     return database.executar(capturasQuery);
 }
 
@@ -79,6 +107,27 @@ ORDER BY
     hora, tipoComponente;
     `;
 
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        capturasQuery = `
+        SELECT
+        DATEPART(HOUR, c.dataHora) AS hora,
+        c.tipo AS tipoComponente,
+        AVG(c.valor) AS mediaCaptura
+    FROM
+        captura c
+    JOIN componente comp ON c.fkComponente = comp.idComponente
+    JOIN totem t ON c.fkTotem = t.idTotem
+    JOIN empresa e ON t.fkEmpresa = e.idEmpresa
+    WHERE
+        (c.tipo = 'MEMORIA' OR c.tipo = 'PROCESSADOR') 
+        AND e.idEmpresa = ${idEmpresa}
+    GROUP BY
+        DATEPART(HOUR, c.dataHora), c.tipo, tipoComponente 
+    ORDER BY
+        DATEPART(HOUR, c.dataHora), tipoComponente;    
+        `;
+    }
+
     return database.executar(capturasQuery);
 
 }
@@ -94,6 +143,33 @@ function getChartsData(totemId) {
         DAY(dataHora) > DAY(CURRENT_DATE()) - 7
         GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, '%d/%m'), tipoComponente, captura.tipo, nomeComponente;
     `;
+
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        instrucao = `
+            SELECT
+            FORMAT(dataHora, 'dd/MM') as dataMes,
+            DATEPART(WEEKDAY, dataHora) as dataCaptura,
+            tipoComponente,
+            nomeComponente,
+            captura.tipo,
+            CAST(AVG(CAST(valor AS decimal(10,1))) AS decimal(10,1)) as valorCaptura
+            FROM
+            captura
+            JOIN
+            componente ON componente.idComponente = captura.fkComponente
+            JOIN
+            totem ON captura.fkTotem = totem.idTotem
+            WHERE
+            totem.idTotem = ${totemId} AND
+            DAY(dataHora) > DAY(GETDATE()) - 7
+            GROUP BY
+            DATEPART(WEEKDAY, dataHora),
+            FORMAT(dataHora, 'dd/MM'),
+            tipoComponente,
+            captura.tipo,
+            nomeComponente;
+        `;
+    }
     return database.executar(instrucao);
 }
 
