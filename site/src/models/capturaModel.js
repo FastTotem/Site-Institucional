@@ -107,6 +107,27 @@ ORDER BY
     hora, tipoComponente;
     `;
 
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        capturasQuery = `
+        SELECT
+        DATEPART(HOUR, c.dataHora) AS hora,
+        c.tipo AS tipoComponente,
+        AVG(c.valor) AS mediaCaptura
+    FROM
+        captura c
+    JOIN componente comp ON c.fkComponente = comp.idComponente
+    JOIN totem t ON c.fkTotem = t.idTotem
+    JOIN empresa e ON t.fkEmpresa = e.idEmpresa
+    WHERE
+        (c.tipo = 'MEMORIA' OR c.tipo = 'PROCESSADOR') 
+        AND e.idEmpresa = @idEmpresa
+    GROUP BY
+        DATEPART(HOUR, c.dataHora), c.tipo, tipoComponente 
+    ORDER BY
+        DATEPART(HOUR, c.dataHora), tipoComponente;    
+        `;
+    }
+
     return database.executar(capturasQuery);
 
 }
