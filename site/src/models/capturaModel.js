@@ -29,7 +29,7 @@ ORDER BY
     `;
 
     if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
-        instrucao = `
+        capturasQuery = `
             SELECT
             c.tipo AS tipoComponente,
             COUNT(CASE WHEN c.valor >= pa.critico THEN 1 END) AS ocorrenciasCriticas
