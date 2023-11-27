@@ -94,6 +94,33 @@ function getChartsData(totemId) {
         DAY(dataHora) > DAY(CURRENT_DATE()) - 7
         GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, '%d/%m'), tipoComponente, captura.tipo, nomeComponente;
     `;
+
+    if(process.env.AMBIENTE_PROCESSO !== "desenvolvimento") {
+        instrucao = `
+            SELECT
+            FORMAT(dataHora, 'dd/MM') as dataMes,
+            DATEPART(WEEKDAY, dataHora) as dataCaptura,
+            tipoComponente,
+            nomeComponente,
+            captura.tipo,
+            CAST(AVG(CAST(valor AS decimal(10,1))) AS decimal(10,1)) as valorCaptura
+            FROM
+            captura
+            JOIN
+            componente ON componente.idComponente = captura.fkComponente
+            JOIN
+            totem ON captura.fkTotem = totem.idTotem
+            WHERE
+            totem.idTotem = @totemId AND
+            DAY(dataHora) > DAY(GETDATE()) - 7
+            GROUP BY
+            DATEPART(WEEKDAY, dataHora),
+            FORMAT(dataHora, 'dd/MM'),
+            tipoComponente,
+            captura.tipo,
+            nomeComponente;
+        `;
+    }
     return database.executar(instrucao);
 }
 
