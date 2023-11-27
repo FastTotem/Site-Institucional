@@ -120,7 +120,7 @@ ORDER BY
     JOIN empresa e ON t.fkEmpresa = e.idEmpresa
     WHERE
         (c.tipo = 'MEMORIA' OR c.tipo = 'PROCESSADOR') 
-        AND e.idEmpresa = @idEmpresa
+        AND e.idEmpresa = ${idEmpresa}
     GROUP BY
         DATEPART(HOUR, c.dataHora), c.tipo, tipoComponente 
     ORDER BY
