@@ -1,4 +1,4 @@
-var database = require("../database/config");
+var database = require('../database/config');
 
 function listarOcorrenciasCriticas(idEmpresa) {
 
@@ -17,7 +17,7 @@ JOIN
 JOIN
     parametroAlerta pa ON comp.tipoComponente = pa.componente AND e.idEmpresa = pa.fkEmpresa
 WHERE
-    c.tipo IN ('TAXA_TRANSFERENCIA', 'MEMORIA', 'PROCESSADOR')
+    c.tipo IN ('ARMAZENAMENTO', 'MEMORIA', 'PROCESSADOR')
     AND e.idEmpresa = ${idEmpresa}
     AND DATE(c.dataHora) = CURDATE() 
     AND c.dataHora >= CURDATE()        
@@ -85,14 +85,14 @@ ORDER BY
 
 function getChartsData(totemId) {
     var instrucao = `
-        SELECT DATE_FORMAT(dataHora, "%d/%m") as dataMes, WEEKDAY(dataHora) as dataCaptura, tipoComponente, nomeComponente, captura.tipo, TRUNCATE(AVG(valor), 1) as valorCaptura FROM captura 
+        SELECT DATE_FORMAT(dataHora, '%d/%m') as dataMes, WEEKDAY(dataHora) as dataCaptura, tipoComponente, nomeComponente, captura.tipo, TRUNCATE(AVG(valor), 1) as valorCaptura FROM captura 
         JOIN componente
         ON componente.idComponente = captura.fkComponente
         JOIN totem 
         ON captura.fkTotem = totem.idTotem
         WHERE totem.idTotem = ${totemId} AND
         DAY(dataHora) > DAY(CURRENT_DATE()) - 7
-        GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, "%d/%m"), tipoComponente, captura.tipo, nomeComponente;
+        GROUP BY WEEKDAY(dataHora), DATE_FORMAT(dataHora, '%d/%m'), tipoComponente, captura.tipo, nomeComponente;
     `;
     return database.executar(instrucao);
 }
@@ -103,7 +103,7 @@ function getKPIsData(totemId) {
 		ROW_NUMBER() OVER (PARTITION BY tipo ORDER BY dataHora DESC) AS row_num
         FROM captura JOIN totem 
         ON totem.idTotem = captura.fkTotem
-        WHERE totem.idTotem = ${totemId} AND captura.tipo IN ("MEMORIA", "PROCESSADOR", "USB", "TEMPO_ATIVIDADE", "TAXA_TRANSFERENCIA")
+        WHERE totem.idTotem = ${totemId} AND captura.tipo IN ('MEMORIA', 'PROCESSADOR', 'USB', 'TEMPO_ATIVIDADE', 'ARMAZENAMENTO')
         ) subquery WHERE row_num = 1;
     `;
     return database.executar(instrucao);

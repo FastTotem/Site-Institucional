@@ -16,7 +16,7 @@ async function validarInputs(button) {
     if (alertLvl >= okLvl && criticalLvl >= alertLvl) {
         errorMessage.style.display = "none";
         
-        const paramID = params.find(item => item.tipo === paramName[sectionName]).idParametroAlerta;
+        const paramID = params.find(item => item.componente === paramName[sectionName]).idParametroAlerta;
 
         const response = await fetch(`/parametros/${paramID}/changeParams`, {
             method: "PATCH",

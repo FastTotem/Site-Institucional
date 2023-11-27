@@ -129,6 +129,7 @@ main {
 .dashboardCanvas{
     display: flex;
     gap: 1.2rem;
+    flex: 1;
     /* grid-template-columns: auto 1fr; */
 }
 
@@ -184,8 +185,9 @@ section:first-of-type {
 }
 
 .canvasContainer {
-    width: 95%;
+    width: 90%;
     margin-top: auto;
+    margin-inline: auto;
 }
 
 .dashboardCanvas section div > h1 {

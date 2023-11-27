@@ -28,7 +28,7 @@ window.addEventListener('load', async () => {
         
         if(user.imgUsuario) {
             profileImageText.style.display = "none";
-            profileImage.style.backgroundImage = `url(../../uploads/${user.imgUsuario})`;
+            profileImage.style.backgroundImage = `url("../../uploads/${user.imgUsuario}")`;
         }
 
         generateUserImage(user.nome);
@@ -73,8 +73,6 @@ async function updateProfileImage() {
     const formData = new FormData();
 
     formData.append('profileImage', profileImageInput.files[0]);
-
-    console.log(profileImageInput.files[0]);
 
     const data = await fetch(`/usuario/${sessionStorage.ID_USUARIO}/changeProfileImage`, {
         method: 'PATCH',

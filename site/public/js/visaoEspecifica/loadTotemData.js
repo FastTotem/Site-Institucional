@@ -44,7 +44,7 @@ async function generateChartsData() {
             case "PROCESSADOR":
                 cpuData.push(element);
                 break;
-            case "TAXA_TRANSFERENCIA":
+            case "ARMAZENAMENTO":
                 discData.push(element);
                 break;
         }
@@ -94,7 +94,7 @@ async function displayKPIs() {
     usbStatus.innerText = data.find(item => item.tipo === "USB").valorCaptura === 1 ? "Ativo" : "Inativo";
     kpiCPU.innerText = data.find(item => item.tipo === "PROCESSADOR").valorCaptura.toFixed(2) + "%";
     kpiRAM.innerText = data.find(item => item.tipo === "MEMORIA").valorCaptura.toFixed(2) + "%";
-    kpiHD.innerText = data.find(item => item.tipo === "TAXA_TRANSFERENCIA").valorCaptura.toFixed(2) + "%";
+    kpiHD.innerText = data.find(item => item.tipo === "ARMAZENAMENTO").valorCaptura.toFixed(2) + "%";
 
     const time = formatUsageTime(data.find(item => item.tipo === "TEMPO_ATIVIDADE").valorCaptura);
     
@@ -149,7 +149,7 @@ async function displayAllDisks() {
 }
 
 async function getKPIsData() {
-    const response = await fetch(`/dadosComponentes/buscarDadosKPIs/${idTotem}`);
+    const response = await fetch(`/captura/buscarDadosKPIs/${idTotem}`);
 
     const data = await response.json();
 
@@ -157,7 +157,7 @@ async function getKPIsData() {
 }
 
 async function getChartsData() {
-    const response = await fetch(`/dadosComponentes/buscarDadosGraficos/${idTotem}`);
+    const response = await fetch(`/captura/buscarDadosGraficos/${idTotem}`);
 
     const data = await response.json();
 

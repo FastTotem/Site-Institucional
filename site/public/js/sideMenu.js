@@ -2,6 +2,10 @@ const visaoEspecifica = document.getElementById('visaoEspecificaTab');
 
 window.addEventListener('load', async () => {
     const totemID = await getFirstTotemID();
+
+    if(!totemID) {
+        return visaoEspecifica.style.display = "none";
+    }
     
     visaoEspecifica.href = `visaoEspecifica.html?idTotem=${totemID}`;
 });
