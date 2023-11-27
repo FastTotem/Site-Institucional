@@ -111,7 +111,7 @@ function getChartsData(totemId) {
             JOIN
             totem ON captura.fkTotem = totem.idTotem
             WHERE
-            totem.idTotem = @totemId AND
+            totem.idTotem = ${totemId} AND
             DAY(dataHora) > DAY(GETDATE()) - 7
             GROUP BY
             DATEPART(WEEKDAY, dataHora),
