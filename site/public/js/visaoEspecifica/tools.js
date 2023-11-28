@@ -35,6 +35,30 @@ function isParent(element) {
     return isParent;
 }
 
+async function desligarTotem() {
+    const response = await fetch(`http://${totemIP}/inovacao/desligarTotem`);
+
+    if(response.ok) {
+        alert("Seu totem será desligado!");
+    }
+}
+
+async function reiniciarTotem() {
+    const response = await fetch(`http://${totemIP}/inovacao/reiniciarTotem`);
+
+    if(response.ok) {
+        alert("Seu totem será reiniciado!");
+    }
+}
+
+async function limparCacheTotem() {
+    const response = await fetch(`http://${totemIP}/inovacao/limparCache`);
+
+    if(response.ok) {
+        alert("Limpeza de arquivos temporários efetuada!");
+    }
+}
+
 function openToolsModal() {
     if(toolBoxIsVisible) {
         return closeToolsModal();

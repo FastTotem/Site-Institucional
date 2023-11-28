@@ -48,6 +48,7 @@ function listarPorNome(idEmpresa, nome) {
 function getTotemInfo(idTotem) {
     var instrucao = `
         SELECT totemAtual.idTotem, totemAtual.nome, totemAtual.chaveDeAcesso,
+        totemAtual.totemIP,
         infoMaquina.nomeProcessador,
         infoMaquina.sistemaOperacional,
         infoMaquina.capacidadeRam,
