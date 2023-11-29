@@ -42,36 +42,37 @@ function atualizarStatus(data){
     var critico = document.getElementById("statusCritico")
     var inativo = document.getElementById("statusInativo")
 
-for(i = 0; i<data.length; i++){
+    for(i = 0; i<data.length; i++){
 
-    var statusDaVez = data[i].statusTotem;
-    var qntdDaVez = data[i].quantidade;
+        var statusDaVez = data[i].statusTotem;
+        var qntdDaVez = data[i].quantidade;
 
-    switch(statusDaVez){
-        case "ok":
-         ok.textContent = qntdDaVez; 
-         break;
-         case "alerta":
-         alerta.textContent = qntdDaVez; 
-         break;
-         case "critico":
-         critico.textContent = qntdDaVez;
-         break;
-         case "inativo":
-         inativo.textContent = qntdDaVez; 
-         break;
-            
+        switch(statusDaVez){
+            case "ok":
+            ok.textContent = qntdDaVez; 
+            break;
+            case "alerta":
+            alerta.textContent = qntdDaVez; 
+            break;
+            case "critico":
+            critico.textContent = qntdDaVez;
+            break;
+            case "inativo":
+            inativo.textContent = qntdDaVez; 
+            break;
+                
+        }
+
+        totalTotens += qntdDaVez;
+
     }
 
-    totalTotens += qntdDaVez;
+    let totensMonitorados = 0;
 
-}
+    data.forEach((item) => item.statusTotem !== 'inativo' && (totensMonitorados += item.quantidade));
 
-if(data.length>0){
     const totalTotemsText = document.getElementById("total-totems-text");
-    totalTotemsText.textContent = `${data.length} Totens sendo monitorados`;
-}
-
+    totalTotemsText.textContent = `${totensMonitorados} Totens sendo monitorados`;
 }
 
 function plotarGraficoStatus(data) {
@@ -89,7 +90,7 @@ function plotarGraficoStatus(data) {
 
     var total = data.reduce((acc, item) => acc + item.quantidade, 0);
 
-    var labels = data.map(item => item.statusTotem);
+    var labels = data.map(item => item.statusTotem.charAt(0).toUpperCase() + item.statusTotem.slice(1));
     var valores = data.map(item => item.quantidade);
     var porcentagens = valores.map(valor => ((valor / total) * 100).toFixed(2));
 

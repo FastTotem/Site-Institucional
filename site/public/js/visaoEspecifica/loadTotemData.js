@@ -53,7 +53,7 @@ async function generateChartsData() {
 
     drawChartData(formatData(memoryData, "MEMORIA"), RAMChart);
     drawChartData(formatData(cpuData, "PROCESSADOR"), cpuChart);
-    drawChartData(formatData(discData, "DISCO"), HDChart);
+    drawChartData(formatData(discData, "ARMAZENAMENTO"), HDChart);
 }
 
 async function displayTotemInfo() {
