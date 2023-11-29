@@ -179,8 +179,8 @@ async function nomeExists(nome) {
     }
 }
 
-function excluirTotem(nome) {
-    const data = fetch(`/totem/excluir`, {
+async function excluirTotem(nome) {
+    const data = await fetch(`/totem/excluir`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -191,7 +191,7 @@ function excluirTotem(nome) {
         })
     });
 
-        window.location.reload();
+    window.location.reload();
 }
 
 function gerarChaveDeAcesso() {

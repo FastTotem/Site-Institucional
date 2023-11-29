@@ -94,10 +94,10 @@ async function displayTotemInfo() {
 async function displayKPIs() {
     const data = await getKPIsData();
 
-    usbStatus.innerText = data.find(item => item.tipo === "USB").valorCaptura === 1 ? "Ativo" : "Inativo";
-    kpiCPU.innerText = data.find(item => item.tipo === "PROCESSADOR").valorCaptura.toFixed(2) + "%";
-    kpiRAM.innerText = data.find(item => item.tipo === "MEMORIA").valorCaptura.toFixed(2) + "%";
-    kpiHD.innerText = data.find(item => item.tipo === "ARMAZENAMENTO").valorCaptura.toFixed(2) + "%";
+    usbStatus.innerText = data.find(item => item.tipo === "USB") ? data.find(item => item.tipo === "USB").valorCaptura === 1 ? "Ativo" : "Inativo" : "-";
+    kpiCPU.innerText = data.find(item => item.tipo === "PROCESSADOR") ? data.find(item => item.tipo === "PROCESSADOR").valorCaptura.toFixed(2) + "%" : "-";
+    kpiRAM.innerText = data.find(item => item.tipo === "MEMORIA") ? data.find(item => item.tipo === "MEMORIA").valorCaptura.toFixed(2) + "%" : "-";
+    kpiHD.innerText = data.find(item => item.tipo === "ARMAZENAMENTO") ? data.find(item => item.tipo === "ARMAZENAMENTO").valorCaptura.toFixed(2) + "%" : "-";
 
     const time = formatUsageTime(data.find(item => item.tipo === "TEMPO_ATIVIDADE").valorCaptura);
     

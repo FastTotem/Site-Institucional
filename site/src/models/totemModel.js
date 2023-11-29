@@ -7,17 +7,12 @@ function cadastrar(nome, jar, chave, idEmpresa) {
 }
 
 function excluir(nome, idEmpresa) {
-    var deleteCapturas = `DELETE FROM captura WHERE fkTotem = ${idEmpresa}`;
-    var deleteComponente = `DELETE FROM componente WHERE fkTotem = ${idEmpresa}`;
-    var deleteInfMaquina = `DELETE FROM infomaquina WHERE fkTotem = ${idEmpresa}`;
-    var deleteTotem = `DELETE FROM totem WHERE nome = '${nome}' AND fkEmpresa = ${idEmpresa}`;
-
-    return Promise.all([
-        database.executar(deleteCapturas),
-        database.executar(deleteComponente),
-        database.executar(deleteInfMaquina),
-        database.executar(deleteTotem)
-    ]);
+    return database.executar(`
+        DELETE FROM captura WHERE fkTotem = ${idEmpresa};
+        DELETE FROM componente WHERE fkTotem = ${idEmpresa};
+        DELETE FROM infomaquina WHERE fkTotem = ${idEmpresa};
+        DELETE FROM totem WHERE nome = '${nome}' AND fkEmpresa = ${idEmpresa};
+    `);
 }
 
 function listar(idEmpresa) {
